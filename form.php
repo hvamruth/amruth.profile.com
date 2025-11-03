@@ -1,38 +1,52 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize input data
-    $name    = htmlspecialchars(trim($_POST['name']));
-    $email   = htmlspecialchars(trim($_POST['email']));
-    $message = htmlspecialchars(trim($_POST['message']));
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    // Recipient email
     $to = "amsgr4@gmail.com";
+    $subject = "New Contact Form Message";
 
-    // Subject
-    $subject = "New Contact Form Submission from $name";
+    $name = strip_tags(trim($_POST["name"]));
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+    $message = strip_tags(trim($_POST["message"]));
 
-    // Email content
-    $body = "
-    You have received a new message from your website contact form.
+    // Validate fields
+    if(empty($name) || empty($email) || empty($message)){
+        echo "Please fill all fields!";
+        exit;
+    }
 
-    Name: $name
-    Email: $email
-    Message:
-    $message
-    ";
+    $body = "You have received a new message from the contact form.\n\n".
+            "Name: $name\n".
+            "Email: $email\n".
+            "Message:\n$message\n";
 
-    // Email headers
     $headers = "From: $name <$email>\r\n";
     $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-    // Send email
-    if (mail($to, $subject, $body, $headers)) {
-        echo "<h2>Thank you, $name. Your message has been sent successfully!</h2>";
+    if(mail($to, $subject, $body, $headers)){
+        echo "✅ Message sent successfully!";
     } else {
-        echo "<h2>Sorry, something went wrong. Please try again later.</h2>";
+        echo "❌ Failed to send message. Server mail function may be disabled.";
     }
-} else {
-    echo "<h2>Access Denied!</h2>";
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+</head>
+<body>
+    <form action="form.php" method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Message:</label><br>
+        <textarea name="message" required></textarea><br><br>
+
+        <button type="submit">Send Message</button>
+    </form>
+</body>
+</html>
