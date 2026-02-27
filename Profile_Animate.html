@@ -92,18 +92,94 @@ button:hover {
     background: #333;
     color: white;
 }
+
+
+.contact-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Awesome Button */
+.awesome-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    border-radius: 50px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.awesome-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Click Effect */
+.awesome-btn:active {
+    transform: scale(0.95);
+}
+
+/* Shimmer Animation */
+.awesome-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-25deg);
+    transition: 0.75s;
+}
+
+.awesome-btn:hover::before {
+    left: 125%;
+}
+
+/* Icon */
+.awesome-btn .icon {
+    font-size: 20px;
+}
+
+/* Pulse Animation */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.awesome-btn {
+    animation: pulseGlow 2s infinite;
+}
+
 </style>
 </head>
 
 <body>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
 <div class="card">
     <img src="img/79706293.jpeg" alt="Profile Photo" class="profile-img">
     <h1>Amruth Sagar HV</h1>
     <p>System Administrator | Linux Administrator | Security Researcher</p>
     <div class="contact-section">
-                    <a href="https://wa.me/919591478095" class="btn btn-lg btn-hire wow animated zoomIn">Contact Me</a>
-                </div>
+    <a href="https://wa.me/919591478095" target="_blank" class="awesome-btn">
+        <span class="icon">
+            <i class="fab fa-whatsapp"></i>
+        </span>
+        <span class="text">Contact Me</span>
+    </a>
+</div>
 </div>
 
 </body>
