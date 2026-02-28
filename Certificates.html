@@ -13,25 +13,160 @@
     font-family:'Segoe UI', sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px;
+    padding:60px 40px;
     background: linear-gradient(-45deg, #55B7A8, #7fd8c9, #3fa79a, #a0e5da);
     background-size:400% 400%;
     animation: gradientMove 12s ease infinite;
-    overflow:hidden;
+    overflow-y:auto; /* Enable vertical scroll */
 }
-    
+
 @keyframes gradientMove{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
     100%{background-position:0% 50%;}
-}  
+}
 
-    
+.container{
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+    text-align:center;
+    z-index:2;
+}
+
+h1{
+    font-size:38px;
+    color:#fff;
+    margin-bottom:50px;
+    animation: fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s ease;
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+    animation: fadeUp 1.5s ease;
+    border:1px solid rgba(255,255,255,0.4);
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.04);
+    box-shadow:0 20px 45px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    transition:0.4s ease;
+}
+
+.card:hover img{
+    transform:scale(1.1);
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h2{
+    margin-bottom:10px;
+    color:#0f4c45;
+}
+
+.card-content p{
+    font-size:14px;
+    color:#083c37;
+    margin-bottom:12px;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 14px;
+    background:#55B7A8;
+    color:#fff;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    box-shadow:0 0 10px rgba(85,183,168,0.6);
+}
+
+/* Floating shapes */
+.shape{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+    animation: float 10s infinite ease-in-out;
+    z-index:-1;
+}
+
+.shape:nth-child(1){
+    width:160px;
+    height:160px;
+    top:10%;
+    left:10%;
+}
+
+.shape:nth-child(2){
+    width:100px;
+    height:100px;
+    bottom:20%;
+    right:15%;
+}
+
+.shape:nth-child(3){
+    width:80px;
+    height:80px;
+    bottom:30%;
+    left:25%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-40px);}
+    100%{transform:translateY(0);}
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track{
+    background:#a0e5da;
+}
+::-webkit-scrollbar-thumb{
+    background:#55B7A8;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background:#3fa79a;
+}
+
 </style>
 </head>
 
@@ -40,6 +175,11 @@ body{
 <div class="shape"></div>
 <div class="shape"></div>
 <div class="shape"></div>
+
+<div class="container">
+    <h1>Certifications & Licenses</h1>
+
+    <div class="cards">
 
 <div class="container">
     <h1>Certifications & Licenses</h1>
