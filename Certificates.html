@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications & Licenses</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    background: linear-gradient(-45deg, #55B7A8, #7fd8c9, #3fa79a, #a0e5da);
+    background-size:400% 400%;
+    animation: bgMove 12s ease infinite;
+    overflow:hidden;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    max-width:1100px;
+    width:100%;
+    text-align:center;
+    z-index:2;
+}
+
+h1{
+    font-size:36px;
+    margin-bottom:40px;
+    color:#ffffff;
+    text-shadow:0 0 15px rgba(0,0,0,0.2);
+    animation: fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    padding:25px;
+    border-radius:20px;
+    transition:0.4s ease;
+    animation: fadeUp 1.5s ease;
+    border:1px solid rgba(255,255,255,0.4);
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.card h2{
+    margin-bottom:10px;
+    color:#0f4c45;
+}
+
+.card p{
+    font-size:14px;
+    color:#083c37;
+}
+
+.badge{
+    margin-top:15px;
+    display:inline-block;
+    padding:6px 14px;
+    background:#55B7A8;
+    color:#fff;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    box-shadow:0 0 10px rgba(85,183,168,0.6);
+}
+
+/* Floating animated bubbles */
+.bubble{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.2);
+    animation: float 10s infinite ease-in-out;
+}
+
+.bubble:nth-child(1){
+    width:150px;
+    height:150px;
+    top:10%;
+    left:15%;
+}
+
+.bubble:nth-child(2){
+    width:100px;
+    height:100px;
+    bottom:15%;
+    right:20%;
+}
+
+.bubble:nth-child(3){
+    width:80px;
+    height:80px;
+    bottom:25%;
+    left:30%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-40px);}
+    100%{transform:translateY(0px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+
+<div class="container">
+    <h1>Certifications & Licenses</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Certified Ethical Hacker</h2>
+            <p>Advanced cybersecurity certification focused on penetration testing and vulnerability assessment.</p>
+            <div class="badge">Issued 2024</div>
+        </div>
+
+        <div class="card">
+            <h2>DevOps Engineering Diploma</h2>
+            <p>Hands-on expertise in Docker, Kubernetes, CI/CD pipelines and cloud automation.</p>
+            <div class="badge">Issued 2025</div>
+        </div>
+
+        <div class="card">
+            <h2>Google Cloud Associate</h2>
+            <p>Cloud deployment, monitoring, and infrastructure management certification.</p>
+            <div class="badge">Issued 2025</div>
+        </div>
+
+        <div class="card">
+            <h2>Linux System Administration</h2>
+            <p>Professional certification in Linux server management and system operations.</p>
+            <div class="badge">Issued 2023</div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
