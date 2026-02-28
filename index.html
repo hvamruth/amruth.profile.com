@@ -7,6 +7,35 @@
 		</div>
 
 
+<div id="loader-frame">
+    <iframe src="loading.html"></iframe>
+</div>
+		
+		<style>
+#loader-frame{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:0;
+    z-index:9999;
+}
+
+#loader-frame iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+</style>
+
+<script>
+window.addEventListener("load", function(){
+    document.getElementById("loader-frame").style.display = "none";
+});
+</script>
+		
+
+		
 	
 <style>
 #loader{
@@ -52,33 +81,6 @@ window.addEventListener("load", () => {
 });
 </script>
 
-
-<div id="loader-frame">
-    <iframe src="loading.html"></iframe>
-</div>
-		
-		<style>
-#loader-frame{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    top:0;
-    left:0;
-    z-index:9999;
-}
-
-#loader-frame iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-</style>
-
-<script>
-window.addEventListener("load", function(){
-    document.getElementById("loader-frame").style.display = "none";
-});
-</script>
 
 		
 		
