@@ -24,12 +24,46 @@ body{
     animation: gradientMove 12s ease infinite;
     overflow:hidden;
 }
-
+    
 @keyframes gradientMove{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
     100%{background-position:0% 50%;}
 }
+
+<style>
+body {
+    overflow-y: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+</style>
+
+
+<div class="scroll-down"></div>    
+    
+
+<style>
+.scroll-down {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border-left: 4px solid white;
+    border-bottom: 4px solid white;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation: scrollAnim 1.5s infinite;
+}
+
+@keyframes scrollAnim {
+    0% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); opacity: 1; }
+    50% { transform: translate(-50%, -50%) rotate(-45deg) translateY(10px); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) rotate(-45deg) translateY(0); opacity: 1; }
+}
+</style>
 
 .container{
     max-width:1200px;
@@ -149,6 +183,12 @@ h1{
     100%{transform:translateY(0);}
 }
 
+
+
+
+<a href="#certifications" class="scroll-down"></a>
+
+    
 </style>
 </head>
 
