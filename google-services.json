@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "538034261877",
+    "project_id": "cirriculam-vitea",
+    "storage_bucket": "cirriculam-vitea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538034261877:android:928722d53d7f4db7ba0d3c",
+        "android_client_info": {
+          "package_name": "com.profile.Amruth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsoPcboIwSByOjjfiAecLx4VLGy5YwwV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
