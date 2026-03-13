@@ -85,12 +85,18 @@ window.addEventListener("load", () => {
 });
 </script>
 
+
 <div>
-	<a href="index.html" class="back-modern">← Back</a>
+<a href="index.html" class="back-modern">← Back</a>
+</div>
 
 <style>
+
 .back-modern {
-    display: inline-block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
     padding: 12px 25px;
     background: linear-gradient(45deg, #55B7A8, #7fd8c9);
     color: white;
@@ -99,15 +105,24 @@ window.addEventListener("load", () => {
     font-weight: bold;
     box-shadow: 0 5px 15px rgba(85,183,168,0.4);
     transition: 0.4s ease;
+    z-index: 1000;
 }
 
 .back-modern:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
     box-shadow: 0 10px 25px rgba(85,183,168,0.6);
 }
+
 </style>
 
-</div>
+
+
+
+
+
+
+
+	
 
 
 <style>
