@@ -1,120 +1,11 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Certificates</title>
-
-	
-<div id="loader">
-    <div class="spinner"></div>
-		</div>
-
-
-<div id="loader-frame">
-    <iframe src="loading.html"></iframe>
-</div>
-		
-		<style>
-#loader-frame{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    top:0;
-    left:0;
-    z-index:9999;
-}
-
-#loader-frame iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-</style>
-
-<script>
-window.addEventListener("load", function(){
-    document.getElementById("loader-frame").style.display = "none";
-});
-</script>
-		
-<style>
-#loader{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(-45deg, #55B7A8, #7fd8c9);
-    display: none; /* hidden by default */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-
-
-	
-.spinner{
-    width: 60px;
-    height: 60px;
-    border: 6px solid rgba(255,255,255,0.3);
-    border-top: 6px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin{
-    0%{transform: rotate(0deg);}
-    100%{transform: rotate(360deg);}
-}
-</style>
-
-
-
-<script>
-let loader = document.getElementById("loader");
-
-// Show loader only if page takes longer than 1 second
-let delay = setTimeout(() => {
-    loader.style.display = "flex";
-}, 10000);
-
-// When page fully loads
-window.addEventListener("load", () => {
-    clearTimeout(delay);
-    loader.style.display = "none";
-});
-</script>
-
-
-<div>
-<a href="index.html" class="back-modern">← Back</a>
-</div>
-
-<style>
-
-.back-modern {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-
-    padding: 12px 25px;
-    background: linear-gradient(45deg, #55B7A8, #7fd8c9);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(85,183,168,0.4);
-    transition: 0.4s ease;
-    z-index: 1000;
-}
-
-.back-modern:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(85,183,168,0.6);
-}
-
-</style>
-
 
 <style>
 
@@ -123,61 +14,81 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
+scroll-behavior:smooth;
 }
 
-/* Animated background */
+/* Animated Background */
 
 body{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
 background:linear-gradient(135deg,#63d3c6,#42a9a0);
 background-size:400% 400%;
 animation:bgMove 10s infinite alternate;
 }
-
-/* background animation */
 
 @keyframes bgMove{
 0%{background-position:left}
 100%{background-position:right}
 }
 
-/* section */
+/* Back Button */
+
+.back-modern{
+position:fixed;
+top:20px;
+left:20px;
+padding:12px 25px;
+background:linear-gradient(45deg,#55B7A8,#7fd8c9);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(85,183,168,0.4);
+transition:0.4s;
+z-index:1000;
+}
+
+.back-modern:hover{
+transform:scale(1.08);
+box-shadow:0 10px 25px rgba(85,183,168,0.6);
+}
+
+/* Section */
 
 .section{
 width:90%;
 max-width:1200px;
+margin:auto;
 text-align:center;
+padding-top:80px;
 }
 
-/* title */
+/* Title */
 
 .section h1{
 color:white;
 font-size:50px;
 margin-bottom:40px;
-letter-spacing:2px;
 animation:fadeDown 1s ease;
 }
 
-/* slider */
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* Slider */
 
 .slider{
 position:relative;
-width:100%;
 overflow:hidden;
 }
-
-/* track */
 
 .slide-track{
 display:flex;
 transition:transform .8s ease;
 }
 
-/* card */
+/* Certificate Card */
 
 .slide{
 min-width:320px;
@@ -187,17 +98,12 @@ overflow:hidden;
 background:rgba(255,255,255,0.15);
 backdrop-filter:blur(12px);
 box-shadow:0 10px 35px rgba(0,0,0,0.25);
-transition:all .4s;
+transition:.4s;
 }
-
-/* hover animation */
 
 .slide:hover{
-transform:scale(1.08) translateY(-8px);
-box-shadow:0 25px 50px rgba(0,0,0,0.35);
+transform:scale(1.08);
 }
-
-/* image */
 
 .slide img{
 width:100%;
@@ -205,16 +111,13 @@ height:210px;
 object-fit:cover;
 }
 
-/* title */
-
 .slide h3{
 padding:18px;
 color:white;
 font-weight:500;
-font-size:18px;
 }
 
-/* navigation buttons */
+/* Buttons */
 
 .btn{
 position:absolute;
@@ -228,54 +131,81 @@ border-radius:50%;
 font-size:26px;
 cursor:pointer;
 box-shadow:0 10px 25px rgba(0,0,0,0.25);
-transition:.3s;
 }
 
 .btn:hover{
 background:#42a9a0;
 color:white;
-transform:translateY(-50%) scale(1.1);
 }
 
-.prev{
-left:-5px;
+.prev{left:-5px;}
+.next{right:-5px;}
+
+/* Down Arrow */
+
+.scroll-down{
+margin-top:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+animation:bounce 2s infinite;
 }
 
-.next{
-right:-5px;
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(10px)}
 }
 
-/* title animation */
+/* Transcript Section */
 
-@keyframes fadeDown{
-from{
-opacity:0;
-transform:translateY(-40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+.transcript-section{
+margin-top:120px;
+text-align:center;
 }
 
-/* responsive */
-
-@media(max-width:768px){
-
-.slide{
-min-width:260px;
+.transcript-section h2{
+color:white;
+font-size:40px;
+margin-bottom:40px;
 }
 
-.section h1{
-font-size:36px;
+/* A4 Paper Style */
+
+.transcript{
+width:794px;
+height:1123px;
+background:white;
+margin:auto;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+border-radius:6px;
+overflow:hidden;
+}
+
+.transcript img{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.slide{min-width:260px;}
+
+.transcript{
+width:95%;
+height:auto;
 }
 
 }
-	
+
 </style>
 </head>
 
 <body>
+
+<a href="index.html" class="back-modern">← Back</a>
 
 <div class="section">
 
@@ -318,16 +248,6 @@ font-size:36px;
 </div>
 
 <div class="slide">
-<img src="Certificates/SuccessIT.jfif">
-<h3>Success IT</h3>
-</div>
-
-<div class="slide">
-<img src="Certificates/informationsecurity.png">
-<h3>Information Security</h3>
-</div>	
-	
-<div class="slide">
 <img src="Certificates/ns.jfif">
 <h3>Network Security</h3>
 </div>
@@ -336,6 +256,22 @@ font-size:36px;
 
 <button class="btn next">&#10095;</button>
 
+</div>
+
+<a href="#transcript">
+<div class="scroll-down">⬇</div>
+</a>
+
+</div>
+
+<!-- Transcript Section -->
+
+<div id="transcript" class="transcript-section">
+
+<h2>Academic Transcript</h2>
+
+<div class="transcript">
+<img src="Certificates/transcript.jpg">
 </div>
 
 </div>
@@ -356,76 +292,28 @@ track.style.transform=
 
 }
 
-/* next */
-
 document.querySelector(".next").onclick=()=>{
-
 index++;
-
-if(index>=slides.length){
-index=0;
-}
-
+if(index>=slides.length){index=0;}
 updateSlider();
-
 }
-
-/* prev */
 
 document.querySelector(".prev").onclick=()=>{
-
 index--;
-
-if(index<0){
-index=slides.length-1;
-}
-
+if(index<0){index=slides.length-1;}
 updateSlider();
-
 }
 
-/* autoplay */
+/* Auto slide */
 
 setInterval(()=>{
-
 index++;
-
-if(index>=slides.length){
-index=0;
-}
-
+if(index>=slides.length){index=0;}
 updateSlider();
-
 },3500);
-
-/* mobile swipe */
-
-let startX=0;
-
-track.addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX;
-});
-
-track.addEventListener("touchend",e=>{
-
-let endX=e.changedTouches[0].clientX;
-
-if(startX-endX>50){
-index++;
-}
-
-if(endX-startX>50){
-index--;
-}
-
-if(index>=slides.length) index=0;
-if(index<0) index=slides.length-1;
-
-updateSlider();
-
-});
 
 </script>
 
 </body>
 </html>
+
