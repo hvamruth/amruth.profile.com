@@ -1,70 +1,73 @@
 <script>
 /*
 =========================================
- ADVANCED CLIENT SECURITY MONITOR v2
- Modern Popup UI + Multi Detection Engine
+ADVANCED CLIENT SECURITY MONITOR v3
+Fully Functional + Modern Popup UI
 =========================================
 */
 
 (function(){
 
-/* -------------------------------
-   Security UI
---------------------------------*/
+function initSecurity(){
 
-function createSecurityUI(){
+/* -----------------------------
+   Create UI
+-----------------------------*/
 
-if(document.getElementById("security-monitor-ui")) return;
+if(!document.getElementById("sec-monitor")){
 
 const style = document.createElement("style");
 
 style.innerHTML = `
-#security-monitor-ui{
+#sec-monitor{
 position:fixed;
 top:20px;
 right:20px;
-width:340px;
+width:320px;
 z-index:999999;
-font-family:system-ui;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
 }
 
-.sec-alert{
-background:rgba(20,20,20,0.9);
-backdrop-filter:blur(10px);
+.sec-popup{
+position:relative;
+background:rgba(20,20,20,0.92);
+backdrop-filter:blur(12px);
 border-radius:12px;
 padding:16px;
-margin-bottom:10px;
+margin-bottom:12px;
 color:#fff;
-box-shadow:0 10px 30px rgba(0,0,0,.5);
-animation:slideIn .35s ease;
+box-shadow:0 15px 35px rgba(0,0,0,.45);
 border-left:5px solid #ff4d4d;
+animation:secSlide .35s ease;
 }
 
-.sec-alert.medium{border-color:#ffa500}
-.sec-alert.low{border-color:#2ecc71}
+.sec-popup.medium{border-color:#ffa500}
+.sec-popup.low{border-color:#2ecc71}
 
 .sec-title{
 font-weight:600;
 font-size:14px;
-margin-bottom:6px;
+margin-bottom:5px;
 }
 
 .sec-msg{
 font-size:13px;
 opacity:.85;
+line-height:1.4;
 }
 
 .sec-close{
 position:absolute;
 right:10px;
-top:8px;
+top:6px;
 cursor:pointer;
+font-size:14px;
 opacity:.7;
 }
 
 .sec-close:hover{opacity:1}
 
-@keyframes slideIn{
+@keyframes secSlide{
 from{
 transform:translateX(120%);
 opacity:0;
@@ -79,124 +82,100 @@ opacity:1;
 document.head.appendChild(style);
 
 const container = document.createElement("div");
-container.id="security-monitor-ui";
+container.id="sec-monitor";
 
 document.body.appendChild(container);
 
 }
 
-createSecurityUI();
+/* -----------------------------
+ Alert Function
+-----------------------------*/
 
-/* -------------------------------
-   Alert System
---------------------------------*/
+function securityAlert(level,title,message){
 
-function showSecurityAlert(level,title,message){
+const container = document.getElementById("sec-monitor");
 
-const container = document.getElementById("security-monitor-ui");
+const box = document.createElement("div");
+box.className = "sec-popup "+level;
 
-const alert = document.createElement("div");
-alert.className="sec-alert "+level;
-
-alert.innerHTML = `
+box.innerHTML = `
 <div class="sec-close">✖</div>
 <div class="sec-title">⚠ ${title}</div>
 <div class="sec-msg">${message}</div>
 `;
 
-alert.querySelector(".sec-close").onclick = ()=>{
-alert.remove();
+box.querySelector(".sec-close").onclick=()=>{
+box.remove();
 };
 
-container.appendChild(alert);
-
-/* auto dismiss */
+container.appendChild(box);
 
 setTimeout(()=>{
-alert.remove();
-},8000);
 
-/* console log */
+if(box.parentNode) box.remove();
+
+},7000);
 
 console.warn("[SECURITY]",title,message);
 
 }
 
-/* -------------------------------
- Detection Engine
---------------------------------*/
+/* -----------------------------
+ Security Engine
+-----------------------------*/
 
-const SecurityEngine = {
+const SecurityEngine={
 
 log:[],
-
 
 report(level,title,msg){
 
 this.log.push({
-time:Date.now(),
+time:new Date().toISOString(),
 title,
 msg
 });
 
-showSecurityAlert(level,title,msg);
-
-/* optional server reporting */
-
-if(window.SECURITY_ENDPOINT){
-
-fetch(window.SECURITY_ENDPOINT,{
-method:"POST",
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify({title,msg,level})
-});
-
-}
+securityAlert(level,title,msg);
 
 }
 
 };
 
-/* -------------------------------
- Scanner User-Agent Detection
---------------------------------*/
+/* -----------------------------
+ Scanner Detection
+-----------------------------*/
 
 (function(){
 
 const ua = navigator.userAgent.toLowerCase();
 
-const scanners = [
-"burp",
-"zap",
-"acunetix",
-"nmap",
-"nikto",
-"sqlmap",
-"dirbuster",
-"dirb",
-"wpscan",
-"crawler",
-"spider",
-"scan"
+const scanners=[
+"burp","zap","acunetix","nmap",
+"nikto","sqlmap","dirbuster",
+"dirb","wpscan"
 ];
 
 scanners.forEach(tool=>{
+
 if(ua.includes(tool)){
 
 SecurityEngine.report(
 "high",
 "Scanner Detected",
-"User-Agent matches known vulnerability scanner"
+"Possible vulnerability scanner user-agent"
 );
 
 }
+
 });
 
 })();
 
-/* -------------------------------
- Headless Browser Detection
---------------------------------*/
+/* -----------------------------
+ Headless Detection
+-----------------------------*/
 
 (function(){
 
@@ -205,161 +184,118 @@ if(navigator.webdriver){
 SecurityEngine.report(
 "high",
 "Automation Detected",
-"navigator.webdriver flag present"
+"Webdriver flag present"
 );
 
 }
 
-if(!navigator.plugins.length){
+if(navigator.plugins.length === 0){
 
 SecurityEngine.report(
 "medium",
-"Headless Environment",
+"Headless Indicator",
 "No browser plugins detected"
 );
 
 }
 
-if(!navigator.languages){
-
-SecurityEngine.report(
-"medium",
-"Headless Indicator",
-"Missing browser languages"
-);
-
-}
-
 })();
 
-/* -------------------------------
+/* -----------------------------
  DevTools Detection
---------------------------------*/
+-----------------------------*/
 
 setInterval(()=>{
 
-const threshold = 160;
+const threshold=160;
 
-if(window.outerWidth - window.innerWidth > threshold ||
-window.outerHeight - window.innerHeight > threshold){
-
-SecurityEngine.report(
-"low",
-"Developer Tools Open",
-"DevTools panel detected"
-);
-
-}
-
-},3000);
-
-/* -------------------------------
- Automation Activity Detection
---------------------------------*/
-
-let actionCount = 0;
-let startTime = Date.now();
-
-function monitorAction(){
-
-actionCount++;
-
-const elapsed = (Date.now() - startTime)/1000;
-
-if(elapsed < 4 && actionCount > 50){
-
-SecurityEngine.report(
-"high",
-"Automation Pattern",
-"Abnormally fast interactions detected"
-);
-
-}
-
-if(elapsed > 4){
-
-actionCount = 0;
-startTime = Date.now();
-
-}
-
-}
-
-["mousemove","click","keydown","scroll"].forEach(evt=>{
-document.addEventListener(evt,monitorAction);
-});
-
-/* -------------------------------
- Endpoint Enumeration Detection
---------------------------------*/
-
-let navigationCount = 0;
-
-window.addEventListener("hashchange",()=>{
-
-navigationCount++;
-
-if(navigationCount > 6){
-
-SecurityEngine.report(
-"medium",
-"Endpoint Enumeration",
-"Rapid navigation attempts detected"
-);
-
-}
-
-});
-
-/* -------------------------------
- Console Tampering Detection
---------------------------------*/
-
-(function(){
-
-const devtools = /./;
-
-devtools.toString = function(){
-
-SecurityEngine.report(
-"medium",
-"Console Inspection",
-"Console object inspected"
-);
-
-};
-
-console.log("%c",devtools);
-
-})();
-
-/* -------------------------------
- Debugger Trap
---------------------------------*/
-
-setInterval(function(){
-
-const start = performance.now();
-
-debugger;
-
-const diff = performance.now() - start;
-
-if(diff > 100){
+if(
+window.outerWidth-window.innerWidth>threshold ||
+window.outerHeight-window.innerHeight>threshold
+){
 
 SecurityEngine.report(
 "low",
-"Debugger Detected",
-"Execution paused by debugger"
+"Developer Tools",
+"DevTools may be open"
 );
 
 }
 
 },4000);
 
+/* -----------------------------
+ Bot Interaction Detection
+-----------------------------*/
+
+let actions=0;
+let start=Date.now();
+
+function monitor(){
+
+actions++;
+
+const elapsed=(Date.now()-start)/1000;
+
+if(elapsed<4 && actions>60){
+
+SecurityEngine.report(
+"high",
+"Automation Activity",
+"Abnormally fast user interactions"
+);
+
+}
+
+if(elapsed>4){
+
+actions=0;
+start=Date.now();
+
+}
+
+}
+
+["mousemove","click","keydown","scroll"].forEach(e=>{
+
+document.addEventListener(e,monitor);
+
+});
+
+/* -----------------------------
+ Console Detection
+-----------------------------*/
+
+let devtools=/./;
+
+devtools.toString=function(){
+
+SecurityEngine.report(
+"medium",
+"Console Inspection",
+"Console accessed"
+);
+
+}
+
+console.log("%c",devtools);
+
+}
+
+/* wait for DOM */
+
+if(document.readyState==="loading"){
+
+document.addEventListener("DOMContentLoaded",initSecurity);
+
+}else{
+
+initSecurity();
+
+}
+
 })();
 </script>
-
 
 
 
