@@ -1,3 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Security Monitor</title>
+
+<style>
+
+#sec-alert-container{
+position:fixed;
+top:20px;
+right:20px;
+width:320px;
+z-index:999999;
+font-family:system-ui,Arial;
+}
+
+.sec-alert{
+background:linear-gradient(135deg,#111,#1c1c1c);
+color:#fff;
+padding:16px;
+border-radius:12px;
+margin-bottom:10px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+border-left:5px solid #ff3b3b;
+animation:slideIn .35s ease;
+position:relative;
+}
+
+.sec-title{
+font-weight:600;
+margin-bottom:6px;
+}
+
+.sec-msg{
+font-size:13px;
+opacity:.85;
+}
+
+.sec-close{
+position:absolute;
+top:6px;
+right:10px;
+cursor:pointer;
+opacity:.7;
+}
+
+.sec-close:hover{opacity:1;}
+
+@keyframes slideIn{
+from{transform:translateX(120%);opacity:0;}
+to{transform:translateX(0);opacity:1;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="sec-alert-container"></div>
+
+<script>
+
+/* ===========================
+ ALERT POPUP
+=========================== */
+
+function securityAlert(title,message){
+
+const container=document.getElementById("sec-alert-container");
+
+const alert=document.createElement("div");
+alert.className="sec-alert";
+
+alert.innerHTML=`
+<div class="sec-close">✖</div>
+<div class="sec-title">🚨 ${title}</div>
+<div class="sec-msg">${message}</div>
+`;
+
+alert.querySelector(".sec-close").onclick=()=>alert.remove();
+
+container.appendChild(alert);
+
+setTimeout(()=>{
+if(alert.parentNode) alert.remove();
+},7000);
+
+console.warn("SECURITY:",title,message);
+
+}
+
+/* ===========================
+ USER AGENT SCANNER CHECK
+=========================== */
+
+(function(){
+
+const ua=navigator.userAgent.toLowerCase();
+
+const scanners=[
+"zap",
+"burp",
+"nikto",
+"sqlmap",
+"acunetix",
+"nmap",
+"dirbuster",
+"crawler",
+"spider",
+"scanner",
+"masscan"
+];
+
+scanners.forEach(tool=>{
+
+if(ua.includes(tool)){
+
+securityAlert(
+"Scanner User-Agent Detected",
+"Possible vulnerability scanner detected"
+);
+
+}
+
+});
+
+})();
+
+/* ===========================
+ HEADLESS BROWSER DETECTION
+=========================== */
+
+(function(){
+
+if(navigator.webdriver){
+
+securityAlert(
+"Automation Detected",
+"Browser controlled by automation framework"
+);
+
+}
+
+if(!navigator.plugins || navigator.plugins.length===0){
+
+securityAlert(
+"Headless Browser",
+"No browser plugins detected"
+);
+
+}
+
+if(!navigator.languages){
+
+securityAlert(
+"Headless Environment",
+"Browser language settings missing"
+);
+
+}
+
+})();
+
+/* ===========================
+ CHROME HEADLESS TEST
+=========================== */
+
+(function(){
+
+if(/HeadlessChrome/.test(navigator.userAgent)){
+
+securityAlert(
+"Headless Chrome",
+"Headless browser environment detected"
+);
+
+}
+
+})();
+
+/* ===========================
+ VM / BOT ENVIRONMENT
+=========================== */
+
+(function(){
+
+if(screen.width<800 || screen.height<600){
+
+securityAlert(
+"Suspicious Environment",
+"Unusual screen resolution detected"
+);
+
+}
+
+})();
+
+/* ===========================
+ AUTOMATED INTERACTION
+=========================== */
+
+let actions=0;
+let startTime=Date.now();
+
+function monitor(){
+
+actions++;
+
+let elapsed=(Date.now()-startTime)/1000;
+
+if(elapsed<4 && actions>60){
+
+securityAlert(
+"Bot Activity",
+"Automated interaction pattern detected"
+);
+
+actions=0;
+startTime=Date.now();
+
+}
+
+if(elapsed>4){
+
+actions=0;
+startTime=Date.now();
+
+}
+
+}
+
+["mousemove","click","keydown","scroll"].forEach(evt=>{
+document.addEventListener(evt,monitor);
+});
+
+/* ===========================
+ DEVTOOLS DETECTION
+=========================== */
+
+setInterval(()=>{
+
+const threshold=160;
+
+if(
+window.outerWidth-window.innerWidth>threshold ||
+window.outerHeight-window.innerHeight>threshold
+){
+
+securityAlert(
+"Developer Tools",
+"Browser developer tools detected"
+);
+
+}
+
+},5000);
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
 <script>
 /* ================================
    CLIENT SECURITY MONITOR
