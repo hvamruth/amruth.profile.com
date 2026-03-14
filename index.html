@@ -677,6 +677,85 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
 </script>
 
 
+
+
+<script>
+
+/* Basic client-side security monitoring */
+
+(function(){
+
+let requestCount = 0;
+let startTime = Date.now();
+
+/* Monitor rapid requests */
+
+function detectRapidRequests(){
+
+requestCount++;
+
+let currentTime = Date.now();
+let duration = (currentTime - startTime) / 1000;
+
+if(duration < 10 && requestCount > 50){
+console.warn("⚠ Suspicious traffic detected");
+}
+
+/* reset counter */
+
+if(duration > 10){
+requestCount = 0;
+startTime = currentTime;
+}
+
+}
+
+/* Track page activity */
+
+document.addEventListener("click", detectRapidRequests);
+document.addEventListener("mousemove", detectRapidRequests);
+
+/* Basic bot detection */
+
+function detectBot(){
+
+const userAgent = navigator.userAgent.toLowerCase();
+
+const botKeywords = [
+"bot",
+"crawler",
+"spider",
+"scraper"
+];
+
+for(let i=0;i<botKeywords.length;i++){
+if(userAgent.includes(botKeywords[i])){
+console.warn("⚠ Bot-like agent detected");
+}
+}
+
+}
+
+detectBot();
+
+/* Devtools detection */
+
+setInterval(function(){
+
+const threshold = 160;
+
+if(window.outerWidth - window.innerWidth > threshold){
+console.log("Developer tools possibly open");
+}
+
+},2000);
+
+})();
+</script>
+
+
+
+
 <!-- <p> google-site-verification=KWoiTnZNGy5RXuXyDTIWH54NHHI2kfPcilSpO8FTyGU </p> -->
 
 <!-- <p>    google-site-verification: google749a225f72eec192.html   </p> -->
