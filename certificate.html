@@ -221,6 +221,58 @@ securityAlert(
 
 
 
+<script src="js/security.js"></script>
+
+<script>
+
+const socket = io();
+
+/* popup UI */
+
+function showAlert(level,title,msg){
+
+const box=document.createElement("div");
+
+box.style.position="fixed";
+box.style.right="20px";
+box.style.top="20px";
+box.style.background="rgba(20,20,20,.95)";
+box.style.color="#fff";
+box.style.padding="16px";
+box.style.borderRadius="10px";
+box.style.boxShadow="0 10px 30px rgba(0,0,0,.4)";
+box.style.fontFamily="system-ui";
+box.style.zIndex="99999";
+box.style.borderLeft="5px solid red";
+
+box.innerHTML=`
+<strong>${title}</strong><br>
+${msg}
+`;
+
+document.body.appendChild(box);
+
+setTimeout(()=>{
+box.remove();
+},7000);
+
+}
+
+/* listen for server alerts */
+
+socket.on("security-alert",(data)=>{
+
+showAlert(data.level,data.title,data.message);
+
+});
+
+</script>
+
+
+
+
+
+
 
 
 
