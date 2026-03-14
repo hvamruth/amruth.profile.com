@@ -1,191 +1,301 @@
 <script>
-
-/* Basic client-side security monitoring */
-
-(function(){
-
-let requestCount = 0;
-let startTime = Date.now();
-
-/* Monitor rapid requests */
-
-function detectRapidRequests(){
-
-requestCount++;
-
-let currentTime = Date.now();
-let duration = (currentTime - startTime) / 1000;
-
-if(duration < 10 && requestCount > 50){
-console.warn("⚠ Suspicious traffic detected");
-}
-
-/* reset counter */
-
-if(duration > 10){
-requestCount = 0;
-startTime = currentTime;
-}
-
-}
-
-/* Track page activity */
-
-document.addEventListener("click", detectRapidRequests);
-document.addEventListener("mousemove", detectRapidRequests);
-
-/* Basic bot detection */
-
-function detectBot(){
-
-const userAgent = navigator.userAgent.toLowerCase();
-
-const botKeywords = [
-"bot",
-"crawler",
-"spider",
-"scraper"
-];
-
-for(let i=0;i<botKeywords.length;i++){
-if(userAgent.includes(botKeywords[i])){
-console.warn("⚠ Bot-like agent detected");
-}
-}
-
-}
-
-detectBot();
-
-/* Devtools detection */
-
-setInterval(function(){
-
-const threshold = 160;
-
-if(window.outerWidth - window.innerWidth > threshold){
-console.log("Developer tools possibly open");
-}
-
-},2000);
-
-})();
-</script>
-
-
-
-
-
-
-
-<script>
-
-/* Client-side security monitoring */
+/*
+=========================================
+ADVANCED CLIENT SECURITY MONITOR v3
+Fully Functional + Modern Popup UI
+=========================================
+*/
 
 (function(){
 
-let activityCount = 0;
-let startTime = Date.now();
+function initSecurity(){
 
-/* Detect rapid activity that may indicate automated scanning */
+/* -----------------------------
+   Create UI
+-----------------------------*/
 
-function detectReconActivity(){
+if(!document.getElementById("sec-monitor")){
 
-activityCount++;
+const style = document.createElement("style");
 
-let currentTime = Date.now();
-let duration = (currentTime - startTime) / 1000;
+style.innerHTML = `
+#sec-monitor{
+position:fixed;
+top:20px;
+right:20px;
+width:320px;
+z-index:999999;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
 
-if(duration < 10 && activityCount > 80){
+.sec-popup{
+position:relative;
+background:rgba(20,20,20,0.92);
+backdrop-filter:blur(12px);
+border-radius:12px;
+padding:16px;
+margin-bottom:12px;
+color:#fff;
+box-shadow:0 15px 35px rgba(0,0,0,.45);
+border-left:5px solid #ff4d4d;
+animation:secSlide .35s ease;
+}
 
-console.warn("⚠ Possible reconnaissance activity detected");
-console.warn("⚠ Unusual rapid interaction pattern");
+.sec-popup.medium{border-color:#ffa500}
+.sec-popup.low{border-color:#2ecc71}
+
+.sec-title{
+font-weight:600;
+font-size:14px;
+margin-bottom:5px;
+}
+
+.sec-msg{
+font-size:13px;
+opacity:.85;
+line-height:1.4;
+}
+
+.sec-close{
+position:absolute;
+right:10px;
+top:6px;
+cursor:pointer;
+font-size:14px;
+opacity:.7;
+}
+
+.sec-close:hover{opacity:1}
+
+@keyframes secSlide{
+from{
+transform:translateX(120%);
+opacity:0;
+}
+to{
+transform:translateX(0);
+opacity:1;
+}
+}
+`;
+
+document.head.appendChild(style);
+
+const container = document.createElement("div");
+container.id="sec-monitor";
+
+document.body.appendChild(container);
 
 }
 
-/* reset counter */
+/* -----------------------------
+ Alert Function
+-----------------------------*/
 
-if(duration > 10){
+function securityAlert(level,title,message){
 
-activityCount = 0;
-startTime = currentTime;
+const container = document.getElementById("sec-monitor");
+
+const box = document.createElement("div");
+box.className = "sec-popup "+level;
+
+box.innerHTML = `
+<div class="sec-close">✖</div>
+<div class="sec-title">⚠ ${title}</div>
+<div class="sec-msg">${message}</div>
+`;
+
+box.querySelector(".sec-close").onclick=()=>{
+box.remove();
+};
+
+container.appendChild(box);
+
+setTimeout(()=>{
+
+if(box.parentNode) box.remove();
+
+},7000);
+
+console.warn("[SECURITY]",title,message);
 
 }
 
+/* -----------------------------
+ Security Engine
+-----------------------------*/
+
+const SecurityEngine={
+
+log:[],
+
+report(level,title,msg){
+
+this.log.push({
+time:new Date().toISOString(),
+title,
+msg
+});
+
+securityAlert(level,title,msg);
+
 }
 
-/* Monitor interactions */
+};
 
-document.addEventListener("click", detectReconActivity);
-document.addEventListener("mousemove", detectReconActivity);
-document.addEventListener("keydown", detectReconActivity);
+/* -----------------------------
+ Scanner Detection
+-----------------------------*/
 
+(function(){
 
-/* Bot / scanner detection */
+const ua = navigator.userAgent.toLowerCase();
 
-function detectScanner(){
-
-const agent = navigator.userAgent.toLowerCase();
-
-const suspiciousAgents = [
-"bot",
-"crawler",
-"spider",
-"scraper",
-"python",
-"curl",
-"wget"
+const scanners=[
+"burp","zap","acunetix","nmap",
+"nikto","sqlmap","dirbuster",
+"dirb","wpscan"
 ];
 
-for(let i=0;i<suspiciousAgents.length;i++){
+scanners.forEach(tool=>{
 
-if(agent.includes(suspiciousAgents[i])){
+if(ua.includes(tool)){
 
-console.warn("⚠ Automated scanner or bot detected");
-
-}
-
-}
-
-}
-
-detectScanner();
-
-
-/* DevTools / analysis detection */
-
-setInterval(function(){
-
-const threshold = 160;
-
-if(window.outerWidth - window.innerWidth > threshold){
-
-console.log("⚠ Developer tools possibly open (analysis activity)");
-
-}
-
-},2000);
-
-
-/* Page enumeration detection */
-
-let pageViews = 0;
-
-window.addEventListener("hashchange",function(){
-
-pageViews++;
-
-if(pageViews > 10){
-
-console.warn("⚠ Rapid page enumeration detected");
+SecurityEngine.report(
+"high",
+"Scanner Detected",
+"Possible vulnerability scanner user-agent"
+);
 
 }
 
 });
 
 })();
-</script>
 
+/* -----------------------------
+ Headless Detection
+-----------------------------*/
+
+(function(){
+
+if(navigator.webdriver){
+
+SecurityEngine.report(
+"high",
+"Automation Detected",
+"Webdriver flag present"
+);
+
+}
+
+if(navigator.plugins.length === 0){
+
+SecurityEngine.report(
+"medium",
+"Headless Indicator",
+"No browser plugins detected"
+);
+
+}
+
+})();
+
+/* -----------------------------
+ DevTools Detection
+-----------------------------*/
+
+setInterval(()=>{
+
+const threshold=160;
+
+if(
+window.outerWidth-window.innerWidth>threshold ||
+window.outerHeight-window.innerHeight>threshold
+){
+
+SecurityEngine.report(
+"low",
+"Developer Tools",
+"DevTools may be open"
+);
+
+}
+
+},4000);
+
+/* -----------------------------
+ Bot Interaction Detection
+-----------------------------*/
+
+let actions=0;
+let start=Date.now();
+
+function monitor(){
+
+actions++;
+
+const elapsed=(Date.now()-start)/1000;
+
+if(elapsed<4 && actions>60){
+
+SecurityEngine.report(
+"high",
+"Automation Activity",
+"Abnormally fast user interactions"
+);
+
+}
+
+if(elapsed>4){
+
+actions=0;
+start=Date.now();
+
+}
+
+}
+
+["mousemove","click","keydown","scroll"].forEach(e=>{
+
+document.addEventListener(e,monitor);
+
+});
+
+/* -----------------------------
+ Console Detection
+-----------------------------*/
+
+let devtools=/./;
+
+devtools.toString=function(){
+
+SecurityEngine.report(
+"medium",
+"Console Inspection",
+"Console accessed"
+);
+
+}
+
+console.log("%c",devtools);
+
+}
+
+/* wait for DOM */
+
+if(document.readyState==="loading"){
+
+document.addEventListener("DOMContentLoaded",initSecurity);
+
+}else{
+
+initSecurity();
+
+}
+
+})();
+</script>
 
 
 
