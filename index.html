@@ -756,6 +756,125 @@ console.log("Developer tools possibly open");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+/* Client-side security monitoring */
+
+(function(){
+
+let activityCount = 0;
+let startTime = Date.now();
+
+/* Detect rapid activity that may indicate automated scanning */
+
+function detectReconActivity(){
+
+activityCount++;
+
+let currentTime = Date.now();
+let duration = (currentTime - startTime) / 1000;
+
+if(duration < 10 && activityCount > 80){
+
+console.warn("⚠ Possible reconnaissance activity detected");
+console.warn("⚠ Unusual rapid interaction pattern");
+
+}
+
+/* reset counter */
+
+if(duration > 10){
+
+activityCount = 0;
+startTime = currentTime;
+
+}
+
+}
+
+/* Monitor interactions */
+
+document.addEventListener("click", detectReconActivity);
+document.addEventListener("mousemove", detectReconActivity);
+document.addEventListener("keydown", detectReconActivity);
+
+
+/* Bot / scanner detection */
+
+function detectScanner(){
+
+const agent = navigator.userAgent.toLowerCase();
+
+const suspiciousAgents = [
+"bot",
+"crawler",
+"spider",
+"scraper",
+"python",
+"curl",
+"wget"
+];
+
+for(let i=0;i<suspiciousAgents.length;i++){
+
+if(agent.includes(suspiciousAgents[i])){
+
+console.warn("⚠ Automated scanner or bot detected");
+
+}
+
+}
+
+}
+
+detectScanner();
+
+
+/* DevTools / analysis detection */
+
+setInterval(function(){
+
+const threshold = 160;
+
+if(window.outerWidth - window.innerWidth > threshold){
+
+console.log("⚠ Developer tools possibly open (analysis activity)");
+
+}
+
+},2000);
+
+
+/* Page enumeration detection */
+
+let pageViews = 0;
+
+window.addEventListener("hashchange",function(){
+
+pageViews++;
+
+if(pageViews > 10){
+
+console.warn("⚠ Rapid page enumeration detected");
+
+}
+
+});
+
+})();
+</script>
+
 <!-- <p> google-site-verification=KWoiTnZNGy5RXuXyDTIWH54NHHI2kfPcilSpO8FTyGU </p> -->
 
 <!-- <p>    google-site-verification: google749a225f72eec192.html   </p> -->
