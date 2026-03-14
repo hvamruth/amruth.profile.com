@@ -1,300 +1,48 @@
+<script src="js/security.js"></script>
+
 <script>
-/*
-=========================================
-ADVANCED CLIENT SECURITY MONITOR v3
-Fully Functional + Modern Popup UI
-=========================================
-*/
 
-(function(){
+const socket = io();
 
-function initSecurity(){
+/* popup UI */
 
-/* -----------------------------
-   Create UI
------------------------------*/
+function showAlert(level,title,msg){
 
-if(!document.getElementById("sec-monitor")){
+const box=document.createElement("div");
 
-const style = document.createElement("style");
+box.style.position="fixed";
+box.style.right="20px";
+box.style.top="20px";
+box.style.background="rgba(20,20,20,.95)";
+box.style.color="#fff";
+box.style.padding="16px";
+box.style.borderRadius="10px";
+box.style.boxShadow="0 10px 30px rgba(0,0,0,.4)";
+box.style.fontFamily="system-ui";
+box.style.zIndex="99999";
+box.style.borderLeft="5px solid red";
 
-style.innerHTML = `
-#sec-monitor{
-position:fixed;
-top:20px;
-right:20px;
-width:320px;
-z-index:999999;
-font-family:system-ui,-apple-system,Segoe UI,Roboto;
-}
-
-.sec-popup{
-position:relative;
-background:rgba(20,20,20,0.92);
-backdrop-filter:blur(12px);
-border-radius:12px;
-padding:16px;
-margin-bottom:12px;
-color:#fff;
-box-shadow:0 15px 35px rgba(0,0,0,.45);
-border-left:5px solid #ff4d4d;
-animation:secSlide .35s ease;
-}
-
-.sec-popup.medium{border-color:#ffa500}
-.sec-popup.low{border-color:#2ecc71}
-
-.sec-title{
-font-weight:600;
-font-size:14px;
-margin-bottom:5px;
-}
-
-.sec-msg{
-font-size:13px;
-opacity:.85;
-line-height:1.4;
-}
-
-.sec-close{
-position:absolute;
-right:10px;
-top:6px;
-cursor:pointer;
-font-size:14px;
-opacity:.7;
-}
-
-.sec-close:hover{opacity:1}
-
-@keyframes secSlide{
-from{
-transform:translateX(120%);
-opacity:0;
-}
-to{
-transform:translateX(0);
-opacity:1;
-}
-}
+box.innerHTML=`
+<strong>${title}</strong><br>
+${msg}
 `;
 
-document.head.appendChild(style);
-
-const container = document.createElement("div");
-container.id="sec-monitor";
-
-document.body.appendChild(container);
-
-}
-
-/* -----------------------------
- Alert Function
------------------------------*/
-
-function securityAlert(level,title,message){
-
-const container = document.getElementById("sec-monitor");
-
-const box = document.createElement("div");
-box.className = "sec-popup "+level;
-
-box.innerHTML = `
-<div class="sec-close">✖</div>
-<div class="sec-title">⚠ ${title}</div>
-<div class="sec-msg">${message}</div>
-`;
-
-box.querySelector(".sec-close").onclick=()=>{
-box.remove();
-};
-
-container.appendChild(box);
+document.body.appendChild(box);
 
 setTimeout(()=>{
-
-if(box.parentNode) box.remove();
-
+box.remove();
 },7000);
 
-console.warn("[SECURITY]",title,message);
-
 }
 
-/* -----------------------------
- Security Engine
------------------------------*/
+/* listen for server alerts */
 
-const SecurityEngine={
+socket.on("security-alert",(data)=>{
 
-log:[],
-
-report(level,title,msg){
-
-this.log.push({
-time:new Date().toISOString(),
-title,
-msg
-});
-
-securityAlert(level,title,msg);
-
-}
-
-};
-
-/* -----------------------------
- Scanner Detection
------------------------------*/
-
-(function(){
-
-const ua = navigator.userAgent.toLowerCase();
-
-const scanners=[
-"burp","zap","acunetix","nmap",
-"nikto","sqlmap","dirbuster",
-"dirb","wpscan"
-];
-
-scanners.forEach(tool=>{
-
-if(ua.includes(tool)){
-
-SecurityEngine.report(
-"high",
-"Scanner Detected",
-"Possible vulnerability scanner user-agent"
-);
-
-}
+showAlert(data.level,data.title,data.message);
 
 });
 
-})();
-
-/* -----------------------------
- Headless Detection
------------------------------*/
-
-(function(){
-
-if(navigator.webdriver){
-
-SecurityEngine.report(
-"high",
-"Automation Detected",
-"Webdriver flag present"
-);
-
-}
-
-if(navigator.plugins.length === 0){
-
-SecurityEngine.report(
-"medium",
-"Headless Indicator",
-"No browser plugins detected"
-);
-
-}
-
-})();
-
-/* -----------------------------
- DevTools Detection
------------------------------*/
-
-setInterval(()=>{
-
-const threshold=160;
-
-if(
-window.outerWidth-window.innerWidth>threshold ||
-window.outerHeight-window.innerHeight>threshold
-){
-
-SecurityEngine.report(
-"low",
-"Developer Tools",
-"DevTools may be open"
-);
-
-}
-
-},4000);
-
-/* -----------------------------
- Bot Interaction Detection
------------------------------*/
-
-let actions=0;
-let start=Date.now();
-
-function monitor(){
-
-actions++;
-
-const elapsed=(Date.now()-start)/1000;
-
-if(elapsed<4 && actions>60){
-
-SecurityEngine.report(
-"high",
-"Automation Activity",
-"Abnormally fast user interactions"
-);
-
-}
-
-if(elapsed>4){
-
-actions=0;
-start=Date.now();
-
-}
-
-}
-
-["mousemove","click","keydown","scroll"].forEach(e=>{
-
-document.addEventListener(e,monitor);
-
-});
-
-/* -----------------------------
- Console Detection
------------------------------*/
-
-let devtools=/./;
-
-devtools.toString=function(){
-
-SecurityEngine.report(
-"medium",
-"Console Inspection",
-"Console accessed"
-);
-
-}
-
-console.log("%c",devtools);
-
-}
-
-/* wait for DOM */
-
-if(document.readyState==="loading"){
-
-document.addEventListener("DOMContentLoaded",initSecurity);
-
-}else{
-
-initSecurity();
-
-}
-
-})();
 </script>
 
 
