@@ -1,3 +1,134 @@
+<script>
+
+/* Advanced client-side scanner detection */
+
+(function(){
+
+function alertSecurity(type){
+console.warn("⚠ SECURITY ALERT:", type);
+alert("Security Monitoring: " + type);
+}
+
+/* Detect suspicious user agents */
+
+function detectScannerAgent(){
+
+const agent = navigator.userAgent.toLowerCase();
+
+const scanners = [
+"burp",
+"zap",
+"acunetix",
+"nmap",
+"nikto",
+"sqlmap",
+"dirbuster",
+"dirb",
+"crawler",
+"spider",
+"scan"
+];
+
+for(let i=0;i<scanners.length;i++){
+
+if(agent.includes(scanners[i])){
+
+alertSecurity("Possible vulnerability scanner detected");
+
+}
+
+}
+
+}
+
+detectScannerAgent();
+
+
+/* Detect headless browsers */
+
+function detectHeadless(){
+
+if(navigator.webdriver){
+alertSecurity("Automation / headless browser detected");
+}
+
+if(!navigator.plugins.length){
+alertSecurity("Headless environment detected");
+}
+
+}
+
+detectHeadless();
+
+
+/* Detect rapid automated activity */
+
+let actions = 0;
+let start = Date.now();
+
+function monitorActivity(){
+
+actions++;
+
+let elapsed = (Date.now() - start) / 1000;
+
+if(elapsed < 5 && actions > 40){
+
+alertSecurity("Automated interaction pattern detected");
+
+}
+
+if(elapsed > 5){
+
+actions = 0;
+start = Date.now();
+
+}
+
+}
+
+document.addEventListener("mousemove", monitorActivity);
+document.addEventListener("click", monitorActivity);
+document.addEventListener("keydown", monitorActivity);
+
+
+/* DevTools detection */
+
+setInterval(function(){
+
+const threshold = 160;
+
+if(window.outerWidth - window.innerWidth > threshold){
+console.warn("⚠ Developer tools opened");
+}
+
+},2000);
+
+
+/* Detect abnormal navigation enumeration */
+
+let pageAccess = 0;
+
+window.addEventListener("hashchange",function(){
+
+pageAccess++;
+
+if(pageAccess > 5){
+alertSecurity("Possible endpoint enumeration detected");
+}
+
+});
+
+})();
+</script>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
