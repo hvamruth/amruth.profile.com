@@ -1,3 +1,265 @@
+<script>
+/* =========================================
+   ADVANCED CLIENT SECURITY MONITOR
+   With Modern Popup UI
+========================================= */
+
+(function(){
+
+/* -----------------------------
+   CREATE SECURITY POPUP UI
+----------------------------- */
+
+function createSecurityUI(){
+
+if(document.getElementById("security-ui")) return;
+
+const style = document.createElement("style");
+
+style.innerHTML = `
+#security-ui{
+position:fixed;
+top:20px;
+right:20px;
+width:320px;
+z-index:999999;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+
+.sec-popup{
+position:relative;
+background:linear-gradient(135deg,#111,#1b1b1b);
+border-radius:14px;
+padding:16px;
+margin-bottom:12px;
+color:#fff;
+box-shadow:0 12px 35px rgba(0,0,0,.45);
+border-left:5px solid #ff3b3b;
+animation:secSlide .35s ease;
+}
+
+.sec-header{
+display:flex;
+align-items:center;
+font-weight:600;
+font-size:14px;
+margin-bottom:6px;
+}
+
+.sec-icon{
+margin-right:8px;
+font-size:16px;
+}
+
+.sec-msg{
+font-size:13px;
+opacity:.85;
+line-height:1.4;
+}
+
+.sec-close{
+position:absolute;
+top:6px;
+right:10px;
+cursor:pointer;
+opacity:.6;
+font-size:14px;
+}
+
+.sec-close:hover{opacity:1}
+
+@keyframes secSlide{
+from{
+transform:translateX(120%);
+opacity:0;
+}
+to{
+transform:translateX(0);
+opacity:1;
+}
+}
+`;
+
+document.head.appendChild(style);
+
+const container = document.createElement("div");
+container.id = "security-ui";
+
+document.body.appendChild(container);
+
+}
+
+createSecurityUI();
+
+/* -----------------------------
+   ALERT POPUP FUNCTION
+----------------------------- */
+
+function alertSecurity(message){
+
+console.warn("⚠ SECURITY ALERT:", message);
+
+const container = document.getElementById("security-ui");
+
+const popup = document.createElement("div");
+popup.className = "sec-popup";
+
+popup.innerHTML = `
+<div class="sec-close">✖</div>
+<div class="sec-header">
+<span class="sec-icon">🚨</span>
+Security Monitor
+</div>
+<div class="sec-msg">${message}</div>
+`;
+
+popup.querySelector(".sec-close").onclick = () => popup.remove();
+
+container.appendChild(popup);
+
+/* auto remove */
+
+setTimeout(()=>{
+if(popup.parentNode) popup.remove();
+},7000);
+
+}
+
+/* -----------------------------
+   DETECT SCANNER USER AGENTS
+----------------------------- */
+
+function detectScannerAgent(){
+
+const agent = navigator.userAgent.toLowerCase();
+
+const scanners = [
+"burp",
+"zap",
+"acunetix",
+"nmap",
+"nikto",
+"sqlmap",
+"dirbuster",
+"dirb",
+"crawler",
+"spider",
+"scan"
+];
+
+for(let i=0;i<scanners.length;i++){
+
+if(agent.includes(scanners[i])){
+
+alertSecurity("Possible vulnerability scanner detected");
+
+}
+
+}
+
+}
+
+detectScannerAgent();
+
+/* -----------------------------
+   HEADLESS DETECTION
+----------------------------- */
+
+function detectHeadless(){
+
+if(navigator.webdriver){
+
+alertSecurity("Automation / headless browser detected");
+
+}
+
+if(!navigator.plugins.length){
+
+alertSecurity("Headless environment detected");
+
+}
+
+}
+
+detectHeadless();
+
+/* -----------------------------
+   RAPID AUTOMATION DETECTION
+----------------------------- */
+
+let actions = 0;
+let start = Date.now();
+
+function monitorActivity(){
+
+actions++;
+
+let elapsed = (Date.now() - start) / 1000;
+
+if(elapsed < 5 && actions > 40){
+
+alertSecurity("Automated interaction pattern detected");
+
+}
+
+if(elapsed > 5){
+
+actions = 0;
+start = Date.now();
+
+}
+
+}
+
+document.addEventListener("mousemove", monitorActivity);
+document.addEventListener("click", monitorActivity);
+document.addEventListener("keydown", monitorActivity);
+
+/* -----------------------------
+   DEVTOOLS DETECTION
+----------------------------- */
+
+setInterval(function(){
+
+const threshold = 160;
+
+if(window.outerWidth - window.innerWidth > threshold){
+
+console.warn("⚠ Developer tools opened");
+
+}
+
+},2000);
+
+/* -----------------------------
+   ENDPOINT ENUMERATION
+----------------------------- */
+
+let pageAccess = 0;
+
+window.addEventListener("hashchange",function(){
+
+pageAccess++;
+
+if(pageAccess > 5){
+
+alertSecurity("Possible endpoint enumeration detected");
+
+}
+
+});
+
+})();
+</script>
+
+
+
+
+
+
+
+
+
 <script src="js/security.js"></script>
 
 <script>
