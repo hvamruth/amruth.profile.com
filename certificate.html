@@ -1,19 +1,169 @@
 <script>
-
-/* Advanced client-side scanner detection */
+/*
+=========================================
+ ADVANCED CLIENT SECURITY MONITOR v2
+ Modern Popup UI + Multi Detection Engine
+=========================================
+*/
 
 (function(){
 
-function alertSecurity(type){
-console.warn("⚠ SECURITY ALERT:", type);
-alert("Security Monitoring: " + type);
+/* -------------------------------
+   Security UI
+--------------------------------*/
+
+function createSecurityUI(){
+
+if(document.getElementById("security-monitor-ui")) return;
+
+const style = document.createElement("style");
+
+style.innerHTML = `
+#security-monitor-ui{
+position:fixed;
+top:20px;
+right:20px;
+width:340px;
+z-index:999999;
+font-family:system-ui;
 }
 
-/* Detect suspicious user agents */
+.sec-alert{
+background:rgba(20,20,20,0.9);
+backdrop-filter:blur(10px);
+border-radius:12px;
+padding:16px;
+margin-bottom:10px;
+color:#fff;
+box-shadow:0 10px 30px rgba(0,0,0,.5);
+animation:slideIn .35s ease;
+border-left:5px solid #ff4d4d;
+}
 
-function detectScannerAgent(){
+.sec-alert.medium{border-color:#ffa500}
+.sec-alert.low{border-color:#2ecc71}
 
-const agent = navigator.userAgent.toLowerCase();
+.sec-title{
+font-weight:600;
+font-size:14px;
+margin-bottom:6px;
+}
+
+.sec-msg{
+font-size:13px;
+opacity:.85;
+}
+
+.sec-close{
+position:absolute;
+right:10px;
+top:8px;
+cursor:pointer;
+opacity:.7;
+}
+
+.sec-close:hover{opacity:1}
+
+@keyframes slideIn{
+from{
+transform:translateX(120%);
+opacity:0;
+}
+to{
+transform:translateX(0);
+opacity:1;
+}
+}
+`;
+
+document.head.appendChild(style);
+
+const container = document.createElement("div");
+container.id="security-monitor-ui";
+
+document.body.appendChild(container);
+
+}
+
+createSecurityUI();
+
+/* -------------------------------
+   Alert System
+--------------------------------*/
+
+function showSecurityAlert(level,title,message){
+
+const container = document.getElementById("security-monitor-ui");
+
+const alert = document.createElement("div");
+alert.className="sec-alert "+level;
+
+alert.innerHTML = `
+<div class="sec-close">✖</div>
+<div class="sec-title">⚠ ${title}</div>
+<div class="sec-msg">${message}</div>
+`;
+
+alert.querySelector(".sec-close").onclick = ()=>{
+alert.remove();
+};
+
+container.appendChild(alert);
+
+/* auto dismiss */
+
+setTimeout(()=>{
+alert.remove();
+},8000);
+
+/* console log */
+
+console.warn("[SECURITY]",title,message);
+
+}
+
+/* -------------------------------
+ Detection Engine
+--------------------------------*/
+
+const SecurityEngine = {
+
+log:[],
+
+
+report(level,title,msg){
+
+this.log.push({
+time:Date.now(),
+title,
+msg
+});
+
+showSecurityAlert(level,title,msg);
+
+/* optional server reporting */
+
+if(window.SECURITY_ENDPOINT){
+
+fetch(window.SECURITY_ENDPOINT,{
+method:"POST",
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({title,msg,level})
+});
+
+}
+
+}
+
+};
+
+/* -------------------------------
+ Scanner User-Agent Detection
+--------------------------------*/
+
+(function(){
+
+const ua = navigator.userAgent.toLowerCase();
 
 const scanners = [
 "burp",
@@ -24,104 +174,191 @@ const scanners = [
 "sqlmap",
 "dirbuster",
 "dirb",
+"wpscan",
 "crawler",
 "spider",
 "scan"
 ];
 
-for(let i=0;i<scanners.length;i++){
+scanners.forEach(tool=>{
+if(ua.includes(tool)){
 
-if(agent.includes(scanners[i])){
-
-alertSecurity("Possible vulnerability scanner detected");
+SecurityEngine.report(
+"high",
+"Scanner Detected",
+"User-Agent matches known vulnerability scanner"
+);
 
 }
+});
 
-}
+})();
 
-}
+/* -------------------------------
+ Headless Browser Detection
+--------------------------------*/
 
-detectScannerAgent();
-
-
-/* Detect headless browsers */
-
-function detectHeadless(){
+(function(){
 
 if(navigator.webdriver){
-alertSecurity("Automation / headless browser detected");
+
+SecurityEngine.report(
+"high",
+"Automation Detected",
+"navigator.webdriver flag present"
+);
+
 }
 
 if(!navigator.plugins.length){
-alertSecurity("Headless environment detected");
-}
+
+SecurityEngine.report(
+"medium",
+"Headless Environment",
+"No browser plugins detected"
+);
 
 }
 
-detectHeadless();
+if(!navigator.languages){
 
-
-/* Detect rapid automated activity */
-
-let actions = 0;
-let start = Date.now();
-
-function monitorActivity(){
-
-actions++;
-
-let elapsed = (Date.now() - start) / 1000;
-
-if(elapsed < 5 && actions > 40){
-
-alertSecurity("Automated interaction pattern detected");
+SecurityEngine.report(
+"medium",
+"Headless Indicator",
+"Missing browser languages"
+);
 
 }
 
-if(elapsed > 5){
+})();
 
-actions = 0;
-start = Date.now();
+/* -------------------------------
+ DevTools Detection
+--------------------------------*/
 
-}
-
-}
-
-document.addEventListener("mousemove", monitorActivity);
-document.addEventListener("click", monitorActivity);
-document.addEventListener("keydown", monitorActivity);
-
-
-/* DevTools detection */
-
-setInterval(function(){
+setInterval(()=>{
 
 const threshold = 160;
 
-if(window.outerWidth - window.innerWidth > threshold){
-console.warn("⚠ Developer tools opened");
+if(window.outerWidth - window.innerWidth > threshold ||
+window.outerHeight - window.innerHeight > threshold){
+
+SecurityEngine.report(
+"low",
+"Developer Tools Open",
+"DevTools panel detected"
+);
+
 }
 
-},2000);
+},3000);
 
+/* -------------------------------
+ Automation Activity Detection
+--------------------------------*/
 
-/* Detect abnormal navigation enumeration */
+let actionCount = 0;
+let startTime = Date.now();
 
-let pageAccess = 0;
+function monitorAction(){
 
-window.addEventListener("hashchange",function(){
+actionCount++;
 
-pageAccess++;
+const elapsed = (Date.now() - startTime)/1000;
 
-if(pageAccess > 5){
-alertSecurity("Possible endpoint enumeration detected");
+if(elapsed < 4 && actionCount > 50){
+
+SecurityEngine.report(
+"high",
+"Automation Pattern",
+"Abnormally fast interactions detected"
+);
+
+}
+
+if(elapsed > 4){
+
+actionCount = 0;
+startTime = Date.now();
+
+}
+
+}
+
+["mousemove","click","keydown","scroll"].forEach(evt=>{
+document.addEventListener(evt,monitorAction);
+});
+
+/* -------------------------------
+ Endpoint Enumeration Detection
+--------------------------------*/
+
+let navigationCount = 0;
+
+window.addEventListener("hashchange",()=>{
+
+navigationCount++;
+
+if(navigationCount > 6){
+
+SecurityEngine.report(
+"medium",
+"Endpoint Enumeration",
+"Rapid navigation attempts detected"
+);
+
 }
 
 });
 
+/* -------------------------------
+ Console Tampering Detection
+--------------------------------*/
+
+(function(){
+
+const devtools = /./;
+
+devtools.toString = function(){
+
+SecurityEngine.report(
+"medium",
+"Console Inspection",
+"Console object inspected"
+);
+
+};
+
+console.log("%c",devtools);
+
+})();
+
+/* -------------------------------
+ Debugger Trap
+--------------------------------*/
+
+setInterval(function(){
+
+const start = performance.now();
+
+debugger;
+
+const diff = performance.now() - start;
+
+if(diff > 100){
+
+SecurityEngine.report(
+"low",
+"Debugger Detected",
+"Execution paused by debugger"
+);
+
+}
+
+},4000);
+
 })();
 </script>
-
 
 
 
