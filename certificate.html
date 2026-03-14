@@ -1,3 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Website Security Monitor</title>
+
+<style>
+#securityPanel{
+position:fixed;
+top:20px;
+right:20px;
+width:320px;
+font-family:Arial;
+z-index:999999;
+}
+
+.alertBox{
+background:#111;
+color:#fff;
+padding:16px;
+margin-bottom:10px;
+border-radius:10px;
+border-left:6px solid #ff3b3b;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+animation:slide .3s ease;
+position:relative;
+}
+
+.alertTitle{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.alertClose{
+position:absolute;
+top:5px;
+right:10px;
+cursor:pointer;
+opacity:.7;
+}
+
+@keyframes slide{
+from{transform:translateX(120%);opacity:0;}
+to{transform:translateX(0);opacity:1;}
+}
+</style>
+
+</head>
+<body>
+
+<div id="securityPanel"></div>
+
+<script>
+
+/* ALERT UI */
+
+function securityAlert(title,message){
+
+const panel=document.getElementById("securityPanel");
+
+const box=document.createElement("div");
+box.className="alertBox";
+
+box.innerHTML=`
+<div class="alertClose">✖</div>
+<div class="alertTitle">🚨 ${title}</div>
+<div>${message}</div>
+`;
+
+box.querySelector(".alertClose").onclick=()=>box.remove();
+
+panel.appendChild(box);
+
+setTimeout(()=>{
+if(box.parentNode) box.remove();
+},6000);
+
+console.warn("SECURITY:",title,message);
+
+}
+
+/* USER-AGENT DETECTION */
+
+(function(){
+
+const ua=navigator.userAgent.toLowerCase();
+
+const scanners=[
+"zap",
+"burp",
+"nikto",
+"sqlmap",
+"dirbuster",
+"nmap",
+"acunetix",
+"scanner",
+"crawler"
+];
+
+scanners.forEach(tool=>{
+
+if(ua.includes(tool)){
+
+securityAlert(
+"Scanner User-Agent",
+"Possible vulnerability scanner detected"
+);
+
+}
+
+});
+
+})();
+
+/* HEADLESS BROWSER DETECTION */
+
+(function(){
+
+if(navigator.webdriver){
+
+securityAlert(
+"Automation Detected",
+"Selenium / automation browser detected"
+);
+
+}
+
+if(!navigator.plugins.length){
+
+securityAlert(
+"Headless Browser",
+"No browser plugins detected"
+);
+
+}
+
+if(!navigator.languages){
+
+securityAlert(
+"Headless Environment",
+"Missing language settings"
+);
+
+}
+
+})();
+
+/* HEADLESS CHROME */
+
+if(/HeadlessChrome/.test(navigator.userAgent)){
+
+securityAlert(
+"Headless Chrome",
+"Headless scanning browser detected"
+);
+
+}
+
+/* BOT INTERACTION */
+
+let actions=0;
+let start=Date.now();
+
+function monitor(){
+
+actions++;
+
+let elapsed=(Date.now()-start)/1000;
+
+if(elapsed<4 && actions>60){
+
+securityAlert(
+"Bot Activity",
+"Automated interaction detected"
+);
+
+actions=0;
+start=Date.now();
+
+}
+
+if(elapsed>4){
+
+actions=0;
+start=Date.now();
+
+}
+
+}
+
+["mousemove","click","keydown"].forEach(e=>{
+document.addEventListener(e,monitor);
+});
+
+/* DEVTOOLS DETECTION */
+
+setInterval(()=>{
+
+const threshold=160;
+
+if(
+window.outerWidth-window.innerWidth>threshold ||
+window.outerHeight-window.innerHeight>threshold
+){
+
+securityAlert(
+"Developer Tools",
+"DevTools may be open"
+);
+
+}
+
+},5000);
+
+</script>
+
+</body>
+</html>
+
+
 
 
 
