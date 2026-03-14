@@ -1,4 +1,284 @@
 <script>
+/* ================================
+   CLIENT SECURITY MONITOR
+   Stable Version
+================================ */
+
+(function(){
+
+/* -------------------------------
+   Create Popup UI
+-------------------------------- */
+
+function createUI(){
+
+if(document.getElementById("sec-monitor")) return;
+
+const style=document.createElement("style");
+
+style.innerHTML=`
+#sec-monitor{
+position:fixed;
+top:20px;
+right:20px;
+width:300px;
+z-index:999999;
+font-family:system-ui,Arial;
+}
+
+.sec-box{
+background:#111;
+color:#fff;
+padding:14px;
+margin-bottom:10px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+border-left:5px solid #ff3b3b;
+animation:slideIn .3s ease;
+position:relative;
+}
+
+.sec-title{
+font-weight:600;
+margin-bottom:4px;
+}
+
+.sec-msg{
+font-size:13px;
+opacity:.85;
+}
+
+.sec-close{
+position:absolute;
+top:6px;
+right:10px;
+cursor:pointer;
+opacity:.7;
+}
+
+.sec-close:hover{opacity:1}
+
+@keyframes slideIn{
+from{transform:translateX(100%);opacity:0;}
+to{transform:translateX(0);opacity:1;}
+}
+`;
+
+document.head.appendChild(style);
+
+const container=document.createElement("div");
+container.id="sec-monitor";
+
+document.body.appendChild(container);
+
+}
+
+createUI();
+
+/* -------------------------------
+   Alert Function
+-------------------------------- */
+
+function showAlert(title,msg){
+
+const container=document.getElementById("sec-monitor");
+
+const box=document.createElement("div");
+box.className="sec-box";
+
+box.innerHTML=`
+<div class="sec-close">✖</div>
+<div class="sec-title">🚨 ${title}</div>
+<div class="sec-msg">${msg}</div>
+`;
+
+box.querySelector(".sec-close").onclick=()=>box.remove();
+
+container.appendChild(box);
+
+setTimeout(()=>{
+
+if(box.parentNode) box.remove();
+
+},6000);
+
+console.warn("SECURITY:",title,msg);
+
+}
+
+/* -------------------------------
+   Scanner User-Agent Detection
+-------------------------------- */
+
+(function(){
+
+const ua=navigator.userAgent.toLowerCase();
+
+const scanners=[
+"burp",
+"zap",
+"acunetix",
+"sqlmap",
+"nikto",
+"nmap",
+"dirbuster",
+"wpscan",
+"masscan"
+];
+
+scanners.forEach(tool=>{
+
+if(ua.includes(tool)){
+
+showAlert(
+"Scanner User-Agent",
+"Suspicious scanning tool detected in browser user-agent."
+);
+
+}
+
+});
+
+})();
+
+/* -------------------------------
+   Automation Detection
+-------------------------------- */
+
+(function(){
+
+if(navigator.webdriver){
+
+showAlert(
+"Automation Detected",
+"Browser controlled by automation framework."
+);
+
+}
+
+})();
+
+/* -------------------------------
+   Headless Browser Detection
+-------------------------------- */
+
+(function(){
+
+if(navigator.plugins.length===0){
+
+showAlert(
+"Headless Environment",
+"No browser plugins detected."
+);
+
+}
+
+if(!navigator.languages){
+
+showAlert(
+"Headless Indicator",
+"Missing language settings."
+);
+
+}
+
+})();
+
+/* -------------------------------
+   Interaction Speed Detection
+-------------------------------- */
+
+let actions=0;
+let startTime=Date.now();
+
+function monitor(){
+
+actions++;
+
+let elapsed=(Date.now()-startTime)/1000;
+
+if(elapsed<4 && actions>60){
+
+showAlert(
+"Bot Activity",
+"Very fast interaction detected."
+);
+
+actions=0;
+startTime=Date.now();
+
+}
+
+if(elapsed>4){
+
+actions=0;
+startTime=Date.now();
+
+}
+
+}
+
+["mousemove","click","keydown"].forEach(evt=>{
+document.addEventListener(evt,monitor);
+});
+
+/* -------------------------------
+   DevTools Detection
+-------------------------------- */
+
+setInterval(()=>{
+
+const threshold=160;
+
+if(
+window.outerWidth-window.innerWidth>threshold ||
+window.outerHeight-window.innerHeight>threshold
+){
+
+showAlert(
+"Developer Tools",
+"Browser developer tools appear to be open."
+);
+
+}
+
+},5000);
+
+/* -------------------------------
+   Hash Navigation Enumeration
+-------------------------------- */
+
+let navCount=0;
+
+window.addEventListener("hashchange",()=>{
+
+navCount++;
+
+if(navCount>6){
+
+showAlert(
+"Enumeration Detected",
+"Possible endpoint scanning behavior."
+);
+
+}
+
+});
+
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
 /* =========================================
    ADVANCED CLIENT SECURITY MONITOR
    With Modern Popup UI
