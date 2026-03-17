@@ -1,0 +1,55 @@
+plugins {
+    id 'base' // basic tasks like clean, build
+}
+
+group = 'com.amruth.profile'
+version = '1.0.0'
+
+description = 'Static website for amruth.profile.com'
+
+/**
+ * Directory configuration
+ */
+def srcDir = file('src')
+def buildDirPath = file("$buildDir/site")
+
+/**
+ * Clean task
+ */
+tasks.register('cleanSite', Delete) {
+    delete buildDirPath
+}
+
+/**
+ * Copy static files (HTML, CSS, JS, images)
+ */
+tasks.register('copySite', Copy) {
+    from srcDir
+    into buildDirPath
+}
+
+/**
+ * Build task
+ */
+tasks.register('buildSite') {
+    dependsOn 'cleanSite', 'copySite'
+    description = 'Builds the static website'
+}
+
+/**
+ * Serve locally (simple dev server)
+ */
+tasks.register('serveSite') {
+    dependsOn 'buildSite'
+    doLast {
+        println "Site built at: ${buildDirPath}"
+        println "You can deploy this to GitHub Pages."
+    }
+}
+
+/**
+ * Default task
+ */
+tasks.named('build') {
+    dependsOn 'buildSite'
+}
