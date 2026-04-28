@@ -317,6 +317,17 @@ updateSlider();
 
 
 
+/* Auto slide */
+
+setInterval(()=>{
+index++;
+if(index>=slides.length){index=0;}
+updateSlider();
+},3500);
+
+
+
+    
 
 
 <!DOCTYPE html>
@@ -398,16 +409,6 @@ getVisitorInfo();
 </body>
 </html>
     
-
-
-    
-/* Auto slide */
-
-setInterval(()=>{
-index++;
-if(index>=slides.length){index=0;}
-updateSlider();
-},3500);
 
   
 
