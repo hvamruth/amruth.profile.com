@@ -1,459 +1,7 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Home</title>
-
-
-
-
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:linear-gradient(135deg,#63d3c6,#42a9a0);
-background-size:400% 400%;
-animation:bgMove 10s infinite alternate;
-}
-
-@keyframes bgMove{
-0%{background-position:left}
-100%{background-position:right}
-}
-
-/* Visitor Horizontal Card */
-.visitor-card{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(12px);
-padding:20px 40px;
-border-radius:15px;
-display:flex;
-gap:40px;
-align-items:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-color:#222;
-z-index:1000;
-}
-
-.visitor-card h2{
-font-size:24px;
-margin-right:20px;
-}
-
-.visitor-item{
-font-size:16px;
-}
-
-/* Back Button */
-.back-modern{
-position:fixed;
-top:20px;
-left:20px;
-padding:12px 25px;
-background:linear-gradient(45deg,#55B7A8,#7fd8c9);
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
-z-index:1000;
-}
-
-/* Section */
-.section{
-width:90%;
-max-width:1200px;
-margin:auto;
-text-align:center;
-padding-top:120px;
-}
-
-.section h1{
-color:white;
-font-size:50px;
-margin-bottom:40px;
-}
-
-/* Slider */
-.slider{
-position:relative;
-overflow:hidden;
-}
-
-.slide-track{
-display:flex;
-transition:transform .8s ease;
-}
-
-.slide{
-min-width:320px;
-margin:0 20px;
-border-radius:18px;
-overflow:hidden;
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
-transition:0.4s;
-}
-
-.slide:hover{
-transform:scale(1.05);
-}
-
-.slide img{
-width:100%;
-height:210px;
-object-fit:cover;
-}
-
-.slide h3{
-padding:18px;
-color:white;
-}
-
-/* Buttons */
-.btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:white;
-border:none;
-width:55px;
-height:55px;
-border-radius:50%;
-font-size:26px;
-cursor:pointer;
-}
-
-.prev{left:0;}
-.next{right:0;}
-
-/* Scroll Down */
-.scroll-down{
-margin-top:40px;
-font-size:40px;
-color:white;
-cursor:pointer;
-animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(10px)}
-}
-
-/* Transcript */
-.transcript-section{
-margin-top:120px;
-text-align:center;
-}
-
-.transcript-section h2{
-color:white;
-font-size:40px;
-margin-bottom:30px;
-}
-
-.transcript{
-width:90%;
-max-width:794px;
-margin:20px auto;
-}
-
-.transcript img{
-width:100%;
-border-radius:10px;
-}
-
-/* Responsive */
-@media(max-width:900px){
-.visitor-card{
-flex-direction:column;
-gap:10px;
-padding:15px;
-}
-}
-
-
-<script>
-// Slider
-const track = document.getElementById("track");
-const slides = document.querySelectorAll(".slide");
-let index = 0;
-
-function updateSlider(){
-const width = slides[0].offsetWidth + 40;
-track.style.transform = `translateX(${-index * width}px)`;
-}
-
-document.querySelector(".next").onclick = () => {
-index = (index + 1) % slides.length;
-updateSlider();
-};
-
-document.querySelector(".prev").onclick = () => {
-index = (index - 1 + slides.length) % slides.length;
-updateSlider();
-};
-
-setInterval(()=>{
-index = (index + 1) % slides.length;
-updateSlider();
-},3500);
-
-// Visitor Info
-async function getVisitorInfo(){
-try{
-const res = await fetch("https://api.ipify.org?format=json");
-const data = await res.json();
-document.getElementById("ip").textContent = data.ip;
-}catch{
-document.getElementById("ip").textContent = "N/A";
-}
-
-const ua = navigator.userAgent;
-
-let browser="Unknown", os="Unknown", device="Desktop";
-
-if (ua.includes("Chrome") && !ua.includes("Edg")) browser="Chrome";
-else if (ua.includes("Firefox")) browser="Firefox";
-else if (ua.includes("Safari") && !ua.includes("Chrome")) browser="Safari";
-else if (ua.includes("Edg")) browser="Edge";
-
-if (ua.includes("Windows")) os="Windows";
-else if (ua.includes("Mac")) os="MacOS";
-else if (ua.includes("Linux")) os="Linux";
-else if (ua.includes("Android")) os="Android";
-else if (ua.includes("iPhone")) os="iOS";
-
-if (/Mobi|Android|iPhone/i.test(ua)) device="Mobile";
-
-document.getElementById("browser").textContent = browser;
-document.getElementById("os").textContent = os;
-document.getElementById("device").textContent = device;
-}
-
-window.onload = getVisitorInfo;
-</script>
-
-</body>
-</html>
-		
-
-		
-
-<!-- COOKIE BANNER -->
-<div id="cookieBanner" style="
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#203a43;
-color:white;
-padding:15px;
-text-align:center;
-font-family:Arial;
-z-index:9999;
-display:none;
-">
-
-This website uses cookies to improve your browsing experience.
-Read our <a href="cookies.html" style="color:#00d4ff;">Cookies Policy</a>.
-
-<br><br>
-
-<button onclick="acceptCookies()" style="
-padding:8px 15px;
-margin:5px;
-border:none;
-background:#00c853;
-color:white;
-cursor:pointer;
-border-radius:5px;">Accept</button>
-
-<button onclick="rejectCookies()" style="
-padding:8px 15px;
-margin:5px;
-border:none;
-background:#ff5252;
-color:white;
-cursor:pointer;
-border-radius:5px;">Reject</button>
-
-</div>
-
-
-<script>
-
-/* =========================
-   COOKIE FUNCTIONS
-========================= */
-
-function setCookie(name,value,days){
-
-    let expires = "";
-
-    if(days){
-        const date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
-        expires = "; expires="+date.toUTCString();
-    }
-
-    document.cookie = name+"="+value+expires+"; path=/";
-}
-
-function getCookie(name){
-
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-
-    for(let i=0;i<ca.length;i++){
-        let c = ca[i];
-
-        while(c.charAt(0)==' ') c=c.substring(1,c.length);
-
-        if(c.indexOf(nameEQ)==0)
-            return c.substring(nameEQ.length,c.length);
-    }
-
-    return null;
-}
-
-
-/* =========================
-   CONSENT MANAGEMENT
-========================= */
-
-function acceptCookies(){
-
-    setCookie("site_cookie_consent","accepted",365);
-
-    document.getElementById("cookieBanner").style.display="none";
-
-}
-
-function rejectCookies(){
-
-    setCookie("site_cookie_consent","rejected",365);
-
-    document.getElementById("cookieBanner").style.display="none";
-
-}
-
-
-/* =========================
-   CHECK CONSENT
-========================= */
-
-window.onload = function(){
-
-    let consent = getCookie("site_cookie_consent");
-
-    if(consent === null){
-
-        document.getElementById("cookieBanner").style.display="block";
-
-    }
-
-}
-
-</script>
-		
-
-
-		
-	<div id="loader">
-    <div class="spinner"></div>
-		</div>
-
-
-<div id="loader-frame">
-    <iframe src="loading.html"></iframe>
-</div>
-		
-		<style>
-#loader-frame{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    top:0;
-    left:0;
-    z-index:9999;
-}
-
-#loader-frame iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-</style>
-
-<script>
-window.addEventListener("load", function(){
-    document.getElementById("loader-frame").style.display = "none";
-});
-</script>
-		
-
-		
-	
-<style>
-#loader{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(-45deg, #55B7A8, #7fd8c9);
-    display: none; /* hidden by default */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.spinner{
-    width: 60px;
-    height: 60px;
-    border: 6px solid rgba(255,255,255,0.3);
-    border-top: 6px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin{
-    0%{transform: rotate(0deg);}
-    100%{transform: rotate(360deg);}
-}
-</style>
-
-
-
-<script>
-let loader = document.getElementById("loader");
-
-// Show loader only if page takes longer than 1 second
-let delay = setTimeout(() => {
-    loader.style.display = "flex";
-}, 10000);
-
-// When page fully loads
-window.addEventListener("load", () => {
-    clearTimeout(delay);
-    loader.style.display = "none";
-});
-</script>
-
-
-		
-		
-		<title>Curriculum vitae Website</title>
+<html lang="en-us">
+    <head>
+    	<title>Portfolio</title>
 
     	<!-- meta -->
         <meta charset="utf-8">
@@ -475,14 +23,13 @@ window.addEventListener("load", () => {
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
         <link href="http://fonts.googleapis.com/css?family=Rouge+Script" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Milonga' rel='stylesheet' type='text/css'>
-    
-	</head>
+    </head>
     <body>
         <div class="content-block" id="header">
             <div id="overlay-1">
                 <header id="site-header" class="clearfix">
                     <div class="pull-left">
-                       <h1><a href="Profile.html">Amruth Sagar HV</a></h1>
+                        <h1><a href="#">Amruth Sagar HV</a></h1>
                     </div>
                     <div class="pull-right">
                         <nav class="navbar site-nav" role="navigation">
@@ -499,9 +46,9 @@ window.addEventListener("load", () => {
                                     <li class="active"><a href="#header"><i class="fa fa-home"></i> <span>Home</span></a></li>
                                     <li><a href="#portfolio"><i class="fa fa-bookmark"></i> Portfolio</a></li>
                                     <li><a href="#services"><i class="fa fa-bullhorn"></i> About Me</a></li>
-                                    <li><a href="certificate.html"><i class="fa fa-list-alt"></i> Certifications</a></li>
-									<li><a href="experience.html"><i class="fa fa-file-text-o"></i> Experience</a></li>
-									<li><a href="#contact"><i class="fa fa-phone-square"></i> Contact</a></li>
+                                    <li><a href="experience.html"><i class="fa fa-file-text-o"></i> Experience</a></li>
+                                    <li><a href="#testimonials"><i class="fa fa-thumbs-up"></i> Testimonials</a></li>
+                                    <li><a href="#contact"><i class="fa fa-phone-square"></i> Contact</a></li>
                                     
                                 </ul>
                             </div>  <!-- /.navbar-collapse -->
@@ -512,21 +59,17 @@ window.addEventListener("load", () => {
                 <div class="middle text-center clearfix">
                     <div class="container">
                         <h1 class="pro-name">System <!-- <span style="color: #71b644;" > -->Administrator<!-- </span> --></h1>
-                        <p class="tagline">Ready to Contribute with Strong Skills and Proven Expertise.</p>
+                        <p class="tagline">Open Doors to Your Dream Job.</p>
                         <div class="skills">
 
                         </div>  <!-- skills -->
-                        <a href="Profile.html" target="_blank" class="btn btn-lg btn-hire wow animated zoomIn">Hire Me</a>
+                        <a href="#contact" target="_blank" class="btn btn-lg btn-hire wow animated zoomIn">Hire Me</a>
                     </div>  <!-- container -->
                 </div>  <!-- middle -->
                 
                 <div class="resume-section">
-                    <a href="https://drive.google.com/file/d/14_75M2FOy9KCQ06ONGNmCYPJ0z-kTJJa/view?usp=sharing" class="btn btn-lg btn-hire wow animated zoomIn">Download Resume</a>
+                    <a href="https://drive.google.com/file/d/1grGt3zdB8XJQid092lBFXY9HH1V1qfPr/view?usp=sharing" download="John_Doe_Resume.pdf" class="btn btn-lg btn-hire wow animated zoomIn">Download Resume</a>
                 </div>
-
-
-
-												
 
 <style>
 .resume-section {
@@ -667,7 +210,7 @@ window.addEventListener("load", () => {
                     </div>
                 </div>
             </div>	<!-- isotope portfolio-items -->
-            <a href="https://www.youtube.com/@funtechhub9061/videos" class="btn btn-lg btn-view">
+            <a href="https://github.com/hvamruth" class="btn btn-lg btn-view">
                 <i class="fa fa-eye"></i>
                 <span>View All</span>
             </a>
@@ -711,28 +254,6 @@ window.addEventListener("load", () => {
                         <div class="container">
                             <div class="row block-heading">
                                 <h1>Some Cool Skills About Me</h1>
-								
-								<h11> I Am a results-driven IT professional with over 8 years of experience in system administration, delivering robust solutions across Mac, Linux, and Windows platforms. My core strengths include network performance optimization, system troubleshooting, and infrastructure enhancement, all underpinned by a strategic and analytical mindset.
-
-Throughout my career, I have consistently contributed to improving operational efficiency, increasing system reliability, and ensuring exceptional user satisfaction. My approach combines deep technical expertise with creative problem-solving, enabling me to identify issues proactively and implement sustainable, scalable solutions.
-
-My expertise spans:
-
-1. Windows System Administration
-
-2. Linux & Unix systems administration (Mac OS, CentOS, Ubuntu)
-
-3. Server provisioning, monitoring, and patch management
-
-4. Shell scripting and automation
-
-5. Network troubleshooting and firewall configurations
-
-I am currently seeking new challenges where I can apply my knowledge and collaborate with high-performing teams to drive impactful results. If you're looking for a dedicated and adaptable System Administrator with a strong background in system architecture, performance tuning, and network resilience, I welcome the opportunity to connect and discuss how I can contribute to your organization’s success. </h11>
-
-
-
-						
                             </div>
                         </div>
                     </div>
@@ -769,8 +290,48 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
             </div>
         </div>
             
-		
-        
+
+        <div class="content-block" id="testimonials">
+            <header class="block-heading cleafix text-center">
+                <h1>What Clients Say</h1>
+                <!-- <p>Lorem Ipsum Text</p> -->
+            </header>
+            <div class="block-content text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                        	<div class="owl-carousel">
+								<div class="owl-item">
+									<div class="testimonial">
+                                        <img alt="Client Photo" src="img/testimonial_31-190x190.jpg">
+                                        <p>In at accumsan risus. Nam id volutpat ante. Etiam vel mi mattis, vulputate nunc nec, sodales nibh. Etiam nulla magna, gravida eget ultricies sit amet.</p>
+                                        <strong>Jhon Doe</strong><br>
+                                        <span>Head of Ideas, Technext</span>
+                                    </div>
+								</div>	<!-- owl-item -->
+								<div class="owl-item">
+									<div class="testimonial">
+                                        <img alt="Client Photo" src="img/testimonial_11-190x190.jpg">
+                                        <p>In at accumsan risus. Nam id volutpat ante. Etiam vel mi mattis, vulputate nunc nec, sodales nibh. Etiam nulla magna, gravida eget ultricies sit amet.</p>
+                                        <strong>Jane Doe</strong><br>
+                                        <span>CEO, Apple Inc</span>
+                                    </div>
+								</div>	<!-- owl-item -->
+								<div class="owl-item">
+									<div class="testimonial">
+                                        <img alt="Client Photo" src="img/testimonial_22-190x190.jpg">
+                                        <p>In at accumsan risus. Nam id volutpat ante. Etiam vel mi mattis, vulputate nunc nec, sodales nibh. Etiam nulla magna, gravida eget ultricies sit amet.</p>
+                                        <strong>Albert Doe</strong><br>
+                                        <span>Team Lead, Design Studio</span>
+                                    </div>
+								</div>	<!-- owl-item -->
+							</div>	<!-- owl-carousel -->
+						</div>	<!-- col-md-12 -->
+                    </div>	<!-- row -->
+                </div>	<!-- container -->
+            </div>	<!-- block-content -->
+        </div>	<!-- content-block -->
+
         <div class="content-block" id="contact">
             <div class="overlay-3">
                 <header class="block-heading cleafix text-center">
@@ -788,8 +349,6 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
                                     <input type="submit" value="Submit">
                                 </form>
                             </div>
-
-							
                             <div class="col-md-6 wow animated fadeInRight">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -799,7 +358,7 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
                                                     <div class="sqaure-nebir"></div>
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
-                                                <p><strong> Address:</strong> 9/A, Balaji Greens Layout, JB Kaval East, Sambram College Road, Near Shamrajpura Vidyaranyapura Post, Bangalore - 560097
+                                                <p><strong> Address:</strong> 9/A, Balaji Greens Layout, Jarak Bande Kaval East, Near Shamrajpura Attur Post Yelahanka, Bangalore - 560064
                                                 </p>
                                             </div>
                                             <div class="clearfix">
@@ -807,7 +366,7 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
                                                     <div class="sqaure-nebir"></div>
                                                     <i class="fa fa-mobile"></i>
                                                 </div>
-                                                <p><strong> Cell No:</strong> +91-95914-78095 | +91-86600-64469 </p>
+                                                <p><strong> Cell No:</strong> +91-95914-78095 </p>
                                             </div>
                                             <div class="clearfix">
                                                 <div class="rotated-icon">
@@ -824,10 +383,9 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
                                 </div>
                                 <div class="row">
                                     <ul class="social-box">
-                                        <li><a class="facebook-icon" href="https://www.facebook.com/amsgr4"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="linkedin-icon" href="https://in.linkedin.com/in/amruth-sagar-hv-542298276"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a class="facebook-icon" href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="linkedin-icon" href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"><i class="fa fa-linkedin"></i></a></li>
                                         <li><a class="youtube-icon" href="https://www.youtube.com/@funtechhub9061"><i class="fa fa-youtube"></i></a></li>
-										<li><a class="WhatsApp-icon" href="https://wa.me/919591478095"><i class="fa fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -837,35 +395,20 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
             </div>	<!-- overlay-3 -->
         </div>	<!-- content-block -->
 
-		
         <footer id="site-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="copyright">&copy; 2026 Developer</div>
+                        <div class="copyright">&copy; 2025 Developer</div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="designed-by">Designed By <a href="http://themewagon.com/" target="_blank">Handcoded</a></div>
+                        <div class="designed-by">Designed By <a href="http://themewagon.com/" target="_blank">Orbitmoon</a></div>
                     </div>
                 </div>
             </div>
         </footer>	<!-- site-footer -->
 
 
-
-
-
-
-		
-<a href="privacy-policy.html">Privacy Policy</a> |
-<a href="terms.html">Terms</a> |
-<a href="security.html">Security</a> |
-<a href="cookies.html">Cookies</a>
-
-
-
-
-		
         <!-- js -->
         <script>
             new WOW().init();
@@ -906,35 +449,3 @@ I am currently seeking new challenges where I can apply my knowledge and collabo
 
 	</body>
 </html>
-
-
-
-
-
-	
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-09B08NNRBL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-09B08NNRBL');
-</script>
-
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-09B08NNRBL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-09B08NNRBL');
-</script>
-
-
-<!-- <p> google-site-verification=KWoiTnZNGy5RXuXyDTIWH54NHHI2kfPcilSpO8FTyGU </p> -->
-
-<!-- <p>    google-site-verification: google749a225f72eec192.html   </p> -->
