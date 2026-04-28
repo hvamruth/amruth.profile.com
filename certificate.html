@@ -323,6 +323,82 @@ if(index>=slides.length){index=0;}
 updateSlider();
 },3500);
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Device Info Alert</title>
+</head>
+<body>
+
+<h2>Device Detection Demo</h2>
+
+<script>
+function getDeviceInfo() {
+    const ua = navigator.userAgent;
+
+    let browser = "Unknown Browser";
+    let os = "Unknown OS";
+    let device = "Desktop";
+
+    // Detect Browser
+    if (ua.includes("Chrome") && !ua.includes("Edg")) {
+        browser = "Google Chrome";
+    } else if (ua.includes("Safari") && !ua.includes("Chrome")) {
+        browser = "Safari";
+    } else if (ua.includes("Firefox")) {
+        browser = "Mozilla Firefox";
+    } else if (ua.includes("Edg")) {
+        browser = "Microsoft Edge";
+    } else if (ua.includes("OPR") || ua.includes("Opera")) {
+        browser = "Opera";
+    }
+
+    // Detect OS
+    if (ua.includes("Windows")) {
+        os = "Windows";
+    } else if (ua.includes("Mac OS")) {
+        os = "MacOS";
+    } else if (ua.includes("Linux")) {
+        os = "Linux";
+    } else if (ua.includes("Android")) {
+        os = "Android";
+        device = "Mobile";
+    } else if (ua.includes("iPhone") || ua.includes("iPad")) {
+        os = "iOS";
+        device = "Mobile";
+    }
+
+    // Detect Device Type
+    if (/Mobi|Android|iPhone|iPad/i.test(ua)) {
+        device = "Mobile";
+    }
+
+    return {
+        browser: browser,
+        os: os,
+        device: device
+    };
+}
+
+const info = getDeviceInfo();
+
+alert(
+    "Visitor Information:\n\n" +
+    "Browser: " + info.browser + "\n" +
+    "Operating System: " + info.os + "\n" +
+    "Device Type: " + info.device
+);
+</script>
+
+</body>
+</html>
+  
+
+  
+
 </script>
 
 </body>
