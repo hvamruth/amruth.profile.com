@@ -5,102 +5,314 @@
 <title>Home</title>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visitor Detection</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f2027;
-            color: white;
-            text-align: center;
-            padding-top: 100px;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+scroll-behavior:smooth;
+}
 
-        .card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 12px;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+body{
+background:linear-gradient(135deg,#63d3c6,#42a9a0);
+background-size:400% 400%;
+animation:bgMove 10s infinite alternate;
+}
 
-        h1 {
-            margin-bottom: 20px;
-        }
+@keyframes bgMove{
+0%{background-position:left}
+100%{background-position:right}
+}
 
-        p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-    </style>
+/* Visitor Horizontal Card */
+.visitor-card{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(12px);
+padding:20px 40px;
+border-radius:15px;
+display:flex;
+gap:40px;
+align-items:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+color:#222;
+z-index:1000;
+}
+
+.visitor-card h2{
+font-size:24px;
+margin-right:20px;
+}
+
+.visitor-item{
+font-size:16px;
+}
+
+/* Back Button */
+.back-modern{
+position:fixed;
+top:20px;
+left:20px;
+padding:12px 25px;
+background:linear-gradient(45deg,#55B7A8,#7fd8c9);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+z-index:1000;
+}
+
+/* Section */
+.section{
+width:90%;
+max-width:1200px;
+margin:auto;
+text-align:center;
+padding-top:120px;
+}
+
+.section h1{
+color:white;
+font-size:50px;
+margin-bottom:40px;
+}
+
+/* Slider */
+.slider{
+position:relative;
+overflow:hidden;
+}
+
+.slide-track{
+display:flex;
+transition:transform .8s ease;
+}
+
+.slide{
+min-width:320px;
+margin:0 20px;
+border-radius:18px;
+overflow:hidden;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+transition:0.4s;
+}
+
+.slide:hover{
+transform:scale(1.05);
+}
+
+.slide img{
+width:100%;
+height:210px;
+object-fit:cover;
+}
+
+.slide h3{
+padding:18px;
+color:white;
+}
+
+/* Buttons */
+.btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:white;
+border:none;
+width:55px;
+height:55px;
+border-radius:50%;
+font-size:26px;
+cursor:pointer;
+}
+
+.prev{left:0;}
+.next{right:0;}
+
+/* Scroll Down */
+.scroll-down{
+margin-top:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(10px)}
+}
+
+/* Transcript */
+.transcript-section{
+margin-top:120px;
+text-align:center;
+}
+
+.transcript-section h2{
+color:white;
+font-size:40px;
+margin-bottom:30px;
+}
+
+.transcript{
+width:90%;
+max-width:794px;
+margin:20px auto;
+}
+
+.transcript img{
+width:100%;
+border-radius:10px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+.visitor-card{
+flex-direction:column;
+gap:10px;
+padding:15px;
+}
+}
+</style>
 </head>
+
 <body>
 
-<div class="card">
-    <h1>Visitor Information</h1>
-    <p><strong>IP Address:</strong> <span id="ip">Detecting...</span></p>
-    <p><strong>Browser:</strong> <span id="browser">Detecting...</span></p>
-    <p><strong>Operating System:</strong> <span id="os">Detecting...</span></p>
-    <p><strong>Device:</strong> <span id="device">Detecting...</span></p>
+<!-- Visitor Info Horizontal -->
+<div class="visitor-card">
+<h2>Visitor Info</h2>
+<div class="visitor-item">IP: <span id="ip">...</span></div>
+<div class="visitor-item">Browser: <span id="browser">...</span></div>
+<div class="visitor-item">OS: <span id="os">...</span></div>
+<div class="visitor-item">Device: <span id="device">...</span></div>
+</div>
+
+<a href="index.html" class="back-modern">← Back</a>
+
+<div class="section">
+<h1>Certificates</h1>
+
+<div class="slider">
+<button class="btn prev">&#10094;</button>
+
+<div class="slide-track" id="track">
+
+<div class="slide">
+<img src="Certificates/EHE.jfif">
+<h3>Ethical Hacking Essentials</h3>
+</div>
+
+<div class="slide">
+<img src="Certificates/ceh.jfif">
+<h3>Certified Ethical Hacker</h3>
+</div>
+
+<div class="slide">
+<img src="Certificates/lna.jfif">
+<h3>Linux Network Admin</h3>
+</div>
+
+</div>
+
+<button class="btn next">&#10095;</button>
+</div>
+
+<a href="#transcript">
+<div class="scroll-down">⬇</div>
+</a>
+
+</div>
+
+<div id="transcript" class="transcript-section">
+<h2>Academic Transcript</h2>
+
+<div class="transcript">
+<img src="Certificates/lnatrans.jfif">
+</div>
+
+<div class="transcript">
+<img src="Certificates/comptrans.jfif">
+</div>
+
 </div>
 
 <script>
-async function getVisitorInfo() {
+// Slider
+const track = document.getElementById("track");
+const slides = document.querySelectorAll(".slide");
+let index = 0;
 
-    // --------- Get Public IP ----------
-    try {
-        const res = await fetch("https://api.ipify.org?format=json");
-        const data = await res.json();
-        document.getElementById("ip").textContent = data.ip;
-    } catch {
-        document.getElementById("ip").textContent = "Unavailable";
-    }
-
-    // --------- Detect Browser ----------
-    const ua = navigator.userAgent;
-    let browser = "Unknown";
-
-    if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Google Chrome";
-    else if (ua.includes("Edg")) browser = "Microsoft Edge";
-    else if (ua.includes("Firefox")) browser = "Mozilla Firefox";
-    else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
-    else if (ua.includes("OPR")) browser = "Opera";
-
-    document.getElementById("browser").textContent = browser;
-
-    // --------- Detect OS ----------
-    let os = "Unknown";
-
-    if (ua.includes("Windows")) os = "Windows";
-    else if (ua.includes("Mac")) os = "macOS";
-    else if (ua.includes("Linux")) os = "Linux";
-    else if (ua.includes("Android")) os = "Android";
-    else if (ua.includes("iPhone") || ua.includes("iPad")) os = "iOS";
-
-    document.getElementById("os").textContent = os;
-
-    // --------- Detect Device ----------
-    let device = "Desktop";
-
-    if (/Mobi|Android|iPhone|iPad/i.test(ua)) {
-        device = "Mobile";
-    }
-
-    document.getElementById("device").textContent = device;
+function updateSlider(){
+const width = slides[0].offsetWidth + 40;
+track.style.transform = `translateX(${-index * width}px)`;
 }
 
-// Run on load
-getVisitorInfo();
+document.querySelector(".next").onclick = () => {
+index = (index + 1) % slides.length;
+updateSlider();
+};
+
+document.querySelector(".prev").onclick = () => {
+index = (index - 1 + slides.length) % slides.length;
+updateSlider();
+};
+
+setInterval(()=>{
+index = (index + 1) % slides.length;
+updateSlider();
+},3500);
+
+// Visitor Info
+async function getVisitorInfo(){
+try{
+const res = await fetch("https://api.ipify.org?format=json");
+const data = await res.json();
+document.getElementById("ip").textContent = data.ip;
+}catch{
+document.getElementById("ip").textContent = "N/A";
+}
+
+const ua = navigator.userAgent;
+
+let browser="Unknown", os="Unknown", device="Desktop";
+
+if (ua.includes("Chrome") && !ua.includes("Edg")) browser="Chrome";
+else if (ua.includes("Firefox")) browser="Firefox";
+else if (ua.includes("Safari") && !ua.includes("Chrome")) browser="Safari";
+else if (ua.includes("Edg")) browser="Edge";
+
+if (ua.includes("Windows")) os="Windows";
+else if (ua.includes("Mac")) os="MacOS";
+else if (ua.includes("Linux")) os="Linux";
+else if (ua.includes("Android")) os="Android";
+else if (ua.includes("iPhone")) os="iOS";
+
+if (/Mobi|Android|iPhone/i.test(ua)) device="Mobile";
+
+document.getElementById("browser").textContent = browser;
+document.getElementById("os").textContent = os;
+document.getElementById("device").textContent = device;
+}
+
+window.onload = getVisitorInfo;
 </script>
 
 </body>
 </html>
-
 		
 
 		
