@@ -315,13 +315,7 @@ if(index<0){index=slides.length-1;}
 updateSlider();
 }
 
-/* Auto slide */
 
-setInterval(()=>{
-index++;
-if(index>=slides.length){index=0;}
-updateSlider();
-},3500);
 
 
 
@@ -403,7 +397,17 @@ getVisitorInfo();
 
 </body>
 </html>
-  
+    
+
+
+    
+/* Auto slide */
+
+setInterval(()=>{
+index++;
+if(index>=slides.length){index=0;}
+updateSlider();
+},3500);
 
   
 
