@@ -206,6 +206,18 @@ height:auto;
 
 }
 
+
+/* Auto slide */
+
+setInterval(()=>{
+index++;
+if(index>=slides.length){index=0;}
+updateSlider();
+},3500);
+
+
+
+    
 </style>
 </head>
 
@@ -316,17 +328,6 @@ updateSlider();
 }
 
 
-
-/* Auto slide */
-
-setInterval(()=>{
-index++;
-if(index>=slides.length){index=0;}
-updateSlider();
-},3500);
-
-
-
     
 
 
@@ -410,10 +411,12 @@ getVisitorInfo();
 </html>
     
 
-  
+    
 
 </script>
 
+
+    
 </body>
 </html>
 
