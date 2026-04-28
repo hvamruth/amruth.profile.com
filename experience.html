@@ -293,6 +293,111 @@ window.addEventListener("load", () => {
 </html>
 
 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Detection</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f2027;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Visitor Information</h1>
+    <p><strong>IP Address:</strong> <span id="ip">Detecting...</span></p>
+    <p><strong>Browser:</strong> <span id="browser">Detecting...</span></p>
+    <p><strong>Operating System:</strong> <span id="os">Detecting...</span></p>
+    <p><strong>Device:</strong> <span id="device">Detecting...</span></p>
+</div>
+
+<script>
+async function getVisitorInfo() {
+
+    // --------- Get Public IP ----------
+    try {
+        const res = await fetch("https://api.ipify.org?format=json");
+        const data = await res.json();
+        document.getElementById("ip").textContent = data.ip;
+    } catch {
+        document.getElementById("ip").textContent = "Unavailable";
+    }
+
+    // --------- Detect Browser ----------
+    const ua = navigator.userAgent;
+    let browser = "Unknown";
+
+    if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Google Chrome";
+    else if (ua.includes("Edg")) browser = "Microsoft Edge";
+    else if (ua.includes("Firefox")) browser = "Mozilla Firefox";
+    else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+    else if (ua.includes("OPR")) browser = "Opera";
+
+    document.getElementById("browser").textContent = browser;
+
+    // --------- Detect OS ----------
+    let os = "Unknown";
+
+    if (ua.includes("Windows")) os = "Windows";
+    else if (ua.includes("Mac")) os = "macOS";
+    else if (ua.includes("Linux")) os = "Linux";
+    else if (ua.includes("Android")) os = "Android";
+    else if (ua.includes("iPhone") || ua.includes("iPad")) os = "iOS";
+
+    document.getElementById("os").textContent = os;
+
+    // --------- Detect Device ----------
+    let device = "Desktop";
+
+    if (/Mobi|Android|iPhone|iPad/i.test(ua)) {
+        device = "Mobile";
+    }
+
+    document.getElementById("device").textContent = device;
+}
+
+// Run on load
+getVisitorInfo();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
