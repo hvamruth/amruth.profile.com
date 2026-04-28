@@ -295,8 +295,6 @@ window.addEventListener("load", () => {
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -394,88 +392,6 @@ getVisitorInfo();
 </html>
 
 
-
-
-
-	
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-<h2>Visitor Info Detection</h2>
-
-<script>
-async function getVisitorInfo() {
-    let ip = "Unknown";
-    let location = "Unknown";
-
-    try {
-        // Fetch IP and location from external API
-        const response = await fetch("https://ipapi.co/json/");
-        const data = await response.json();
-
-        ip = data.ip;
-        location = data.city + ", " + data.country_name;
-    } catch (error) {
-        console.log("IP fetch failed:", error);
-    }
-
-    const ua = navigator.userAgent;
-
-    let browser = "Unknown Browser";
-    let os = "Unknown OS";
-    let device = "Desktop";
-
-    // Browser detection
-    if (ua.includes("Chrome") && !ua.includes("Edg")) {
-        browser = "Google Chrome";
-    } else if (ua.includes("Safari") && !ua.includes("Chrome")) {
-        browser = "Safari";
-    } else if (ua.includes("Firefox")) {
-        browser = "Mozilla Firefox";
-    } else if (ua.includes("Edg")) {
-        browser = "Microsoft Edge";
-    } else if (ua.includes("OPR")) {
-        browser = "Opera";
-    }
-
-    // OS detection
-    if (ua.includes("Windows")) {
-        os = "Windows";
-    } else if (ua.includes("Mac OS")) {
-        os = "MacOS";
-    } else if (ua.includes("Linux")) {
-        os = "Linux";
-    } else if (ua.includes("Android")) {
-        os = "Android";
-    } else if (ua.includes("iPhone") || ua.includes("iPad")) {
-        os = "iOS";
-    }
-
-    // Device detection
-    if (/Mobi|Android|iPhone|iPad/i.test(ua)) {
-        device = "Mobile";
-    }
-
-    alert(
-        "Visitor Details:\n\n" +
-        "IP Address: " + ip + "\n" +
-        "Location: " + location + "\n\n" +
-        "Browser: " + browser + "\n" +
-        "Operating System: " + os + "\n" +
-        "Device Type: " + device
-    );
-}
-
-getVisitorInfo();
-</script>
-
-</body>
-</html>
 
 
 
