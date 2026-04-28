@@ -94,6 +94,22 @@ display:flex;
 transition:transform .8s ease;
 }
 
+
+
+
+/* Auto slide */
+
+setInterval(()=>{
+index++;
+if(index>=slides.length){index=0;}
+updateSlider();
+},3500);
+
+
+
+
+    
+
 /* Certificate Card */
 
 .slide{
@@ -206,17 +222,7 @@ height:auto;
 
 }
 
-
-/* Auto slide */
-
-setInterval(()=>{
-index++;
-if(index>=slides.length){index=0;}
-updateSlider();
-},3500);
-
-
-
+    
     
 </style>
 </head>
