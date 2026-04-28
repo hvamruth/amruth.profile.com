@@ -35,8 +35,10 @@ color:white;
 text-decoration:none;
 border-radius:30px;
 font-weight:bold;
+z-index:1000;
 }
 
+/* Section */
 .section{
 width:90%;
 max-width:1200px;
@@ -51,6 +53,7 @@ font-size:50px;
 margin-bottom:40px;
 }
 
+/* Slider */
 .slider{
 position:relative;
 overflow:hidden;
@@ -68,6 +71,11 @@ border-radius:18px;
 overflow:hidden;
 background:rgba(255,255,255,0.15);
 backdrop-filter:blur(12px);
+transition:0.4s;
+}
+
+.slide:hover{
+transform:scale(1.05);
 }
 
 .slide img{
@@ -81,6 +89,7 @@ padding:18px;
 color:white;
 }
 
+/* Buttons */
 .btn{
 position:absolute;
 top:50%;
@@ -92,24 +101,53 @@ height:55px;
 border-radius:50%;
 font-size:26px;
 cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .prev{left:0;}
 .next{right:0;}
 
+/* Scroll Down Button */
+.scroll-down{
+margin-top:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+animation:bounce 2s infinite;
+display:inline-block;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(10px)}
+}
+
+/* Transcript */
 .transcript-section{
 margin-top:120px;
 text-align:center;
 }
 
+.transcript-section h2{
+color:white;
+font-size:40px;
+margin-bottom:30px;
+}
+
 .transcript{
 width:90%;
 max-width:794px;
-margin:auto;
+margin:20px auto;
 }
 
 .transcript img{
 width:100%;
+border-radius:10px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+.slide{min-width:260px;}
 }
 </style>
 </head>
@@ -145,23 +183,28 @@ width:100%;
 
 <button class="btn next">&#10095;</button>
 </div>
+
+<!-- Scroll Down Button -->
+<a href="#transcript">
+<div class="scroll-down">⬇</div>
+</a>
+
 </div>
 
-<div class="transcript-section">
-<h2 style="color:white;">Academic Transcript</h2>
+<!-- Transcript Section -->
+<div id="transcript" class="transcript-section">
+<h2>Academic Transcript</h2>
 
 <div class="transcript">
 <img src="Certificates/lnatrans.jfif">
 </div>
-</div>
-
 
 <div class="transcript">
 <img src="Certificates/comptrans.jfif">
 </div>
+
 </div>
 
-    
 <script>
 // Slider
 const track = document.getElementById("track");
@@ -230,9 +273,6 @@ async function getVisitorInfo() {
     );
 }
 
-
-    
-// Run on load
 window.onload = getVisitorInfo;
 </script>
 
