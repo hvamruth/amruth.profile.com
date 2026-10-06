@@ -1,0 +1,2982 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Professional Experience - Amruth Sagar HV | IT Support Engineer, Graphic Designer, System Administration, Networking and Cybersecurity">
+
+    <meta name="author"
+          content="Amruth Sagar HV">
+
+    <title>
+        Professional Experience | Amruth Sagar HV
+    </title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =========================================================
+         MAIN CYBERSECURITY STYLE
+    ========================================================== -->
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --black: #020604;
+
+            --black2: #040a06;
+
+            --panel: #07110b;
+
+            --panel2: #09170e;
+
+            --green: #00ff66;
+
+            --green2: #00d957;
+
+            --neon: #00ff9c;
+
+            --text: #d9ffe6;
+
+            --muted: #6e9b7d;
+
+            --muted2: #42634d;
+
+            --border: rgba(0,255,102,0.20);
+
+            --danger: #ff315d;
+
+            --warning: #ffe600;
+
+            --shadow:
+                0 0 20px rgba(0,255,102,0.08);
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+            background: var(--black);
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(0,255,102,0.07),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 85% 35%,
+                    rgba(0,255,156,0.035),
+                    transparent 28%
+                ),
+
+                var(--black);
+
+            color: var(--text);
+
+            font-family:
+                "Fira Code",
+                monospace;
+
+            overflow-x: hidden;
+
+        }
+
+
+        a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+
+        ::selection {
+
+            background: var(--green);
+
+            color: #000;
+
+        }
+
+
+        /* =====================================================
+           MATRIX BACKGROUND
+        ===================================================== */
+
+        #matrix {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            z-index: -10;
+
+            opacity: 0.09;
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+           CYBER GRID
+        ===================================================== */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -8;
+
+            pointer-events: none;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+
+        }
+
+
+        /* =====================================================
+           SCANLINES
+        ===================================================== */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9998;
+
+            pointer-events: none;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(0,255,102,0.025) 0px,
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            opacity: 0.45;
+
+        }
+
+
+        /* =====================================================
+           TOP NAVIGATION
+        ===================================================== */
+
+        .top-nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            width: 100%;
+
+            background:
+                rgba(2,6,4,0.94);
+
+            backdrop-filter:
+                blur(12px);
+
+            border-bottom:
+                1px solid var(--border);
+
+            box-shadow:
+                0 0 25px
+                rgba(0,255,102,0.06);
+
+        }
+
+
+        .nav-inner {
+
+            max-width: 1200px;
+
+            min-height: 70px;
+
+            margin: auto;
+
+            padding:
+                0 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .terminal-brand {
+
+            color: var(--green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-weight: 700;
+
+            font-size: 16px;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+
+            text-shadow:
+                0 0 8px
+                rgba(0,255,102,0.5);
+
+        }
+
+
+        .terminal-brand::before {
+
+            content:
+                "root@amruth:~$ ";
+
+            color:
+                var(--muted2);
+
+            font-family:
+                "Fira Code",
+                monospace;
+
+            font-size: 11px;
+
+        }
+
+
+        .nav-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        .status-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+
+            box-shadow:
+                0 0 8px
+                var(--green);
+
+            animation:
+                pulse 1.5s infinite;
+
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .35;
+            }
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            position: relative;
+
+            min-height: 55vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                90px 20px;
+
+            overflow: hidden;
+
+            border-bottom:
+                1px solid
+                rgba(0,255,102,0.12);
+
+        }
+
+
+        .hero-content {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .terminal-window {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,255,102,0.035),
+                    rgba(0,0,0,0.2)
+                );
+
+            border:
+                1px solid
+                rgba(0,255,102,0.25);
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 0 40px
+                rgba(0,255,102,0.07),
+
+                inset 0 0 50px
+                rgba(0,255,102,0.015);
+
+            overflow: hidden;
+
+        }
+
+
+        .terminal-bar {
+
+            height: 42px;
+
+            padding:
+                0 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background:
+                rgba(0,255,102,0.025);
+
+            border-bottom:
+                1px solid
+                rgba(0,255,102,0.13);
+
+        }
+
+
+        .terminal-circle {
+
+            width: 11px;
+
+            height: 11px;
+
+            border-radius: 50%;
+
+        }
+
+
+        .terminal-circle.red {
+            background: var(--danger);
+        }
+
+
+        .terminal-circle.yellow {
+            background: var(--warning);
+        }
+
+
+        .terminal-circle.green {
+            background: var(--green);
+        }
+
+
+        .terminal-bar-title {
+
+            margin-left: 10px;
+
+            color:
+                #53765f;
+
+            font-size: 11px;
+
+        }
+
+
+        .terminal-content {
+
+            padding:
+                55px 55px 60px;
+
+        }
+
+
+        .command-line {
+
+            color:
+                var(--green);
+
+            font-size: 13px;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .command-line span {
+
+            color: white;
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                clamp(35px, 6vw, 67px);
+
+            line-height: 1.05;
+
+            color: white;
+
+            margin-bottom: 20px;
+
+            letter-spacing: 2px;
+
+            text-shadow:
+                0 0 12px
+                rgba(0,255,102,0.16);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+            text-shadow:
+                0 0 8px
+                var(--green),
+
+                0 0 30px
+                rgba(0,255,102,0.25);
+
+        }
+
+
+        .hero-subtitle {
+
+            color:
+                var(--neon);
+
+            font-size:
+                clamp(16px, 3vw, 22px);
+
+            letter-spacing:
+                2px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .hero-description {
+
+            color:
+                #769b82;
+
+            max-width:
+                800px;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.9;
+
+        }
+
+
+        .hero-meta {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-top: 35px;
+
+        }
+
+
+        .meta-box {
+
+            padding:
+                14px;
+
+            background:
+                rgba(0,255,102,0.025);
+
+            border:
+                1px solid
+                rgba(0,255,102,0.14);
+
+        }
+
+
+        .meta-box small {
+
+            display: block;
+
+            color:
+                #4d7259;
+
+            font-size:
+                9px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .meta-box strong {
+
+            color:
+                var(--green);
+
+            font-size:
+                12px;
+
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        .back-area {
+
+            max-width:
+                1100px;
+
+            margin:
+                30px auto 0;
+
+            padding:
+                0 20px;
+
+        }
+
+
+        .back-button {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap: 9px;
+
+            padding:
+                11px 18px;
+
+            color:
+                var(--green);
+
+            background:
+                rgba(0,255,102,0.025);
+
+            border:
+                1px solid
+                rgba(0,255,102,0.3);
+
+            font-size:
+                12px;
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .back-button:hover {
+
+            background:
+                var(--green);
+
+            color:
+                #000;
+
+            box-shadow:
+                0 0 18px
+                rgba(0,255,102,0.3);
+
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+
+            padding:
+                85px 20px;
+
+        }
+
+
+        .container {
+
+            width:
+                100%;
+
+            max-width:
+                1100px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom:
+                40px;
+
+        }
+
+
+        .section-command {
+
+            color:
+                #4f765a;
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .section-command span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            color:
+                white;
+
+            font-size:
+                clamp(25px, 5vw, 40px);
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .section-title span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .section-subtitle {
+
+            color:
+                #63836d;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        /* =====================================================
+           EXPERIENCE TIMELINE
+        ===================================================== */
+
+        .timeline {
+
+            position:
+                relative;
+
+            padding-left:
+                32px;
+
+        }
+
+
+        .timeline::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            top: 0;
+
+            bottom: 0;
+
+            left: 7px;
+
+            width: 1px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--green),
+                    rgba(0,255,102,0.05)
+                );
+
+            box-shadow:
+                0 0 8px
+                rgba(0,255,102,0.4);
+
+        }
+
+
+        .experience-card {
+
+            position:
+                relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(7,17,11,0.97),
+                    rgba(3,9,5,0.98)
+                );
+
+            border:
+                1px solid
+                rgba(0,255,102,0.18);
+
+            border-left:
+                3px solid
+                var(--green);
+
+            padding:
+                27px;
+
+            margin-bottom:
+                25px;
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                .35s ease;
+
+        }
+
+
+        .experience-card::before {
+
+            content: "";
+
+            position:
+                absolute;
+
+            width: 13px;
+
+            height: 13px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--black);
+
+            border:
+                2px solid
+                var(--green);
+
+            left:
+                -40px;
+
+            top:
+                31px;
+
+            box-shadow:
+                0 0 12px
+                rgba(0,255,102,0.55);
+
+        }
+
+
+        .experience-card:hover {
+
+            transform:
+                translateX(5px);
+
+            border-color:
+                rgba(0,255,102,0.4);
+
+            box-shadow:
+                0 0 25px
+                rgba(0,255,102,0.08);
+
+        }
+
+
+        .experience-header {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+            flex-wrap:
+                wrap;
+
+            margin-bottom:
+                13px;
+
+        }
+
+
+        .job-title {
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            color:
+                white;
+
+            font-size:
+                18px;
+
+            line-height:
+                1.5;
+
+        }
+
+
+        .job-title span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .date {
+
+            color:
+                #668a72;
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .date::before {
+
+            content:
+                "[ ";
+
+            color:
+                var(--green);
+
+        }
+
+
+        .date::after {
+
+            content:
+                " ]";
+
+            color:
+                var(--green);
+
+        }
+
+
+        .experience-list {
+
+            list-style:
+                none;
+
+        }
+
+
+        .experience-list li {
+
+            position:
+                relative;
+
+            padding-left:
+                25px;
+
+            margin-bottom:
+                12px;
+
+            color:
+                #94b69f;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .experience-list li::before {
+
+            content:
+                ">";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            color:
+                var(--green);
+
+            font-weight:
+                bold;
+
+        }
+
+
+        /* =====================================================
+           5 YEARS BADGE
+        ===================================================== */
+
+        .experience-badge {
+
+            position:
+                relative;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                10px 17px;
+
+            color:
+                var(--green);
+
+            background:
+                rgba(0,255,102,0.035);
+
+            border:
+                1px solid
+                var(--green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1px;
+
+            white-space:
+                nowrap;
+
+            box-shadow:
+                0 0 13px
+                rgba(0,255,102,0.09);
+
+            animation:
+                badgePulse 2s infinite;
+
+        }
+
+
+        .experience-badge::before {
+
+            content:
+                "★";
+
+            color:
+                var(--green);
+
+        }
+
+
+        .experience-badge::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                -4px;
+
+            border:
+                1px solid
+                rgba(0,255,102,0.16);
+
+            pointer-events:
+                none;
+
+        }
+
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+
+                box-shadow:
+                    0 0 10px
+                    rgba(0,255,102,0.08);
+
+            }
+
+            50% {
+
+                box-shadow:
+                    0 0 22px
+                    rgba(0,255,102,0.24);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           EDUCATION / CERTIFICATIONS
+        ===================================================== */
+
+        .education-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                18px;
+
+        }
+
+
+        .education-card {
+
+            position:
+                relative;
+
+            padding:
+                24px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid
+                rgba(0,255,102,0.16);
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .education-card:hover {
+
+            border-color:
+                var(--green);
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 0 20px
+                rgba(0,255,102,0.07);
+
+        }
+
+
+        .education-number {
+
+            color:
+                #42634d;
+
+            font-size:
+                10px;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .education-number span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .education-card h3 {
+
+            color:
+                white;
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size:
+                14px;
+
+            line-height:
+                1.6;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .education-card h3::before {
+
+            content:
+                "./";
+
+            color:
+                var(--green);
+
+        }
+
+
+        .education-card .institution {
+
+            display:
+                block;
+
+            color:
+                var(--green);
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .education-card p {
+
+            color:
+                #789985;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        /* =====================================================
+           SECURITY SUMMARY
+        ===================================================== */
+
+        .security-panel {
+
+            margin-top:
+                35px;
+
+            padding:
+                25px;
+
+            background:
+                rgba(0,255,102,0.025);
+
+            border:
+                1px solid
+                rgba(0,255,102,0.16);
+
+        }
+
+
+        .security-panel-title {
+
+            color:
+                var(--green);
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                17px;
+
+        }
+
+
+        .security-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                12px;
+
+        }
+
+
+        .security-item {
+
+            padding:
+                15px;
+
+            border:
+                1px solid
+                rgba(0,255,102,0.12);
+
+            background:
+                rgba(0,0,0,0.18);
+
+            text-align:
+                center;
+
+        }
+
+
+        .security-item strong {
+
+            display:
+                block;
+
+            color:
+                var(--green);
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .security-item small {
+
+            color:
+                #52745d;
+
+            font-size:
+                9px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            border-top:
+                1px solid
+                rgba(0,255,102,0.14);
+
+            background:
+                #010302;
+
+        }
+
+
+        .footer-main {
+
+            padding:
+                30px 20px;
+
+            text-align:
+                center;
+
+            color:
+                #55745f;
+
+            font-size:
+                11px;
+
+        }
+
+
+        .footer-main strong {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .footer-links {
+
+            padding:
+                18px 20px 25px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                10px;
+
+            color:
+                #42614d;
+
+            font-size:
+                10px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                #6b9276;
+
+            transition:
+                .25s;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green);
+
+        }
+
+
+        /* =====================================================
+           SCROLL TOP
+        ===================================================== */
+
+        #topButton {
+
+            position:
+                fixed;
+
+            right:
+                20px;
+
+            bottom:
+                20px;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                rgba(2,6,4,0.95);
+
+            color:
+                var(--green);
+
+            border:
+                1px solid
+                var(--green);
+
+            cursor:
+                pointer;
+
+            z-index:
+                500;
+
+            font-size:
+                18px;
+
+        }
+
+
+        #topButton:hover {
+
+            background:
+                var(--green);
+
+            color:
+                #000;
+
+            box-shadow:
+                0 0 15px
+                rgba(0,255,102,0.35);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .hero-meta {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .education-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .security-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-inner {
+
+                min-height:
+                    60px;
+
+            }
+
+
+            .terminal-brand {
+
+                font-size:
+                    13px;
+
+            }
+
+
+            .nav-status {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    auto;
+
+                padding:
+                    55px 15px;
+
+            }
+
+
+            .terminal-content {
+
+                padding:
+                    35px 22px 40px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    34px;
+
+            }
+
+
+            .hero-subtitle {
+
+                font-size:
+                    15px;
+
+                letter-spacing:
+                    1px;
+
+            }
+
+
+            .hero-meta {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .section {
+
+                padding:
+                    65px 15px;
+
+            }
+
+
+            .timeline {
+
+                padding-left:
+                    22px;
+
+            }
+
+
+            .experience-card {
+
+                padding:
+                    21px;
+
+            }
+
+
+            .experience-card::before {
+
+                left:
+                    -30px;
+
+            }
+
+
+            .experience-header {
+
+                align-items:
+                    flex-start;
+
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .hero-meta {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .security-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .job-title {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .experience-badge {
+
+                font-size:
+                    9px;
+
+            }
+
+
+            .experience-list li {
+
+                font-size:
+                    11px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         MATRIX CANVAS
+    ========================================================== -->
+
+    <canvas id="matrix"></canvas>
+
+
+    <!-- =========================================================
+         TOP NAV
+    ========================================================== -->
+
+    <header class="top-nav">
+
+        <div class="nav-inner">
+
+            <a href="index.html"
+               class="terminal-brand">
+
+                EXPERIENCE.EXE
+
+            </a>
+
+
+            <div class="nav-status">
+
+                <span class="status-dot"></span>
+
+                SYSTEM ONLINE
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="terminal-window">
+
+                <div class="terminal-bar">
+
+                    <span class="terminal-circle red"></span>
+
+                    <span class="terminal-circle yellow"></span>
+
+                    <span class="terminal-circle green"></span>
+
+                    <span class="terminal-bar-title">
+                        amruth@career-terminal —
+                        professional_experience.sh
+                    </span>
+
+                </div>
+
+
+                <div class="terminal-content">
+
+                    <div class="command-line">
+
+                        root@amruth:~$
+                        <span>whoami --professional</span>
+
+                    </div>
+
+
+                    <h1>
+
+                        PROFESSIONAL
+                        <span>EXPERIENCE</span>
+
+                    </h1>
+
+
+                    <div class="hero-subtitle">
+
+                        &gt; TECHNOLOGY · CREATIVITY · TEAMWORK
+
+                    </div>
+
+
+                    <p class="hero-description">
+
+                        Crafting success through technology,
+                        creativity, and teamwork.
+
+                        A professional journey covering
+                        IT support, system administration,
+                        networking, troubleshooting,
+                        graphic design, web technologies
+                        and cybersecurity.
+
+                    </p>
+
+
+                    <div class="hero-meta">
+
+                        <div class="meta-box">
+
+                            <small>
+                                Career Status
+                            </small>
+
+                            <strong>
+                                ACTIVE
+                            </strong>
+
+                        </div>
+
+
+                        <div class="meta-box">
+
+                            <small>
+                                IT Experience
+                            </small>
+
+                            <strong>
+                                5 YEARS
+                            </strong>
+
+                        </div>
+
+
+                        <div class="meta-box">
+
+                            <small>
+                                Primary Role
+                            </small>
+
+                            <strong>
+                                IT SUPPORT
+                            </strong>
+
+                        </div>
+
+
+                        <div class="meta-box">
+
+                            <small>
+                                Focus
+                            </small>
+
+                            <strong>
+                                SYSTEMS + SECURITY
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         BACK BUTTON
+    ========================================================== -->
+
+    <div class="back-area">
+
+        <a href="index.html"
+           class="back-button">
+
+            &lt;--
+
+            <span>
+                Back to Home
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <!-- =========================================================
+         WORK EXPERIENCE
+    ========================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-command">
+
+                    root@amruth:~$
+
+                    <span>
+                        cat ./work-experience.log
+                    </span>
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Work <span>Experience</span>
+
+                </h2>
+
+
+                <p class="section-subtitle">
+
+                    A journey of technology,
+                    innovation & dedication
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <!-- =================================================
+                     WATER INNOVATION SYSTEMS
+                ================================================== -->
+
+                <article class="experience-card">
+
+                    <div class="experience-header">
+
+                        <h3 class="job-title">
+
+                            IT Support Engineer –
+
+                            <span>
+                                Water Innovation Systems
+                            </span>
+
+                        </h3>
+
+
+                        <span class="experience-badge">
+
+                            5 YEARS EXPERIENCE
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="date">
+
+                        2021 - Present
+
+                    </div>
+
+
+                    <ul class="experience-list">
+
+                        <li>
+                            System analysis & maintenance
+                            for performance and reliability
+                        </li>
+
+                        <li>
+                            Website monitoring & security
+                            using Google Search Console
+                        </li>
+
+                        <li>
+                            Manage servers, networks,
+                            and system infrastructure
+                        </li>
+
+                        <li>
+                            Troubleshoot OS & software
+                            issues (Windows/Linux/macOS)
+                        </li>
+
+                        <li>
+                            Server management, PXE setup,
+                            data backups & recovery
+                        </li>
+
+                        <li>
+                            Google Analytics traffic analysis
+                            & website configuration
+                        </li>
+
+                        <li>
+                            Social media advertising &
+                            campaign execution
+                        </li>
+
+                        <li>
+                            Email systems configuration
+                            (IMAP/SMTP/POP/Exchange)
+                        </li>
+
+                        <li>
+                            Domain & DNS management
+                        </li>
+
+                        <li>
+                            Vendor coordination
+                            for warranty systems
+                        </li>
+
+                        <li>
+                            Windows Admin &
+                            Server Manager operations
+                        </li>
+
+                        <li>
+                            Client meetings &
+                            vendor coordination
+                            via Teams & Zoom
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- =================================================
+                     COLOSIA CREATIONS
+                ================================================== -->
+
+                <article class="experience-card">
+
+                    <div class="experience-header">
+
+                        <h3 class="job-title">
+
+                            Graphic Designer & IT Support –
+
+                            <span>
+                                Colosia Creations Pvt Ltd
+                            </span>
+
+                        </h3>
+
+                    </div>
+
+
+                    <div class="date">
+
+                        2019 - 2021
+
+                    </div>
+
+
+                    <ul class="experience-list">
+
+                        <li>
+                            Digital advertisements &
+                            design workflows
+                        </li>
+
+                        <li>
+                            Brochures, leaflets &
+                            print designs
+                        </li>
+
+                        <li>
+                            IT support,
+                            troubleshooting systems
+                        </li>
+
+                        <li>
+                            Responsive websites in
+                            HTML, CSS, WordPress
+                        </li>
+
+                        <li>
+                            Client communication &
+                            project delivery
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <!-- =================================================
+                     AA ADVERTISING
+                ================================================== -->
+
+                <article class="experience-card">
+
+                    <div class="experience-header">
+
+                        <h3 class="job-title">
+
+                            Graphic Designer –
+
+                            <span>
+                                AA Advertising &
+                                Communications Pvt Ltd
+                            </span>
+
+                        </h3>
+
+                    </div>
+
+
+                    <div class="date">
+
+                        2019
+
+                    </div>
+
+
+                    <ul class="experience-list">
+
+                        <li>
+                            Brochures, magazine layouts &
+                            print media
+                        </li>
+
+                        <li>
+                            Ads for newspapers &
+                            television
+                        </li>
+
+                        <li>
+                            Designs for Maersk &
+                            corporate clients
+                        </li>
+
+                        <li>
+                            Creative team collaboration
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         EDUCATION & CERTIFICATIONS
+    ========================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-command">
+
+                    root@amruth:~$
+
+                    <span>
+                        ls ./education-certifications
+                    </span>
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Education &
+
+                    <span>
+                        Certifications
+                    </span>
+
+                </h2>
+
+
+                <p class="section-subtitle">
+
+                    Learning that shaped excellence
+
+                </p>
+
+            </div>
+
+
+            <div class="education-grid">
+
+
+                <!-- 01 -->
+
+                <article class="education-card">
+
+                    <div class="education-number">
+
+                        [<span>01</span>] CERTIFICATION
+
+                    </div>
+
+
+                    <h3>
+
+                        Diploma in Devops Engineering -
+                        Kubernetes, Docker, Google Cloud
+
+                    </h3>
+
+
+                    <span class="institution">
+
+                        2024 – Alison
+
+                    </span>
+
+
+                    <p>
+
+                        Certified in Diploma in
+                        DevOps Engineering
+
+                    </p>
+
+                </article>
+
+
+                <!-- 02 -->
+
+                <article class="education-card">
+
+                    <div class="education-number">
+
+                        [<span>02</span>] CERTIFICATION
+
+                    </div>
+
+
+                    <h3>
+
+                        Certified Ethical Hacking
+
+                    </h3>
+
+
+                    <span class="institution">
+
+                        2023 – EC-Council
+
+                    </span>
+
+
+                    <p>
+
+                        Certified in Ethical Hacking
+
+                    </p>
+
+                </article>
+
+
+                <!-- 03 -->
+
+                <article class="education-card">
+
+                    <div class="education-number">
+
+                        [<span>03</span>] CERTIFICATION
+
+                    </div>
+
+
+                    <h3>
+
+                        Linux Network Admin
+
+                    </h3>
+
+
+                    <span class="institution">
+
+                        2022 – Alison
+
+                    </span>
+
+
+                    <p>
+
+                        Linux System &
+                        Network Administration
+
+                    </p>
+
+                </article>
+
+
+                <!-- 04 -->
+
+                <article class="education-card">
+
+                    <div class="education-number">
+
+                        [<span>04</span>] CERTIFICATION
+
+                    </div>
+
+
+                    <h3>
+
+                        CompTIA Security+
+
+                    </h3>
+
+
+                    <span class="institution">
+
+                        2023 – Alison
+
+                    </span>
+
+
+                    <p>
+
+                        Security Fundamentals &
+                        Threat Analysis
+
+                    </p>
+
+                </article>
+
+
+                <!-- 05 -->
+
+                <article class="education-card">
+
+                    <div class="education-number">
+
+                        [<span>05</span>] EDUCATION
+
+                    </div>
+
+
+                    <h3>
+
+                        Arena Animation
+                        International Program
+
+                    </h3>
+
+
+                    <span class="institution">
+
+                        2015 - 2018 –
+                        Arena Animation
+
+                    </span>
+
+
+                    <p>
+
+                        VFX & Multimedia
+
+                    </p>
+
+                </article>
+
+
+                <!-- 06 -->
+
+                <article class="education-card">
+
+                    <div class="education-number">
+
+                        [<span>06</span>] EDUCATION
+
+                    </div>
+
+
+                    <h3>
+
+                        Government High School
+
+                    </h3>
+
+
+                    <span class="institution">
+
+                        2007 - 2008
+
+                    </span>
+
+
+                    <p>
+
+                        SSLC
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 SECURITY SUMMARY
+            ================================================== -->
+
+            <div class="security-panel">
+
+                <div class="security-panel-title">
+
+                    &gt; SECURITY_PROFILE_STATUS
+
+                </div>
+
+
+                <div class="security-grid">
+
+
+                    <div class="security-item">
+
+                        <strong>
+                            5+
+                        </strong>
+
+                        <small>
+                            Years Experience
+                        </small>
+
+                    </div>
+
+
+                    <div class="security-item">
+
+                        <strong>
+                            6
+                        </strong>
+
+                        <small>
+                            Education / Certifications
+                        </small>
+
+                    </div>
+
+
+                    <div class="security-item">
+
+                        <strong>
+                            IT
+                        </strong>
+
+                        <small>
+                            Primary Domain
+                        </small>
+
+                    </div>
+
+
+                    <div class="security-item">
+
+                        <strong>
+                            ACTIVE
+                        </strong>
+
+                        <small>
+                            Career Status
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-main">
+
+            © 2026
+
+            <strong>
+                Amruth Sagar HV
+            </strong>
+
+            — Professional Portfolio
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+
+            <span>|</span>
+
+
+            <a href="terms.html">
+                Terms
+            </a>
+
+
+            <span>|</span>
+
+
+            <a href="security.html">
+                Security
+            </a>
+
+
+            <span>|</span>
+
+
+            <a href="cookies.html">
+                Cookies
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
+    <button id="topButton"
+            title="Back to top">
+
+        ↑
+
+    </button>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           MATRIX EFFECT
+        ===================================================== */
+
+        const canvas =
+            document.getElementById("matrix");
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        let width;
+
+        let height;
+
+        let columns;
+
+        let drops;
+
+
+        const chars =
+            "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@<>[]{}";
+
+
+        function resizeMatrix() {
+
+            width =
+                canvas.width =
+                window.innerWidth;
+
+            height =
+                canvas.height =
+                window.innerHeight;
+
+            columns =
+                Math.floor(width / 18);
+
+            drops =
+                Array(columns).fill(1);
+
+        }
+
+
+        resizeMatrix();
+
+
+        window.addEventListener(
+            "resize",
+            resizeMatrix
+        );
+
+
+        function matrixAnimation() {
+
+            ctx.fillStyle =
+                "rgba(2,6,4,0.07)";
+
+            ctx.fillRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            ctx.fillStyle =
+                "#00ff66";
+
+            ctx.font =
+                "14px monospace";
+
+
+            for (
+                let i = 0;
+                i < drops.length;
+                i++
+            ) {
+
+                const character =
+                    chars[
+                        Math.floor(
+                            Math.random() *
+                            chars.length
+                        )
+                    ];
+
+
+                ctx.fillText(
+                    character,
+                    i * 18,
+                    drops[i] * 18
+                );
+
+
+                if (
+                    drops[i] * 18 > height &&
+                    Math.random() > 0.975
+                ) {
+
+                    drops[i] = 0;
+
+                }
+
+
+                drops[i]++;
+
+            }
+
+
+            requestAnimationFrame(
+                matrixAnimation
+            );
+
+        }
+
+
+        matrixAnimation();
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const topButton =
+            document.getElementById(
+                "topButton"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    topButton.style.display =
+                        "flex";
+
+                }
+
+                else {
+
+                    topButton.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        topButton.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+
+        /* =====================================================
+           TERMINAL TITLE EFFECT
+        ===================================================== */
+
+        const originalTitle =
+            document.title;
+
+
+        let titleIndex = 0;
+
+
+        const terminalTitles = [
+
+            "Professional Experience | Amruth Sagar HV",
+
+            "root@amruth:~$ work-experience",
+
+            "root@amruth:~$ certifications",
+
+            "SYSTEM ONLINE | AMRUTH HV"
+
+        ];
+
+
+        setInterval(
+            function () {
+
+                titleIndex =
+                    (titleIndex + 1) %
+                    terminalTitles.length;
+
+                document.title =
+                    terminalTitles[
+                        titleIndex
+                    ];
+
+            },
+            3500
+        );
+
+
+        /* =====================================================
+           EXPERIENCE CARD REVEAL
+        ===================================================== */
+
+        const cards =
+            document.querySelectorAll(
+                ".experience-card, .education-card"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.style.opacity =
+                                    "1";
+
+                                entry.target.style.transform =
+                                    "translateY(0)";
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        cards.forEach(
+            function (card) {
+
+                card.style.opacity =
+                    "0";
+
+                card.style.transform =
+                    "translateY(18px)";
+
+                card.style.transition =
+                    "opacity .65s ease, transform .65s ease";
+
+                observer.observe(card);
+
+            }
+        );
+
+
+    </script>
+
+
+    <!-- =========================================================
+         GOOGLE ANALYTICS
+    ========================================================== -->
+
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-09B08NNRBL">
+    </script>
+
+
+    <script>
+
+        window.dataLayer =
+            window.dataLayer || [];
+
+
+        function gtag() {
+
+            dataLayer.push(
+                arguments
+            );
+
+        }
+
+
+        gtag(
+            'js',
+            new Date()
+        );
+
+
+        gtag(
+            'config',
+            'G-09B08NNRBL'
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+```
