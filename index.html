@@ -1,0 +1,2894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amruth Sagar HV | System Administrator | Cybersecurity</title>
+
+    <meta name="description"
+        content="Amruth Sagar HV - System Administrator, Linux Administrator, Windows Administrator, Network Support, Troubleshooting, Ethical Hacking and Security Researching.">
+
+    <meta name="author" content="Amruth Sagar HV">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        :root {
+            --bg: #020604;
+            --bg2: #050b08;
+            --panel: #07110c;
+            --panel2: #0a1710;
+
+            --green: #00ff66;
+            --green2: #00cc55;
+            --green3: #00ff9c;
+
+            --text: #d8ffe5;
+            --muted: #78a98a;
+
+            --border: rgba(0,255,102,0.22);
+
+            --shadow:
+                0 0 10px rgba(0,255,102,0.12),
+                0 0 30px rgba(0,255,102,0.06);
+
+            --danger: #ff315d;
+            --warning: #ffe600;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 20% 10%, rgba(0,255,102,0.07), transparent 25%),
+                radial-gradient(circle at 80% 40%, rgba(0,255,156,0.04), transparent 25%),
+                var(--bg);
+
+            color: var(--text);
+
+            font-family: "Fira Code", monospace;
+
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ::selection {
+            background: var(--green);
+            color: #000;
+        }
+
+
+        /* =========================================================
+           MATRIX BACKGROUND
+        ========================================================= */
+
+        #matrix {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -5;
+
+            opacity: 0.11;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           SCANLINES
+        ========================================================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 9999;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(0,255,102,0.025) 0px,
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            opacity: 0.45;
+        }
+
+
+        /* =========================================================
+           CYBER GRID
+        ========================================================= */
+
+        body::after {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: -4;
+
+            background-image:
+                linear-gradient(rgba(0,255,102,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,102,0.025) 1px, transparent 1px);
+
+            background-size: 50px 50px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 85%
+            );
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            background: rgba(2,6,4,0.90);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+
+            box-shadow:
+                0 0 25px rgba(0,255,102,0.06);
+        }
+
+        .nav-container {
+            max-width: 1250px;
+
+            margin: auto;
+
+            min-height: 75px;
+
+            padding: 0 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-family: "Orbitron", sans-serif;
+
+            font-weight: 700;
+
+            color: var(--green);
+
+            font-size: 20px;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 0 5px var(--green),
+                0 0 15px rgba(0,255,102,0.35);
+        }
+
+        .brand::before {
+            content: "> ";
+
+            color: var(--green3);
+        }
+
+        .brand span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+
+            list-style: none;
+
+            gap: 8px;
+        }
+
+        nav a {
+            display: block;
+
+            padding: 11px 14px;
+
+            color: #91bda0;
+
+            font-size: 13px;
+
+            border: 1px solid transparent;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav li.active a {
+            color: var(--green);
+
+            border-color: var(--border);
+
+            background: rgba(0,255,102,0.05);
+
+            box-shadow:
+                inset 0 0 15px rgba(0,255,102,0.04),
+                0 0 12px rgba(0,255,102,0.08);
+        }
+
+        nav a::before {
+            content: "[ ";
+
+            color: #345840;
+        }
+
+        nav a::after {
+            content: " ]";
+
+            color: #345840;
+        }
+
+        .menu-btn {
+            display: none;
+
+            border: 1px solid var(--green);
+
+            background: transparent;
+
+            color: var(--green);
+
+            padding: 8px 12px;
+
+            cursor: pointer;
+
+            font-size: 20px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        #header {
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+
+            padding: 100px 20px 60px;
+
+            overflow: hidden;
+        }
+
+        .hero {
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .terminal-window {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,255,102,0.04),
+                    rgba(0,0,0,0.20)
+                );
+
+            border: 1px solid rgba(0,255,102,0.28);
+
+            box-shadow:
+                0 0 30px rgba(0,255,102,0.07),
+                inset 0 0 50px rgba(0,255,102,0.015);
+
+            border-radius: 8px;
+
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 15px;
+
+            border-bottom: 1px solid rgba(0,255,102,0.15);
+
+            background: rgba(0,255,102,0.025);
+        }
+
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+
+            border-radius: 50%;
+
+            margin-right: 8px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .terminal-dot.red {
+            background: #ff315d;
+        }
+
+        .terminal-dot.yellow {
+            background: #ffe600;
+        }
+
+        .terminal-dot.green {
+            background: #00ff66;
+        }
+
+        .terminal-title {
+            margin-left: 12px;
+
+            color: #628a70;
+
+            font-size: 12px;
+        }
+
+        .terminal-body {
+            padding: 55px 60px 65px;
+        }
+
+        .terminal-line {
+            color: var(--green);
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .terminal-line span {
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: "Orbitron", sans-serif;
+
+            font-size: clamp(40px, 7vw, 82px);
+
+            line-height: 1;
+
+            color: #f0fff5;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+
+            text-shadow:
+                0 0 8px rgba(255,255,255,0.18),
+                0 0 25px rgba(0,255,102,0.16);
+        }
+
+        .hero h1 .green {
+            color: var(--green);
+
+            text-shadow:
+                0 0 5px var(--green),
+                0 0 25px rgba(0,255,102,0.3);
+        }
+
+        .hero-role {
+            font-family: "Orbitron", sans-serif;
+
+            color: var(--green3);
+
+            font-size: clamp(18px, 3vw, 28px);
+
+            letter-spacing: 3px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-role::before {
+            content: "root@amruth:~$ ";
+
+            color: #5c8469;
+
+            font-family: "Fira Code", monospace;
+
+            font-size: 14px;
+
+            letter-spacing: 0;
+        }
+
+        .typing {
+            min-height: 30px;
+
+            color: #8fc8a2;
+
+            font-size: 16px;
+
+            margin-bottom: 32px;
+        }
+
+        .cursor {
+            color: var(--green);
+
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================================================
+           STATUS
+        ========================================================= */
+
+        .status-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin: 30px 0;
+        }
+
+        .status-box {
+            border: 1px solid rgba(0,255,102,0.18);
+
+            background: rgba(0,255,102,0.025);
+
+            padding: 15px;
+
+            text-align: center;
+        }
+
+        .status-box small {
+            display: block;
+
+            color: #527961;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+        .status-box strong {
+            color: var(--green);
+
+            font-size: 14px;
+        }
+
+        .online-dot {
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 7px var(--green);
+
+            margin-right: 5px;
+        }
+
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .button-row {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+        }
+
+        .cyber-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 190px;
+
+            padding: 14px 22px;
+
+            color: var(--green);
+
+            background: rgba(0,255,102,0.025);
+
+            border: 1px solid var(--green);
+
+            font-family: "Fira Code", monospace;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .cyber-btn:hover {
+            background: var(--green);
+
+            color: #000;
+
+            box-shadow:
+                0 0 10px var(--green),
+                0 0 30px rgba(0,255,102,0.25);
+
+            transform: translateY(-2px);
+        }
+
+        .cyber-btn::before {
+            content: "> ";
+
+            margin-right: 8px;
+        }
+
+        .cyber-btn.secondary {
+            border-color: #40694d;
+
+            color: #90b89c;
+        }
+
+        .cyber-btn.secondary:hover {
+            color: #000;
+
+            background: var(--green3);
+
+            border-color: var(--green3);
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+            padding: 110px 20px;
+
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 55px;
+        }
+
+        .section-command {
+            color: #557d63;
+
+            font-size: 13px;
+
+            margin-bottom: 12px;
+        }
+
+        .section-command span {
+            color: var(--green);
+        }
+
+        .section-heading h2 {
+            font-family: "Orbitron", sans-serif;
+
+            color: white;
+
+            font-size: clamp(27px, 5vw, 45px);
+
+            letter-spacing: 1px;
+        }
+
+        .section-heading h2 span {
+            color: var(--green);
+        }
+
+        .section-heading p {
+            margin-top: 12px;
+
+            color: #668c74;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           PORTFOLIO
+        ========================================================= */
+
+        #portfolio {
+            border-top: 1px solid rgba(0,255,102,0.08);
+        }
+
+        .portfolio-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .portfolio-card {
+            position: relative;
+
+            min-height: 270px;
+
+            overflow: hidden;
+
+            background: var(--panel);
+
+            border: 1px solid rgba(0,255,102,0.18);
+
+            transition: 0.4s;
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--green);
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 0 15px rgba(0,255,102,0.14),
+                0 15px 35px rgba(0,0,0,0.35);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+
+            height: 170px;
+
+            object-fit: cover;
+
+            display: block;
+
+            opacity: 0.55;
+
+            filter:
+                grayscale(60%)
+                contrast(1.15);
+
+            transition: 0.4s;
+        }
+
+        .portfolio-card:hover img {
+            opacity: 0.28;
+
+            transform: scale(1.05);
+
+            filter:
+                grayscale(30%)
+                contrast(1.25);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    transparent 25%,
+                    rgba(2,6,4,0.98) 72%
+                );
+        }
+
+        .portfolio-content {
+            position: absolute;
+
+            left: 18px;
+            right: 18px;
+            bottom: 17px;
+        }
+
+        .portfolio-number {
+            color: #4b7258;
+
+            font-size: 10px;
+
+            margin-bottom: 7px;
+        }
+
+        .portfolio-content h3 {
+            font-family: "Orbitron", sans-serif;
+
+            color: white;
+
+            font-size: 15px;
+
+            margin-bottom: 12px;
+        }
+
+        .portfolio-content h3 span {
+            color: var(--green);
+        }
+
+        .portfolio-links {
+            display: flex;
+
+            gap: 10px;
+        }
+
+        .portfolio-links a {
+            width: 29px;
+            height: 29px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid rgba(0,255,102,0.22);
+
+            color: #72a382;
+
+            font-size: 11px;
+
+            transition: 0.3s;
+        }
+
+        .portfolio-links a:hover {
+            color: #000;
+
+            background: var(--green);
+
+            border-color: var(--green);
+
+            box-shadow: 0 0 10px rgba(0,255,102,0.4);
+        }
+
+        .view-all {
+            display: block;
+
+            width: max-content;
+
+            margin: 45px auto 0;
+
+            padding: 13px 25px;
+
+            border: 1px solid #456d51;
+
+            color: #86ad92;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .view-all:hover {
+            border-color: var(--green);
+
+            color: var(--green);
+
+            box-shadow: 0 0 15px rgba(0,255,102,0.1);
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        #services {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,255,102,0.015),
+                    rgba(0,0,0,0.18)
+                );
+        }
+
+        .skills-terminal {
+            background: var(--panel);
+
+            border: 1px solid rgba(0,255,102,0.20);
+
+            padding: 30px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .skill {
+            margin-bottom: 28px;
+        }
+
+        .skill:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            color: #a6d4b4;
+
+            font-size: 13px;
+        }
+
+        .skill-top strong {
+            color: var(--green);
+
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            width: 100%;
+
+            height: 8px;
+
+            background: #0d1c13;
+
+            border: 1px solid rgba(0,255,102,0.10);
+
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+
+            width: 0;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    var(--green) 0,
+                    var(--green) 8px,
+                    #008f43 8px,
+                    #008f43 10px
+                );
+
+            box-shadow:
+                0 0 10px rgba(0,255,102,0.4);
+
+            transition:
+                width 1.5s cubic-bezier(.17,.67,.25,1);
+        }
+
+        .skill-meta {
+            color: #42634d;
+
+            font-size: 10px;
+
+            margin-top: 6px;
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        #contact {
+            border-top: 1px solid rgba(0,255,102,0.08);
+        }
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 35px;
+        }
+
+        .contact-terminal,
+        .contact-info {
+            background: var(--panel);
+
+            border: 1px solid rgba(0,255,102,0.18);
+
+            padding: 30px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .terminal-label {
+            color: var(--green);
+
+            font-size: 12px;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            margin-bottom: 15px;
+
+            padding: 14px 15px;
+
+            background: #030906;
+
+            border: 1px solid #1b3a25;
+
+            color: var(--text);
+
+            font-family: "Fira Code", monospace;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+
+            min-height: 145px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--green);
+
+            box-shadow:
+                0 0 12px rgba(0,255,102,0.08);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #41614b;
+        }
+
+        .submit-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            background: transparent;
+
+            border: 1px solid var(--green);
+
+            color: var(--green);
+
+            font-family: "Fira Code", monospace;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            color: #000;
+
+            background: var(--green);
+
+            box-shadow: 0 0 20px rgba(0,255,102,0.25);
+        }
+
+        .contact-item {
+            display: flex;
+
+            gap: 17px;
+
+            padding: 20px 0;
+
+            border-bottom: 1px dashed rgba(0,255,102,0.13);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            min-width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--green);
+
+            color: var(--green);
+
+            font-size: 13px;
+
+            box-shadow:
+                0 0 10px rgba(0,255,102,0.08);
+        }
+
+        .contact-item small {
+            display: block;
+
+            color: #4c7458;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: #a5cdb1;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .contact-item a:hover {
+            color: var(--green);
+        }
+
+        .social-links {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #31553b;
+
+            color: #7aa487;
+
+            font-size: 12px;
+
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #000;
+
+            background: var(--green);
+
+            border-color: var(--green);
+
+            box-shadow: 0 0 12px rgba(0,255,102,0.35);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            border-top: 1px solid rgba(0,255,102,0.15);
+
+            background: #010302;
+
+            padding: 28px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            color: #52745d;
+
+            font-size: 11px;
+        }
+
+        .footer-container strong {
+            color: var(--green);
+        }
+
+        .footer-right a {
+            color: #78a184;
+        }
+
+        .footer-right a:hover {
+            color: var(--green);
+        }
+
+
+        /* =========================================================
+           GLITCH EFFECT
+        ========================================================= */
+
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            opacity: 0;
+        }
+
+        .glitch:hover::before {
+            opacity: 0.6;
+
+            color: #00ffff;
+
+            transform: translate(2px, -1px);
+        }
+
+        .glitch:hover::after {
+            opacity: 0.5;
+
+            color: #ff0055;
+
+            transform: translate(-2px, 1px);
+        }
+
+
+        /* =========================================================
+           SCROLL TOP
+        ========================================================= */
+
+        #topBtn {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 42px;
+            height: 42px;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--green);
+
+            background: rgba(2,6,4,0.9);
+
+            color: var(--green);
+
+            cursor: pointer;
+
+            z-index: 100;
+
+            transition: 0.3s;
+        }
+
+        #topBtn:hover {
+            color: #000;
+
+            background: var(--green);
+
+            box-shadow: 0 0 15px rgba(0,255,102,0.35);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .portfolio-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .status-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+
+                background: rgba(2,6,4,0.98);
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+
+                padding: 15px 20px;
+            }
+
+            nav a {
+                width: 100%;
+            }
+
+            .terminal-body {
+                padding: 40px 25px 45px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .brand {
+                font-size: 15px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-role {
+                font-size: 17px;
+
+                letter-spacing: 1px;
+            }
+
+            .hero-role::before {
+                display: block;
+
+                margin-bottom: 7px;
+            }
+
+            .status-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .cyber-btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 80px 15px;
+            }
+
+            .contact-terminal,
+            .contact-info,
+            .skills-terminal {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         MATRIX CANVAS
+    ========================================================== -->
+
+    <canvas id="matrix"></canvas>
+
+
+    <!-- =========================================================
+         HEADER / NAVIGATION
+    ========================================================== -->
+
+    <header>
+
+        <div class="nav-container">
+
+            <a href="#header" class="brand">
+                AMRUTH <span>SAGAR HV</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <nav id="mainNav">
+
+                <ul>
+
+                    <li class="active">
+                        <a href="#header">HOME</a>
+                    </li>
+
+                    <li>
+                        <a href="#portfolio">PORTFOLIO</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">SKILLS</a>
+                    </li>
+
+                    <li>
+                        <a href="experience.html">
+                            EXPERIENCE
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="certificate.html">
+                            CERTIFICATES
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            CONTACT
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section id="header">
+
+        <div class="hero">
+
+            <div class="terminal-window">
+
+                <div class="terminal-header">
+
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+
+                    <span class="terminal-title">
+                        amruth@cyber-terminal — bash
+                    </span>
+
+                </div>
+
+
+                <div class="terminal-body">
+
+                    <div class="terminal-line">
+                        root@amruth:~$ <span>whoami</span>
+                    </div>
+
+                    <h1 class="glitch"
+                        data-text="AMRUTH SAGAR HV">
+
+                        AMRUTH
+                        <span class="green">SAGAR HV</span>
+
+                    </h1>
+
+
+                    <div class="hero-role">
+                        SYSTEM ADMINISTRATOR
+                    </div>
+
+
+                    <div class="typing">
+                        <span id="typingText"></span>
+                        <span class="cursor">█</span>
+                    </div>
+
+
+                    <div class="status-grid">
+
+                        <div class="status-box">
+
+                            <small>
+                                System Status
+                            </small>
+
+                            <strong>
+                                <span class="online-dot"></span>
+                                ONLINE
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-box">
+
+                            <small>
+                                Security
+                            </small>
+
+                            <strong>
+                                ACTIVE
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-box">
+
+                            <small>
+                                Experience
+                            </small>
+
+                            <strong>
+                                5+ YEARS
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-box">
+
+                            <small>
+                                Location
+                            </small>
+
+                            <strong>
+                                BANGALORE
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="terminal-line">
+
+                        root@amruth:~$
+                        <span>
+                            ./open_door_to_dream_job.sh
+                        </span>
+
+                    </div>
+
+
+                    <p style="
+                        color:#79a88a;
+                        font-size:13px;
+                        line-height:1.8;
+                        max-width:750px;
+                    ">
+
+                        Open Doors to Your Dream Job.
+
+                    </p>
+
+
+                    <div class="button-row">
+
+                        <a href="Profile.html"
+                           target="_blank"
+                           class="cyber-btn">
+
+                            HIRE ME
+
+                        </a>
+
+
+                        <a href="https://drive.google.com/file/d/1grGt3zdB8XJQid092lBFXY9HH1V1qfPr/view?usp=sharing"
+                           target="_blank"
+                           class="cyber-btn secondary">
+
+                            DOWNLOAD RESUME
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PORTFOLIO
+    ========================================================== -->
+
+    <section id="portfolio">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <div class="section-command">
+                    root@amruth:~$ <span>ls ./portfolio</span>
+                </div>
+
+                <h2>
+                    Latest <span>Works</span>
+                </h2>
+
+                <p>
+                    Technical administration, infrastructure,
+                    networking and cybersecurity capabilities.
+                </p>
+
+            </div>
+
+
+            <div class="portfolio-grid">
+
+
+                <!-- Windows -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work1.jpg"
+                         alt="Windows Administration">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [01] / SYSTEM
+                        </div>
+
+                        <h3>
+                            Windows <span>Administration</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank"
+                               title="LinkedIn">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank"
+                               title="GitHub">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank"
+                               title="YouTube">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Linux -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work2.jpg"
+                         alt="Linux Administration">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [02] / SYSTEM
+                        </div>
+
+                        <h3>
+                            Linux <span>Administration</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Networking -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work3.png"
+                         alt="Networking">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [03] / NETWORK
+                        </div>
+
+                        <h3>
+                            Net<span>working</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Troubleshooting -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work7.jpg"
+                         alt="Troubleshooting">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [04] / SUPPORT
+                        </div>
+
+                        <h3>
+                            Trouble <span>shooting</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Mail -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work8.png"
+                         alt="Mail Configuration">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [05] / COMMUNICATION
+                        </div>
+
+                        <h3>
+                            Mail <span>Configuration</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CTF -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work4.png"
+                         alt="CTF Challenge">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [06] / SECURITY
+                        </div>
+
+                        <h3>
+                            CTF <span>Challenge</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Security Research -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work5.jpg"
+                         alt="Security Researching">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [07] / SECURITY
+                        </div>
+
+                        <h3>
+                            Security <span>Researching</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Backup -->
+
+                <div class="portfolio-card">
+
+                    <img src="img/work6.jpg"
+                         alt="Data Backup and Recovery">
+
+                    <div class="portfolio-overlay"></div>
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-number">
+                            [08] / DATA
+                        </div>
+
+                        <h3>
+                            Data Backup and
+                            <span>Recovery</span>
+                        </h3>
+
+                        <div class="portfolio-links">
+
+                            <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                               target="_blank">
+                                IN
+                            </a>
+
+                            <a href="https://www.github.com/hvamruth"
+                               target="_blank">
+                                GH
+                            </a>
+
+                            <a href="https://www.youtube.com/@funtechhub9061"
+                               target="_blank">
+                                YT
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <a href="https://github.com/hvamruth"
+               target="_blank"
+               class="view-all">
+
+                root@amruth:~$ view_all --github
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SKILLS
+    ========================================================== -->
+
+    <section id="services">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <div class="section-command">
+                    root@amruth:~$ <span>./security_profile.sh</span>
+                </div>
+
+                <h2>
+                    Some Cool <span>Skills</span> About Me
+                </h2>
+
+                <p>
+                    Core technical capabilities and security-focused skills.
+                </p>
+
+            </div>
+
+
+            <div class="skills-terminal">
+
+                <!-- Windows -->
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>
+                            Windows Administration
+                        </span>
+
+                        <strong>
+                            95%
+                        </strong>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-fill"
+                             data-width="95%">
+                        </div>
+                    </div>
+
+                    <div class="skill-meta">
+                        SYS_ADMIN :: WINDOWS
+                    </div>
+
+                </div>
+
+
+                <!-- Linux -->
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>
+                            Linux Administration
+                        </span>
+
+                        <strong>
+                            90%
+                        </strong>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-fill"
+                             data-width="90%">
+                        </div>
+                    </div>
+
+                    <div class="skill-meta">
+                        SYS_ADMIN :: LINUX
+                    </div>
+
+                </div>
+
+
+                <!-- Networking -->
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>
+                            Networking
+                        </span>
+
+                        <strong>
+                            85%
+                        </strong>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-fill"
+                             data-width="85%">
+                        </div>
+                    </div>
+
+                    <div class="skill-meta">
+                        INFRASTRUCTURE :: NETWORK
+                    </div>
+
+                </div>
+
+
+                <!-- Troubleshooting -->
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>
+                            Troubleshooting
+                        </span>
+
+                        <strong>
+                            90%
+                        </strong>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-fill"
+                             data-width="90%">
+                        </div>
+                    </div>
+
+                    <div class="skill-meta">
+                        SUPPORT :: TROUBLESHOOTING
+                    </div>
+
+                </div>
+
+
+                <!-- Ethical Hacking -->
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>
+                            Ethical Hacking
+                        </span>
+
+                        <strong>
+                            80%
+                        </strong>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-fill"
+                             data-width="80%">
+                        </div>
+                    </div>
+
+                    <div class="skill-meta">
+                        SECURITY :: ETHICAL_HACKING
+                    </div>
+
+                </div>
+
+
+                <!-- Security Researching -->
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>
+                            Security Researching
+                        </span>
+
+                        <strong>
+                            80%
+                        </strong>
+
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-fill"
+                             data-width="80%">
+                        </div>
+                    </div>
+
+                    <div class="skill-meta">
+                        SECURITY :: RESEARCH
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+    ========================================================== -->
+
+    <section id="contact">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <div class="section-command">
+                    root@amruth:~$ <span>connect --secure</span>
+                </div>
+
+                <h2>
+                    Contact <span>Me</span>
+                </h2>
+
+                <p>
+                    Initiate a secure communication request.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+
+                <!-- Contact Form -->
+
+                <div class="contact-terminal">
+
+                    <div class="terminal-label">
+                        &gt; SECURE_MESSAGE_INTERFACE
+                    </div>
+
+                    <form class="contact-form"
+                          action="form.php"
+                          method="POST">
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name..."
+                            required
+                        >
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email..."
+                            required
+                        >
+
+                        <textarea
+                            name="message"
+                            placeholder="Say Something..."
+                            required
+                        ></textarea>
+
+                        <button
+                            type="submit"
+                            class="submit-btn">
+
+                            [ SEND MESSAGE ]
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Contact Information -->
+
+                <div class="contact-info">
+
+                    <div class="terminal-label">
+                        &gt; USER_CONTACT_DATA
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            LOC
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Address
+                            </small>
+
+                            <p>
+                                9/A, Balaji Greens Layout,
+                                Jarak Bande Kaval East,
+                                Near Shamrajpura Attur Post
+                                Yelahanka,
+                                Bangalore - 560064
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            TEL
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Cell No
+                            </small>
+
+                            <p>
+                                <a href="tel:+919591478095">
+                                    +91-95914-78095
+                                </a>
+                                <br>
+                                <a href="tel:+918660064469">
+                                    8660064469
+                                </a>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            @
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Email
+                            </small>
+
+                            <p>
+                                <a href="mailto:amsgr4@gmail.com">
+                                    amsgr4@gmail.com
+                                </a>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-links">
+
+                        <a href="#"
+                           title="Facebook">
+                            FB
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/amruth-sagar-hv-542298276/"
+                           target="_blank"
+                           title="LinkedIn">
+                            IN
+                        </a>
+
+                        <a href="https://www.youtube.com/@funtechhub9061"
+                           target="_blank"
+                           title="YouTube">
+                            YT
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                &copy; 2026
+                <strong>Amruth Sagar HV</strong>
+                — Developer
+            </div>
+
+            <div class="footer-right">
+
+                Designed By
+
+                <a href="selfdeveloped"
+                   target="_blank">
+
+                    SelfDeveloped
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         SCROLL TOP
+    ========================================================== -->
+
+    <button id="topBtn"
+            title="Back to top">
+
+        ↑
+
+    </button>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           MATRIX EFFECT
+        ===================================================== */
+
+        const canvas =
+            document.getElementById("matrix");
+
+        const ctx =
+            canvas.getContext("2d");
+
+        let width;
+        let height;
+        let columns;
+        let drops;
+
+        const characters =
+            "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@<>[]{}";
+
+        function resizeMatrix() {
+
+            width =
+                canvas.width =
+                window.innerWidth;
+
+            height =
+                canvas.height =
+                window.innerHeight;
+
+            columns =
+                Math.floor(width / 18);
+
+            drops =
+                Array(columns).fill(1);
+        }
+
+        resizeMatrix();
+
+        window.addEventListener(
+            "resize",
+            resizeMatrix
+        );
+
+        function drawMatrix() {
+
+            ctx.fillStyle =
+                "rgba(2,6,4,0.07)";
+
+            ctx.fillRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+            ctx.fillStyle =
+                "#00ff66";
+
+            ctx.font =
+                "14px monospace";
+
+            for (
+                let i = 0;
+                i < drops.length;
+                i++
+            ) {
+
+                const text =
+                    characters[
+                        Math.floor(
+                            Math.random() *
+                            characters.length
+                        )
+                    ];
+
+                ctx.fillText(
+                    text,
+                    i * 18,
+                    drops[i] * 18
+                );
+
+                if (
+                    drops[i] * 18 > height &&
+                    Math.random() > 0.975
+                ) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+
+            requestAnimationFrame(
+                drawMatrix
+            );
+        }
+
+        drawMatrix();
+
+
+        /* =====================================================
+           TYPING EFFECT
+        ===================================================== */
+
+        const typingElement =
+            document.getElementById(
+                "typingText"
+            );
+
+        const typingLines = [
+
+            "Initializing system administrator profile...",
+            "Loading Windows administration modules...",
+            "Loading Linux administration modules...",
+            "Scanning network infrastructure...",
+            "Running troubleshooting protocols...",
+            "Initializing ethical hacking environment...",
+            "Loading security research toolkit...",
+            "System ready. Awaiting secure connection."
+
+        ];
+
+        let lineIndex = 0;
+        let characterIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+
+            const currentLine =
+                typingLines[lineIndex];
+
+            if (!deleting) {
+
+                typingElement.textContent =
+                    currentLine.substring(
+                        0,
+                        characterIndex + 1
+                    );
+
+                characterIndex++;
+
+                if (
+                    characterIndex ===
+                    currentLine.length
+                ) {
+
+                    deleting = true;
+
+                    setTimeout(
+                        typeEffect,
+                        1800
+                    );
+
+                    return;
+                }
+
+            } else {
+
+                typingElement.textContent =
+                    currentLine.substring(
+                        0,
+                        characterIndex - 1
+                    );
+
+                characterIndex--;
+
+                if (
+                    characterIndex === 0
+                ) {
+
+                    deleting = false;
+
+                    lineIndex =
+                        (lineIndex + 1) %
+                        typingLines.length;
+
+                }
+
+            }
+
+            setTimeout(
+                typeEffect,
+                deleting ? 25 : 45
+            );
+        }
+
+        typeEffect();
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuBtn =
+            document.getElementById(
+                "menuBtn"
+            );
+
+        const mainNav =
+            document.getElementById(
+                "mainNav"
+            );
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                mainNav.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        document.querySelectorAll(
+            "#mainNav a"
+        ).forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        mainNav.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           SKILL ANIMATION
+        ===================================================== */
+
+        const skillFills =
+            document.querySelectorAll(
+                ".skill-fill"
+            );
+
+        const skillObserver =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                const width =
+                                    entry.target
+                                    .dataset.width;
+
+                                entry.target.style.width =
+                                    width;
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.25
+                }
+            );
+
+        skillFills.forEach(
+            function (skill) {
+
+                skillObserver.observe(
+                    skill
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           ACTIVE NAVIGATION
+        ===================================================== */
+
+        const sections =
+            document.querySelectorAll(
+                "section"
+            );
+
+        const navLinks =
+            document.querySelectorAll(
+                "#mainNav a"
+            );
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                let current = "";
+
+                sections.forEach(
+                    function (section) {
+
+                        const sectionTop =
+                            section.offsetTop - 150;
+
+                        if (
+                            window.scrollY >=
+                            sectionTop
+                        ) {
+
+                            current =
+                                section.getAttribute(
+                                    "id"
+                                );
+
+                        }
+
+                    }
+                );
+
+                navLinks.forEach(
+                    function (link) {
+
+                        link.parentElement
+                            .classList.remove(
+                                "active"
+                            );
+
+                        if (
+                            link.getAttribute(
+                                "href"
+                            ) ===
+                            "#" + current
+                        ) {
+
+                            link.parentElement
+                                .classList.add(
+                                    "active"
+                                );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const topBtn =
+            document.getElementById(
+                "topBtn"
+            );
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    topBtn.style.display =
+                        "flex";
+
+                } else {
+
+                    topBtn.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        topBtn.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =====================================================
+           TERMINAL KEYBOARD EFFECT
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "/" &&
+                    document.activeElement.tagName !== "INPUT" &&
+                    document.activeElement.tagName !== "TEXTAREA"
+                ) {
+
+                    event.preventDefault();
+
+                    document.querySelector(
+                        "#contact input"
+                    ).focus();
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+    <!-- =========================================================
+         GOOGLE ANALYTICS
+    ========================================================== -->
+
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-09B08NNRBL">
+    </script>
+
+    <script>
+
+        window.dataLayer =
+            window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag(
+            'js',
+            new Date()
+        );
+
+        gtag(
+            'config',
+            'G-09B08NNRBL'
+        );
+
+    </script>
+
+
+</body>
+
+</html>
