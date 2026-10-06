@@ -1,343 +1,894 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Experience</title>
 
-
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Professional Experience - Amruth Sagar HV</title>
+
 <style>
 
-    
-    body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background-color: #e6f9f7;
-        color: #0b6c61;
-    }
- 
-   
-    /* Header */
-    .hero {
-        background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-        background-blend-mode: overlay;
-        background-color: rgba(15,183,164,0.7);
-        padding: 120px 20px;
-        text-align: center;
-        color: white;
-    }
-    .hero h1 {
-        font-size: 48px;
-        font-family: "Georgia";
-        margin-bottom: 10px;
-    }
-    .hero p {
-        font-size: 20px;
-        letter-spacing: 1px;
-    }
+/* ==============================
+   BODY
+============================== */
 
-    /* Section Titles */
-    .section-title {
-        font-size: 34px;
-        text-align: center;
-        margin-top: 60px;
-        font-family: "Georgia";
-        color: #0b6c61;
-    }
-    .section-subtitle {
-        text-align: center;
-        font-size: 15px;
-        margin-bottom: 30px;
-        color: #406b64;
-    }
-
-    /* Container */
-    .container {
-        width: 90%;
-        max-width: 1100px;
-        margin: auto;
-    }
-
-    /* Experience Cards */
-    .card {
-        background: rgba(255,255,255,0.95);
-        border-left: 5px solid #0fb7a4;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 6px;
-        backdrop-filter: blur(5px);
-    }
-    .card h3 {
-        margin: 0;
-        color: #0b6c61;
-    }
-    .card span {
-        font-size: 13px;
-        color: #2d6b64;
-        display: block;
-        margin-bottom: 10px;
-    }
-    .card ul {
-        margin: 0;
-        padding-left: 20px;
-    }
-    .card ul li {
-        margin-bottom: 8px;
-    }
-
-    /* Footer */
-    .footer {
-        text-align: center;
-        background: #0fb7a4;
-        padding: 15px;
-        color: white;
-        margin-top: 50px;
-        font-size: 14px;
-    }
-</style>
-</head>
-<body>
-
-<!-- Header Section -->
-<div class="hero">
-    <h1>Professional Experience</h1>
-    <p>Crafting success through technology, creativity, and teamwork</p>
-</div>
-
-
-<div id="loader">
-    <div class="spinner"></div>
-		</div>
-
-
-<div id="loader-frame">
-    <iframe src="loading.html"></iframe>
-</div>
-		
-		<style>
-#loader-frame{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    top:0;
-    left:0;
-    z-index:9999;
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #e6f9f7;
+    color: #0b6c61;
 }
 
-#loader-frame iframe{
-    width:100%;
-    height:100%;
-    border:none;
+
+/* ==============================
+   HEADER
+============================== */
+
+.hero {
+    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(15,183,164,0.7);
+    padding: 120px 20px;
+    text-align: center;
+    color: white;
 }
-</style>
 
-<script>
-window.addEventListener("load", function(){
-    document.getElementById("loader-frame").style.display = "none";
-});
-</script>
-		
+.hero h1 {
+    font-size: 48px;
+    font-family: "Georgia", serif;
+    margin-bottom: 10px;
+}
 
-		
-	
-<style>
-#loader{
+.hero p {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+
+/* ==============================
+   SECTION TITLES
+============================== */
+
+.section-title {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 60px;
+    font-family: "Georgia", serif;
+    color: #0b6c61;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 30px;
+    color: #406b64;
+}
+
+
+/* ==============================
+   CONTAINER
+============================== */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* ==============================
+   EXPERIENCE / GENERAL CARDS
+============================== */
+
+.card {
+    background: rgba(255,255,255,0.95);
+    border-left: 5px solid #0fb7a4;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+
+    box-shadow: 0 5px 18px rgba(15,183,164,0.12);
+
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15,183,164,0.20);
+}
+
+
+/* ==============================
+   EXPERIENCE HEADER
+============================== */
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* ==============================
+   JOB TITLE
+============================== */
+
+.experience-title {
+    margin: 0;
+    color: #0b6c61;
+    font-size: 22px;
+}
+
+
+/* ==============================
+   5 YEARS EXPERIENCE TAG
+============================== */
+
+.experience-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 18px;
+
+    background: linear-gradient(
+        135deg,
+        #0fb7a4,
+        #55B7A8,
+        #7fd8c9
+    );
+
+    color: white;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 5px 15px rgba(15,183,164,0.35);
+
+    transition: 0.3s ease;
+}
+
+
+/* Star inside experience tag */
+
+.experience-badge::before {
+    content: "★";
+    font-size: 14px;
+}
+
+
+/* Experience badge hover */
+
+.experience-badge:hover {
+    transform: scale(1.07);
+
+    box-shadow:
+        0 8px 22px rgba(15,183,164,0.45);
+}
+
+
+/* ==============================
+   CARD TEXT
+============================== */
+
+.card h3 {
+    margin: 0;
+    color: #0b6c61;
+}
+
+.card span {
+    font-size: 13px;
+    color: #2d6b64;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.card ul li {
+    margin-bottom: 8px;
+}
+
+
+/* ==============================
+   LOADER FRAME
+============================== */
+
+#loader-frame {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(-45deg, #55B7A8, #7fd8c9);
-    display: none; /* hidden by default */
-    justify-content: center;
-    align-items: center;
+    top: 0;
+    left: 0;
     z-index: 9999;
 }
 
-.spinner{
+#loader-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* ==============================
+   LOADER
+============================== */
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+
+    background: linear-gradient(
+        -45deg,
+        #55B7A8,
+        #7fd8c9
+    );
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* Spinner */
+
+.spinner {
     width: 60px;
     height: 60px;
+
     border: 6px solid rgba(255,255,255,0.3);
+
     border-top: 6px solid white;
+
     border-radius: 50%;
+
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin{
-    0%{transform: rotate(0deg);}
-    100%{transform: rotate(360deg);}
+
+/* Spinner Animation */
+
+@keyframes spin {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
 }
-</style>
 
 
+/* ==============================
+   BACK BUTTON
+============================== */
 
-<script>
-let loader = document.getElementById("loader");
-
-// Show loader only if page takes longer than 1 second
-let delay = setTimeout(() => {
-    loader.style.display = "flex";
-}, 10000);
-
-// When page fully loads
-window.addEventListener("load", () => {
-    clearTimeout(delay);
-    loader.style.display = "none";
-});
-</script>
-
-
-
-    
-
-<a href="index.html" class="back-modern">← Back</a>
-
-<style>
 .back-modern {
     display: inline-block;
+
     padding: 12px 25px;
-    background: linear-gradient(45deg, #55B7A8, #7fd8c9);
+
+    background: linear-gradient(
+        45deg,
+        #55B7A8,
+        #7fd8c9
+    );
+
     color: white;
+
     text-decoration: none;
+
     border-radius: 30px;
+
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(85,183,168,0.4);
+
+    box-shadow:
+        0 5px 15px rgba(85,183,168,0.4);
+
     transition: 0.4s ease;
+
+    margin: 20px;
 }
 
 .back-modern:hover {
+
     transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(85,183,168,0.6);
+
+    box-shadow:
+        0 10px 25px rgba(85,183,168,0.6);
 }
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+
+    text-align: center;
+
+    background: #0fb7a4;
+
+    padding: 15px;
+
+    color: white;
+
+    margin-top: 50px;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVE
+============================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .experience-badge {
+        margin-top: 5px;
+    }
+
+}
+
+
+/* ==============================
+   SMALL MOBILE
+============================== */
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .experience-title {
+        font-size: 19px;
+    }
+
+    .experience-badge {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+}
+
 </style>
-    
+
+</head>
+
+<body>
+
+<!-- ==============================
+     HEADER SECTION
+============================== -->
+
+<div class="hero">
 
 
-    
-    
-<!-- Work Experience Section -->
-<h2 class="section-title">Work Experience</h2>
-<p class="section-subtitle">A journey of technology, innovation & dedication</p>
+<h1>Professional Experience</h1>
+
+<p>
+    Crafting success through technology, creativity, and teamwork
+</p>
+
+
+</div>
+
+<!-- ==============================
+     LOADING FRAME
+============================== -->
+
+<div id="loader">
+
+
+<div class="spinner"></div>
+
+
+</div>
+
+<div id="loader-frame">
+
+
+<iframe src="loading.html"></iframe>
+
+
+</div>
+
+<script>
+
+window.addEventListener("load", function() {
+
+    document.getElementById("loader-frame").style.display = "none";
+
+});
+
+</script>
+
+<script>
+
+let loader = document.getElementById("loader");
+
+
+// Show loader only if page takes longer than 10 seconds
+
+let delay = setTimeout(() => {
+
+    loader.style.display = "flex";
+
+}, 10000);
+
+
+// Hide loader when page loads
+
+window.addEventListener("load", () => {
+
+    clearTimeout(delay);
+
+    loader.style.display = "none";
+
+});
+
+</script>
+
+<!-- ==============================
+     BACK BUTTON
+============================== -->
+
+<a href="index.html" class="back-modern">
+
+
+← Back
+
+
+</a>
+
+<!-- ==============================
+     WORK EXPERIENCE
+============================== -->
+
+<h2 class="section-title">
+
+
+Work Experience
+
+
+</h2>
+
+<p class="section-subtitle">
+
+
+A journey of technology, innovation & dedication
+
+
+</p>
+
+<div class="container">
+
+<!-- ==============================
+     WATER INNOVATION SYSTEMS
+============================== -->
+
+<div class="card">
+
+<div class="experience-header">
+
+    <h3 class="experience-title">
+
+        IT Support Engineer – Water Innovation Systems
+
+    </h3>
+
+
+    <!-- 5 YEARS EXPERIENCE TAG -->
+
+    <span class="experience-badge">
+
+        5 YEARS EXPERIENCE
+
+    </span>
+
+</div>
+
+
+<span>
+
+    2021 - Present
+
+</span>
+
+
+<ul>
+
+    <li>
+        System analysis & maintenance for performance and reliability
+    </li>
+
+    <li>
+        Website monitoring & security using Google Search Console
+    </li>
+
+    <li>
+        Manage servers, networks, and system infrastructure
+    </li>
+
+    <li>
+        Troubleshoot OS & software issues (Windows/Linux/macOS)
+    </li>
+
+    <li>
+        Server management, PXE setup, data backups & recovery
+    </li>
+
+    <li>
+        Google Analytics traffic analysis & website configuration
+    </li>
+
+    <li>
+        Social media advertising & campaign execution
+    </li>
+
+    <li>
+        Email systems configuration (IMAP/SMTP/POP/Exchange)
+    </li>
+
+    <li>
+        Domain & DNS management
+    </li>
+
+    <li>
+        Vendor coordination for warranty systems
+    </li>
+
+    <li>
+        Windows Admin & Server Manager operations
+    </li>
+
+    <li>
+        Client meetings & vendor coordination via Teams & Zoom
+    </li>
+
+</ul>
+
+
+</div>
+
+<!-- ==============================
+     COLOSIA CREATIONS
+============================== -->
+
+<div class="card">
+
+
+<h3>
+
+    Graphic Designer & IT Support – Colosia Creations Pvt Ltd
+
+</h3>
+
+<span>
+
+    2019 - 2021
+
+</span>
+
+
+<ul>
+
+    <li>
+        Digital advertisements & design workflows
+    </li>
+
+    <li>
+        Brochures, leaflets & print designs
+    </li>
+
+    <li>
+        IT support, troubleshooting systems
+    </li>
+
+    <li>
+        Responsive websites in HTML, CSS, WordPress
+    </li>
+
+    <li>
+        Client communication & project delivery
+    </li>
+
+</ul>
+
+
+</div>
+
+<!-- ==============================
+     AA ADVERTISING
+============================== -->
+
+<div class="card">
+
+
+<h3>
+
+    Graphic Designer – AA Advertising & Communications Pvt Ltd
+
+</h3>
+
+<span>
+
+    2019
+
+</span>
+
+
+<ul>
+
+    <li>
+        Brochures, magazine layouts & print media
+    </li>
+
+    <li>
+        Ads for newspapers & television
+    </li>
+
+    <li>
+        Designs for Maersk & corporate clients
+    </li>
+
+    <li>
+        Creative team collaboration
+    </li>
+
+</ul>
+
+
+</div>
+
+</div>
+
+<!-- ==============================
+     EDUCATION & CERTIFICATIONS
+============================== -->
+
+<h2 class="section-title">
+
+
+Education & Certifications
+
+
+</h2>
+
+<p class="section-subtitle">
+
+
+Learning that shaped excellence
+
+
+</p>
 
 <div class="container">
 
 <div class="card">
-    <h3>IT Support Engineer – Water Innovation Systems</h3>
-    <span>2021 - Present</span>
-    <ul>
-        <li>System analysis & maintenance for performance and reliability</li>
-        <li>Website monitoring & security using Google Search Console</li>
-        <li>Manage servers, networks, and system infrastructure</li>
-        <li>Troubleshoot OS & software issues (Windows/Linux/macOS)</li>
-        <li>Server management, PXE setup, data backups & recovery</li>
-        <li>Google Analytics traffic analysis & website configuration</li>
-        <li>Social media advertising & campaign execution</li>
-        <li>Email systems configuration (IMAP/SMTP/POP/Exchange)</li>
-        <li>Domain & DNS management</li>
-        <li>Vendor coordination for warranty systems</li>
-        <li>Windows Admin & Server Manager operations</li>
-        <li>Client meetings & vendor coordination via Teams & Zoom</li>
-    </ul>
+
+
+<h3>
+    Diploma in Devops Engineering - Kubernetes, Docker, Google Cloud
+</h3>
+
+<span>
+    2024 – Alison
+</span>
+
+Certified in Diploma in DevOps Engineering
+
+
 </div>
 
 <div class="card">
-    <h3>Graphic Designer & IT Support – Colosia Creations Pvt Ltd</h3>
-    <span>2019 - 2021</span>
-    <ul>
-        <li>Digital advertisements & design workflows</li>
-        <li>Brochures, leaflets & print designs</li>
-        <li>IT support, troubleshooting systems</li>
-        <li>Responsive websites in HTML, CSS, WordPress</li>
-        <li>Client communication & project delivery</li>
-    </ul>
+
+
+<h3>
+    Certified Ethical Hacking
+</h3>
+
+<span>
+    2023 – EC-Council
+</span>
+
+Certified in Ethical Hacking
+
+
 </div>
 
 <div class="card">
-    <h3>Graphic Designer – AA Advertising & Communications Pvt Ltd</h3>
-    <span>2019</span>
-    <ul>
-        <li>Brochures, magazine layouts & print media</li>
-        <li>Ads for newspapers & television</li>
-        <li>Designs for Maersk & corporate clients</li>
-        <li>Creative team collaboration</li>
-    </ul>
+
+
+<h3>
+    Linux Network Admin
+</h3>
+
+<span>
+    2022 – Alison
+</span>
+
+Linux System & Network Administration
+
+
+</div>
+
+<div class="card">
+
+
+<h3>
+    CompTIA Security+
+</h3>
+
+<span>
+    2023 – Alison
+</span>
+
+Security Fundamentals & Threat Analysis
+
+
+</div>
+
+<div class="card">
+
+
+<h3>
+    Arena Animation International Program
+</h3>
+
+<span>
+    2015 - 2018 – Arena Animation
+</span>
+
+VFX & Multimedia
+
+
+</div>
+
+<div class="card">
+
+
+<h3>
+    Government High School
+</h3>
+
+<span>
+    2007 - 2008
+</span>
+
+SSLC
+
+
 </div>
 
 </div>
 
-<!-- Education Section -->
-<h2 class="section-title">Education & Certifications</h2>
-<p class="section-subtitle">Learning that shaped excellence</p>
+<!-- ==============================
+     FOOTER
+============================== -->
 
-<div class="container">
-
-<div class="card"><h3>Diploma in Devops Engineering - Kubernates, Docker, Google Cloud</h3><span>2024 – Alison</span>Certified in Diploma in Devops Engineering</div>    
-<div class="card"><h3>Certified Ethical Hacking</h3><span>2023 – EC-Council</span>Certified in Ethical Hacking</div>
-<div class="card"><h3>Linux Network Admin</h3><span>2022 – Alison</span>Linux System & Network Administration</div>
-<div class="card"><h3>CompTIA Security+</h3><span>2023 – Alison</span>Security Fundamentals & Threat Analysis</div>
-<div class="card"><h3>Arena Animation International Program</h3><span>2015 - 2018 – Arena Animation</span>VFX & Multimedia</div>
-<div class="card"><h3>Government High School</h3><span>2007 - 2008</span>SSLC</div>
-
-</div>
-
-<!-- Footer -->
 <div class="footer">
-© 2025 Amruth Sagar HV — Professional Portfolio
+
+
+© 2026 Amruth Sagar HV — Professional Portfolio
+
+
 </div>
+
+<!-- ==============================
+     GOOGLE ANALYTICS
+============================== -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09B08NNRBL"></script>
+
+<script>
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-09B08NNRBL');
+
+</script>
+
+<!-- ==============================
+     FOOTER LINKS
+============================== -->
+
+<div style="text-align:center; padding:20px;">
+
+<a href="privacy-policy.html">
+    Privacy Policy
+</a>
+
+|
+
+<a href="terms.html">
+    Terms
+</a>
+
+|
+
+<a href="security.html">
+    Security
+</a>
+
+|
+
+<a href="cookies.html">
+    Cookies
+</a>
+
+
+</div>
+
+<!-- Google Site Verification -->
+
+<!--
+<p>
+    google-site-verification:
+    google749a225f72eec192.html
+</p>
+-->
 
 </body>
 
 </html>
-
-	
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-09B08NNRBL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-09B08NNRBL');
-</script>
-
-
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-09B08NNRBL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-09B08NNRBL');
-</script>
-
-
-
-
-<a href="privacy-policy.html">Privacy Policy</a> |
-<a href="terms.html">Terms</a> |
-<a href="security.html">Security</a> |
-<a href="cookies.html">Cookies</a>
-
-
-
-
-
-<!-- <p>    google-site-verification: google749a225f72eec192.html   </p> --> 
-
-
-
-
-
-
-
-
-
-
