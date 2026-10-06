@@ -1,0 +1,1782 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Cookies Policy - Amruth Sagar HV | Personal Portfolio">
+
+    <meta name="author"
+          content="Amruth Sagar HV">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="theme-color"
+          content="#020807">
+
+    <title>Cookies Policy | Amruth Sagar HV</title>
+
+    <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(0, 255, 128, 0.08),
+                    transparent 35%
+                ),
+                #020807;
+
+            color: #00ff88;
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            overflow-x: hidden;
+        }
+
+        body.locked {
+            overflow: hidden;
+        }
+
+        /* =========================================================
+           MATRIX BACKGROUND
+        ========================================================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 255, 128, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(0, 255, 128, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 35px 35px;
+
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0, 255, 128, 0.025),
+                    rgba(0, 255, 128, 0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            z-index: 9998;
+
+            opacity: 0.45;
+        }
+
+        /* =========================================================
+           PAGE WRAPPER
+        ========================================================= */
+
+        .site-wrapper {
+            width: 100%;
+            min-height: 100vh;
+            transition: 0.4s ease;
+        }
+
+        .site-wrapper.hidden {
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+
+            width: 100%;
+
+            padding: 18px 6%;
+
+            background:
+                rgba(1, 8, 6, 0.94);
+
+            border-bottom:
+                1px solid rgba(0, 255, 136, 0.35);
+
+            backdrop-filter: blur(15px);
+
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .brand {
+            color: #00ff88;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-shadow:
+                0 0 8px rgba(0, 255, 136, 0.8),
+                0 0 20px rgba(0, 255, 136, 0.35);
+
+            white-space: nowrap;
+        }
+
+        .brand::before {
+            content: "> ";
+
+            color: #00ffcc;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: #8affc1;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            padding: 7px 10px;
+
+            border: 1px solid transparent;
+
+            transition: 0.25s ease;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+
+            border-color: #00ff88;
+
+            background:
+                rgba(0, 255, 136, 0.08);
+
+            box-shadow:
+                0 0 12px rgba(0, 255, 136, 0.2);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 90px 6% 55px;
+
+            text-align: center;
+        }
+
+        .terminal-label {
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid rgba(0, 255, 136, 0.5);
+
+            background:
+                rgba(0, 255, 136, 0.05);
+
+            color: #00ffcc;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            box-shadow:
+                0 0 20px rgba(0, 255, 136, 0.08);
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(34px, 7vw, 75px);
+
+            line-height: 1.1;
+
+            margin-bottom: 20px;
+
+            color: #00ff88;
+
+            text-shadow:
+                0 0 8px #00ff88,
+                0 0 25px rgba(0, 255, 136, 0.6),
+                0 0 50px rgba(0, 255, 136, 0.25);
+        }
+
+        .hero h1 span {
+            color: #00ffcc;
+        }
+
+        .hero p {
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #8affc1;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+        .cursor {
+            display: inline-block;
+
+            width: 9px;
+            height: 18px;
+
+            background: #00ff88;
+
+            margin-left: 5px;
+
+            vertical-align: middle;
+
+            animation:
+                blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            45% {
+                opacity: 1;
+            }
+
+            46%,
+            100% {
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================================================
+           CONTENT
+        ========================================================= */
+
+        main {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 20px 6% 80px;
+        }
+
+        .terminal-window {
+
+            border:
+                1px solid rgba(0, 255, 136, 0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0, 255, 136, 0.045),
+                    rgba(0, 0, 0, 0.35)
+                );
+
+            box-shadow:
+                0 0 35px rgba(0, 255, 136, 0.08),
+                inset 0 0 30px rgba(0, 255, 136, 0.02);
+
+            overflow: hidden;
+        }
+
+        .terminal-header {
+
+            min-height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 0 18px;
+
+            border-bottom:
+                1px solid rgba(0, 255, 136, 0.25);
+
+            background:
+                rgba(0, 255, 136, 0.035);
+        }
+
+        .dot {
+
+            width: 11px;
+            height: 11px;
+
+            border-radius: 50%;
+
+            border: 1px solid #00ff88;
+        }
+
+        .terminal-title {
+
+            margin-left: 8px;
+
+            color: #70ffb5;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        .policy-content {
+
+            padding: 35px;
+        }
+
+        .command-line {
+
+            margin-bottom: 28px;
+
+            color: #00ffcc;
+
+            font-size: 13px;
+        }
+
+        .command-line::before {
+            content: "root@amruth-profile:~$ ";
+
+            color: #00ff88;
+        }
+
+        .policy-section {
+
+            margin-bottom: 38px;
+
+            padding: 25px;
+
+            border-left:
+                2px solid #00ff88;
+
+            background:
+                rgba(0, 255, 136, 0.025);
+
+            transition:
+                0.3s ease;
+        }
+
+        .policy-section:hover {
+
+            background:
+                rgba(0, 255, 136, 0.055);
+
+            box-shadow:
+                0 0 20px rgba(0, 255, 136, 0.06);
+
+            transform:
+                translateX(3px);
+        }
+
+        .policy-section h2 {
+
+            margin-bottom: 14px;
+
+            color: #00ffcc;
+
+            font-size: 18px;
+
+            text-shadow:
+                0 0 8px rgba(0, 255, 136, 0.35);
+        }
+
+        .policy-section h2::before {
+            content: "[+] ";
+            color: #00ff88;
+        }
+
+        .policy-section p {
+
+            color: #b6ffd5;
+
+            font-size: 14px;
+
+            line-height: 1.85;
+        }
+
+        .policy-section ul {
+
+            margin-top: 12px;
+
+            padding-left: 25px;
+        }
+
+        .policy-section li {
+
+            color: #b6ffd5;
+
+            margin-bottom: 10px;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .policy-section li::marker {
+            color: #00ff88;
+        }
+
+        .last-updated {
+
+            display: inline-block;
+
+            margin-bottom: 30px;
+
+            padding: 7px 12px;
+
+            border:
+                1px solid rgba(0, 255, 136, 0.35);
+
+            color: #00ff88;
+
+            background:
+                rgba(0, 255, 136, 0.04);
+
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           STATUS PANEL
+        ========================================================= */
+
+        .security-status {
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border:
+                1px solid rgba(0, 255, 136, 0.25);
+
+            background:
+                rgba(0, 255, 136, 0.025);
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .status-item {
+
+            padding: 15px;
+
+            border:
+                1px solid rgba(0, 255, 136, 0.15);
+        }
+
+        .status-label {
+
+            display: block;
+
+            color: #71b88e;
+
+            font-size: 10px;
+
+            margin-bottom: 7px;
+
+            letter-spacing: 1px;
+        }
+
+        .status-value {
+
+            color: #00ff88;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            border-top:
+                1px solid rgba(0, 255, 136, 0.25);
+
+            padding: 35px 6%;
+
+            text-align: center;
+
+            background:
+                rgba(0, 0, 0, 0.35);
+        }
+
+        footer p {
+
+            color: #6eb58d;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: #00ff88;
+        }
+
+        /* =========================================================
+           COOKIE CONSENT OVERLAY
+        ========================================================= */
+
+        #cookieOverlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(0, 0, 0, 0.94);
+
+            backdrop-filter:
+                blur(14px);
+
+            z-index: 99999;
+        }
+
+        #cookieOverlay.hidden {
+
+            display: none;
+        }
+
+        .cookie-modal {
+
+            width: min(700px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            border:
+                1px solid #00ff88;
+
+            background:
+                #020a07;
+
+            box-shadow:
+                0 0 20px rgba(0, 255, 136, 0.25),
+                0 0 70px rgba(0, 255, 136, 0.12);
+
+            position: relative;
+
+            animation:
+                modalIn 0.45s ease;
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform:
+                    scale(0.92)
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    scale(1)
+                    translateY(0);
+            }
+
+        }
+
+        .cookie-modal-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 17px 20px;
+
+            border-bottom:
+                1px solid rgba(0, 255, 136, 0.3);
+
+            background:
+                rgba(0, 255, 136, 0.045);
+        }
+
+        .warning-icon {
+
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid #00ff88;
+
+            color: #00ff88;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 0 15px rgba(0, 255, 136, 0.25);
+        }
+
+        .cookie-modal-header h2 {
+
+            color: #00ff88;
+
+            font-size: 16px;
+
+            letter-spacing: 1px;
+        }
+
+        .cookie-modal-body {
+
+            padding: 28px;
+        }
+
+        .priority-alert {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+            padding: 12px;
+
+            border:
+                1px solid rgba(0, 255, 136, 0.4);
+
+            background:
+                rgba(0, 255, 136, 0.06);
+
+            color: #00ffcc;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        .cookie-terminal {
+
+            margin-bottom: 22px;
+
+            padding: 17px;
+
+            border:
+                1px solid rgba(0, 255, 136, 0.18);
+
+            background:
+                #000603;
+
+            color: #72ffb1;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        .cookie-terminal .green {
+            color: #00ff88;
+        }
+
+        .cookie-modal-body p {
+
+            color: #a5d9b9;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+        .cookie-modal-body strong {
+
+            color: #00ff88;
+        }
+
+        .cookie-buttons {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 12px;
+
+            margin-top: 25px;
+        }
+
+        .cookie-btn {
+
+            min-height: 52px;
+
+            border: 1px solid #00ff88;
+
+            background:
+                rgba(0, 255, 136, 0.04);
+
+            color: #00ff88;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                0.25s ease;
+
+            letter-spacing: 0.5px;
+        }
+
+        .cookie-btn:hover {
+
+            background:
+                #00ff88;
+
+            color: #020807;
+
+            box-shadow:
+                0 0 20px rgba(0, 255, 136, 0.45);
+        }
+
+        .cookie-btn.decline {
+
+            border-color:
+                #ff5555;
+
+            color:
+                #ff7777;
+        }
+
+        .cookie-btn.decline:hover {
+
+            background:
+                #ff5555;
+
+            color: #050000;
+
+            box-shadow:
+                0 0 20px rgba(255, 85, 85, 0.35);
+        }
+
+        .cookie-note {
+
+            margin-top: 17px;
+
+            color: #527d65 !important;
+
+            font-size: 10px !important;
+
+            text-align: center;
+        }
+
+        /* =========================================================
+           DECLINED SCREEN
+        ========================================================= */
+
+        #declinedScreen {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+                #010403;
+
+            z-index: 100000;
+        }
+
+        #declinedScreen.show {
+
+            display: flex;
+        }
+
+        .declined-box {
+
+            max-width: 650px;
+
+            width: 100%;
+
+            padding: 35px;
+
+            border:
+                1px solid #ff5555;
+
+            background:
+                rgba(255, 50, 50, 0.025);
+
+            text-align: center;
+
+            box-shadow:
+                0 0 40px rgba(255, 50, 50, 0.08);
+        }
+
+        .declined-box h2 {
+
+            color: #ff6666;
+
+            margin-bottom: 20px;
+
+            font-size: 25px;
+        }
+
+        .declined-box p {
+
+            color: #bd8585;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .declined-code {
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            text-align: left;
+
+            background:
+                #000;
+
+            border:
+                1px solid rgba(255, 85, 85, 0.2);
+
+            color: #ff7777;
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero {
+                padding-top: 65px;
+            }
+
+            .policy-content {
+                padding: 20px;
+            }
+
+            .security-status {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .policy-section {
+                padding: 18px;
+            }
+
+            .cookie-modal-body {
+                padding: 20px;
+            }
+
+            .cookie-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-modal-header h2 {
+                font-size: 13px;
+            }
+
+            .brand {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body class="locked">
+
+<!-- =========================================================
+     COOKIE CONSENT GATE
+========================================================= -->
+
+<div id="cookieOverlay">
+
+    <div class="cookie-modal">
+
+        <div class="cookie-modal-header">
+
+            <div class="warning-icon">
+                !
+            </div>
+
+            <h2>
+                COOKIE CONSENT REQUIRED
+            </h2>
+
+        </div>
+
+        <div class="cookie-modal-body">
+
+            <div class="priority-alert">
+
+                <span>⚠</span>
+
+                <span>
+                    HIGH PRIORITY ACCESS CONTROL:
+                    Please review and choose whether to accept
+                    cookies before entering this website.
+                </span>
+
+            </div>
+
+            <div class="cookie-terminal">
+
+                <div>
+                    <span class="green">
+                        root@amruth-profile:~$
+                    </span>
+                    initialize_cookie_security
+                </div>
+
+                <div>
+                    STATUS:
+                    <span class="green">
+                        ACCESS LOCKED
+                    </span>
+                </div>
+
+                <div>
+                    POLICY:
+                    Cookies Policy | 2026
+                </div>
+
+                <div>
+                    REQUIRED ACTION:
+                    ACCEPT or DECLINE
+                </div>
+
+            </div>
+
+            <p>
+                This website may use cookies to support basic
+                website functionality, understand website traffic
+                and usage patterns, and improve website performance
+                and user experience.
+            </p>
+
+            <p>
+                Some pages may contain third-party content such as
+                GitHub links, social media profiles, embedded media,
+                or analytics tools. These services may use their own
+                cookies.
+            </p>
+
+            <p>
+                By selecting
+                <strong>ACCEPT COOKIES</strong>,
+                you acknowledge this Cookies Policy and allow the
+                website to continue loading.
+            </p>
+
+            <p>
+                If you select
+                <strong>DECLINE COOKIES</strong>,
+                website access will remain blocked.
+            </p>
+
+            <div class="cookie-buttons">
+
+                <button
+                    type="button"
+                    class="cookie-btn"
+                    id="acceptCookies">
+
+                    [ ACCEPT COOKIES ]
+
+                </button>
+
+                <button
+                    type="button"
+                    class="cookie-btn decline"
+                    id="declineCookies">
+
+                    [ DECLINE COOKIES ]
+
+                </button>
+
+            </div>
+
+            <p class="cookie-note">
+                This consent gate cannot be dismissed without
+                selecting an option.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     DECLINED SCREEN
+========================================================= -->
+
+<div id="declinedScreen">
+
+    <div class="declined-box">
+
+        <h2>
+            ACCESS DENIED
+        </h2>
+
+        <p>
+            Cookies were declined.
+            Website access has therefore not been granted.
+        </p>
+
+        <div class="declined-code">
+
+            root@amruth-profile:~$ check_cookie_consent<br>
+
+            [ SECURITY ] Consent status: DECLINED<br>
+
+            [ ACCESS ] Website status: LOCKED<br>
+
+            [ ACTION ] No further website content will be loaded.<br>
+
+            [ STATUS ] Waiting for cookie consent.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN WEBSITE
+========================================================= -->
+
+<div
+    class="site-wrapper hidden"
+    id="websiteContent">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-container">
+
+            <div class="brand">
+                AMRUTH_PROFILE
+            </div>
+
+            <nav>
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="Profile.html">
+                    PROFILE
+                </a>
+
+                <a href="certificate.html">
+                    CERTIFICATES
+                </a>
+
+                <a href="privacy-policy.html">
+                    PRIVACY
+                </a>
+
+                <a href="terms.html">
+                    TERMS
+                </a>
+
+                <a href="cookies.html">
+                    COOKIES
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="terminal-label">
+            SECURITY_PROTOCOL :: COOKIE_POLICY
+        </div>
+
+        <h1>
+            Cookies<span>_Policy</span>
+            <span class="cursor"></span>
+        </h1>
+
+        <p>
+            Transparency is part of security.
+            This page explains how cookies may be used
+            when you visit this personal portfolio website
+            hosted on GitHub Pages.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN POLICY
+    ====================================================== -->
+
+    <main>
+
+        <div class="terminal-window">
+
+            <div class="terminal-header">
+
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+                <span class="terminal-title">
+                    /var/www/amruth.profile.com/cookies.html
+                </span>
+
+            </div>
+
+
+            <div class="policy-content">
+
+                <div class="command-line">
+                    cat cookies.html
+                </div>
+
+                <div class="last-updated">
+                    LAST UPDATED: 2026
+                </div>
+
+
+                <!-- =================================================
+                     1. INTRODUCTION
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        1. Introduction
+                    </h2>
+
+                    <p>
+                        This Cookies Policy explains how cookies
+                        may be used when you visit this personal
+                        portfolio website hosted on GitHub Pages.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     2. WHAT ARE COOKIES
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        2. What Are Cookies
+                    </h2>
+
+                    <p>
+                        Cookies are small text files stored on
+                        your device by your web browser when
+                        visiting a website. They help websites
+                        operate properly and improve user experience.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     3. HOW WEBSITE USES COOKIES
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        3. How This Website Uses Cookies
+                    </h2>
+
+                    <p>
+                        This website is primarily a static personal
+                        portfolio. Cookies may be used for:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Basic website functionality
+                        </li>
+
+                        <li>
+                            Understanding website traffic
+                            and usage patterns
+                        </li>
+
+                        <li>
+                            Improving website performance
+                            and user experience
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     4. THIRD PARTY COOKIES
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        4. Third-Party Cookies
+                    </h2>
+
+                    <p>
+                        Some pages may contain external content
+                        such as GitHub links, social media profiles,
+                        embedded media, or analytics tools.
+                        These third-party services may place their
+                        own cookies and are governed by their
+                        respective privacy policies.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     5. MANAGING COOKIES
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        5. Managing Cookies
+                    </h2>
+
+                    <p>
+                        Most web browsers automatically accept
+                        cookies. However, you can choose to disable
+                        or delete cookies through your browser
+                        settings at any time.
+                    </p>
+
+                    <p style="margin-top:15px;">
+                        Disabling cookies may affect some features
+                        or functionality of the website.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     6. LINKS
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        6. Links to Other Websites
+                    </h2>
+
+                    <p>
+                        This website may include links to other
+                        websites such as GitHub repositories,
+                        professional profiles, or external resources.
+                        Those websites operate under their own
+                        privacy and cookie policies.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     7. CHANGES
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        7. Changes to This Policy
+                    </h2>
+
+                    <p>
+                        This Cookies Policy may be updated
+                        occasionally to reflect changes in website
+                        functionality or legal requirements.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     8. CONTACT
+                ================================================== -->
+
+                <section class="policy-section">
+
+                    <h2>
+                        8. Contact
+                    </h2>
+
+                    <p>
+                        If you have questions regarding this
+                        Cookies Policy, please contact the website
+                        owner through the contact information
+                        available on the website or repository.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     SECURITY STATUS
+                ================================================== -->
+
+                <div class="security-status">
+
+                    <div class="status-item">
+
+                        <span class="status-label">
+                            POLICY STATUS
+                        </span>
+
+                        <span class="status-value">
+                            ACTIVE
+                        </span>
+
+                    </div>
+
+                    <div class="status-item">
+
+                        <span class="status-label">
+                            COOKIE CONTROL
+                        </span>
+
+                        <span class="status-value">
+                            USER CONTROLLED
+                        </span>
+
+                    </div>
+
+                    <div class="status-item">
+
+                        <span class="status-label">
+                            HOSTING
+                        </span>
+
+                        <span class="status-value">
+                            GITHUB PAGES
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <strong>Personal Portfolio</strong>
+            |
+            Hosted on GitHub Pages
+        </p>
+
+        <p style="margin-top:8px;">
+            SECURITY • PRIVACY • TRANSPARENCY
+        </p>
+
+    </footer>
+
+
+</div>
+
+
+<!-- =========================================================
+     COOKIE JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /*
+     * =========================================================
+     * COOKIE CONSENT SECURITY GATE
+     * =========================================================
+     *
+     * ACCEPT:
+     *  - Saves consent in localStorage
+     *  - Unlocks website
+     *
+     * DECLINE:
+     *  - Does not unlock website
+     *  - Displays ACCESS DENIED screen
+     *
+     * The consent popup cannot be dismissed without a choice.
+     */
+
+    (function () {
+
+        "use strict";
+
+
+        const COOKIE_KEY =
+            "amruth_profile_cookie_consent";
+
+
+        const overlay =
+            document.getElementById(
+                "cookieOverlay"
+            );
+
+
+        const website =
+            document.getElementById(
+                "websiteContent"
+            );
+
+
+        const declinedScreen =
+            document.getElementById(
+                "declinedScreen"
+            );
+
+
+        const acceptButton =
+            document.getElementById(
+                "acceptCookies"
+            );
+
+
+        const declineButton =
+            document.getElementById(
+                "declineCookies"
+            );
+
+
+        /*
+         * ---------------------------------------------------------
+         * CHECK EXISTING CONSENT
+         * ---------------------------------------------------------
+         */
+
+        const existingConsent =
+            localStorage.getItem(
+                COOKIE_KEY
+            );
+
+
+        /*
+         * ---------------------------------------------------------
+         * UNLOCK WEBSITE
+         * ---------------------------------------------------------
+         */
+
+        function unlockWebsite() {
+
+            localStorage.setItem(
+                COOKIE_KEY,
+                "accepted"
+            );
+
+            document.body.classList.remove(
+                "locked"
+            );
+
+            overlay.classList.add(
+                "hidden"
+            );
+
+            declinedScreen.classList.remove(
+                "show"
+            );
+
+            website.classList.remove(
+                "hidden"
+            );
+
+        }
+
+
+        /*
+         * ---------------------------------------------------------
+         * KEEP WEBSITE LOCKED
+         * ---------------------------------------------------------
+         */
+
+        function denyWebsiteAccess() {
+
+            localStorage.setItem(
+                COOKIE_KEY,
+                "declined"
+            );
+
+            document.body.classList.add(
+                "locked"
+            );
+
+            overlay.classList.add(
+                "hidden"
+            );
+
+            website.classList.add(
+                "hidden"
+            );
+
+            declinedScreen.classList.add(
+                "show"
+            );
+
+        }
+
+
+        /*
+         * ---------------------------------------------------------
+         * ACCEPT BUTTON
+         * ---------------------------------------------------------
+         */
+
+        acceptButton.addEventListener(
+            "click",
+            function () {
+
+                unlockWebsite();
+
+            }
+        );
+
+
+        /*
+         * ---------------------------------------------------------
+         * DECLINE BUTTON
+         * ---------------------------------------------------------
+         */
+
+        declineButton.addEventListener(
+            "click",
+            function () {
+
+                denyWebsiteAccess();
+
+            }
+        );
+
+
+        /*
+         * ---------------------------------------------------------
+         * PREVENT ESCAPE FROM CLOSING POPUP
+         * ---------------------------------------------------------
+         */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    !overlay.classList.contains("hidden")
+                ) {
+
+                    event.preventDefault();
+
+                }
+
+            }
+        );
+
+
+        /*
+         * ---------------------------------------------------------
+         * INITIAL STATE
+         * ---------------------------------------------------------
+         */
+
+        if (
+            existingConsent === "accepted"
+        ) {
+
+            unlockWebsite();
+
+        }
+        else if (
+            existingConsent === "declined"
+        ) {
+
+            denyWebsiteAccess();
+
+        }
+        else {
+
+            document.body.classList.add(
+                "locked"
+            );
+
+            overlay.classList.remove(
+                "hidden"
+            );
+
+            website.classList.add(
+                "hidden"
+            );
+
+        }
+
+
+    })();
+
+</script>
+
+
+</body>
+</html>
