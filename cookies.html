@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Security Check</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #020604;
+      color: #00ff66;
+      font-family: "Courier New", monospace;
+    }
+
+    /* Dark overlay */
+    #cookie-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Hacker popup */
+    #cookie-popup {
+      width: 100%;
+      max-width: 650px;
+      background: #030b06;
+      border: 1px solid #00ff66;
+      box-shadow:
+        0 0 10px #00ff66,
+        0 0 30px rgba(0, 255, 102, 0.35),
+        inset 0 0 25px rgba(0, 255, 102, 0.05);
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cookie-popup::before {
+      content: "ACCESS CONTROL // COOKIE PROTOCOL";
+      display: block;
+      color: #00ff66;
+      font-size: 12px;
+      margin-bottom: 20px;
+      opacity: 0.8;
+      letter-spacing: 2px;
+    }
+
+    .terminal-line {
+      color: #00aa44;
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    .terminal-line::before {
+      content: "> ";
+      color: #00ff66;
+    }
+
+    h2 {
+      color: #00ff66;
+      text-shadow: 0 0 8px #00ff66;
+      font-size: 22px;
+      margin: 20px 0 12px;
+    }
+
+    p {
+      color: #b6ffc9;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .cookie-type {
+      border: 1px solid #075d2a;
+      padding: 12px;
+      margin: 18px 0;
+      background: rgba(0, 255, 102, 0.03);
+    }
+
+    .cookie-type strong {
+      color: #00ff66;
+    }
+
+    .status {
+      color: #00ff66;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    button {
+      flex: 1;
+      padding: 13px;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      cursor: pointer;
+      background: transparent;
+      transition: 0.2s;
+    }
+
+    #accept {
+      color: #000;
+      background: #00ff66;
+      border: 1px solid #00ff66;
+    }
+
+    #accept:hover {
+      background: #00cc52;
+      box-shadow: 0 0 15px #00ff66;
+    }
+
+    #decline {
+      color: #ff4444;
+      border: 1px solid #ff4444;
+    }
+
+    #decline:hover {
+      background: #ff4444;
+      color: #000;
+      box-shadow: 0 0 15px #ff4444;
+    }
+
+    .warning {
+      margin-top: 18px;
+      color: #777;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .blink {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      #cookie-popup {
+        padding: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Your actual website content goes here -->
+  <main>
+    <h1>Your Website</h1>
+    <p>Your portfolio content...</p>
+  </main>
+
+
+  <!-- COOKIE ACCESS POPUP -->
+  <div id="cookie-overlay">
+
+    <div id="cookie-popup">
+
+      <div class="terminal-line">
+        INITIALIZING SECURE CONNECTION...
+      </div>
+
+      <div class="terminal-line">
+        VERIFYING COOKIE PROTOCOL...
+      </div>
+
+      <div class="terminal-line">
+        STATUS: <span class="blink">WAITING FOR USER INPUT</span>
+      </div>
+
+      <h2>⚠ COOKIE ACCESS REQUIRED</h2>
+
+      <p>
+        Welcome to <strong>HV AMRUTH</strong>.
+        Before entering this website, you need to choose whether to allow
+        the use of necessary cookies.
+      </p>
+
+      <div class="cookie-type">
+        <strong>[✓] NECESSARY COOKIES</strong>
+
+        <div class="status">
+          Required for basic website functionality.
+          These cookies cannot be disabled through this popup.
+        </div>
+      </div>
+
+      <p>
+        No advertising or tracking cookies are requested here.
+        Your choice is stored locally in your browser so this message
+        does not appear every time you visit.
+      </p>
+
+      <div class="buttons">
+        <button id="accept">
+          [ ACCEPT NECESSARY COOKIES ]
+        </button>
+
+        <button id="decline">
+          [ DECLINE ]
+        </button>
+      </div>
+
+      <div class="warning">
+        SYSTEM MESSAGE: If you decline, access to the website will remain
+        blocked because necessary cookies are required for entry.
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+    /*
+     * Only activate this cookie gate on:
+     * https://hvamruth.github.io/amruth.profile.com
+     */
+
+    const allowedHost = "hvamruth.github.io";
+    const allowedPath = "/amruth.profile.com";
+
+    const isCorrectPage =
+      window.location.hostname === allowedHost &&
+      window.location.pathname === allowedPath;
+
+    const overlay = document.getElementById("cookie-overlay");
+    const acceptButton = document.getElementById("accept");
+    const declineButton = document.getElementById("decline");
+
+    /*
+     * If this code is accidentally used on another page,
+     * don't show the popup.
+     */
+    if (!isCorrectPage) {
+      overlay.style.display = "none";
+    }
+
+    /*
+     * Check whether the visitor already accepted.
+     */
+    if (
+      isCorrectPage &&
+      localStorage.getItem("necessaryCookiesAccepted") === "true"
+    ) {
+      overlay.style.display = "none";
+    }
+
+    /*
+     * ACCEPT
+     */
+    acceptButton.addEventListener("click", function () {
+
+      localStorage.setItem(
+        "necessaryCookiesAccepted",
+        "true"
+      );
+
+      overlay.style.opacity = "0";
+
+      setTimeout(function () {
+        overlay.style.display = "none";
+      }, 300);
+    });
+
+    /*
+     * DECLINE
+     *
+     * The user remains on the popup and cannot enter
+     * the website.
+     */
+    declineButton.addEventListener("click", function () {
+
+      alert(
+        "ACCESS DENIED.\n\n" +
+        "Necessary cookies must be accepted to enter this website."
+      );
+
+      overlay.style.display = "flex";
+    });
+  </script>
+
+</body>
+</html>
