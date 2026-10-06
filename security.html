@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Website Security Policy - Amruth Sagar HV | Cybersecurity, Secure Hosting, Responsible Disclosure and Security Practices">
+
+    <meta name="keywords"
+          content="Security Policy, Cybersecurity, Ethical Hacking, Website Security, HTTPS, SSL TLS, GitHub Pages, Responsible Disclosure">
+
+    <meta name="author"
+          content="Amruth Sagar HV">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="theme-color"
+          content="#020b08">
+
+    <title>Security Policy | Amruth Sagar HV</title>
+
+    <style>
+
+        /* =========================================================
+           ROOT VARIABLES
+        ========================================================= */
+
+        :root {
+            --bg: #020b08;
+            --bg-secondary: #04120e;
+            --panel: rgba(4, 22, 17, 0.92);
+            --panel-light: rgba(8, 35, 26, 0.75);
+
+            --green: #00ff88;
+            --green-soft: #00cc6a;
+            --green-dark: #063d27;
+
+            --cyan: #00ffff;
+            --yellow: #ffe600;
+            --red: #ff3b3b;
+
+            --text: #d8ffe9;
+            --text-soft: #8bb9a3;
+            --border: rgba(0, 255, 136, 0.35);
+
+            --shadow:
+                0 0 10px rgba(0,255,136,0.12),
+                0 0 30px rgba(0,255,136,0.05);
+
+            --font-mono:
+                "Courier New",
+                Courier,
+                monospace;
+        }
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(0,255,136,0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #010705,
+                    #020b08 45%,
+                    #010504
+                );
+
+            color: var(--text);
+            font-family: var(--font-mono);
+            overflow-x: hidden;
+        }
+
+        /* =========================================================
+           MATRIX BACKGROUND
+        ========================================================= */
+
+        .matrix {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: 0.08;
+        }
+
+        .matrix span {
+            position: absolute;
+            top: -120px;
+            color: var(--green);
+            font-size: 14px;
+            line-height: 1.3;
+            white-space: pre;
+            animation: matrixFall linear infinite;
+        }
+
+        .matrix span:nth-child(1) {
+            left: 2%;
+            animation-duration: 11s;
+        }
+
+        .matrix span:nth-child(2) {
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+        }
+
+        .matrix span:nth-child(3) {
+            left: 20%;
+            animation-duration: 13s;
+            animation-delay: 1s;
+        }
+
+        .matrix span:nth-child(4) {
+            left: 31%;
+            animation-duration: 9s;
+            animation-delay: 4s;
+        }
+
+        .matrix span:nth-child(5) {
+            left: 42%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .matrix span:nth-child(6) {
+            left: 54%;
+            animation-duration: 10s;
+            animation-delay: 5s;
+        }
+
+        .matrix span:nth-child(7) {
+            left: 66%;
+            animation-duration: 14s;
+            animation-delay: 3s;
+        }
+
+        .matrix span:nth-child(8) {
+            left: 77%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+        }
+
+        .matrix span:nth-child(9) {
+            left: 88%;
+            animation-duration: 12s;
+            animation-delay: 6s;
+        }
+
+        .matrix span:nth-child(10) {
+            left: 96%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+        }
+
+        @keyframes matrixFall {
+            0% {
+                transform: translateY(-150px);
+            }
+
+            100% {
+                transform: translateY(120vh);
+            }
+        }
+
+        /* =========================================================
+           SCANLINES
+        ========================================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,0.015) 0px,
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+            mix-blend-mode: overlay;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            width: 100%;
+
+            background:
+                rgba(1, 9, 6, 0.94);
+
+            border-bottom:
+                1px solid var(--border);
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.08);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+
+            min-height: 70px;
+
+            padding:
+                0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--green);
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+
+            text-shadow:
+                0 0 8px rgba(0,255,136,0.7);
+
+            white-space: nowrap;
+        }
+
+        .logo::before {
+            content: ">_ ";
+            color: var(--cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-soft);
+            text-decoration: none;
+            font-size: 13px;
+
+            transition:
+                color 0.2s ease,
+                text-shadow 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+            text-shadow:
+                0 0 8px var(--green);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            max-width: 1250px;
+            margin: auto;
+
+            min-height: 420px;
+
+            padding:
+                80px 25px 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 950px;
+        }
+
+        .terminal-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding:
+                8px 15px;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(0,255,136,0.05);
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            box-shadow:
+                inset 0 0 15px rgba(0,255,136,0.03),
+                0 0 15px rgba(0,255,136,0.05);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 8px var(--green);
+
+            animation:
+                pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.45;
+                transform: scale(0.75);
+            }
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(32px, 6vw, 68px);
+
+            line-height: 1.1;
+
+            color: var(--green);
+
+            text-shadow:
+                0 0 5px rgba(0,255,136,0.8),
+                0 0 25px rgba(0,255,136,0.25);
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1::before {
+            content: "[";
+            color: var(--cyan);
+        }
+
+        .hero h1::after {
+            content: "]";
+            color: var(--cyan);
+        }
+
+        .hero-subtitle {
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.8;
+
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .terminal-line {
+            margin-top: 28px;
+
+            color: var(--text);
+
+            font-size: 13px;
+        }
+
+        .terminal-line .prompt {
+            color: var(--green);
+        }
+
+        .terminal-line .command {
+            color: var(--cyan);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            margin-left: 4px;
+
+            background: var(--green);
+
+            vertical-align: middle;
+
+            animation:
+                blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
+
+        main {
+            max-width: 1050px;
+            margin: auto;
+
+            padding:
+                0 25px 70px;
+        }
+
+        /* =========================================================
+           SECURITY HEADER
+        ========================================================= */
+
+        .security-console {
+            border:
+                1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(4,22,17,0.96),
+                    rgba(2,13,10,0.96)
+                );
+
+            box-shadow:
+                var(--shadow);
+
+            margin-bottom: 25px;
+        }
+
+        .console-header {
+            min-height: 44px;
+
+            padding:
+                0 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom:
+                1px solid rgba(0,255,136,0.18);
+
+            background:
+                rgba(0,255,136,0.035);
+        }
+
+        .console-title {
+            color: var(--green);
+            font-size: 12px;
+        }
+
+        .console-title::before {
+            content: "$ ";
+            color: var(--cyan);
+        }
+
+        .console-controls {
+            display: flex;
+            gap: 7px;
+        }
+
+        .console-controls span {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            border: 1px solid var(--green-dark);
+        }
+
+        .console-body {
+            padding: 18px;
+        }
+
+        .console-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding: 7px 0;
+
+            font-size: 12px;
+        }
+
+        .console-key {
+            color: var(--text-soft);
+        }
+
+        .console-value {
+            color: var(--green);
+            text-align: right;
+        }
+
+        /* =========================================================
+           POLICY CARDS
+        ========================================================= */
+
+        .policy-section {
+            position: relative;
+
+            margin-bottom: 22px;
+
+            padding: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(4,22,17,0.95),
+                    rgba(2,13,10,0.92)
+                );
+
+            border:
+                1px solid var(--border);
+
+            box-shadow:
+                var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .policy-section::before {
+            content: "";
+            position: absolute;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            width: 3px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--green),
+                    transparent
+                );
+
+            box-shadow:
+                0 0 12px var(--green);
+        }
+
+        .section-number {
+            color: var(--cyan);
+            font-size: 11px;
+
+            margin-bottom: 9px;
+
+            letter-spacing: 2px;
+        }
+
+        .policy-section h2 {
+            color: var(--green);
+
+            font-size:
+                clamp(19px, 3vw, 26px);
+
+            margin-bottom: 16px;
+
+            text-shadow:
+                0 0 7px rgba(0,255,136,0.25);
+        }
+
+        .policy-section h2::before {
+            content: "# ";
+            color: var(--cyan);
+        }
+
+        .policy-section p {
+            color: var(--text-soft);
+
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* =========================================================
+           SECURITY LIST
+        ========================================================= */
+
+        .security-list {
+            list-style: none;
+
+            margin-top: 12px;
+        }
+
+        .security-list li {
+            position: relative;
+
+            padding:
+                11px 12px 11px 34px;
+
+            margin-bottom: 7px;
+
+            color: var(--text-soft);
+
+            background:
+                rgba(0,255,136,0.025);
+
+            border-left:
+                1px solid rgba(0,255,136,0.18);
+
+            transition:
+                all 0.2s ease;
+        }
+
+        .security-list li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 12px;
+
+            color: var(--green);
+
+            font-weight: bold;
+
+            text-shadow:
+                0 0 7px var(--green);
+        }
+
+        .security-list li:hover {
+            color: var(--text);
+
+            background:
+                rgba(0,255,136,0.055);
+
+            border-left-color:
+                var(--green);
+
+            transform:
+                translateX(4px);
+        }
+
+        /* =========================================================
+           WARNING BOX
+        ========================================================= */
+
+        .warning-box {
+            margin-top: 18px;
+
+            padding: 17px;
+
+            border:
+                1px solid rgba(255,230,0,0.35);
+
+            background:
+                rgba(255,230,0,0.035);
+
+            color: #e7df9c;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .warning-box strong {
+            color: var(--yellow);
+        }
+
+        /* =========================================================
+           SECURITY BADGES
+        ========================================================= */
+
+        .badges {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 22px;
+        }
+
+        .badge {
+            padding: 17px 12px;
+
+            text-align: center;
+
+            border:
+                1px solid rgba(0,255,136,0.22);
+
+            background:
+                rgba(0,255,136,0.025);
+
+            color: var(--green);
+
+            font-size: 11px;
+
+            transition:
+                all 0.25s ease;
+        }
+
+        .badge:hover {
+            border-color:
+                var(--green);
+
+            box-shadow:
+                0 0 18px rgba(0,255,136,0.12);
+
+            transform:
+                translateY(-3px);
+        }
+
+        .badge-icon {
+            display: block;
+
+            color: var(--cyan);
+
+            font-size: 20px;
+
+            margin-bottom: 8px;
+        }
+
+        /* =========================================================
+           DISCLOSURE PANEL
+        ========================================================= */
+
+        .disclosure-panel {
+            margin-top: 20px;
+
+            padding: 22px;
+
+            border:
+                1px solid rgba(0,255,255,0.22);
+
+            background:
+                rgba(0,255,255,0.025);
+        }
+
+        .disclosure-panel h3 {
+            color: var(--cyan);
+
+            font-size: 15px;
+
+            margin-bottom: 10px;
+        }
+
+        .disclosure-panel p {
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            border-top:
+                1px solid var(--border);
+
+            background:
+                rgba(1,8,5,0.95);
+
+            padding:
+                35px 20px;
+
+            text-align: center;
+        }
+
+        .footer-terminal {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .footer-command {
+            color: var(--green);
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-command::before {
+            content: "root@security:~$ ";
+            color: var(--cyan);
+        }
+
+        footer p {
+            color: var(--text-soft);
+
+            font-size: 11px;
+
+            line-height: 1.8;
+        }
+
+        .copyright {
+            margin-top: 15px;
+
+            color: var(--green);
+
+            font-size: 11px;
+        }
+
+        /* =========================================================
+           SCROLL TOP BUTTON
+        ========================================================= */
+
+        #topButton {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                rgba(0,255,136,0.08);
+
+            border:
+                1px solid var(--border);
+
+            color: var(--green);
+
+            font-family: var(--font-mono);
+            font-size: 18px;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                all 0.25s ease;
+
+            z-index: 50;
+        }
+
+        #topButton.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #topButton:hover {
+            background:
+                rgba(0,255,136,0.15);
+
+            box-shadow:
+                0 0 18px rgba(0,255,136,0.2);
+        }
+
+        /* =========================================================
+           RESPONSIVE DESIGN
+        ========================================================= */
+
+        @media (max-width: 800px) {
+
+            .nav {
+                min-height: auto;
+                padding: 17px 20px;
+
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 360px;
+                padding:
+                    65px 20px 45px;
+            }
+
+            main {
+                padding:
+                    0 16px 55px;
+            }
+
+            .policy-section {
+                padding: 23px 20px;
+            }
+
+            .badges {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .console-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .console-value {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .hero-subtitle {
+                font-size: 12px;
+            }
+
+            .policy-section h2 {
+                font-size: 19px;
+            }
+
+            .policy-section p,
+            .security-list li {
+                font-size: 12px;
+            }
+
+            .console-body {
+                padding: 13px;
+            }
+
+            .console-row {
+                font-size: 10px;
+            }
+        }
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         MATRIX BACKGROUND
+    ========================================================== -->
+
+    <div class="matrix" aria-hidden="true">
+
+        <span>
+01010101
+11001010
+00110101
+10101010
+01001101
+11010101
+00101110
+10110100
+        </span>
+
+        <span>
+10101010
+01010101
+11100010
+00110011
+10100101
+01001010
+11001100
+00110101
+        </span>
+
+        <span>
+00101101
+10101010
+01010101
+11001100
+00110011
+10110101
+01001001
+11010110
+        </span>
+
+        <span>
+11010010
+00101101
+10110010
+01001011
+11100001
+00110110
+10101001
+01011100
+        </span>
+
+        <span>
+01010101
+10101010
+00110011
+11001100
+01001010
+10110101
+00101110
+11010010
+        </span>
+
+        <span>
+11100010
+00110101
+10101010
+01001101
+11010101
+00101110
+10110100
+01010101
+        </span>
+
+        <span>
+00110011
+11001100
+10101010
+01010101
+11100010
+00101101
+10110101
+01001010
+        </span>
+
+        <span>
+10110100
+01001011
+11010010
+00101101
+10101010
+01010101
+11100010
+00110101
+        </span>
+
+        <span>
+01001010
+10110101
+00101110
+11010010
+01010101
+10101010
+00110011
+11001100
+        </span>
+
+        <span>
+11001100
+00110011
+10101010
+01010101
+11010010
+00101101
+10110100
+01001011
+        </span>
+
+    </div>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header>
+
+        <nav class="nav">
+
+            <a href="index.html" class="logo">
+                AMRUTH.SAGAR.HV
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        [HOME]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Profile.html">
+                        [PROFILE]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="certificate.html">
+                        [CERTIFICATES]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="security.html">
+                        [SECURITY]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="privacy-policy.html">
+                        [PRIVACY]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="terms.html">
+                        [TERMS]
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="terminal-status">
+
+                <span class="status-dot"></span>
+
+                SECURITY STATUS:
+                OPERATIONAL
+
+            </div>
+
+            <h1>
+                WEBSITE SECURITY POLICY
+            </h1>
+
+            <p class="hero-subtitle">
+
+                A cybersecurity-focused overview of the security
+                practices used to protect the integrity,
+                availability and trustworthiness of this personal
+                website.
+
+            </p>
+
+            <div class="terminal-line">
+
+                <span class="prompt">
+                    root@amruth-security:~$
+                </span>
+
+                <span class="command">
+                    ./security-policy --status
+                </span>
+
+                <span class="cursor"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main>
+
+
+        <!-- SECURITY CONSOLE -->
+
+        <div class="security-console">
+
+            <div class="console-header">
+
+                <span class="console-title">
+                    SECURITY.CONSOLE
+                </span>
+
+                <div class="console-controls">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+            <div class="console-body">
+
+                <div class="console-row">
+
+                    <span class="console-key">
+                        POLICY_VERSION
+                    </span>
+
+                    <span class="console-value">
+                        2026
+                    </span>
+
+                </div>
+
+                <div class="console-row">
+
+                    <span class="console-key">
+                        HOSTING_PLATFORM
+                    </span>
+
+                    <span class="console-value">
+                        GitHub Pages
+                    </span>
+
+                </div>
+
+                <div class="console-row">
+
+                    <span class="console-key">
+                        TRANSPORT_SECURITY
+                    </span>
+
+                    <span class="console-value">
+                        HTTPS / SSL / TLS
+                    </span>
+
+                </div>
+
+                <div class="console-row">
+
+                    <span class="console-key">
+                        SENSITIVE_DATA_STORAGE
+                    </span>
+
+                    <span class="console-value">
+                        NONE
+                    </span>
+
+                </div>
+
+                <div class="console-row">
+
+                    <span class="console-key">
+                        DISCLOSURE_MODEL
+                    </span>
+
+                    <span class="console-value">
+                        RESPONSIBLE DISCLOSURE
+                    </span>
+
+                </div>
+
+                <div class="console-row">
+
+                    <span class="console-key">
+                        SECURITY_STATE
+                    </span>
+
+                    <span class="console-value">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             1. INTRODUCTION
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_01
+            </div>
+
+            <h2>
+                Introduction
+            </h2>
+
+            <p>
+
+                This website is hosted on GitHub Pages and maintained
+                as a personal project. The security of visitors and
+                website content is taken seriously. This page describes
+                the basic security practices used to maintain the
+                integrity of the site.
+
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             2. SECURE HOSTING
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_02
+            </div>
+
+            <h2>
+                Secure Hosting
+            </h2>
+
+            <p>
+
+                The website is hosted using GitHub Pages, which provides
+                HTTPS encryption and secure infrastructure. All data
+                transferred between the website and visitors is encrypted
+                using SSL/TLS.
+
+            </p>
+
+            <div class="badges">
+
+                <div class="badge">
+
+                    <span class="badge-icon">
+                        🔐
+                    </span>
+
+                    HTTPS
+
+                </div>
+
+                <div class="badge">
+
+                    <span class="badge-icon">
+                        🛡
+                    </span>
+
+                    SSL / TLS
+
+                </div>
+
+                <div class="badge">
+
+                    <span class="badge-icon">
+                        ☁
+                    </span>
+
+                    GITHUB PAGES
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             3. SECURITY MEASURES
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_03
+            </div>
+
+            <h2>
+                Security Measures
+            </h2>
+
+            <p>
+
+                The following security practices are implemented:
+
+            </p>
+
+            <ul class="security-list">
+
+                <li>
+                    HTTPS encryption for all website traffic
+                </li>
+
+                <li>
+                    Restricted repository access for maintainers
+                </li>
+
+                <li>
+                    Two-factor authentication for repository owners
+                </li>
+
+                <li>
+                    Regular review of website source code
+                </li>
+
+                <li>
+                    No storage of sensitive user information
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+             4. PHISHING PROTECTION
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_04
+            </div>
+
+            <h2>
+                Phishing Protection
+            </h2>
+
+            <p>
+
+                Users should always verify the website URL before
+                entering any information. Any websites claiming to
+                represent this project that are not linked from the
+                official repository should be treated as suspicious.
+
+            </p>
+
+            <div class="warning-box">
+
+                <strong>
+                    ⚠ SECURITY WARNING:
+                </strong>
+
+                Always verify the website URL before entering
+                information. Unofficial websites claiming to represent
+                this project should be considered suspicious.
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             5. REPORTING SECURITY ISSUES
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_05
+            </div>
+
+            <h2>
+                Reporting Security Issues
+            </h2>
+
+            <p>
+
+                If you discover a security vulnerability or suspicious
+                behavior related to this website, please report it
+                responsibly through the GitHub repository or contact
+                the website owner.
+
+            </p>
+
+            <div class="disclosure-panel">
+
+                <h3>
+                    &gt; SECURITY INCIDENT REPORTING
+                </h3>
+
+                <p>
+
+                    Vulnerabilities and suspicious behavior should be
+                    reported responsibly through the GitHub repository
+                    or by contacting the website owner.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             6. RESPONSIBLE DISCLOSURE
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_06
+            </div>
+
+            <h2>
+                Responsible Disclosure
+            </h2>
+
+            <p>
+
+                Security researchers and users who report vulnerabilities
+                in good faith are appreciated. All valid reports will be
+                reviewed and addressed as quickly as possible.
+
+            </p>
+
+            <div class="badges">
+
+                <div class="badge">
+
+                    <span class="badge-icon">
+                        🔎
+                    </span>
+
+                    RESEARCH
+
+                </div>
+
+                <div class="badge">
+
+                    <span class="badge-icon">
+                        ✓
+                    </span>
+
+                    GOOD FAITH
+
+                </div>
+
+                <div class="badge">
+
+                    <span class="badge-icon">
+                        ⚡
+                    </span>
+
+                    RAPID REVIEW
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             7. DISCLAIMER
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_07
+            </div>
+
+            <h2>
+                Disclaimer
+            </h2>
+
+            <p>
+
+                While reasonable security practices are followed,
+                no website or system connected to the internet can
+                be guaranteed to be completely secure. Users should
+                always follow general cybersecurity best practices
+                when browsing online.
+
+            </p>
+
+            <div class="warning-box">
+
+                <strong>
+                    ⚠ IMPORTANT:
+                </strong>
+
+                No internet-connected website or system can be
+                guaranteed to be completely secure. Always follow
+                general cybersecurity best practices when browsing
+                online.
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             8. POLICY UPDATES
+        ====================================================== -->
+
+        <section class="policy-section">
+
+            <div class="section-number">
+                // SECURITY_MODULE_08
+            </div>
+
+            <h2>
+                Policy Updates
+            </h2>
+
+            <p>
+
+                This security policy may be updated periodically to
+                reflect improvements in security practices or changes
+                in website infrastructure.
+
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-terminal">
+
+            <div class="footer-command">
+                security-policy --status
+            </div>
+
+            <p>
+                Website Security Policy | Last Updated: 2026
+            </p>
+
+            <p>
+                Hosted on GitHub Pages
+            </p>
+
+            <p class="copyright">
+                © 2026 Personal Website | Hosted on GitHub Pages
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         SCROLL TOP
+    ========================================================== -->
+
+    <button
+        id="topButton"
+        aria-label="Scroll to top"
+        title="Scroll to top">
+
+        ↑
+
+    </button>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           SCROLL TO TOP
+        ====================================================== */
+
+        const topButton =
+            document.getElementById("topButton");
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 400) {
+
+                topButton.classList.add("visible");
+
+            } else {
+
+                topButton.classList.remove("visible");
+
+            }
+
+        });
+
+
+        topButton.addEventListener("click", function () {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+
+        /* =====================================================
+           TERMINAL TYPING EFFECT
+        ====================================================== */
+
+        const commandElement =
+            document.querySelector(".command");
+
+        const originalCommand =
+            commandElement.textContent.trim();
+
+        commandElement.textContent = "";
+
+        let commandIndex = 0;
+
+        function typeCommand() {
+
+            if (commandIndex < originalCommand.length) {
+
+                commandElement.textContent +=
+                    originalCommand.charAt(commandIndex);
+
+                commandIndex++;
+
+                setTimeout(
+                    typeCommand,
+                    45
+                );
+
+            }
+
+        }
+
+        setTimeout(
+            typeCommand,
+            700
+        );
+
+
+        /* =====================================================
+           SECURITY STATUS CONSOLE
+        ====================================================== */
+
+        console.log(
+            "%c[ SECURITY SYSTEM INITIALIZED ]",
+            "color:#00ff88;font-weight:bold;font-size:16px;"
+        );
+
+        console.log(
+            "%cWebsite Security Policy - 2026",
+            "color:#00ffff;font-size:13px;"
+        );
+
+        console.log(
+            "%cHTTPS / SSL / TLS : ENABLED",
+            "color:#00ff88;"
+        );
+
+        console.log(
+            "%cSensitive User Data Storage : NONE",
+            "color:#00ff88;"
+        );
+
+        console.log(
+            "%cResponsible Disclosure : ENABLED",
+            "color:#00ff88;"
+        );
+
+
+        /* =====================================================
+           SECTION REVEAL
+        ====================================================== */
+
+        const sections =
+            document.querySelectorAll(
+                ".policy-section"
+            );
+
+        const observer =
+            new IntersectionObserver(
+                function(entries) {
+
+                    entries.forEach(
+                        function(entry) {
+
+                            if (entry.isIntersecting) {
+
+                                entry.target.style.opacity =
+                                    "1";
+
+                                entry.target.style.transform =
+                                    "translateY(0)";
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.08
+                }
+            );
+
+
+        sections.forEach(
+            function(section) {
+
+                section.style.opacity = "0";
+
+                section.style.transform =
+                    "translateY(18px)";
+
+                section.style.transition =
+                    "opacity 0.6s ease, transform 0.6s ease";
+
+                observer.observe(section);
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
