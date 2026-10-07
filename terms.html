@@ -1,1120 +1,1264 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Terms and Conditions | Amruth Sagar HV</title>
+
+<style>
+/* =========================================================
+   PROFESSIONAL HACKER / CYBER SECURITY THEME
+   Content preserved — visual theme & animation enhanced
+   ========================================================= */
+
+:root {
+    --green: #00ff88;
+    --green2: #00cc66;
+    --dark: #020604;
+    --panel: rgba(2, 14, 9, 0.90);
+    --border: rgba(0, 255, 136, 0.35);
+    --text: #d8ffe9;
+    --muted: #6fa98a;
+    --warning: #ffd84d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0,255,136,.08),
+            transparent 38%
+        ),
+        linear-gradient(
+            180deg,
+            #010201 0%,
+            #020604 55%,
+            #000 100%
+        );
+
+    color: var(--text);
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
 
-    <meta charset="UTF-8">
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   MATRIX CANVAS
+   ========================================================= */
+
+#matrix {
+    position: fixed;
+    inset: 0;
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    width: 100%;
+    height: 100%;
 
-    <meta name="description"
-          content="Terms and Conditions - Amruth Sagar HV Personal Website">
+    z-index: -5;
 
-    <meta name="author"
-          content="Amruth Sagar HV">
+    opacity: .17;
 
-    <meta name="robots"
-          content="index, follow">
+    pointer-events: none;
+}
 
-    <meta name="theme-color"
-          content="#050b08">
+/* =========================================================
+   CRT SCANLINES
+   ========================================================= */
 
-    <title>Terms & Conditions | Amruth Sagar HV</title>
+body::before {
+    content: "";
 
-    <style>
+    position: fixed;
+    inset: 0;
 
-        /* =========================================================
-           GLOBAL RESET
-        ========================================================= */
+    pointer-events: none;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    z-index: 9998;
 
-        html {
-            scroll-behavior: smooth;
-        }
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0,255,136,.025) 0px,
+            rgba(0,255,136,.025) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+}
 
-        body {
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 140, 0.07), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.05), transparent 30%),
-                #030705;
+/* =========================================================
+   SCREEN VIGNETTE
+   ========================================================= */
 
-            color: #d7ffe8;
+body::after {
+    content: "";
 
-            font-family:
-                "Courier New",
-                Courier,
-                monospace;
+    position: fixed;
+    inset: 0;
 
-            line-height: 1.8;
+    pointer-events: none;
 
-            overflow-x: hidden;
-        }
+    z-index: 9997;
 
+    box-shadow:
+        inset 0 0 100px rgba(0,255,136,.04),
+        inset 0 0 250px rgba(0,0,0,.85);
+}
 
-        /* =========================================================
-           MATRIX BACKGROUND
-        ========================================================= */
+/* =========================================================
+   MAIN
+   ========================================================= */
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
 
-            pointer-events: none;
+    padding:
+        25px 0 70px;
+}
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 255, 120, 0.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(0, 255, 120, 0.025) 1px,
-                    transparent 1px
-                );
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-            background-size: 40px 40px;
+header {
+    position: relative;
 
-            z-index: -3;
-        }
+    padding: 24px;
 
-        body::after {
-            content: "";
+    margin-bottom: 35px;
 
-            position: fixed;
-            inset: 0;
+    background:
+        rgba(0,12,8,.88);
 
-            pointer-events: none;
+    border:
+        1px solid var(--border);
 
-            background:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(0, 255, 100, 0.015),
-                    rgba(0, 255, 100, 0.015) 1px,
-                    transparent 1px,
-                    transparent 4px
-                );
+    box-shadow:
+        0 0 25px rgba(0,255,136,.07),
+        inset 0 0 30px rgba(0,255,136,.025);
 
-            z-index: -2;
+    backdrop-filter: blur(8px);
 
-            animation: scanlines 8s linear infinite;
-        }
+    animation:
+        terminalEntry .8s ease-out;
+}
 
-        @keyframes scanlines {
+header::before {
+    content:
+        "01010101 11001010 00110101 10101010 01001101 11010101";
 
-            0% {
-                transform: translateY(0);
-            }
+    display: block;
 
-            100% {
-                transform: translateY(20px);
-            }
-        }
+    color:
+        rgba(0,255,136,.25);
 
+    font-size: 9px;
 
-        /* =========================================================
-           MAIN CONTAINER
-        ========================================================= */
+    line-height: 1.7;
 
-        .container {
-            width: min(1100px, 92%);
-            margin: auto;
-        }
+    margin-bottom: 15px;
 
+    word-break: break-all;
+}
 
-        /* =========================================================
-           HEADER
-        ========================================================= */
+/* =========================================================
+   LOGO
+   ========================================================= */
 
-        header {
-            padding: 25px 0;
+.logo {
+    display: inline-block;
 
-            border-bottom:
-                1px solid rgba(0, 255, 120, 0.25);
+    color: var(--green);
 
-            background:
-                rgba(2, 8, 5, 0.90);
+    text-decoration: none;
 
-            backdrop-filter: blur(12px);
+    font-size:
+        clamp(22px, 4vw, 34px);
 
-            position: sticky;
-            top: 0;
+    font-weight: bold;
 
-            z-index: 100;
-        }
+    letter-spacing: 3px;
 
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
+    text-shadow:
+        0 0 5px var(--green),
+        0 0 15px rgba(0,255,136,.5);
 
-        .terminal-logo {
-            color: #00ff88;
+    animation:
+        logoPulse 3s infinite;
+}
 
-            font-size: 18px;
-            font-weight: bold;
+.logo::before {
+    content: "[";
+}
 
-            text-shadow:
-                0 0 5px #00ff88,
-                0 0 15px rgba(0, 255, 136, 0.5);
+.logo::after {
+    content: "]";
+}
 
-            white-space: nowrap;
-        }
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
-        .terminal-logo span {
-            color: #00ffff;
-        }
+nav {
+    display: flex;
 
-        nav {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+    flex-wrap: wrap;
 
-        nav a {
-            color: #8dffbd;
+    gap: 8px;
 
-            text-decoration: none;
+    margin-top: 20px;
+}
 
-            font-size: 14px;
+nav a {
+    color: var(--green);
 
-            transition:
-                color 0.25s ease,
-                text-shadow 0.25s ease;
-        }
+    text-decoration: none;
 
-        nav a:hover {
-            color: #00ffff;
+    font-size: 12px;
 
-            text-shadow:
-                0 0 8px #00ffff;
-        }
+    padding: 8px 12px;
 
+    border:
+        1px solid rgba(0,255,136,.22);
 
-        /* =========================================================
-           HERO
-        ========================================================= */
+    background:
+        rgba(0,255,136,.025);
 
-        .hero {
-            padding: 90px 0 55px;
+    transition:
+        .25s ease;
+}
 
-            text-align: center;
-        }
+nav a:hover {
+    color: #000;
 
-        .terminal-status {
-            display: inline-block;
+    background: var(--green);
 
-            margin-bottom: 25px;
+    border-color: var(--green);
 
-            padding: 7px 15px;
+    box-shadow:
+        0 0 10px var(--green),
+        0 0 30px rgba(0,255,136,.35);
 
-            border:
-                1px solid rgba(0, 255, 136, 0.45);
+    transform:
+        translateY(-2px);
+}
 
-            border-radius: 4px;
+/* =========================================================
+   STATUS
+   ========================================================= */
 
-            color: #00ff88;
+.status {
+    display: flex;
 
-            background:
-                rgba(0, 255, 136, 0.04);
+    align-items: center;
 
-            font-size: 13px;
+    gap: 10px;
 
-            box-shadow:
-                0 0 15px rgba(0, 255, 136, 0.06);
-        }
+    color: var(--green);
 
-        .terminal-status::before {
-            content: "● ";
+    font-size: 12px;
 
-            color: #00ff88;
+    letter-spacing: 1px;
 
-            animation: blink 1.2s infinite;
-        }
+    margin-bottom: 15px;
+}
 
-        @keyframes blink {
+.status-dot {
+    width: 9px;
+    height: 9px;
 
-            0%,
-            45% {
-                opacity: 1;
-            }
+    border-radius: 50%;
 
-            46%,
-            100% {
-                opacity: 0.25;
-            }
-        }
+    background: var(--green);
 
-        h1 {
-            color: #00ff88;
+    box-shadow:
+        0 0 6px var(--green),
+        0 0 16px var(--green);
 
-            font-size:
-                clamp(34px, 7vw, 65px);
+    animation:
+        statusPulse 1.4s infinite;
+}
 
-            line-height: 1.1;
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
 
-            letter-spacing: 2px;
+h1 {
+    color: var(--green);
 
-            text-shadow:
-                0 0 8px #00ff88,
-                0 0 25px rgba(0, 255, 136, 0.35);
+    font-size:
+        clamp(30px, 6vw, 50px);
 
-            margin-bottom: 20px;
-        }
+    margin-bottom: 20px;
 
-        h1::before {
-            content: ">_ ";
+    text-shadow:
+        0 0 8px rgba(0,255,136,.65),
+        0 0 30px rgba(0,255,136,.20);
 
-            color: #00ffff;
-        }
+    animation:
+        glitchTitle 6s infinite;
+}
 
-        .hero-subtitle {
-            max-width: 700px;
+h1::before {
+    content:
+        "root@amruth-security:~$ ";
 
-            margin: auto;
+    color: var(--muted);
 
-            color: #91bca4;
+    font-size: .42em;
+}
 
-            font-size: 15px;
-        }
+/* =========================================================
+   TERMINAL
+   ========================================================= */
 
+.terminal {
+    background:
+        rgba(0,8,5,.95);
 
-        /* =========================================================
-           TERMINAL WINDOW
-        ========================================================= */
+    border:
+        1px solid var(--border);
 
-        .terminal-window {
-            margin-bottom: 50px;
+    padding: 18px 20px;
 
-            border:
-                1px solid rgba(0, 255, 136, 0.30);
+    margin:
+        15px 0 30px;
 
-            background:
-                rgba(2, 12, 7, 0.88);
+    box-shadow:
+        0 0 25px rgba(0,255,136,.06),
+        inset 0 0 25px rgba(0,255,136,.025);
 
-            box-shadow:
-                0 0 30px rgba(0, 255, 136, 0.06),
-                inset 0 0 40px rgba(0, 255, 136, 0.02);
+    overflow: hidden;
+}
 
-            border-radius: 8px;
+.terminal-line {
+    color: var(--green);
 
-            overflow: hidden;
-        }
+    font-size: 13px;
 
-        .terminal-bar {
-            display: flex;
-            align-items: center;
+    line-height: 1.8;
 
-            gap: 8px;
+    white-space: normal;
 
-            padding: 12px 16px;
+    overflow-wrap: anywhere;
+}
 
-            background:
-                rgba(0, 255, 136, 0.06);
+.terminal-prefix {
+    color: var(--muted);
+}
 
-            border-bottom:
-                1px solid rgba(0, 255, 136, 0.18);
-        }
+.cursor {
+    display: inline-block;
 
-        .terminal-dot {
-            width: 11px;
-            height: 11px;
+    width: 8px;
+    height: 16px;
 
-            border-radius: 50%;
+    margin-left: 4px;
 
-            background: #00ff88;
+    vertical-align: middle;
 
-            box-shadow:
-                0 0 8px rgba(0, 255, 136, 0.7);
-        }
+    background: var(--green);
 
-        .terminal-dot:nth-child(2) {
-            background: #00ffff;
-        }
+    box-shadow:
+        0 0 10px var(--green);
 
-        .terminal-dot:nth-child(3) {
-            background: #8affc1;
-        }
+    animation:
+        cursorBlink .8s infinite;
+}
 
-        .terminal-title {
-            margin-left: 8px;
+/* =========================================================
+   CONTENT SECTIONS
+   ========================================================= */
 
-            color: #75a98a;
+section {
+    position: relative;
 
-            font-size: 12px;
-        }
+    margin:
+        20px 0;
 
-        .terminal-content {
-            padding: 22px;
+    padding:
+        25px;
 
-            color: #b9e8c9;
+    background:
+        var(--panel);
 
-            font-size: 13px;
+    border:
+        1px solid var(--border);
 
-            overflow-x: auto;
-        }
+    box-shadow:
+        0 0 20px rgba(0,255,136,.045),
+        inset 0 0 30px rgba(0,255,136,.015);
 
-        .terminal-line {
-            margin-bottom: 6px;
-        }
+    overflow: hidden;
 
-        .prompt {
-            color: #00ff88;
-        }
+    animation:
+        sectionAppear .7s ease both;
+}
 
-        .command {
-            color: #00ffff;
-        }
+section::before {
+    content: attr(data-module);
 
-        .output {
-            color: #8caf9a;
-        }
+    position: absolute;
 
+    top: 16px;
+    right: 18px;
 
-        /* =========================================================
-           TERMS CONTENT
-        ========================================================= */
+    color:
+        rgba(0,255,136,.17);
 
-        .terms-wrapper {
-            padding-bottom: 60px;
-        }
+    font-size: 9px;
 
-        .section {
-            position: relative;
+    letter-spacing: 1px;
+}
 
-            margin-bottom: 25px;
+section::after {
+    content: "";
 
-            padding: 30px;
+    position: absolute;
 
-            border:
-                1px solid rgba(0, 255, 136, 0.20);
+    top: 0;
+    left: -100%;
 
-            border-left:
-                3px solid #00ff88;
+    width: 50%;
+    height: 1px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(0, 255, 136, 0.045),
-                    rgba(0, 255, 255, 0.015)
-                );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--green),
+            transparent
+        );
 
-            border-radius: 5px;
+    animation:
+        scanSection 5s linear infinite;
+}
 
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
-        }
+section:hover {
+    border-color:
+        rgba(0,255,136,.65);
 
-        .section:hover {
-            transform: translateY(-3px);
+    box-shadow:
+        0 0 30px rgba(0,255,136,.10),
+        inset 0 0 35px rgba(0,255,136,.025);
 
-            border-color:
-                rgba(0, 255, 136, 0.50);
+    transform:
+        translateY(-1px);
+}
 
-            box-shadow:
-                0 0 25px rgba(0, 255, 136, 0.07);
-        }
+/* =========================================================
+   HEADINGS
+   ========================================================= */
 
-        .section-number {
-            color: #00ffff;
+h2 {
+    color: var(--green);
 
-            font-size: 12px;
+    font-size: 21px;
 
-            letter-spacing: 2px;
+    margin-bottom: 18px;
 
-            margin-bottom: 5px;
+    text-shadow:
+        0 0 8px rgba(0,255,136,.35);
+}
 
-            text-transform: uppercase;
-        }
+h2::before {
+    content: "// ";
 
-        .section h2 {
-            color: #00ff88;
+    color: var(--muted);
+}
 
-            font-size: 22px;
+p {
+    color: #c4e8d2;
 
-            margin-bottom: 15px;
+    line-height: 1.85;
 
-            text-shadow:
-                0 0 7px rgba(0, 255, 136, 0.30);
-        }
+    margin-bottom: 13px;
+}
 
-        .section h2::before {
-            content: "[+] ";
+/* =========================================================
+   NUMBERED SECTION TERMINAL LABEL
+   ========================================================= */
 
-            color: #00ffff;
-        }
+.section-number {
+    display: inline-block;
 
-        .section p {
-            color: #b6d8c0;
+    margin-bottom: 12px;
 
-            font-size: 15px;
-        }
+    color: var(--muted);
 
-        .highlight {
-            color: #00ffff;
+    font-size: 11px;
 
-            font-weight: bold;
-        }
+    letter-spacing: 1px;
+}
 
-        .warning {
-            color: #00ff88;
+/* =========================================================
+   SECURITY GRID
+   ========================================================= */
 
-            font-weight: bold;
-        }
+.security-grid {
+    display: grid;
 
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px, 1fr)
+        );
 
-        /* =========================================================
-           UPDATE INFO
-        ========================================================= */
+    gap: 12px;
 
-        .update-box {
-            margin-bottom: 30px;
+    margin-top: 20px;
+}
 
-            padding: 18px 22px;
+.security-card {
+    padding: 15px;
 
-            border:
-                1px dashed rgba(0, 255, 255, 0.40);
+    border:
+        1px solid rgba(0,255,136,.20);
 
-            background:
-                rgba(0, 255, 255, 0.025);
+    background:
+        rgba(0,255,136,.025);
 
-            color: #83c8c0;
+    color: var(--green);
 
-            font-size: 13px;
-        }
+    transition:
+        .25s ease;
+}
 
-        .update-box strong {
-            color: #00ffff;
-        }
+.security-card:hover {
+    transform:
+        translateY(-4px);
 
+    border-color:
+        var(--green);
 
-        /* =========================================================
-           SECURITY NOTICE
-        ========================================================= */
+    box-shadow:
+        0 0 20px rgba(0,255,136,.12);
+}
 
-        .security-notice {
-            margin-top: 35px;
+/* =========================================================
+   LISTS
+   ========================================================= */
 
-            padding: 22px;
+ul {
+    list-style: none;
 
-            border:
-                1px solid rgba(0, 255, 136, 0.30);
+    margin-top: 15px;
+}
 
-            background:
-                rgba(0, 255, 136, 0.035);
+li {
+    position: relative;
 
-            color: #8ecba4;
+    color: #c4e8d2;
 
-            font-size: 13px;
-        }
+    padding:
+        9px 0 9px 26px;
 
-        .security-notice strong {
-            color: #00ff88;
-        }
+    border-bottom:
+        1px dashed
+        rgba(0,255,136,.08);
 
+    line-height: 1.65;
+}
 
-        /* =========================================================
-           FOOTER
-        ========================================================= */
+li::before {
+    content: ">";
 
-        footer {
-            padding: 35px 0;
+    position: absolute;
 
-            border-top:
-                1px solid rgba(0, 255, 136, 0.20);
+    left: 0;
 
-            background:
-                rgba(1, 5, 3, 0.85);
+    color: var(--green);
 
-            text-align: center;
-        }
+    font-weight: bold;
 
-        .footer-command {
-            margin-bottom: 12px;
+    text-shadow:
+        0 0 8px var(--green);
+}
 
-            color: #00ff88;
+/* =========================================================
+   WARNING
+   ========================================================= */
 
-            font-size: 13px;
-        }
+.warning {
+    margin-top: 18px;
 
-        .footer-command::before {
-            content: "$ ";
-            color: #00ffff;
-        }
+    padding: 17px;
 
-        .copyright {
-            color: #668b72;
+    border:
+        1px solid
+        rgba(255,216,77,.35);
 
-            font-size: 12px;
-        }
+    background:
+        rgba(255,216,77,.035);
 
-        .github-pages {
-            margin-top: 8px;
+    color: var(--warning);
 
-            color: #477257;
+    line-height: 1.7;
 
-            font-size: 11px;
-        }
+    box-shadow:
+        0 0 20px
+        rgba(255,216,77,.035);
+}
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-        /* =========================================================
-           SCROLLBAR
-        ========================================================= */
+footer {
+    text-align: center;
 
-        ::-webkit-scrollbar {
-            width: 9px;
-        }
+    margin-top: 45px;
 
-        ::-webkit-scrollbar-track {
-            background: #020604;
-        }
+    padding:
+        25px 10px;
 
-        ::-webkit-scrollbar-thumb {
-            background: #075d38;
+    border-top:
+        1px solid var(--border);
 
-            border-radius: 10px;
-        }
+    color: var(--muted);
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00ff88;
-        }
+    font-size: 12px;
 
+    line-height: 2;
+}
 
-        /* =========================================================
-           SELECTION
-        ========================================================= */
+footer .green {
+    color: var(--green);
 
-        ::selection {
-            background: #00ff88;
-            color: #020604;
-        }
+    text-shadow:
+        0 0 8px rgba(0,255,136,.4);
+}
 
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
 
-        /* =========================================================
-           RESPONSIVE DESIGN
-        ========================================================= */
+.top {
+    position: fixed;
 
-        @media (max-width: 768px) {
+    right: 20px;
+    bottom: 20px;
 
-            header {
-                position: relative;
-            }
+    width: 42px;
+    height: 42px;
 
-            .header-inner {
-                flex-direction: column;
+    display: flex;
 
-                align-items: flex-start;
-            }
+    align-items: center;
+    justify-content: center;
 
-            nav {
-                gap: 12px;
-            }
+    color: var(--green);
 
-            .hero {
-                padding: 65px 0 40px;
-            }
+    text-decoration: none;
 
-            .section {
-                padding: 22px;
-            }
+    border:
+        1px solid var(--green);
 
-            .section h2 {
-                font-size: 19px;
-            }
+    background:
+        rgba(0,10,6,.88);
 
-            .section p {
-                font-size: 14px;
-            }
+    box-shadow:
+        0 0 12px
+        rgba(0,255,136,.15);
 
-            .terminal-content {
-                font-size: 12px;
-            }
+    z-index: 100;
 
-        }
+    transition:
+        .25s ease;
+}
 
+.top:hover {
+    color: #000;
 
-        @media (max-width: 480px) {
+    background: var(--green);
 
-            .container {
-                width: 94%;
-            }
+    box-shadow:
+        0 0 15px var(--green),
+        0 0 35px rgba(0,255,136,.4);
+}
 
-            h1 {
-                font-size: 35px;
-            }
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
 
-            .hero-subtitle {
-                font-size: 13px;
-            }
+@keyframes statusPulse {
+    0%,100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 
-            .section {
-                padding: 18px;
-            }
+    50% {
+        opacity: .35;
+        transform: scale(.65);
+    }
+}
 
-            nav a {
-                font-size: 12px;
-            }
+@keyframes cursorBlink {
+    0%,49% {
+        opacity: 1;
+    }
 
-        }
+    50%,100% {
+        opacity: 0;
+    }
+}
 
-    </style>
+@keyframes logoPulse {
+    0%,100% {
+        filter: brightness(1);
+    }
 
+    50% {
+        filter: brightness(1.35);
+    }
+}
+
+@keyframes terminalEntry {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sectionAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scanSection {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+@keyframes glitchTitle {
+    0%,92%,100% {
+        transform: translate(0);
+    }
+
+    93% {
+        transform: translate(-1px,1px);
+    }
+
+    94% {
+        transform: translate(1px,-1px);
+    }
+
+    95% {
+        transform: translate(0);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+        padding-top: 12px;
+    }
+
+    header {
+        padding: 18px;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 10px;
+        padding: 7px 9px;
+    }
+
+    section {
+        padding: 19px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h1::before {
+        display: block;
+        margin-bottom: 7px;
+    }
+
+    section::before {
+        display: none;
+    }
+
+    .top {
+        right: 12px;
+        bottom: 12px;
+
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<canvas id="matrix"></canvas>
 
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
+<div class="container">
 
-    <header>
+<header>
 
-        <div class="container header-inner">
+    <a
+        class="logo"
+        href="https://hvamruth.github.io/amruth.profile.com/"
+    >
+        AMRUTH.SAGAR.HV
+    </a>
 
-            <div class="terminal-logo">
-                AMRUTH<span>@</span>SECURITY:~$
-            </div>
+    <nav>
 
-            <nav>
+        <a href="https://hvamruth.github.io/amruth.profile.com/">
+            [HOME]
+        </a>
 
-                <a href="Profile.html">[ PROFILE ]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/Profile.html">
+            [PROFILE]
+        </a>
 
-                <a href="certificate.html">[ CERTIFICATES ]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/certificate.html">
+            [CERTIFICATES]
+        </a>
 
-                <a href="privacy-policy.html">[ PRIVACY ]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/security.html">
+            [SECURITY]
+        </a>
 
-                <a href="terms.html">[ TERMS ]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/privacy-policy.html">
+            [PRIVACY]
+        </a>
 
-            </nav>
+        <a href="https://hvamruth.github.io/amruth.profile.com/terms.html">
+            [TERMS]
+        </a>
 
-        </div>
+    </nav>
 
-    </header>
+</header>
 
+<main>
 
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
+<div class="status">
 
-    <main>
+    <span class="status-dot"></span>
 
-        <section class="hero">
+    SYSTEM STATUS: ONLINE
 
-            <div class="container">
+</div>
 
-                <div class="terminal-status">
-                    SYSTEM STATUS: TERMS ACTIVE
-                </div>
+<h1>Terms and Conditions</h1>
 
-                <h1>TERMS & CONDITIONS</h1>
+<div class="terminal">
 
-                <p class="hero-subtitle">
-                    Legal terms, website usage rules,
-                    intellectual property information,
-                    responsibilities and limitations.
-                </p>
+    <div class="terminal-line">
 
-            </div>
+        <span class="terminal-prefix">
+            root@amruth-security:~$
+        </span>
 
-        </section>
+        <span id="typing"></span>
 
+        <span class="cursor"></span>
 
-        <!-- =====================================================
-             TERMINAL INTRO
-        ====================================================== -->
+    </div>
 
-        <section class="container">
+</div>
 
-            <div class="terminal-window">
+<section data-module="// TERMS_MODULE_01">
 
-                <div class="terminal-bar">
+<h2>1. Acceptance of Terms</h2>
 
-                    <span class="terminal-dot"></span>
-                    <span class="terminal-dot"></span>
-                    <span class="terminal-dot"></span>
+<p>
+By accessing and using this website, you agree to comply with these Terms and Conditions. If you do not agree with any part of these terms, you should discontinue using the website.
+</p>
 
-                    <span class="terminal-title">
-                        terms@amruth-profile:~/
-                    </span>
+</section>
 
-                </div>
+<section data-module="// TERMS_MODULE_02">
 
+<h2>2. Website Purpose</h2>
 
-                <div class="terminal-content">
+<p>
+This website is a personal project intended to provide information, resources, and project demonstrations. All content is provided for general informational purposes only.
+</p>
 
-                    <div class="terminal-line">
-                        <span class="prompt">visitor@website:~$</span>
-                        <span class="command">
-                            cat terms-and-conditions.txt
-                        </span>
-                    </div>
+</section>
 
-                    <div class="terminal-line output">
-                        Loading legal documentation...
-                    </div>
+<section data-module="// TERMS_MODULE_03">
 
-                    <div class="terminal-line output">
-                        Access granted.
-                    </div>
+<h2>3. Intellectual Property</h2>
 
-                    <div class="terminal-line output">
-                        Document status: ACTIVE
-                    </div>
+<p>
+Unless otherwise stated, all original content including text, design, graphics, and code on this website belongs to the website owner. Unauthorized copying, distribution, or reproduction of content may not be permitted without permission.
+</p>
 
-                    <div class="terminal-line output">
-                        Last updated: 2026
-                    </div>
+</section>
 
-                </div>
+<section data-module="// TERMS_MODULE_04">
 
-            </div>
+<h2>4. External Links</h2>
 
-        </section>
+<p>
+This website may contain links to external websites. These links are provided for convenience only. The website owner does not control or take responsibility for the content or policies of third-party websites.
+</p>
 
+</section>
 
-        <!-- =====================================================
-             TERMS
-        ====================================================== -->
+<section data-module="// TERMS_MODULE_05">
 
-        <section class="container terms-wrapper">
+<h2>5. User Responsibility</h2>
 
+<p>
+Users agree not to misuse this website or attempt to disrupt the website's operation through hacking, malicious software, or other harmful activities.
+</p>
 
-            <div class="update-box">
+<div class="security-grid">
 
-                <strong>DOCUMENT_STATUS:</strong>
-                ACTIVE
+    <div class="security-card">
+        [ ACCESS ]
+    </div>
 
-                <br>
+    <div class="security-card">
+        [ RESPONSIBILITY ]
+    </div>
 
-                <strong>LAST_UPDATED:</strong>
-                2026
+    <div class="security-card">
+        [ SECURITY ]
+    </div>
 
-            </div>
+</div>
 
+</section>
 
-            <!-- SECTION 1 -->
+<section data-module="// TERMS_MODULE_06">
 
-            <article class="section">
+<h2>6. Limitation of Liability</h2>
 
-                <div class="section-number">
-                    SECURITY_POLICY // 01
-                </div>
+<p>
+The website owner makes reasonable efforts to keep the information on this website accurate and up to date. However, the website is provided "as is" without any warranties. The owner shall not be liable for any damages resulting from the use of this website.
+</p>
 
-                <h2>Acceptance of Terms</h2>
+<div class="warning">
 
-                <p>
-                    By accessing and using this website, you agree
-                    to comply with these Terms and Conditions.
-                    If you do not agree with any part of these terms,
-                    you should discontinue using the website.
-                </p>
+    ⚠ NOTICE:
+    Website information is provided "as is" without warranties.
 
-            </article>
+</div>
 
+</section>
 
-            <!-- SECTION 2 -->
+<section data-module="// TERMS_MODULE_07">
 
-            <article class="section">
+<h2>7. Modifications</h2>
 
-                <div class="section-number">
-                    SYSTEM_PURPOSE // 02
-                </div>
+<p>
+These Terms and Conditions may be updated or modified at any time without prior notice. Continued use of the website after changes indicates acceptance of the updated terms.
+</p>
 
-                <h2>Website Purpose</h2>
+</section>
 
-                <p>
-                    This website is a personal project intended
-                    to provide information, resources, and project
-                    demonstrations. All content is provided for
-                    general informational purposes only.
-                </p>
+<section data-module="// TERMS_MODULE_08">
 
-            </article>
+<h2>8. Governing Law</h2>
 
+<p>
+These terms shall be governed and interpreted according to applicable laws in the relevant jurisdiction of the website owner.
+</p>
 
-            <!-- SECTION 3 -->
+</section>
 
-            <article class="section">
+<section data-module="// TERMS_MODULE_09">
 
-                <div class="section-number">
-                    INTELLECTUAL_PROPERTY // 03
-                </div>
+<h2>9. Contact</h2>
 
-                <h2>Intellectual Property</h2>
+<p>
+For questions regarding these Terms and Conditions, please contact the website owner through the contact information provided on the website or repository.
+</p>
 
-                <p>
-                    Unless otherwise stated, all original content
-                    including text, design, graphics, and code on
-                    this website belongs to the website owner.
-                    Unauthorized copying, distribution, or reproduction
-                    of content may not be permitted without permission.
-                </p>
+</section>
 
-            </article>
+</main>
 
+<footer>
 
-            <!-- SECTION 4 -->
+<div class="green">
+    Last Updated: 2026
+</div>
 
-            <article class="section">
+<div>
+    © 2026 Personal Website | Hosted on GitHub Pages
+</div>
 
-                <div class="section-number">
-                    EXTERNAL_NETWORKS // 04
-                </div>
+</footer>
 
-                <h2>External Links</h2>
+</div>
 
-                <p>
-                    This website may contain links to external websites.
-                    These links are provided for convenience only.
-                    The website owner does not control or take
-                    responsibility for the content or policies of
-                    third-party websites.
-                </p>
+<a
+    href="#"
+    class="top"
+    aria-label="Back to top"
+>
+    ↑
+</a>
 
-            </article>
+<script>
 
+/* =========================================================
+   MATRIX DIGITAL RAIN
+   ========================================================= */
 
-            <!-- SECTION 5 -->
+const canvas =
+    document.getElementById("matrix");
 
-            <article class="section">
+const ctx =
+    canvas.getContext("2d");
 
-                <div class="section-number">
-                    USER_SECURITY // 05
-                </div>
+let width;
+let height;
+let columns;
+let drops;
 
-                <h2>User Responsibility</h2>
+const characters =
+    "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@<>[]{}";
 
-                <p>
-                    Users agree not to misuse this website or attempt
-                    to disrupt the website's operation through hacking,
-                    malicious software, or other harmful activities.
-                </p>
+function resizeMatrix() {
 
-            </article>
+    width =
+        canvas.width =
+        window.innerWidth;
 
+    height =
+        canvas.height =
+        window.innerHeight;
 
-            <!-- SECTION 6 -->
+    const fontSize = 14;
 
-            <article class="section">
-
-                <div class="section-number">
-                    LIABILITY_CONTROL // 06
-                </div>
-
-                <h2>Limitation of Liability</h2>
-
-                <p>
-                    The website owner makes reasonable efforts to keep
-                    the information on this website accurate and up to
-                    date. However, the website is provided
-                    <span class="highlight">"as is"</span>
-                    without any warranties. The owner shall not be
-                    liable for any damages resulting from the use of
-                    this website.
-                </p>
-
-            </article>
-
-
-            <!-- SECTION 7 -->
-
-            <article class="section">
-
-                <div class="section-number">
-                    SYSTEM_MODIFICATION // 07
-                </div>
-
-                <h2>Modifications</h2>
-
-                <p>
-                    These Terms and Conditions may be updated or
-                    modified at any time without prior notice.
-                    Continued use of the website after changes
-                    indicates acceptance of the updated terms.
-                </p>
-
-            </article>
-
-
-            <!-- SECTION 8 -->
-
-            <article class="section">
-
-                <div class="section-number">
-                    GOVERNING_PROTOCOL // 08
-                </div>
-
-                <h2>Governing Law</h2>
-
-                <p>
-                    These terms shall be governed and interpreted
-                    according to applicable laws in the relevant
-                    jurisdiction of the website owner.
-                </p>
-
-            </article>
-
-
-            <!-- SECTION 9 -->
-
-            <article class="section">
-
-                <div class="section-number">
-                    COMMUNICATION_CHANNEL // 09
-                </div>
-
-                <h2>Contact</h2>
-
-                <p>
-                    For questions regarding these Terms and Conditions,
-                    please contact the website owner through the contact
-                    information provided on the website or repository.
-                </p>
-
-            </article>
-
-
-            <!-- =================================================
-                 SECURITY NOTICE
-            ================================================== -->
-
-            <div class="security-notice">
-
-                <strong>⚠ SECURITY NOTICE:</strong>
-
-                <br><br>
-
-                This website is intended for legitimate informational,
-                professional and educational purposes. Any attempt to
-                compromise, disrupt, damage, manipulate or misuse the
-                website or its infrastructure is prohibited.
-
-            </div>
-
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer>
-
-        <div class="container">
-
-            <div class="footer-command">
-                systemctl status website
-            </div>
-
-            <div class="copyright">
-                © 2026 Personal Website | All Rights Reserved
-            </div>
-
-            <div class="github-pages">
-                Hosted on GitHub Pages
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
-
-    <script>
-
-        /*
-         * Hacker-style terminal initialization
-         */
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
-
-                console.log(
-                    "%c[ SYSTEM ONLINE ]",
-                    "color:#00ff88;font-weight:bold;"
-                );
-
-                console.log(
-                    "%cTerms & Conditions loaded successfully.",
-                    "color:#00ffff;"
-                );
-
-            }
+    columns =
+        Math.floor(
+            width / fontSize
         );
 
+    drops =
+        Array(columns)
+            .fill(1)
+            .map(
+                () =>
+                    Math.random() * -100
+            );
+}
 
-        /*
-         * Add subtle terminal cursor effect
-         */
+function drawMatrix() {
 
-        const status =
-            document.querySelector(".terminal-status");
+    ctx.fillStyle =
+        "rgba(0,0,0,0.055)";
 
-        setInterval(
-            function () {
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
 
-                if (status) {
+    ctx.font =
+        "14px monospace";
 
-                    status.style.opacity =
-                        status.style.opacity === "0.65"
-                            ? "1"
-                            : "0.65";
+    for (
+        let i = 0;
+        i < columns;
+        i++
+    ) {
 
-                }
+        const character =
+            characters[
+                Math.floor(
+                    Math.random() *
+                    characters.length
+                )
+            ];
+
+        const x =
+            i * 14;
+
+        const y =
+            drops[i] * 14;
+
+        ctx.fillStyle =
+            "#00ff88";
+
+        ctx.fillText(
+            character,
+            x,
+            y
+        );
+
+        if (
+            y > height &&
+            Math.random() > .975
+        ) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+
+    requestAnimationFrame(
+        drawMatrix
+    );
+}
+
+window.addEventListener(
+    "resize",
+    resizeMatrix
+);
+
+resizeMatrix();
+
+drawMatrix();
+
+
+/* =========================================================
+   TERMINAL TYPING
+   ========================================================= */
+
+const typing =
+    document.getElementById("typing");
+
+const command =
+    "cat terms-and-conditions.txt";
+
+let position = 0;
+
+function typeCommand() {
+
+    if (
+        position <
+        command.length
+    ) {
+
+        typing.textContent +=
+            command.charAt(position);
+
+        position++;
+
+        setTimeout(
+            typeCommand,
+            55
+        );
+    }
+}
+
+setTimeout(
+    typeCommand,
+    600
+);
+
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+document
+    .querySelector(".top")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+/* =========================================================
+   RANDOM TERMINAL GLITCH
+   ========================================================= */
+
+setInterval(
+    () => {
+
+        const title =
+            document.querySelector("h1");
+
+        if (!title) return;
+
+        title.style.textShadow =
+            "2px 0 #00ff88, -2px 0 rgba(0,255,136,.4)";
+
+        setTimeout(
+            () => {
+
+                title.style.textShadow =
+                    "0 0 8px rgba(0,255,136,.65), 0 0 30px rgba(0,255,136,.20)";
 
             },
-            1500
+            120
         );
 
+    },
+    4500
+);
 
-        /*
-         * Keyboard shortcut:
-         * Press "/" to focus the page.
-         */
-
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (
-                    event.key === "/" &&
-                    document.activeElement.tagName !== "INPUT" &&
-                    document.activeElement.tagName !== "TEXTAREA"
-                ) {
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
-
-                }
-
-            }
-        );
-
-    </script>
-
+</script>
 
 </body>
-
 </html>
