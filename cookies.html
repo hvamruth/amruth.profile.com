@@ -22,6 +22,7 @@
 
     <title>Cookies Policy | Cyber Security Portfolio</title>
 
+
     <style>
 
         /* =========================================================
@@ -34,9 +35,11 @@
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
 
@@ -68,7 +71,56 @@
 
 
         /* =========================================================
-           MATRIX BACKGROUND
+           MATRIX CANVAS BACKGROUND
+        ========================================================= */
+
+        #matrixCanvas {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100vw;
+            height: 100vh;
+
+            z-index: -10;
+
+            pointer-events: none;
+
+            background: #000000;
+
+            opacity: 0.42;
+        }
+
+
+        /* =========================================================
+           MATRIX DARK OVERLAY
+        ========================================================= */
+
+        .matrix-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -9;
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0, 255, 102, 0.045),
+                    rgba(0, 0, 0, 0.72) 75%
+                );
+
+            mix-blend-mode: screen;
+        }
+
+
+        /* =========================================================
+           GRID EFFECT
         ========================================================= */
 
         body::before {
@@ -82,10 +134,12 @@
             pointer-events: none;
 
             background-image:
+
                 linear-gradient(
                     rgba(0,255,100,0.025) 1px,
                     transparent 1px
                 ),
+
                 linear-gradient(
                     90deg,
                     rgba(0,255,100,0.025) 1px,
@@ -94,9 +148,13 @@
 
             background-size: 35px 35px;
 
-            z-index: -2;
+            z-index: -8;
         }
 
+
+        /* =========================================================
+           SCANLINE EFFECT
+        ========================================================= */
 
         body::after {
 
@@ -117,9 +175,9 @@
                     transparent 4px
                 );
 
-            z-index: -1;
+            z-index: 9999;
 
-            opacity: 0.4;
+            opacity: 0.35;
         }
 
 
@@ -131,9 +189,11 @@
             width: 9px;
         }
 
+
         ::-webkit-scrollbar-track {
             background: #020605;
         }
+
 
         ::-webkit-scrollbar-thumb {
 
@@ -144,6 +204,7 @@
             box-shadow:
                 0 0 10px #00ff66;
         }
+
 
         ::-webkit-scrollbar-thumb:hover {
             background: #00cc55;
@@ -159,9 +220,9 @@
             background:
                 linear-gradient(
                     135deg,
-                    #020605,
-                    #07140d,
-                    #020605
+                    rgba(2,6,5,0.94),
+                    rgba(7,20,13,0.90),
+                    rgba(2,6,5,0.94)
                 );
 
             border-bottom:
@@ -177,12 +238,15 @@
                 0 0 25px rgba(0,255,102,0.15);
 
             overflow: hidden;
+
+            backdrop-filter: blur(4px);
         }
 
 
         header::before {
 
-            content: "01001000 01000001 01000011 01001011 01000101 01010010";
+            content:
+                "01001000 01000001 01000011 01001011 01000101 01010010";
 
             position: absolute;
 
@@ -239,7 +303,10 @@
 
 
         .terminal-label::before {
-            content: "root@portfolio:~$ ";
+
+            content:
+                "root@portfolio:~$ ";
+
             color: #00ff66;
         }
 
@@ -248,7 +315,8 @@
 
             color: #00ff66;
 
-            font-size: clamp(28px, 6vw, 48px);
+            font-size:
+                clamp(28px, 6vw, 48px);
 
             font-weight: bold;
 
@@ -261,13 +329,15 @@
 
             margin-bottom: 10px;
 
-            animation: glow 2s infinite alternate;
+            animation:
+                glow 2s infinite alternate;
         }
 
 
         header h1::before {
             content: "[ ";
         }
+
 
         header h1::after {
             content: " ]";
@@ -285,20 +355,22 @@
 
 
         /* =========================================================
-           CONTAINER
+           MAIN CONTAINER
         ========================================================= */
 
         .container {
 
-            width: min(900px, 92%);
+            width:
+                min(900px, 92%);
 
-            margin: 45px auto;
+            margin:
+                45px auto;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(4,18,12,0.96),
-                    rgba(2,10,7,0.98)
+                    rgba(4,18,12,0.94),
+                    rgba(2,10,7,0.96)
                 );
 
             border:
@@ -309,16 +381,27 @@
             padding: 35px;
 
             box-shadow:
-                0 0 15px rgba(0,255,102,0.10),
-                inset 0 0 35px rgba(0,255,102,0.025);
+
+                0 0 15px
+                rgba(0,255,102,0.10),
+
+                inset 0 0 35px
+                rgba(0,255,102,0.025),
+
+                0 20px 70px
+                rgba(0,0,0,0.65);
 
             position: relative;
+
+            backdrop-filter:
+                blur(8px);
         }
 
 
         .container::before {
 
-            content: "SECURE_DOCUMENT";
+            content:
+                "SECURE_DOCUMENT";
 
             position: absolute;
 
@@ -326,18 +409,27 @@
 
             left: 20px;
 
-            padding: 2px 10px;
+            padding:
+                2px 10px;
 
-            background: #020605;
+            background:
+                #020605;
 
             border:
                 1px solid #00ff66;
 
-            color: #00ff66;
+            color:
+                #00ff66;
 
-            font-size: 10px;
+            font-size:
+                10px;
 
-            letter-spacing: 2px;
+            letter-spacing:
+                2px;
+
+            box-shadow:
+                0 0 8px
+                rgba(0,255,102,0.25);
         }
 
 
@@ -355,15 +447,18 @@
 
             height: 8px;
 
-            background: #00ff66;
+            background:
+                #00ff66;
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
             box-shadow:
                 0 0 8px #00ff66,
                 0 0 15px #00ff66;
 
-            animation: blink 1.5s infinite;
+            animation:
+                blink 1.5s infinite;
         }
 
 
@@ -381,7 +476,8 @@
 
             margin-bottom: 12px;
 
-            padding: 10px 14px;
+            padding:
+                10px 14px;
 
             border-left:
                 3px solid #00ff66;
@@ -394,25 +490,49 @@
                 );
 
             text-shadow:
-                0 0 8px rgba(0,255,102,0.55);
+                0 0 8px
+                rgba(0,255,102,0.55);
 
-            letter-spacing: 1px;
+            letter-spacing:
+                1px;
+
+            position: relative;
         }
 
 
         h2::before {
-            content: "root@policy:~# ";
-            color: #00aa44;
+
+            content:
+                "root@policy:~# ";
+
+            color:
+                #00aa44;
+        }
+
+
+        h2::after {
+
+            content:
+                "_";
+
+            animation:
+                cursorBlink 1s infinite;
+
+            color:
+                #00ff66;
         }
 
 
         p {
 
-            color: #b8ffd0;
+            color:
+                #b8ffd0;
 
-            font-size: 15px;
+            font-size:
+                15px;
 
-            margin-bottom: 18px;
+            margin-bottom:
+                18px;
         }
 
 
@@ -422,9 +542,11 @@
 
         a {
 
-            color: #00ff66;
+            color:
+                #00ff66;
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
             border-bottom:
                 1px dashed #00ff66;
@@ -436,7 +558,8 @@
 
         a:hover {
 
-            color: #ffffff;
+            color:
+                #ffffff;
 
             text-shadow:
                 0 0 8px #00ff66;
@@ -452,37 +575,66 @@
 
         ul {
 
-            list-style: none;
+            list-style:
+                none;
 
-            margin: 10px 0 25px 10px;
+            margin:
+                10px 0 25px 10px;
 
-            padding-left: 12px;
+            padding-left:
+                12px;
         }
 
 
         li {
 
-            color: #aaffc2;
+            color:
+                #aaffc2;
 
-            margin: 10px 0;
+            margin:
+                10px 0;
 
-            padding-left: 20px;
+            padding-left:
+                20px;
 
-            position: relative;
+            position:
+                relative;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        li:hover {
+
+            color:
+                #ffffff;
+
+            transform:
+                translateX(5px);
+
+            text-shadow:
+                0 0 7px
+                rgba(0,255,102,0.6);
         }
 
 
         li::before {
 
-            content: ">";
+            content:
+                ">";
 
-            position: absolute;
+            position:
+                absolute;
 
-            left: 0;
+            left:
+                0;
 
-            color: #00ff66;
+            color:
+                #00ff66;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
             text-shadow:
                 0 0 8px #00ff66;
@@ -490,41 +642,81 @@
 
 
         /* =========================================================
-           SECURITY INFO BOX
+           SECURITY STATUS BOX
         ========================================================= */
 
         .security-box {
 
-            margin: 30px 0;
+            margin:
+                30px 0;
 
-            padding: 18px;
+            padding:
+                18px;
 
             border:
-                1px solid rgba(0,255,102,0.4);
+                1px solid
+                rgba(0,255,102,0.4);
 
             background:
                 rgba(0,255,102,0.035);
 
             box-shadow:
-                inset 0 0 20px rgba(0,255,102,0.025);
+                inset 0 0 20px
+                rgba(0,255,102,0.025),
+
+                0 0 20px
+                rgba(0,255,102,0.05);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        .security-box::before {
+
+            content:
+                "SYSTEM MONITOR";
+
+            display:
+                block;
+
+            font-size:
+                10px;
+
+            color:
+                #008f3b;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                8px;
         }
 
 
         .security-box .status {
 
-            color: #00ff66;
+            color:
+                #00ff66;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            letter-spacing: 1px;
+            letter-spacing:
+                1px;
         }
 
 
         .security-box .status::before {
 
-            content: "[ONLINE] ";
+            content:
+                "[ONLINE] ";
 
-            color: #00ff66;
+            color:
+                #00ff66;
         }
 
 
@@ -534,46 +726,66 @@
 
         footer {
 
-            text-align: center;
+            text-align:
+                center;
 
-            padding: 30px 20px;
+            padding:
+                30px 20px;
 
-            margin-top: 50px;
+            margin-top:
+                50px;
 
             background:
-                #020605;
+                rgba(2,6,5,0.94);
 
             border-top:
                 1px solid #00ff66;
 
-            color: #70cc91;
+            color:
+                #70cc91;
 
-            font-size: 13px;
+            font-size:
+                13px;
 
             box-shadow:
-                0 -5px 25px rgba(0,255,102,0.08);
+                0 -5px 25px
+                rgba(0,255,102,0.08);
+
+            backdrop-filter:
+                blur(5px);
         }
 
 
         footer p {
-            color: #70cc91;
-            margin: 5px 0;
+
+            color:
+                #70cc91;
+
+            margin:
+                5px 0;
         }
 
 
         footer .terminal-footer {
 
-            color: #00ff66;
+            color:
+                #00ff66;
 
-            margin-bottom: 8px;
+            margin-bottom:
+                8px;
 
-            letter-spacing: 1px;
+            letter-spacing:
+                1px;
         }
 
 
         footer .terminal-footer::before {
-            content: "root@portfolio:~$ ";
-            color: #00aa44;
+
+            content:
+                "root@portfolio:~$ ";
+
+            color:
+                #00aa44;
         }
 
 
@@ -584,16 +796,21 @@
         @keyframes glow {
 
             from {
+
                 text-shadow:
                     0 0 5px #00ff66,
-                    0 0 10px rgba(0,255,102,0.4);
+                    0 0 10px
+                    rgba(0,255,102,0.4);
             }
 
             to {
+
                 text-shadow:
                     0 0 8px #00ff66,
-                    0 0 20px rgba(0,255,102,0.7),
-                    0 0 35px rgba(0,255,102,0.3);
+                    0 0 20px
+                    rgba(0,255,102,0.7),
+                    0 0 35px
+                    rgba(0,255,102,0.3);
             }
         }
 
@@ -612,6 +829,20 @@
         }
 
 
+        @keyframes cursorBlink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+
         /* =========================================================
            MOBILE
         ========================================================= */
@@ -619,42 +850,76 @@
         @media (max-width: 600px) {
 
             header {
-                padding: 30px 15px;
+                padding:
+                    30px 15px;
             }
+
 
             header h1 {
-                font-size: 28px;
-                letter-spacing: 1px;
+
+                font-size:
+                    28px;
+
+                letter-spacing:
+                    1px;
             }
 
+
             header p {
-                font-size: 12px;
+
+                font-size:
+                    12px;
             }
+
 
             .container {
 
-                width: 94%;
+                width:
+                    94%;
 
-                padding: 22px 18px;
+                padding:
+                    22px 18px;
 
-                margin: 35px auto;
+                margin:
+                    35px auto;
             }
+
 
             h2 {
-                font-size: 17px;
-                padding: 8px 10px;
+
+                font-size:
+                    17px;
+
+                padding:
+                    8px 10px;
             }
+
 
             h2::before {
-                content: "# ";
+
+                content:
+                    "# ";
             }
+
 
             p {
-                font-size: 14px;
+
+                font-size:
+                    14px;
             }
 
+
             li {
-                font-size: 14px;
+
+                font-size:
+                    14px;
+            }
+
+
+            #matrixCanvas {
+
+                opacity:
+                    0.30;
             }
         }
 
@@ -669,11 +934,14 @@
             *::before,
             *::after {
 
-                animation-duration: 0.01ms !important;
+                animation-duration:
+                    0.01ms !important;
 
-                animation-iteration-count: 1 !important;
+                animation-iteration-count:
+                    1 !important;
 
-                scroll-behavior: auto !important;
+                scroll-behavior:
+                    auto !important;
             }
         }
 
@@ -683,6 +951,15 @@
 
 
 <body>
+
+
+    <!-- =========================================================
+         MATRIX ANIMATION CANVAS
+    ========================================================= -->
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="matrix-overlay"></div>
 
 
     <!-- =========================================================
@@ -697,7 +974,9 @@
 
         <h1>Cookies Policy</h1>
 
-        <p>Last Updated: 2026</p>
+        <p>
+            Last Updated: 2026
+        </p>
 
     </header>
 
@@ -712,7 +991,9 @@
 
         <!-- 1 -->
 
-        <h2>1. Introduction</h2>
+        <h2>
+            1. Introduction
+        </h2>
 
         <p>
             This Cookies Policy explains how cookies may be used when you visit this
@@ -723,7 +1004,9 @@
 
         <!-- 2 -->
 
-        <h2>2. What Are Cookies</h2>
+        <h2>
+            2. What Are Cookies
+        </h2>
 
         <p>
             Cookies are small text files stored on your device by your web browser
@@ -735,11 +1018,14 @@
 
         <!-- 3 -->
 
-        <h2>3. How This Website Uses Cookies</h2>
+        <h2>
+            3. How This Website Uses Cookies
+        </h2>
 
         <p>
             This website is primarily a static personal portfolio. Cookies may be used for:
         </p>
+
 
         <ul>
 
@@ -761,7 +1047,9 @@
 
         <!-- 4 -->
 
-        <h2>4. Third-Party Cookies</h2>
+        <h2>
+            4. Third-Party Cookies
+        </h2>
 
         <p>
             Some pages may contain external content such as GitHub links,
@@ -774,7 +1062,9 @@
 
         <!-- 5 -->
 
-        <h2>5. Managing Cookies</h2>
+        <h2>
+            5. Managing Cookies
+        </h2>
 
         <p>
             Most web browsers automatically accept cookies. However,
@@ -791,7 +1081,9 @@
 
         <!-- 6 -->
 
-        <h2>6. Links to Other Websites</h2>
+        <h2>
+            6. Links to Other Websites
+        </h2>
 
         <p>
             This website may include links to other websites such as
@@ -803,7 +1095,9 @@
 
         <!-- 7 -->
 
-        <h2>7. Changes to This Policy</h2>
+        <h2>
+            7. Changes to This Policy
+        </h2>
 
         <p>
             This Cookies Policy may be updated occasionally to reflect
@@ -814,7 +1108,9 @@
 
         <!-- 8 -->
 
-        <h2>8. Contact</h2>
+        <h2>
+            8. Contact
+        </h2>
 
         <p>
             If you have questions regarding this Cookies Policy,
@@ -858,6 +1154,295 @@
         </p>
 
     </footer>
+
+
+
+    <!-- =========================================================
+         MATRIX JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /*
+         * ========================================================
+         * PROFESSIONAL MATRIX DIGITAL RAIN
+         * ========================================================
+         */
+
+        const canvas =
+            document.getElementById("matrixCanvas");
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        let width;
+        let height;
+
+        let fontSize = 15;
+
+        let columns;
+
+        let drops;
+
+        let characters =
+            "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+-=[]{}<>";
+
+
+        function resizeCanvas() {
+
+            const dpr =
+                window.devicePixelRatio || 1;
+
+            width =
+                window.innerWidth;
+
+            height =
+                window.innerHeight;
+
+
+            canvas.width =
+                width * dpr;
+
+            canvas.height =
+                height * dpr;
+
+
+            canvas.style.width =
+                width + "px";
+
+            canvas.style.height =
+                height + "px";
+
+
+            ctx.setTransform(
+                dpr,
+                0,
+                0,
+                dpr,
+                0,
+                0
+            );
+
+
+            fontSize =
+                width < 600 ? 13 : 15;
+
+
+            columns =
+                Math.floor(
+                    width / fontSize
+                );
+
+
+            drops =
+                [];
+
+
+            for (
+                let i = 0;
+                i < columns;
+                i++
+            ) {
+
+                drops[i] =
+                    Math.random() *
+                    -100;
+            }
+
+        }
+
+
+        function randomCharacter() {
+
+            return characters.charAt(
+
+                Math.floor(
+                    Math.random() *
+                    characters.length
+                )
+
+            );
+
+        }
+
+
+        function drawMatrix() {
+
+            /*
+             * Transparent black layer creates
+             * the trailing rain effect.
+             */
+
+            ctx.fillStyle =
+                "rgba(0, 0, 0, 0.055)";
+
+            ctx.fillRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            ctx.font =
+                fontSize +
+                "px monospace";
+
+
+            for (
+                let i = 0;
+                i < drops.length;
+                i++
+            ) {
+
+                const text =
+                    randomCharacter();
+
+
+                const x =
+                    i * fontSize;
+
+
+                const y =
+                    drops[i] *
+                    fontSize;
+
+
+                /*
+                 * Main Matrix green character
+                 */
+
+                ctx.fillStyle =
+                    "#00ff66";
+
+
+                ctx.shadowBlur =
+                    7;
+
+                ctx.shadowColor =
+                    "#00ff66";
+
+
+                ctx.fillText(
+                    text,
+                    x,
+                    y
+                );
+
+
+                /*
+                 * Occasionally create a
+                 * brighter Matrix head.
+                 */
+
+                if (
+                    Math.random() >
+                    0.96
+                ) {
+
+                    ctx.fillStyle =
+                        "#ffffff";
+
+                    ctx.shadowBlur =
+                        12;
+
+                    ctx.shadowColor =
+                        "#00ff66";
+
+
+                    ctx.fillText(
+                        text,
+                        x,
+                        y
+                    );
+                }
+
+
+                /*
+                 * Reset falling column
+                 * after it reaches the bottom.
+                 */
+
+                if (
+                    y > height &&
+                    Math.random() > 0.975
+                ) {
+
+                    drops[i] =
+                        Math.random() *
+                        -30;
+                }
+
+
+                drops[i] +=
+                    0.72 +
+                    Math.random() *
+                    0.38;
+            }
+
+
+            ctx.shadowBlur = 0;
+
+
+            requestAnimationFrame(
+                drawMatrix
+            );
+        }
+
+
+        /*
+         * Initialize
+         */
+
+        resizeCanvas();
+
+        drawMatrix();
+
+
+        /*
+         * Recalculate Matrix columns
+         * when browser is resized.
+         */
+
+        let resizeTimer;
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                clearTimeout(
+                    resizeTimer
+                );
+
+
+                resizeTimer =
+                    setTimeout(
+                        resizeCanvas,
+                        150
+                    );
+
+            }
+        );
+
+
+        /*
+         * Reduce animation intensity
+         * when browser requests reduced motion.
+         */
+
+        if (
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
+        ) {
+
+            canvas.style.opacity =
+                "0.12";
+        }
+
+    </script>
 
 
 </body>
