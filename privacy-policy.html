@@ -49,6 +49,7 @@
             overflow-x: hidden;
         }
 
+
         /* =========================================================
            MATRIX BACKGROUND
         ========================================================= */
@@ -90,6 +91,43 @@
             pointer-events: none;
         }
 
+
+        /* =========================================================
+           MATRIX RAIN ANIMATION
+           ADDED ONLY
+        ========================================================= */
+
+        #matrix-canvas {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -1;
+
+            pointer-events: none;
+
+            opacity: 0.22;
+        }
+
+        .matrix-overlay {
+            position: fixed;
+            inset: 0;
+
+            z-index: -1;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 20, 8, 0.05),
+                    rgba(0, 0, 0, 0.18)
+                );
+        }
+
+
         /* =========================================================
            SCANLINE EFFECT
         ========================================================= */
@@ -97,7 +135,9 @@
         .scanlines {
             position: fixed;
             inset: 0;
+
             pointer-events: none;
+
             z-index: 999;
 
             background:
@@ -110,6 +150,7 @@
                 );
         }
 
+
         /* =========================================================
            MAIN CONTAINER
         ========================================================= */
@@ -119,13 +160,16 @@
             margin: 40px auto;
         }
 
+
         /* =========================================================
            TERMINAL WINDOW
         ========================================================= */
 
         .terminal-window {
             border: 1px solid #00ff66;
-            background: rgba(1, 12, 6, 0.94);
+
+            background:
+                rgba(1, 12, 6, 0.94);
 
             box-shadow:
                 0 0 10px rgba(0,255,100,0.25),
@@ -133,8 +177,10 @@
                 inset 0 0 30px rgba(0,255,100,0.025);
 
             border-radius: 8px;
+
             overflow: hidden;
         }
+
 
         /* =========================================================
            TERMINAL TOP BAR
@@ -161,37 +207,50 @@
 
         .terminal-buttons {
             display: flex;
+
             gap: 8px;
+
             margin-right: 18px;
         }
 
         .terminal-buttons span {
             width: 12px;
             height: 12px;
+
             border-radius: 50%;
+
             display: block;
         }
 
         .red {
             background: #ff4d4d;
-            box-shadow: 0 0 8px rgba(255,77,77,0.6);
+
+            box-shadow:
+                0 0 8px rgba(255,77,77,0.6);
         }
 
         .yellow {
             background: #ffd84d;
-            box-shadow: 0 0 8px rgba(255,216,77,0.6);
+
+            box-shadow:
+                0 0 8px rgba(255,216,77,0.6);
         }
 
         .green {
             background: #00ff66;
-            box-shadow: 0 0 8px rgba(0,255,102,0.6);
+
+            box-shadow:
+                0 0 8px rgba(0,255,102,0.6);
         }
 
         .terminal-title {
             color: #75ff9e;
+
             font-size: 13px;
+
             letter-spacing: 1px;
         }
+
 
         /* =========================================================
            TERMINAL CONTENT
@@ -201,13 +260,16 @@
             padding: 35px;
         }
 
+
         /* =========================================================
            COMMAND HEADER
         ========================================================= */
 
         .command-line {
             color: #00ff66;
+
             font-size: 14px;
+
             margin-bottom: 10px;
         }
 
@@ -221,15 +283,22 @@
 
         .cursor {
             display: inline-block;
+
             width: 9px;
             height: 17px;
+
             background: #00ff66;
+
             vertical-align: middle;
+
             margin-left: 5px;
-            animation: blink 1s infinite;
+
+            animation:
+                blink 1s infinite;
         }
 
         @keyframes blink {
+
             0%, 45% {
                 opacity: 1;
             }
@@ -239,17 +308,21 @@
             }
         }
 
+
         /* =========================================================
            PAGE TITLE
         ========================================================= */
 
         .page-title {
             text-align: center;
+
             margin: 25px 0 35px;
         }
 
         .page-title h1 {
-            font-size: clamp(28px, 5vw, 48px);
+            font-size:
+                clamp(28px, 5vw, 48px);
+
             color: #00ff66;
 
             text-shadow:
@@ -262,20 +335,26 @@
 
         .page-title h1::before {
             content: "[ ";
+
             color: #66ff99;
         }
 
         .page-title h1::after {
             content: " ]";
+
             color: #66ff99;
         }
 
         .subtitle {
             margin-top: 8px;
+
             color: #76b889;
+
             font-size: 13px;
+
             letter-spacing: 2px;
         }
+
 
         /* =========================================================
            SECURITY STATUS
@@ -283,16 +362,20 @@
 
         .security-status {
             display: grid;
+
             grid-template-columns:
                 repeat(3, 1fr);
 
             gap: 12px;
+
             margin-bottom: 35px;
         }
 
         .status-box {
             border: 1px solid #0c7d36;
-            background: rgba(0,255,102,0.025);
+
+            background:
+                rgba(0,255,102,0.025);
 
             padding: 14px;
 
@@ -305,9 +388,11 @@
         }
 
         .status-box:hover {
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
 
-            border-color: #00ff66;
+            border-color:
+                #00ff66;
 
             box-shadow:
                 0 0 15px rgba(0,255,102,0.2);
@@ -315,19 +400,29 @@
 
         .status-label {
             display: block;
+
             color: #5fa875;
+
             font-size: 10px;
+
             letter-spacing: 1px;
-            text-transform: uppercase;
+
+            text-transform:
+                uppercase;
         }
 
         .status-value {
             display: block;
+
             color: #00ff66;
+
             margin-top: 5px;
+
             font-size: 13px;
+
             font-weight: bold;
         }
+
 
         /* =========================================================
            CONTENT SECTIONS
@@ -337,12 +432,20 @@
             position: relative;
 
             margin: 25px 0;
+
             padding: 25px;
 
-            border-left: 2px solid #00ff66;
-            border-top: 1px solid rgba(0,255,102,0.12);
-            border-right: 1px solid rgba(0,255,102,0.12);
-            border-bottom: 1px solid rgba(0,255,102,0.12);
+            border-left:
+                2px solid #00ff66;
+
+            border-top:
+                1px solid rgba(0,255,102,0.12);
+
+            border-right:
+                1px solid rgba(0,255,102,0.12);
+
+            border-bottom:
+                1px solid rgba(0,255,102,0.12);
 
             background:
                 linear-gradient(
@@ -357,7 +460,9 @@
         }
 
         .policy-section:hover {
-            border-left-color: #ffffff;
+            border-left-color:
+                #ffffff;
+
             background:
                 linear-gradient(
                     135deg,
@@ -368,12 +473,15 @@
 
         .section-number {
             position: absolute;
+
             right: 20px;
             top: 15px;
 
-            color: rgba(0,255,102,0.08);
+            color:
+                rgba(0,255,102,0.08);
 
             font-size: 50px;
+
             font-weight: bold;
 
             pointer-events: none;
@@ -381,7 +489,9 @@
 
         .section-heading {
             color: #00ff66;
+
             font-size: 19px;
+
             margin-bottom: 15px;
 
             text-shadow:
@@ -390,29 +500,37 @@
 
         .section-heading::before {
             content: "> ";
+
             color: #ffffff;
         }
 
         .policy-section p {
             color: #c7e8d0;
+
             font-size: 14px;
+
             margin-bottom: 10px;
         }
 
         .policy-section ul {
-            margin: 15px 0 0 22px;
+            margin:
+                15px 0 0 22px;
         }
 
         .policy-section li {
             color: #b9ddc4;
+
             font-size: 14px;
+
             margin: 7px 0;
+
             padding-left: 5px;
         }
 
         .policy-section li::marker {
             color: #00ff66;
         }
+
 
         /* =========================================================
            HIGHLIGHTED TEXT
@@ -430,6 +548,7 @@
             color: #66ff99;
         }
 
+
         /* =========================================================
            LAST UPDATED
         ========================================================= */
@@ -438,16 +557,20 @@
             display: inline-block;
 
             margin-top: 10px;
+
             padding: 7px 13px;
 
-            border: 1px solid #176c35;
+            border:
+                1px solid #176c35;
 
             color: #76ff9b;
 
             font-size: 12px;
 
-            background: rgba(0,255,102,0.03);
+            background:
+                rgba(0,255,102,0.03);
         }
+
 
         /* =========================================================
            FOOTER
@@ -455,16 +578,20 @@
 
         footer {
             margin-top: 40px;
+
             padding-top: 25px;
 
-            border-top: 1px solid #135b2d;
+            border-top:
+                1px solid #135b2d;
 
             text-align: center;
         }
 
         .footer-command {
             color: #5fa875;
+
             font-size: 12px;
+
             margin-bottom: 10px;
         }
 
@@ -474,14 +601,18 @@
 
         .copyright {
             color: #6c9677;
+
             font-size: 12px;
         }
 
         .github-note {
             margin-top: 8px;
+
             color: #4c7558;
+
             font-size: 11px;
         }
+
 
         /* =========================================================
            BACK TO TOP
@@ -497,14 +628,17 @@
             height: 42px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            border: 1px solid #00ff66;
+            border:
+                1px solid #00ff66;
 
             color: #00ff66;
 
-            background: rgba(2,11,5,0.9);
+            background:
+                rgba(2,11,5,0.9);
 
             text-decoration: none;
 
@@ -519,11 +653,14 @@
 
         .back-top:hover {
             color: #020b05;
-            background: #00ff66;
+
+            background:
+                #00ff66;
 
             box-shadow:
                 0 0 25px rgba(0,255,102,0.6);
         }
+
 
         /* =========================================================
            RESPONSIVE DESIGN
@@ -533,11 +670,13 @@
 
             .container {
                 width: 94%;
+
                 margin: 20px auto;
             }
 
             .terminal-content {
-                padding: 20px 15px;
+                padding:
+                    20px 15px;
             }
 
             .terminal-title {
@@ -545,11 +684,13 @@
             }
 
             .security-status {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
             }
 
             .policy-section {
-                padding: 20px 17px;
+                padding:
+                    20px 17px;
             }
 
             .section-number {
@@ -558,6 +699,7 @@
 
             .section-heading {
                 font-size: 17px;
+
                 padding-right: 40px;
             }
 
@@ -569,17 +711,25 @@
             .page-title h1 {
                 letter-spacing: 1px;
             }
+
+            #matrix-canvas {
+                opacity: 0.18;
+            }
         }
+
 
         @media (max-width: 480px) {
 
             .terminal-bar {
                 height: 40px;
-                padding: 0 10px;
+
+                padding:
+                    0 10px;
             }
 
             .terminal-buttons {
                 gap: 5px;
+
                 margin-right: 10px;
             }
 
@@ -594,7 +744,9 @@
 
             .command-line {
                 font-size: 11px;
-                overflow-wrap: anywhere;
+
+                overflow-wrap:
+                    anywhere;
             }
 
             .page-title h1 {
@@ -611,7 +763,12 @@
 
             .back-top {
                 right: 15px;
+
                 bottom: 15px;
+            }
+
+            #matrix-canvas {
+                opacity: 0.15;
             }
         }
 
@@ -620,6 +777,18 @@
 
 
 <body id="top">
+
+    <!-- Matrix Rain Animation - Added Only -->
+    <canvas
+        id="matrix-canvas"
+        aria-hidden="true">
+    </canvas>
+
+    <div
+        class="matrix-overlay"
+        aria-hidden="true">
+    </div>
+
 
     <!-- Scanline Overlay -->
     <div class="scanlines"></div>
@@ -633,14 +802,21 @@
 
         <div class="terminal-window">
 
+
             <!-- Terminal Header -->
+
             <div class="terminal-bar">
 
                 <div class="terminal-buttons">
+
                     <span class="red"></span>
+
                     <span class="yellow"></span>
+
                     <span class="green"></span>
+
                 </div>
+
 
                 <div class="terminal-title">
                     amruth@cyber-terminal: ~/privacy-policy
@@ -650,23 +826,34 @@
 
 
             <!-- Terminal Content -->
+
             <div class="terminal-content">
 
 
                 <!-- Command -->
+
                 <div class="command-line">
-                    <span class="prompt">root@amruth:~$</span>
+
+                    <span class="prompt">
+                        root@amruth:~$
+                    </span>
+
                     <span class="command">
                         cat privacy-policy.html
                     </span>
+
                     <span class="cursor"></span>
+
                 </div>
 
 
                 <!-- Page Title -->
+
                 <div class="page-title">
 
-                    <h1>Privacy Policy</h1>
+                    <h1>
+                        Privacy Policy
+                    </h1>
 
                     <div class="subtitle">
                         [ SECURITY • PRIVACY • TRANSPARENCY ]
@@ -676,9 +863,12 @@
 
 
                 <!-- Security Status -->
+
                 <div class="security-status">
 
+
                     <div class="status-box">
+
                         <span class="status-label">
                             POLICY STATUS
                         </span>
@@ -686,10 +876,12 @@
                         <span class="status-value">
                             ACTIVE
                         </span>
+
                     </div>
 
 
                     <div class="status-box">
+
                         <span class="status-label">
                             LAST UPDATED
                         </span>
@@ -697,10 +889,12 @@
                         <span class="status-value">
                             2026
                         </span>
+
                     </div>
 
 
                     <div class="status-box">
+
                         <span class="status-label">
                             HOSTING
                         </span>
@@ -708,7 +902,9 @@
                         <span class="status-value">
                             GITHUB PAGES
                         </span>
+
                     </div>
+
 
                 </div>
 
@@ -840,8 +1036,8 @@
                         Some pages may contain embedded content or
                         links to third-party services such as
                         analytics tools, videos, or external websites.
-                        These services operate under their own
-                        privacy policies.
+                        These services operate under their own privacy
+                        policies.
                     </p>
 
                 </section>
@@ -952,19 +1148,27 @@
                 <footer>
 
                     <div class="footer-command">
-                        <span>root@amruth:~$</span>
+
+                        <span>
+                            root@amruth:~$
+                        </span>
+
                         session_status --privacy
+
                     </div>
+
 
                     <div class="copyright">
                         © 2026 Personal Website | Hosted on GitHub Pages
                     </div>
+
 
                     <div class="github-note">
                         Privacy Policy • Secure Access • Transparency
                     </div>
 
                 </footer>
+
 
             </div>
 
@@ -980,12 +1184,14 @@
     <a href="#top"
        class="back-top"
        aria-label="Back to top">
+
         ↑
+
     </a>
 
 
     <!-- =========================================================
-         OPTIONAL JAVASCRIPT
+         EXISTING JAVASCRIPT
          Adds a subtle terminal typing effect to the command.
     ========================================================== -->
 
@@ -1004,6 +1210,7 @@
                 command.textContent = "";
 
                 let index = 0;
+
 
                 function typeCommand() {
 
@@ -1029,6 +1236,256 @@
         );
 
     </script>
+
+
+    <!-- =========================================================
+         MATRIX RAIN ANIMATION
+         ADDED ONLY
+    ========================================================== -->
+
+    <script>
+
+        (function () {
+
+            const canvas =
+                document.getElementById(
+                    "matrix-canvas"
+                );
+
+            if (!canvas) {
+                return;
+            }
+
+
+            const ctx =
+                canvas.getContext("2d");
+
+
+            const chars =
+                "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz<>[]{}$#@%&*+-=/\\";
+
+
+            const fontSize = 15;
+
+
+            let columns = 0;
+
+            let drops = [];
+
+
+            /* =====================================================
+               RESIZE MATRIX CANVAS
+            ===================================================== */
+
+            function resizeMatrix() {
+
+                const dpr =
+                    Math.min(
+                        window.devicePixelRatio || 1,
+                        2
+                    );
+
+
+                canvas.width =
+                    Math.floor(
+                        window.innerWidth * dpr
+                    );
+
+
+                canvas.height =
+                    Math.floor(
+                        window.innerHeight * dpr
+                    );
+
+
+                canvas.style.width =
+                    window.innerWidth + "px";
+
+
+                canvas.style.height =
+                    window.innerHeight + "px";
+
+
+                ctx.setTransform(
+                    dpr,
+                    0,
+                    0,
+                    dpr,
+                    0,
+                    0
+                );
+
+
+                columns =
+                    Math.ceil(
+                        window.innerWidth /
+                        fontSize
+                    );
+
+
+                drops =
+                    Array.from(
+                        {
+                            length: columns
+                        },
+                        function () {
+
+                            return (
+                                Math.random() * -80
+                            );
+
+                        }
+                    );
+
+            }
+
+
+            /* =====================================================
+               MATRIX DRAWING
+            ===================================================== */
+
+            function drawMatrix() {
+
+                ctx.fillStyle =
+                    "rgba(2, 11, 5, 0.055)";
+
+
+                ctx.fillRect(
+                    0,
+                    0,
+                    window.innerWidth,
+                    window.innerHeight
+                );
+
+
+                ctx.font =
+                    fontSize +
+                    "px Courier New";
+
+
+                ctx.textBaseline =
+                    "top";
+
+
+                for (
+                    let i = 0;
+                    i < drops.length;
+                    i++
+                ) {
+
+                    const char =
+                        chars.charAt(
+                            Math.floor(
+                                Math.random() *
+                                chars.length
+                            )
+                        );
+
+
+                    const x =
+                        i * fontSize;
+
+
+                    const y =
+                        drops[i] *
+                        fontSize;
+
+
+                    const brightness =
+                        Math.random();
+
+
+                    if (brightness > 0.94) {
+
+                        ctx.fillStyle =
+                            "#ffffff";
+
+                    }
+
+                    else if (
+                        brightness > 0.78
+                    ) {
+
+                        ctx.fillStyle =
+                            "#66ff99";
+
+                    }
+
+                    else {
+
+                        ctx.fillStyle =
+                            "#00ff66";
+
+                    }
+
+
+                    ctx.shadowColor =
+                        "rgba(0, 255, 102, 0.75)";
+
+
+                    ctx.shadowBlur = 5;
+
+
+                    ctx.fillText(
+                        char,
+                        x,
+                        y
+                    );
+
+
+                    ctx.shadowBlur = 0;
+
+
+                    if (
+                        y >
+                        window.innerHeight
+                        &&
+                        Math.random() > 0.975
+                    ) {
+
+                        drops[i] =
+                            Math.random() * -25;
+
+                    }
+
+                    else {
+
+                        drops[i] += 0.72;
+
+                    }
+
+                }
+
+
+                requestAnimationFrame(
+                    drawMatrix
+                );
+
+            }
+
+
+            /* =====================================================
+               INITIALIZE MATRIX
+            ===================================================== */
+
+            resizeMatrix();
+
+
+            window.addEventListener(
+                "resize",
+                resizeMatrix,
+                {
+                    passive: true
+                }
+            );
+
+
+            drawMatrix();
+
+        })();
+
+    </script>
+
 
 </body>
 
