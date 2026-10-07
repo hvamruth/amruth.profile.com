@@ -857,6 +857,7 @@
             function () {
 
                 enterWebsite("accepted");
+                  logCookieDecision("ACCEPTED");
 
             }
         );
@@ -872,6 +873,7 @@
             function () {
 
                 enterWebsite("declined");
+                  logCookieDecision("DECLINED");
 
             }
         );
@@ -993,4 +995,36 @@
         }
     );
 
+
+
+
+
+async function logCookieDecision(decision) {
+    try {
+        await fetch("https://YOUR-LOGGING-SERVER.example.com/api/cookie-log", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                decision: decision,
+                timestamp: new Date().toISOString(),
+                page: window.location.href,
+                userAgent: navigator.userAgent
+            }),
+            keepalive: true
+        });
+    } catch (error) {
+        console.warn("Cookie decision logging failed:", error);
+    }
+}
+
+
+
+
+
+
+
+
+      
 </script>
