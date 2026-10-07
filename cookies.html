@@ -1,1450 +1,1243 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cookie Security | Amruth Sagar HV</title>
+
+<meta name="description"
+content="Cookie Security Policy - Amruth Sagar HV">
+
+<style>
+/* =========================================================
+   AMRUTH.SAGAR.HV
+   HACKER / SECURITY TERMINAL THEME
+   Visual theme inspired by security.html
+   ========================================================= */
+
+:root {
+    --green: #00ff88;
+    --green-soft: #00cc66;
+    --green-dark: #003b24;
+    --black: #020403;
+    --panel: rgba(0, 12, 8, 0.90);
+    --border: rgba(0, 255, 136, 0.35);
+    --text: #d8ffe9;
+    --muted: #72a98b;
+    --red: #ff3b3b;
+    --yellow: #ffd84d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(0,255,136,.08), transparent 35%),
+        linear-gradient(180deg, #010201 0%, #020604 50%, #000 100%);
+    color: var(--text);
+    font-family: "Courier New", Courier, monospace;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   MATRIX BACKGROUND
+   ========================================================= */
+
+#matrix {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    opacity: .16;
+    pointer-events: none;
+}
+
+/* Scanlines */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0,255,136,.025) 0px,
+            rgba(0,255,136,.025) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+
+    mix-blend-mode: screen;
+}
+
+/* CRT glow */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+
+    box-shadow:
+        inset 0 0 100px rgba(0,255,136,.05),
+        inset 0 0 220px rgba(0,0,0,.8);
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 20px 0 60px;
+}
 
-    <meta charset="UTF-8">
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+header {
+    position: relative;
+    margin-bottom: 35px;
+    padding: 22px 24px;
 
-    <meta name="description"
-          content="Cookies Policy - Personal Portfolio">
+    background: rgba(0, 12, 8, .82);
+    border: 1px solid var(--border);
 
-    <meta name="keywords"
-          content="Cookies Policy, Privacy, Cybersecurity, Portfolio">
+    box-shadow:
+        0 0 20px rgba(0,255,136,.08),
+        inset 0 0 25px rgba(0,255,136,.025);
 
-    <meta name="author"
-          content="Amruth Sagar HV">
+    backdrop-filter: blur(6px);
+}
 
-    <meta name="theme-color"
-          content="#050b0e">
+header::before {
+    content: "01010101 11001010 00110101 10101010 01001101 11010101 00101110";
+    display: block;
 
-    <title>Cookies Policy | Cyber Security Portfolio</title>
+    color: rgba(0,255,136,.28);
+    font-size: 9px;
+    line-height: 1.6;
 
+    margin-bottom: 14px;
+    word-break: break-all;
+}
 
-    <style>
+.logo {
+    color: var(--green);
+    text-decoration: none;
 
-        /* =========================================================
-           GLOBAL
-        ========================================================= */
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: bold;
+    letter-spacing: 3px;
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    text-shadow:
+        0 0 5px var(--green),
+        0 0 15px rgba(0,255,136,.5);
+}
 
+.logo::before {
+    content: "[";
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+.logo::after {
+    content: "]";
+}
 
+nav {
+    margin-top: 20px;
 
-        body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
-            font-family:
-                "Courier New",
-                "Lucida Console",
-                Monaco,
-                monospace;
+nav a {
+    color: var(--green);
+    text-decoration: none;
 
-            background:
-                radial-gradient(
-                    circle at top,
-                    #102a1f 0%,
-                    #07110d 35%,
-                    #020605 75%,
-                    #000000 100%
-                );
+    padding: 8px 13px;
 
-            color: #00ff66;
+    border: 1px solid rgba(0,255,136,.2);
 
-            min-height: 100vh;
+    background: rgba(0,255,136,.025);
 
-            line-height: 1.8;
+    font-size: 13px;
 
-            overflow-x: hidden;
+    transition:
+        .25s ease;
+}
 
-            position: relative;
-        }
+nav a:hover {
+    color: #000;
+    background: var(--green);
 
+    box-shadow:
+        0 0 10px var(--green),
+        0 0 30px rgba(0,255,136,.35);
 
-        /* =========================================================
-           MATRIX CANVAS BACKGROUND
-        ========================================================= */
+    transform: translateY(-2px);
+}
 
-        #matrixCanvas {
+/* =========================================================
+   STATUS BAR
+   ========================================================= */
 
-            position: fixed;
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 
-            top: 0;
-            left: 0;
+    margin-bottom: 20px;
 
-            width: 100vw;
-            height: 100vh;
+    color: var(--green);
 
-            z-index: -10;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
 
-            pointer-events: none;
+.status-dot {
+    width: 9px;
+    height: 9px;
 
-            background: #000000;
+    border-radius: 50%;
 
-            opacity: 0.42;
-        }
+    background: var(--green);
 
+    box-shadow:
+        0 0 6px var(--green),
+        0 0 15px var(--green);
 
-        /* =========================================================
-           MATRIX DARK OVERLAY
-        ========================================================= */
+    animation: pulse 1.4s infinite;
+}
 
-        .matrix-overlay {
+@keyframes pulse {
+    0%,100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 
-            position: fixed;
+    50% {
+        opacity: .35;
+        transform: scale(.65);
+    }
+}
 
-            inset: 0;
+/* =========================================================
+   TERMINAL TITLE
+   ========================================================= */
 
-            z-index: -9;
+h1 {
+    color: var(--green);
 
-            pointer-events: none;
+    font-size: clamp(28px, 5vw, 48px);
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(0, 255, 102, 0.045),
-                    rgba(0, 0, 0, 0.72) 75%
-                );
+    margin-bottom: 18px;
 
-            mix-blend-mode: screen;
-        }
+    text-shadow:
+        0 0 8px rgba(0,255,136,.65),
+        0 0 25px rgba(0,255,136,.2);
+}
 
+h1::before {
+    content: "root@amruth-security:~$ ";
+    color: var(--muted);
+    font-size: .45em;
+}
 
-        /* =========================================================
-           GRID EFFECT
-        ========================================================= */
+/* =========================================================
+   INTRO
+   ========================================================= */
 
-        body::before {
+.intro {
+    color: #b9eacb;
 
-            content: "";
+    line-height: 1.8;
 
-            position: fixed;
+    max-width: 900px;
 
-            inset: 0;
+    border-left: 2px solid var(--green);
 
-            pointer-events: none;
+    padding-left: 18px;
 
-            background-image:
+    margin-bottom: 30px;
+}
 
-                linear-gradient(
-                    rgba(0,255,100,0.025) 1px,
-                    transparent 1px
-                ),
+/* =========================================================
+   TERMINAL COMMAND
+   ========================================================= */
 
-                linear-gradient(
-                    90deg,
-                    rgba(0,255,100,0.025) 1px,
-                    transparent 1px
-                );
+.terminal {
+    background: rgba(0, 8, 5, .94);
 
-            background-size: 35px 35px;
+    border: 1px solid var(--border);
 
-            z-index: -8;
-        }
+    padding: 20px;
 
+    margin: 25px 0;
 
-        /* =========================================================
-           SCANLINE EFFECT
-        ========================================================= */
+    box-shadow:
+        0 0 25px rgba(0,255,136,.08),
+        inset 0 0 30px rgba(0,255,136,.025);
+}
 
-        body::after {
+.terminal-line {
+    color: var(--green);
 
-            content: "";
+    font-size: 14px;
 
-            position: fixed;
+    line-height: 1.9;
 
-            inset: 0;
+    overflow-wrap: anywhere;
+}
 
-            pointer-events: none;
+.terminal-line::before {
+    content: "root@amruth-security:~$ ";
+    color: var(--muted);
+}
 
-            background:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(0,255,100,0.025),
-                    rgba(0,255,100,0.025) 1px,
-                    transparent 1px,
-                    transparent 4px
-                );
+.cursor {
+    display: inline-block;
 
-            z-index: 9999;
+    width: 8px;
+    height: 17px;
 
-            opacity: 0.35;
-        }
+    margin-left: 4px;
 
+    background: var(--green);
 
-        /* =========================================================
-           SCROLLBAR
-        ========================================================= */
+    vertical-align: middle;
 
-        ::-webkit-scrollbar {
-            width: 9px;
-        }
+    box-shadow: 0 0 10px var(--green);
 
+    animation: blink .8s infinite;
+}
 
-        ::-webkit-scrollbar-track {
-            background: #020605;
-        }
+@keyframes blink {
+    0%,49% {
+        opacity: 1;
+    }
 
+    50%,100% {
+        opacity: 0;
+    }
+}
 
-        ::-webkit-scrollbar-thumb {
+/* =========================================================
+   SECURITY CONSOLE
+   ========================================================= */
 
-            background: #00ff66;
+.console {
+    padding: 22px;
 
-            border-radius: 10px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,136,.035),
+            rgba(0,0,0,.65)
+        );
 
-            box-shadow:
-                0 0 10px #00ff66;
-        }
+    border: 1px solid var(--border);
 
+    margin-bottom: 30px;
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00cc55;
-        }
+    position: relative;
+}
 
+.console::before {
+    content: "SECURITY.CONSOLE";
 
-        /* =========================================================
-           HEADER
-        ========================================================= */
+    display: block;
 
-        header {
+    color: var(--green);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(2,6,5,0.94),
-                    rgba(7,20,13,0.90),
-                    rgba(2,6,5,0.94)
-                );
+    font-size: 12px;
 
-            border-bottom:
-                1px solid #00ff66;
+    letter-spacing: 2px;
 
-            padding: 35px 20px;
+    margin-bottom: 18px;
 
-            text-align: center;
+    padding-bottom: 12px;
 
-            position: relative;
+    border-bottom: 1px dashed rgba(0,255,136,.25);
+}
 
-            box-shadow:
-                0 0 25px rgba(0,255,102,0.15);
+.console-grid {
+    display: grid;
 
-            overflow: hidden;
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
 
-            backdrop-filter: blur(4px);
-        }
+    gap: 10px;
+}
 
+.console-item {
+    padding: 10px 12px;
 
-        header::before {
+    border-left: 2px solid var(--green);
 
-            content:
-                "01001000 01000001 01000011 01001011 01000101 01010010";
+    background: rgba(0,255,136,.025);
 
-            position: absolute;
+    font-size: 13px;
 
-            top: 8px;
+    transition: .25s ease;
+}
 
-            left: 0;
+.console-item:hover {
+    background: rgba(0,255,136,.08);
 
-            width: 100%;
+    box-shadow:
+        0 0 15px rgba(0,255,136,.08);
 
-            font-size: 10px;
+    transform: translateX(4px);
+}
 
-            color: rgba(0,255,102,0.18);
+.console-item span {
+    color: var(--muted);
+}
 
-            letter-spacing: 3px;
+.console-item strong {
+    color: var(--green);
+}
 
-            white-space: nowrap;
+/* =========================================================
+   SECTIONS
+   ========================================================= */
 
-            overflow: hidden;
-        }
+section {
+    position: relative;
 
+    background: var(--panel);
 
-        header::after {
+    border: 1px solid var(--border);
 
-            content: "";
+    padding: 25px;
 
-            position: absolute;
+    margin: 20px 0;
 
-            left: 0;
+    box-shadow:
+        0 0 20px rgba(0,255,136,.045),
+        inset 0 0 30px rgba(0,255,136,.015);
 
-            right: 0;
+    overflow: hidden;
+}
 
-            bottom: 0;
+section::before {
+    content: attr(data-module);
 
-            height: 2px;
+    position: absolute;
 
-            background: #00ff66;
+    right: 20px;
+    top: 18px;
 
-            box-shadow:
-                0 0 10px #00ff66,
-                0 0 20px #00ff66;
-        }
+    color: rgba(0,255,136,.18);
 
+    font-size: 10px;
 
-        .terminal-label {
+    letter-spacing: 1px;
+}
 
-            color: #00cc55;
+section:hover {
+    border-color: rgba(0,255,136,.65);
 
-            font-size: 13px;
+    box-shadow:
+        0 0 25px rgba(0,255,136,.1),
+        inset 0 0 35px rgba(0,255,136,.025);
+}
 
-            margin-bottom: 8px;
+h2 {
+    color: var(--green);
 
-            letter-spacing: 2px;
-        }
+    font-size: 22px;
 
+    margin-bottom: 18px;
 
-        .terminal-label::before {
+    text-shadow:
+        0 0 8px rgba(0,255,136,.35);
+}
 
-            content:
-                "root@portfolio:~$ ";
+h2::before {
+    content: "// ";
+    color: var(--muted);
+}
 
-            color: #00ff66;
-        }
+h3 {
+    color: var(--green);
 
+    margin: 20px 0 10px;
 
-        header h1 {
+    font-size: 16px;
+}
 
-            color: #00ff66;
+p {
+    color: #c4e8d2;
 
-            font-size:
-                clamp(28px, 6vw, 48px);
+    line-height: 1.8;
 
-            font-weight: bold;
+    margin-bottom: 13px;
+}
 
-            letter-spacing: 3px;
+/* =========================================================
+   SECURITY ITEMS
+   ========================================================= */
 
-            text-shadow:
-                0 0 5px #00ff66,
-                0 0 15px rgba(0,255,102,0.7),
-                0 0 30px rgba(0,255,102,0.3);
+.security-items {
+    display: grid;
 
-            margin-bottom: 10px;
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
 
-            animation:
-                glow 2s infinite alternate;
-        }
+    gap: 12px;
 
+    margin-top: 18px;
+}
 
-        header h1::before {
-            content: "[ ";
-        }
+.security-item {
+    padding: 16px;
 
+    border: 1px solid rgba(0,255,136,.2);
 
-        header h1::after {
-            content: " ]";
-        }
+    background: rgba(0,255,136,.025);
 
+    color: var(--green);
 
-        header p {
+    transition: .25s ease;
+}
 
-            color: #80ffb0;
+.security-item:hover {
+    transform: translateY(-3px);
 
-            font-size: 14px;
+    border-color: var(--green);
 
-            letter-spacing: 1px;
-        }
+    box-shadow:
+        0 0 20px rgba(0,255,136,.12);
+}
 
+/* =========================================================
+   LISTS
+   ========================================================= */
 
-        /* =========================================================
-           MAIN CONTAINER
-        ========================================================= */
+ul {
+    list-style: none;
 
-        .container {
+    margin-top: 15px;
+}
 
-            width:
-                min(900px, 92%);
+li {
+    position: relative;
 
-            margin:
-                45px auto;
+    color: #c4e8d2;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(4,18,12,0.94),
-                    rgba(2,10,7,0.96)
-                );
+    padding: 9px 0 9px 25px;
 
-            border:
-                1px solid rgba(0,255,102,0.45);
+    border-bottom: 1px dashed rgba(0,255,136,.08);
 
-            border-radius: 6px;
+    line-height: 1.6;
+}
 
-            padding: 35px;
+li::before {
+    content: ">";
+    position: absolute;
 
-            box-shadow:
+    left: 0;
 
-                0 0 15px
-                rgba(0,255,102,0.10),
+    color: var(--green);
 
-                inset 0 0 35px
-                rgba(0,255,102,0.025),
+    font-weight: bold;
 
-                0 20px 70px
-                rgba(0,0,0,0.65);
+    text-shadow: 0 0 8px var(--green);
+}
 
-            position: relative;
+/* =========================================================
+   WARNING
+   ========================================================= */
 
-            backdrop-filter:
-                blur(8px);
-        }
+.warning {
+    border: 1px solid rgba(255,216,77,.35);
 
+    background: rgba(255,216,77,.035);
 
-        .container::before {
+    padding: 18px;
 
-            content:
-                "SECURE_DOCUMENT";
+    color: var(--yellow);
 
-            position: absolute;
+    margin-top: 18px;
 
-            top: -12px;
+    box-shadow:
+        0 0 20px rgba(255,216,77,.035);
+}
 
-            left: 20px;
+.warning strong {
+    color: var(--yellow);
+}
 
-            padding:
-                2px 10px;
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-            background:
-                #020605;
+footer {
+    text-align: center;
 
-            border:
-                1px solid #00ff66;
+    margin-top: 40px;
 
-            color:
-                #00ff66;
+    padding: 25px 10px;
 
-            font-size:
-                10px;
+    border-top: 1px solid var(--border);
 
-            letter-spacing:
-                2px;
+    color: var(--muted);
 
-            box-shadow:
-                0 0 8px
-                rgba(0,255,102,0.25);
-        }
+    font-size: 12px;
 
+    line-height: 2;
+}
 
-        .container::after {
+footer .green {
+    color: var(--green);
 
-            content: "";
+    text-shadow:
+        0 0 8px rgba(0,255,136,.4);
+}
 
-            position: absolute;
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
 
-            top: 10px;
+.top {
+    position: fixed;
 
-            right: 10px;
+    right: 20px;
+    bottom: 20px;
 
-            width: 8px;
+    width: 42px;
+    height: 42px;
 
-            height: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            background:
-                #00ff66;
+    color: var(--green);
 
-            border-radius:
-                50%;
+    border: 1px solid var(--green);
 
-            box-shadow:
-                0 0 8px #00ff66,
-                0 0 15px #00ff66;
+    background: rgba(0,10,6,.85);
 
-            animation:
-                blink 1.5s infinite;
-        }
+    text-decoration: none;
 
+    box-shadow:
+        0 0 12px rgba(0,255,136,.15);
 
-        /* =========================================================
-           SECTION HEADINGS
-        ========================================================= */
+    transition: .25s ease;
 
-        h2 {
+    z-index: 100;
+}
 
-            color: #00ff66;
+.top:hover {
+    color: #000;
 
-            font-size: 20px;
+    background: var(--green);
 
-            margin-top: 30px;
+    box-shadow:
+        0 0 15px var(--green),
+        0 0 35px rgba(0,255,136,.4);
+}
 
-            margin-bottom: 12px;
+/* =========================================================
+   GLITCH EFFECT
+   ========================================================= */
 
-            padding:
-                10px 14px;
+.glitch {
+    position: relative;
 
-            border-left:
-                3px solid #00ff66;
+    animation: subtleGlitch 5s infinite;
+}
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,255,102,0.10),
-                    transparent
-                );
+@keyframes subtleGlitch {
+    0%,94%,100% {
+        transform: translate(0);
+    }
 
-            text-shadow:
-                0 0 8px
-                rgba(0,255,102,0.55);
+    95% {
+        transform: translate(-1px, 1px);
+    }
 
-            letter-spacing:
-                1px;
+    96% {
+        transform: translate(1px, -1px);
+    }
 
-            position: relative;
-        }
+    97% {
+        transform: translate(0);
+    }
+}
 
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
-        h2::before {
+@media (max-width: 700px) {
 
-            content:
-                "root@policy:~# ";
+    .container {
+        width: 94%;
+        padding-top: 10px;
+    }
 
-            color:
-                #00aa44;
-        }
+    header {
+        padding: 17px;
+    }
 
+    nav {
+        gap: 5px;
+    }
 
-        h2::after {
+    nav a {
+        font-size: 11px;
+        padding: 7px 9px;
+    }
 
-            content:
-                "_";
+    section {
+        padding: 19px;
+    }
 
-            animation:
-                cursorBlink 1s infinite;
+    .console {
+        padding: 17px;
+    }
 
-            color:
-                #00ff66;
-        }
+    h1 {
+        font-size: 28px;
+    }
 
+    h1::before {
+        display: block;
+        margin-bottom: 6px;
+    }
 
-        p {
+    section::before {
+        display: none;
+    }
 
-            color:
-                #b8ffd0;
+    .top {
+        width: 38px;
+        height: 38px;
 
-            font-size:
-                15px;
+        right: 12px;
+        bottom: 12px;
+    }
+}
 
-            margin-bottom:
-                18px;
-        }
+@media (prefers-reduced-motion: reduce) {
 
-
-        /* =========================================================
-           LINKS
-        ========================================================= */
-
-        a {
-
-            color:
-                #00ff66;
-
-            text-decoration:
-                none;
-
-            border-bottom:
-                1px dashed #00ff66;
-
-            transition:
-                0.2s ease;
-        }
-
-
-        a:hover {
-
-            color:
-                #ffffff;
-
-            text-shadow:
-                0 0 8px #00ff66;
-
-            border-bottom-color:
-                #ffffff;
-        }
-
-
-        /* =========================================================
-           LIST
-        ========================================================= */
-
-        ul {
-
-            list-style:
-                none;
-
-            margin:
-                10px 0 25px 10px;
-
-            padding-left:
-                12px;
-        }
-
-
-        li {
-
-            color:
-                #aaffc2;
-
-            margin:
-                10px 0;
-
-            padding-left:
-                20px;
-
-            position:
-                relative;
-
-            transition:
-                0.2s ease;
-        }
-
-
-        li:hover {
-
-            color:
-                #ffffff;
-
-            transform:
-                translateX(5px);
-
-            text-shadow:
-                0 0 7px
-                rgba(0,255,102,0.6);
-        }
-
-
-        li::before {
-
-            content:
-                ">";
-
-            position:
-                absolute;
-
-            left:
-                0;
-
-            color:
-                #00ff66;
-
-            font-weight:
-                bold;
-
-            text-shadow:
-                0 0 8px #00ff66;
-        }
-
-
-        /* =========================================================
-           SECURITY STATUS BOX
-        ========================================================= */
-
-        .security-box {
-
-            margin:
-                30px 0;
-
-            padding:
-                18px;
-
-            border:
-                1px solid
-                rgba(0,255,102,0.4);
-
-            background:
-                rgba(0,255,102,0.035);
-
-            box-shadow:
-                inset 0 0 20px
-                rgba(0,255,102,0.025),
-
-                0 0 20px
-                rgba(0,255,102,0.05);
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-        }
-
-
-        .security-box::before {
-
-            content:
-                "SYSTEM MONITOR";
-
-            display:
-                block;
-
-            font-size:
-                10px;
-
-            color:
-                #008f3b;
-
-            letter-spacing:
-                2px;
-
-            margin-bottom:
-                8px;
-        }
-
-
-        .security-box .status {
-
-            color:
-                #00ff66;
-
-            font-weight:
-                bold;
-
-            letter-spacing:
-                1px;
-        }
-
-
-        .security-box .status::before {
-
-            content:
-                "[ONLINE] ";
-
-            color:
-                #00ff66;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-
-            text-align:
-                center;
-
-            padding:
-                30px 20px;
-
-            margin-top:
-                50px;
-
-            background:
-                rgba(2,6,5,0.94);
-
-            border-top:
-                1px solid #00ff66;
-
-            color:
-                #70cc91;
-
-            font-size:
-                13px;
-
-            box-shadow:
-                0 -5px 25px
-                rgba(0,255,102,0.08);
-
-            backdrop-filter:
-                blur(5px);
-        }
-
-
-        footer p {
-
-            color:
-                #70cc91;
-
-            margin:
-                5px 0;
-        }
-
-
-        footer .terminal-footer {
-
-            color:
-                #00ff66;
-
-            margin-bottom:
-                8px;
-
-            letter-spacing:
-                1px;
-        }
-
-
-        footer .terminal-footer::before {
-
-            content:
-                "root@portfolio:~$ ";
-
-            color:
-                #00aa44;
-        }
-
-
-        /* =========================================================
-           ANIMATIONS
-        ========================================================= */
-
-        @keyframes glow {
-
-            from {
-
-                text-shadow:
-                    0 0 5px #00ff66,
-                    0 0 10px
-                    rgba(0,255,102,0.4);
-            }
-
-            to {
-
-                text-shadow:
-                    0 0 8px #00ff66,
-                    0 0 20px
-                    rgba(0,255,102,0.7),
-                    0 0 35px
-                    rgba(0,255,102,0.3);
-            }
-        }
-
-
-        @keyframes blink {
-
-            0%,
-            45% {
-                opacity: 1;
-            }
-
-            46%,
-            100% {
-                opacity: 0.25;
-            }
-        }
-
-
-        @keyframes cursorBlink {
-
-            0%,
-            49% {
-                opacity: 1;
-            }
-
-            50%,
-            100% {
-                opacity: 0;
-            }
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 600px) {
-
-            header {
-                padding:
-                    30px 15px;
-            }
-
-
-            header h1 {
-
-                font-size:
-                    28px;
-
-                letter-spacing:
-                    1px;
-            }
-
-
-            header p {
-
-                font-size:
-                    12px;
-            }
-
-
-            .container {
-
-                width:
-                    94%;
-
-                padding:
-                    22px 18px;
-
-                margin:
-                    35px auto;
-            }
-
-
-            h2 {
-
-                font-size:
-                    17px;
-
-                padding:
-                    8px 10px;
-            }
-
-
-            h2::before {
-
-                content:
-                    "# ";
-            }
-
-
-            p {
-
-                font-size:
-                    14px;
-            }
-
-
-            li {
-
-                font-size:
-                    14px;
-            }
-
-
-            #matrixCanvas {
-
-                opacity:
-                    0.30;
-            }
-        }
-
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration:
-                    0.01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                scroll-behavior:
-                    auto !important;
-            }
-        }
-
-    </style>
-
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<canvas id="matrix"></canvas>
 
-    <!-- =========================================================
-         MATRIX ANIMATION CANVAS
-    ========================================================= -->
+<div class="container">
 
-    <canvas id="matrixCanvas"></canvas>
+<header>
 
-    <div class="matrix-overlay"></div>
+    <a class="logo" href="https://hvamruth.github.io/amruth.profile.com/">
+        AMRUTH.SAGAR.HV
+    </a>
 
+    <nav>
+        <a href="https://hvamruth.github.io/amruth.profile.com/">[HOME]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/Profile.html">[PROFILE]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/certificate.html">[CERTIFICATES]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/security.html">[SECURITY]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/privacy-policy.html">[PRIVACY]</a>
+        <a href="https://hvamruth.github.io/amruth.profile.com/terms.html">[TERMS]</a>
+    </nav>
 
-    <!-- =========================================================
-         HEADER
-    ========================================================= -->
+</header>
 
-    <header>
+<main>
 
-        <div class="terminal-label">
-            SYSTEM SECURITY DOCUMENT
+<div class="status">
+    <span class="status-dot"></span>
+    SECURITY STATUS: OPERATIONAL
+</div>
+
+<h1 class="glitch">COOKIE SECURITY POLICY</h1>
+
+<p class="intro">
+    A cybersecurity-focused overview of the cookie technologies,
+    browser storage and visitor preferences used by this personal website.
+</p>
+
+<div class="terminal">
+
+    <div class="terminal-line">
+        ./cookie-policy --status
+        <span class="cursor"></span>
+    </div>
+
+</div>
+
+<div class="console">
+
+    <div class="console-grid">
+
+        <div class="console-item">
+            POLICY_VERSION
+            <strong>2026</strong>
         </div>
 
-        <h1>Cookies Policy</h1>
-
-        <p>
-            Last Updated: 2026
-        </p>
-
-    </header>
-
-
-
-    <!-- =========================================================
-         MAIN CONTENT
-    ========================================================= -->
-
-    <main class="container">
-
-
-        <!-- 1 -->
-
-        <h2>
-            1. Introduction
-        </h2>
-
-        <p>
-            This Cookies Policy explains how cookies may be used when you visit this
-            personal portfolio website hosted on GitHub Pages.
-        </p>
-
-
-
-        <!-- 2 -->
-
-        <h2>
-            2. What Are Cookies
-        </h2>
-
-        <p>
-            Cookies are small text files stored on your device by your web browser
-            when visiting a website. They help websites operate properly and
-            improve user experience.
-        </p>
-
-
-
-        <!-- 3 -->
-
-        <h2>
-            3. How This Website Uses Cookies
-        </h2>
-
-        <p>
-            This website is primarily a static personal portfolio. Cookies may be used for:
-        </p>
-
-
-        <ul>
-
-            <li>
-                Basic website functionality
-            </li>
-
-            <li>
-                Understanding website traffic and usage patterns
-            </li>
-
-            <li>
-                Improving website performance and user experience
-            </li>
-
-        </ul>
-
-
-
-        <!-- 4 -->
-
-        <h2>
-            4. Third-Party Cookies
-        </h2>
-
-        <p>
-            Some pages may contain external content such as GitHub links,
-            social media profiles, embedded media, or analytics tools.
-            These third-party services may place their own cookies and
-            are governed by their respective privacy policies.
-        </p>
-
-
-
-        <!-- 5 -->
-
-        <h2>
-            5. Managing Cookies
-        </h2>
-
-        <p>
-            Most web browsers automatically accept cookies. However,
-            you can choose to disable or delete cookies through your
-            browser settings at any time.
-        </p>
-
-        <p>
-            Disabling cookies may affect some features or functionality
-            of the website.
-        </p>
-
-
-
-        <!-- 6 -->
-
-        <h2>
-            6. Links to Other Websites
-        </h2>
-
-        <p>
-            This website may include links to other websites such as
-            GitHub repositories, professional profiles, or external resources.
-            Those websites operate under their own privacy and cookie policies.
-        </p>
-
-
-
-        <!-- 7 -->
-
-        <h2>
-            7. Changes to This Policy
-        </h2>
-
-        <p>
-            This Cookies Policy may be updated occasionally to reflect
-            changes in website functionality or legal requirements.
-        </p>
-
-
-
-        <!-- 8 -->
-
-        <h2>
-            8. Contact
-        </h2>
-
-        <p>
-            If you have questions regarding this Cookies Policy,
-            please contact the website owner through the contact
-            information available on the website or repository.
-        </p>
-
-
-
-        <!-- SECURITY STATUS -->
-
-        <div class="security-box">
-
-            <div class="status">
-                COOKIE POLICY STATUS: ACTIVE
-            </div>
-
+        <div class="console-item">
+            HOSTING_PLATFORM
+            <strong>GitHub Pages</strong>
         </div>
 
+        <div class="console-item">
+            TRANSPORT_SECURITY
+            <strong>HTTPS / SSL / TLS</strong>
+        </div>
 
-    </main>
+        <div class="console-item">
+            SENSITIVE_DATA_STORAGE
+            <strong>NONE</strong>
+        </div>
 
+        <div class="console-item">
+            DISCLOSURE_MODEL
+            <strong>RESPONSIBLE DISCLOSURE</strong>
+        </div>
 
+        <div class="console-item">
+            SECURITY_STATE
+            <strong>ACTIVE</strong>
+        </div>
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
+    </div>
 
-    <footer>
+</div>
 
-        <p class="terminal-footer">
-            connection_status
-        </p>
+<section data-module="// COOKIE_MODULE_01">
 
-        <p>
-            © 2026 Personal Portfolio | Hosted on GitHub Pages
-        </p>
+    <h2>Introduction</h2>
 
-        <p>
-            &lt;/&gt; Secure Portfolio Environment
-        </p>
+    <p>
+        This website is hosted on GitHub Pages and maintained as a
+        personal project. The security and privacy of visitors and
+        website content are taken seriously.
+    </p>
 
-    </footer>
+    <p>
+        This page describes the basic cookie and browser-storage
+        practices used by the website to maintain functionality,
+        visitor preferences and website security.
+    </p>
 
+</section>
 
+<section data-module="// COOKIE_MODULE_02">
 
-    <!-- =========================================================
-         MATRIX JAVASCRIPT
-    ========================================================= -->
+    <h2>Cookie Usage</h2>
 
-    <script>
+    <p>
+        Cookies are small text files that may be stored by a website
+        in a visitor's browser. They can be used to remember
+        preferences and support website functionality.
+    </p>
 
-        /*
-         * ========================================================
-         * PROFESSIONAL MATRIX DIGITAL RAIN
-         * ========================================================
-         */
+    <div class="security-items">
 
-        const canvas =
-            document.getElementById("matrixCanvas");
+        <div class="security-item">
+            🍪 COOKIE CONTROL
+        </div>
 
-        const ctx =
-            canvas.getContext("2d");
+        <div class="security-item">
+            🔐 SECURE TRANSPORT
+        </div>
 
+        <div class="security-item">
+            🛡 PRIVACY FOCUSED
+        </div>
 
-        let width;
-        let height;
+        <div class="security-item">
+            ☁ GITHUB PAGES
+        </div>
 
-        let fontSize = 15;
+    </div>
 
-        let columns;
+</section>
 
-        let drops;
+<section data-module="// COOKIE_MODULE_03">
 
-        let characters =
-            "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+-=[]{}<>";
+    <h2>Cookie Preferences</h2>
 
+    <p>
+        Visitors may be presented with a cookie-consent interface
+        when required by the website configuration. The visitor's
+        choice can be used to control the availability of optional
+        website functionality.
+    </p>
 
-        function resizeCanvas() {
+    <p>
+        Essential website functionality may continue to operate
+        without optional cookies.
+    </p>
 
-            const dpr =
-                window.devicePixelRatio || 1;
+</section>
 
-            width =
-                window.innerWidth;
+<section data-module="// COOKIE_MODULE_04">
 
-            height =
-                window.innerHeight;
+    <h2>Security Measures</h2>
 
+    <p>
+        The following security practices are implemented:
+    </p>
 
-            canvas.width =
-                width * dpr;
+    <ul>
+        <li>HTTPS encryption for all website traffic</li>
+        <li>Restricted repository access for maintainers</li>
+        <li>Two-factor authentication for repository owners</li>
+        <li>Regular review of website source code</li>
+        <li>No storage of sensitive user information</li>
+    </ul>
 
-            canvas.height =
-                height * dpr;
+</section>
 
+<section data-module="// COOKIE_MODULE_05">
 
-            canvas.style.width =
-                width + "px";
+    <h2>Phishing Protection</h2>
 
-            canvas.style.height =
-                height + "px";
+    <p>
+        Users should always verify the website URL before entering
+        any information. Any websites claiming to represent this
+        project that are not linked from the official repository
+        should be treated as suspicious.
+    </p>
 
+    <div class="warning">
+        ⚠ SECURITY WARNING:
+        Always verify the website URL before entering information.
+        Unofficial websites claiming to represent this project
+        should be considered suspicious.
+    </div>
 
-            ctx.setTransform(
-                dpr,
-                0,
-                0,
-                dpr,
-                0,
-                0
-            );
+</section>
 
+<section data-module="// COOKIE_MODULE_06">
 
-            fontSize =
-                width < 600 ? 13 : 15;
+    <h2>Reporting Security Issues</h2>
 
+    <p>
+        If you discover a security vulnerability or suspicious
+        behavior related to this website, please report it
+        responsibly through the GitHub repository or contact the
+        website owner.
+    </p>
 
-            columns =
-                Math.floor(
-                    width / fontSize
-                );
+    <h3>### &gt; SECURITY INCIDENT REPORTING</h3>
 
+    <p>
+        Vulnerabilities and suspicious behavior should be reported
+        responsibly through the GitHub repository or by contacting
+        the website owner.
+    </p>
 
-            drops =
-                [];
+</section>
 
+<section data-module="// COOKIE_MODULE_07">
 
-            for (
-                let i = 0;
-                i < columns;
-                i++
-            ) {
+    <h2>Responsible Disclosure</h2>
 
-                drops[i] =
-                    Math.random() *
-                    -100;
-            }
+    <p>
+        Security researchers and users who report vulnerabilities
+        in good faith are appreciated. All valid reports will be
+        reviewed and addressed as quickly as possible.
+    </p>
 
-        }
+    <div class="security-items">
 
+        <div class="security-item">
+            🔎 RESEARCH
+        </div>
 
-        function randomCharacter() {
+        <div class="security-item">
+            ✓ GOOD FAITH
+        </div>
 
-            return characters.charAt(
+        <div class="security-item">
+            ⚡ RAPID REVIEW
+        </div>
 
+    </div>
+
+</section>
+
+<section data-module="// COOKIE_MODULE_08">
+
+    <h2>Disclaimer</h2>
+
+    <p>
+        While reasonable security practices are followed, no website
+        or system connected to the internet can be guaranteed to be
+        completely secure. Users should always follow general
+        cybersecurity best practices when browsing online.
+    </p>
+
+    <div class="warning">
+        ⚠ IMPORTANT:
+        No internet-connected website or system can be guaranteed
+        to be completely secure. Always follow general cybersecurity
+        best practices when browsing online.
+    </div>
+
+</section>
+
+<section data-module="// COOKIE_MODULE_09">
+
+    <h2>Policy Updates</h2>
+
+    <p>
+        This cookie security policy may be updated periodically to
+        reflect improvements in security practices or changes in
+        website infrastructure.
+    </p>
+
+    <div class="terminal">
+        <div class="terminal-line">
+            cookie-policy --status
+        </div>
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <div class="green">
+        Website Cookie Security Policy | Last Updated: 2026
+    </div>
+
+    <div>
+        Hosted on GitHub Pages
+    </div>
+
+    <div>
+        © 2026 Personal Website | Hosted on GitHub Pages
+    </div>
+
+</footer>
+
+</div>
+
+<a href="#" class="top" aria-label="Back to top">↑</a>
+
+<script>
+/* =========================================================
+   MATRIX DIGITAL RAIN
+   ========================================================= */
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+let width;
+let height;
+let columns;
+let drops;
+
+const characters =
+    "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@<>[]{}";
+
+function resizeMatrix() {
+
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+
+    const fontSize = 14;
+
+    columns = Math.floor(width / fontSize);
+
+    drops = Array(columns)
+        .fill(1)
+        .map(() => Math.random() * -100);
+
+}
+
+function drawMatrix() {
+
+    ctx.fillStyle = "rgba(0, 0, 0, 0.055)";
+
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+    ctx.font = "14px monospace";
+
+    for (let i = 0; i < columns; i++) {
+
+        const text =
+            characters[
                 Math.floor(
                     Math.random() *
                     characters.length
                 )
+            ];
 
-            );
+        const x = i * 14;
+        const y = drops[i] * 14;
 
-        }
+        ctx.fillStyle = "#00ff88";
 
-
-        function drawMatrix() {
-
-            /*
-             * Transparent black layer creates
-             * the trailing rain effect.
-             */
-
-            ctx.fillStyle =
-                "rgba(0, 0, 0, 0.055)";
-
-            ctx.fillRect(
-                0,
-                0,
-                width,
-                height
-            );
-
-
-            ctx.font =
-                fontSize +
-                "px monospace";
-
-
-            for (
-                let i = 0;
-                i < drops.length;
-                i++
-            ) {
-
-                const text =
-                    randomCharacter();
-
-
-                const x =
-                    i * fontSize;
-
-
-                const y =
-                    drops[i] *
-                    fontSize;
-
-
-                /*
-                 * Main Matrix green character
-                 */
-
-                ctx.fillStyle =
-                    "#00ff66";
-
-
-                ctx.shadowBlur =
-                    7;
-
-                ctx.shadowColor =
-                    "#00ff66";
-
-
-                ctx.fillText(
-                    text,
-                    x,
-                    y
-                );
-
-
-                /*
-                 * Occasionally create a
-                 * brighter Matrix head.
-                 */
-
-                if (
-                    Math.random() >
-                    0.96
-                ) {
-
-                    ctx.fillStyle =
-                        "#ffffff";
-
-                    ctx.shadowBlur =
-                        12;
-
-                    ctx.shadowColor =
-                        "#00ff66";
-
-
-                    ctx.fillText(
-                        text,
-                        x,
-                        y
-                    );
-                }
-
-
-                /*
-                 * Reset falling column
-                 * after it reaches the bottom.
-                 */
-
-                if (
-                    y > height &&
-                    Math.random() > 0.975
-                ) {
-
-                    drops[i] =
-                        Math.random() *
-                        -30;
-                }
-
-
-                drops[i] +=
-                    0.72 +
-                    Math.random() *
-                    0.38;
-            }
-
-
-            ctx.shadowBlur = 0;
-
-
-            requestAnimationFrame(
-                drawMatrix
-            );
-        }
-
-
-        /*
-         * Initialize
-         */
-
-        resizeCanvas();
-
-        drawMatrix();
-
-
-        /*
-         * Recalculate Matrix columns
-         * when browser is resized.
-         */
-
-        let resizeTimer;
-
-
-        window.addEventListener(
-            "resize",
-            function () {
-
-                clearTimeout(
-                    resizeTimer
-                );
-
-
-                resizeTimer =
-                    setTimeout(
-                        resizeCanvas,
-                        150
-                    );
-
-            }
+        ctx.fillText(
+            text,
+            x,
+            y
         );
 
-
-        /*
-         * Reduce animation intensity
-         * when browser requests reduced motion.
-         */
-
         if (
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches
+            y > height &&
+            Math.random() > 0.975
         ) {
-
-            canvas.style.opacity =
-                "0.12";
+            drops[i] = 0;
         }
 
-    </script>
+        drops[i]++;
+    }
 
+    requestAnimationFrame(drawMatrix);
+}
+
+window.addEventListener(
+    "resize",
+    resizeMatrix
+);
+
+resizeMatrix();
+drawMatrix();
+
+/* =========================================================
+   TERMINAL TYPING EFFECT
+   ========================================================= */
+
+const terminalLine =
+    document.querySelector(".terminal-line");
+
+const originalText =
+    "./cookie-policy --status";
+
+terminalLine.innerHTML = "";
+
+const prefix =
+    document.createElement("span");
+
+prefix.textContent =
+    "root@amruth-security:~$ ";
+
+prefix.style.color =
+    "#72a98b";
+
+terminalLine.appendChild(prefix);
+
+const typed =
+    document.createElement("span");
+
+terminalLine.appendChild(typed);
+
+const cursor =
+    document.createElement("span");
+
+cursor.className = "cursor";
+
+terminalLine.appendChild(cursor);
+
+let index = 0;
+
+function typeCommand() {
+
+    if (index < originalText.length) {
+
+        typed.textContent +=
+            originalText.charAt(index);
+
+        index++;
+
+        setTimeout(
+            typeCommand,
+            55
+        );
+
+    }
+
+}
+
+setTimeout(
+    typeCommand,
+    500
+);
+
+/* =========================================================
+   RANDOM GLITCH EFFECT
+   ========================================================= */
+
+setInterval(() => {
+
+    const title =
+        document.querySelector(".glitch");
+
+    if (!title) return;
+
+    title.style.textShadow =
+        "2px 0 #00ff88, -2px 0 rgba(0,255,136,.35)";
+
+    setTimeout(() => {
+
+        title.style.textShadow =
+            "0 0 8px rgba(0,255,136,.65), 0 0 25px rgba(0,255,136,.2)";
+
+    }, 100);
+
+}, 4500);
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+document.querySelector(".top").addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+</script>
 
 </body>
-
 </html>
