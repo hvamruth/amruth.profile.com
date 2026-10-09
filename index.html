@@ -347,6 +347,103 @@
         }
     }
 
+
+
+/* ==========================================
+   MOBILE RESPONSIVE ENHANCEMENT
+   Existing design remains unchanged on desktop
+   ========================================== */
+
+html {
+  width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Small phones: approximately 2.1–3 inch displays */
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 13px;
+  }
+
+  button,
+  a,
+  input,
+  select {
+    max-width: 100%;
+  }
+
+  img,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+
+  pre,
+  code {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Compact phones: approximately 3–4 inch displays */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  body {
+    font-size: 14px;
+  }
+
+  img,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+}
+
+/* Standard phones: approximately 4–5 inch displays */
+@media screen and (min-width: 376px) and (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  img,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+}
+
+/* Mobile touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+
+      
+      
+
     /* =========================================================
        TITLE
     ========================================================= */
