@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Amruth Sagar HV - System Administrator, Linux Administrator and Security Researcher">
+
+    <meta name="keywords"
+          content="Amruth Sagar HV, System Administrator, Linux Administrator, Security Researcher, IT Support, Cyber Security, Networking, Linux, Windows">
+
+    <meta name="author"
+          content="Amruth Sagar HV">
+
+    <meta name="theme-color"
+          content="#020b08">
+
+    <title>Amruth Sagar HV | Hacker Profile</title>
+
+    <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 50% 20%, rgba(0,255,120,0.08), transparent 35%),
+                linear-gradient(180deg, #010605 0%, #020b08 50%, #000000 100%);
+
+            color: #00ff88;
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(rgba(0,255,120,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,120,0.025) 1px, transparent 1px);
+
+            background-size: 45px 45px;
+
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0,255,120,0.025),
+                    rgba(0,255,120,0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            pointer-events: none;
+
+            z-index: 999;
+            opacity: 0.25;
+
+            animation: scanlineShift 9s linear infinite;
+        }
+
+        ::selection {
+            background: #00ff88;
+            color: #000;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           MATRIX BACKGROUND
+        ========================================================= */
+
+        #matrix {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -1;
+
+            opacity: 0.16;
+        }
+
+        /* =========================================================
+           TOP NAVIGATION
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            width: 100%;
+
+            background: rgba(0, 8, 5, 0.90);
+
+            border-bottom:
+                1px solid rgba(0,255,136,0.35);
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 0 25px rgba(0,255,136,0.08);
+        }
+
+        .nav {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 15px 22px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .terminal-logo {
+            color: #00ff88;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            text-shadow:
+                0 0 5px #00ff88,
+                0 0 15px rgba(0,255,136,0.5);
+
+            white-space: nowrap;
+        }
+
+        .terminal-logo span {
+            color: #7affb8;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        .nav-links a {
+            padding: 8px 12px;
+
+            color: #7affb8;
+
+            border: 1px solid transparent;
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+
+            border-color: #00ff88;
+
+            background: rgba(0,255,136,0.06);
+
+            box-shadow:
+                0 0 12px rgba(0,255,136,0.25);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: calc(100vh - 65px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 70px 20px;
+
+            position: relative;
+        }
+
+        .hero-container {
+            width: 100%;
+
+            max-width: 1100px;
+
+            display: grid;
+
+            grid-template-columns: 320px 1fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+        /* =========================================================
+           PROFILE CARD
+        ========================================================= */
+
+        .profile-card {
+            position: relative;
+
+            padding: 25px;
+
+            border: 1px solid #00ff88;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,255,136,0.07),
+                    rgba(0,0,0,0.75)
+                );
+
+            box-shadow:
+                0 0 15px rgba(0,255,136,0.15),
+                inset 0 0 25px rgba(0,255,136,0.025);
+
+            text-align: center;
+
+            clip-path:
+                polygon(
+                    0 18px,
+                    18px 0,
+                    calc(100% - 18px) 0,
+                    100% 18px,
+                    100% calc(100% - 18px),
+                    calc(100% - 18px) 100%,
+                    18px 100%,
+                    0 calc(100% - 18px)
+                );
+        }
+
+        .profile-card::before {
+            content: "SECURE PROFILE";
+
+            position: absolute;
+
+            top: 8px;
+            left: 18px;
+
+            font-size: 9px;
+
+            color: #49ff9d;
+
+            letter-spacing: 2px;
+        }
+
+        .profile-image-wrapper {
+            width: 210px;
+            height: 210px;
+
+            margin: 25px auto 20px;
+
+            padding: 6px;
+
+            border: 1px solid #00ff88;
+
+            border-radius: 50%;
+
+            background: #000;
+
+            box-shadow:
+                0 0 15px rgba(0,255,136,0.3),
+                0 0 50px rgba(0,255,136,0.08);
+        }
+
+        .profile-image-wrapper img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            display: block;
+
+            filter:
+                grayscale(25%)
+                contrast(1.15);
+
+            border: 2px solid rgba(0,255,136,0.55);
+        }
+
+        .status {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 12px;
+
+            color: #75ffb2;
+
+            margin-top: 5px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            background: #00ff88;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 8px #00ff88;
+
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.35;
+                transform: scale(0.75);
+            }
+        }
+
+        /* =========================================================
+           HERO TERMINAL
+        ========================================================= */
+
+        .terminal {
+            width: 100%;
+
+            border: 1px solid rgba(0,255,136,0.55);
+
+            background: rgba(0,0,0,0.75);
+
+            box-shadow:
+                0 0 30px rgba(0,255,136,0.10);
+
+            overflow: hidden;
+
+            animation: terminalFlicker 8s infinite;
+        }
+
+        .terminal-bar {
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 0 14px;
+
+            border-bottom:
+                1px solid rgba(0,255,136,0.25);
+
+            background:
+                rgba(0,255,136,0.04);
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            border: 1px solid #00ff88;
+        }
+
+        .terminal-title {
+            margin-left: auto;
+            margin-right: auto;
+
+            font-size: 11px;
+
+            color: #55e99b;
+
+            letter-spacing: 1px;
+        }
+
+        .terminal-content {
+            padding: 35px;
+        }
+
+        .command {
+            color: #7affb8;
+
+            font-size: 14px;
+
+            margin-bottom: 14px;
+        }
+
+        .command::before {
+            content: "root@amruth:~$ ";
+
+            color: #00ff88;
+        }
+
+        .hero-name {
+            font-size:
+                clamp(34px, 6vw, 68px);
+
+            line-height: 1;
+
+            color: #00ff88;
+
+            margin-bottom: 18px;
+
+            text-shadow:
+                0 0 8px #00ff88,
+                0 0 25px rgba(0,255,136,0.35);
+
+            animation: glitch 4s infinite;
+
+            position: relative;
+        }
+
+        @keyframes glitch {
+
+            0%, 93%, 100% {
+                transform: translate(0);
+            }
+
+            94% {
+                transform: translate(2px, -1px);
+            }
+
+            95% {
+                transform: translate(-2px, 1px);
+            }
+
+            96% {
+                transform: translate(1px, 0);
+            }
+        }
+
+        .designation {
+            font-size:
+                clamp(16px, 2.5vw, 24px);
+
+            color: #c1ffda;
+
+            line-height: 1.6;
+
+            margin-bottom: 22px;
+        }
+
+        .designation .highlight {
+            color: #00ff88;
+
+            text-shadow:
+                0 0 10px rgba(0,255,136,0.5);
+        }
+
+        .description {
+            color: #8fbda3;
+
+            max-width: 700px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+        /* =========================================================
+           TERMINAL COMMAND BOX
+        ========================================================= */
+
+        .command-box {
+            border-left: 2px solid #00ff88;
+
+            padding: 14px 18px;
+
+            margin: 25px 0;
+
+            background:
+                rgba(0,255,136,0.035);
+
+            color: #7affb8;
+
+            line-height: 1.8;
+
+            font-size: 13px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .command-box .green {
+            color: #00ff88;
+        }
+
+        .command-box .white {
+            color: #d5ffe5;
+        }
+
+        .command-box::after {
+            content: "";
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(0,255,136,0.15),
+                transparent
+            );
+            animation: commandScan 5s linear infinite;
+        }
+
+        @keyframes commandScan {
+
+            0% {
+                left: -100%;
+            }
+
+            45%, 100% {
+                left: 130%;
+            }
+
+        }
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 12px 20px;
+
+            border: 1px solid #00ff88;
+
+            color: #00ff88;
+
+            background: transparent;
+
+            font-family: inherit;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 100%;
+            height: 100%;
+
+            background: #00ff88;
+
+            transition: 0.3s;
+
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: #000;
+
+            box-shadow:
+                0 0 20px rgba(0,255,136,0.45);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
+
+        section {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 90px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 35px;
+        }
+
+        .section-header::before {
+            content: "// ";
+
+            color: #00ff88;
+        }
+
+        .section-header h2 {
+            display: inline;
+
+            font-size: 28px;
+
+            color: #d4ffe3;
+
+            text-shadow:
+                0 0 10px rgba(0,255,136,0.2);
+        }
+
+        .section-line {
+            height: 1px;
+
+            width: 100%;
+
+            margin-top: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #00ff88,
+                    transparent
+                );
+        }
+
+        /* =========================================================
+           GRID CARDS
+        ========================================================= */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 18px;
+        }
+
+        .card {
+            padding: 25px;
+
+            min-height: 170px;
+
+            border: 1px solid rgba(0,255,136,0.25);
+
+            background:
+                rgba(0,255,136,0.025);
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: #00ff88;
+
+            box-shadow:
+                0 10px 35px rgba(0,255,136,0.10);
+        }
+
+        .card h3 {
+            color: #00ff88;
+
+            margin-bottom: 12px;
+
+            font-size: 17px;
+        }
+
+        .card p {
+            color: #8fbda3;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .card-number {
+            position: absolute;
+
+            right: 15px;
+            top: 10px;
+
+            color: rgba(0,255,136,0.15);
+
+            font-size: 28px;
+
+            font-weight: bold;
+        }
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skill {
+            margin-bottom: 22px;
+        }
+
+        .skill-info {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+        }
+
+        .skill-name {
+            color: #baffd2;
+        }
+
+        .skill-percent {
+            color: #00ff88;
+        }
+
+        .progress {
+            width: 100%;
+
+            height: 7px;
+
+            border:
+                1px solid rgba(0,255,136,0.25);
+
+            background: #03120b;
+
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+
+            height: 100%;
+
+            background: #00ff88;
+
+            box-shadow:
+                0 0 10px #00ff88;
+        }
+
+        /* =========================================================
+           TERMINAL INFO
+        ========================================================= */
+
+        .info-terminal {
+            border:
+                1px solid rgba(0,255,136,0.3);
+
+            background:
+                rgba(0,0,0,0.55);
+
+            padding: 25px;
+
+            line-height: 2;
+
+            color: #9bd3b0;
+        }
+
+        .info-terminal strong {
+            color: #00ff88;
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-box {
+            text-align: center;
+
+            padding: 50px 25px;
+
+            border:
+                1px solid #00ff88;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0,255,136,0.07),
+                    transparent 65%
+                );
+
+            box-shadow:
+                0 0 35px rgba(0,255,136,0.08);
+        }
+
+        .contact-box h2 {
+            font-size: 32px;
+
+            color: #00ff88;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #8fbda3;
+
+            margin-bottom: 25px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            border-top:
+                1px solid rgba(0,255,136,0.25);
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            color: #507d61;
+
+            font-size: 12px;
+
+            background: #010604;
+        }
+
+        footer .green {
+            color: #00ff88;
+        }
+
+        /* =========================================================
+           REALISTIC DIGITAL GLITCH EFFECTS
+        ========================================================= */
+
+        body.glitch-active::before {
+            animation: gridInterference 7s infinite steps(1);
+        }
+
+        @keyframes gridInterference {
+
+            0%, 88%, 100% {
+                transform: translate(0);
+                opacity: 1;
+            }
+
+            89% {
+                transform: translate(-3px, 1px);
+                opacity: 0.7;
+            }
+
+            90% {
+                transform: translate(4px, -2px);
+                opacity: 0.9;
+            }
+
+            91% {
+                transform: translate(-1px, 3px);
+                opacity: 0.6;
+            }
+
+            92% {
+                transform: translate(0);
+                opacity: 1;
+            }
+
+        }
+
+        /* Scanline movement */
+
+        @keyframes scanlineShift {
+
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 0 100px;
+            }
+
+        }
+
+        /* Main hacker glitch layer */
+
+        .glitch-target {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-target::before,
+        .glitch-target::after {
+            content: attr(data-text);
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            opacity: 0;
+        }
+
+        .glitch-target::before {
+            color: #00ffff;
+            z-index: -1;
+        }
+
+        .glitch-target::after {
+            color: #ff003c;
+            z-index: -2;
+        }
+
+        .glitch-target.glitching::before {
+            opacity: 0.8;
+
+            animation:
+                glitchCyan
+                180ms
+                steps(2)
+                both;
+        }
+
+        .glitch-target.glitching::after {
+            opacity: 0.8;
+
+            animation:
+                glitchRed
+                220ms
+                steps(2)
+                both;
+        }
+
+        @keyframes glitchCyan {
+
+            0% {
+                clip-path: inset(10% 0 80% 0);
+                transform: translate(-5px, 0);
+            }
+
+            20% {
+                clip-path: inset(70% 0 10% 0);
+                transform: translate(6px, -1px);
+            }
+
+            40% {
+                clip-path: inset(35% 0 45% 0);
+                transform: translate(-3px, 2px);
+            }
+
+            60% {
+                clip-path: inset(85% 0 3% 0);
+                transform: translate(5px, 0);
+            }
+
+            80% {
+                clip-path: inset(15% 0 65% 0);
+                transform: translate(-4px, -2px);
+            }
+
+            100% {
+                clip-path: inset(0);
+                transform: translate(0);
+            }
+
+        }
+
+        @keyframes glitchRed {
+
+            0% {
+                clip-path: inset(75% 0 5% 0);
+                transform: translate(5px, 1px);
+            }
+
+            25% {
+                clip-path: inset(15% 0 65% 0);
+                transform: translate(-6px, 0);
+            }
+
+            50% {
+                clip-path: inset(45% 0 30% 0);
+                transform: translate(4px, -2px);
+            }
+
+            75% {
+                clip-path: inset(5% 0 80% 0);
+                transform: translate(-5px, 2px);
+            }
+
+            100% {
+                clip-path: inset(0);
+                transform: translate(0);
+            }
+
+        }
+
+        /* Terminal random flicker */
+
+        @keyframes terminalFlicker {
+
+            0%, 94%, 100% {
+                opacity: 1;
+                filter: none;
+            }
+
+            95% {
+                opacity: 0.92;
+                filter: brightness(1.3) contrast(1.15);
+            }
+
+            96% {
+                opacity: 1;
+                filter: none;
+            }
+
+            97% {
+                opacity: 0.94;
+                transform: translateX(1px);
+            }
+
+            98% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        /* Hacker horizontal distortion */
+
+        .digital-distortion {
+            position: fixed;
+
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                rgba(0,255,136,0.55);
+
+            box-shadow:
+                0 0 8px rgba(0,255,136,0.8),
+                0 0 18px rgba(0,255,136,0.35);
+
+            pointer-events: none;
+
+            z-index: 998;
+
+            opacity: 0;
+        }
+
+        .digital-distortion.active {
+            animation:
+                distortionMove
+                320ms
+                linear;
+        }
+
+        @keyframes distortionMove {
+
+            0% {
+                top: 15%;
+                opacity: 0;
+                transform: scaleX(0.3);
+            }
+
+            20% {
+                opacity: 0.8;
+                transform: scaleX(1);
+            }
+
+            45% {
+                top: 47%;
+                transform:
+                    translateX(-8px)
+                    scaleX(0.75);
+            }
+
+            70% {
+                top: 72%;
+                transform:
+                    translateX(7px)
+                    scaleX(1.15);
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+                transform: scaleX(0.5);
+            }
+
+        }
+
+        /* Small digital blocks */
+
+        .glitch-block {
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 997;
+
+            height: 3px;
+
+            background: #00ff88;
+
+            box-shadow:
+                0 0 10px rgba(0,255,136,0.7);
+
+            opacity: 0;
+        }
+
+        .glitch-block.active {
+            animation:
+                blockGlitch
+                260ms
+                steps(3);
+        }
+
+        @keyframes blockGlitch {
+
+            0% {
+                opacity: 0;
+                transform: translateX(0);
+            }
+
+            20% {
+                opacity: 0.8;
+                transform: translateX(-15px);
+            }
+
+            40% {
+                opacity: 0.5;
+                transform: translateX(25px);
+            }
+
+            65% {
+                opacity: 0.9;
+                transform: translateX(-8px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+        }
+
+        /* Stronger glitch on important hacker elements */
+
+        .hero-name.glitch-target {
+            text-shadow:
+                0 0 5px #00ff88,
+                0 0 15px rgba(0,255,136,0.5),
+                2px 0 #ff003c,
+                -2px 0 #00ffff;
+        }
+
+        /* Navigation digital flicker */
+
+        .nav-links a:hover::after {
+            content: "01";
+
+            position: absolute;
+
+            right: 3px;
+            top: -7px;
+
+            font-size: 7px;
+
+            color: #00ffff;
+
+            opacity: 0.8;
+
+            animation:
+                miniGlitch
+                250ms
+                infinite;
+        }
+
+        @keyframes miniGlitch {
+
+            0% {
+                transform: translateX(0);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateX(3px);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateX(-2px);
+                opacity: 0.9;
+            }
+
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 800px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+            .profile-card {
+                max-width: 360px;
+
+                margin: auto;
+            }
+
+            .terminal-content {
+                padding: 25px 20px;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .nav-links {
+                gap: 3px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+
+                padding: 6px 8px;
+            }
+
+            .profile-image-wrapper {
+                width: 170px;
+                height: 170px;
+            }
+
+            .hero-name {
+                font-size: 34px;
+            }
+
+            .designation {
+                font-size: 16px;
+            }
+
+            .command {
+                font-size: 12px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .terminal {
+                animation-duration: 10s;
+            }
+
+            body::after {
+                opacity: 0.18;
+            }
+
+        }
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     REALISTIC DIGITAL GLITCH OVERLAY
+========================================================= -->
+
+<div class="digital-distortion" id="digitalDistortion"></div>
+
+<div class="glitch-block" id="glitchBlock1"></div>
+<div class="glitch-block" id="glitchBlock2"></div>
+<div class="glitch-block" id="glitchBlock3"></div>
+
+
+<!-- =========================================================
+     MATRIX CANVAS
+========================================================= -->
+
+<canvas id="matrix"></canvas>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header>
+
+    <nav class="nav">
+
+        <a href="#home" class="terminal-logo">
+            <span>[</span>AMRUTH<span>@</span>SECURITY<span>]</span>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="#home">HOME</a>
+
+            <a href="#profile">PROFILE</a>
+
+            <a href="#skills">SKILLS</a>
+
+            <a href="#expertise">EXPERTISE</a>
+
+            <a href="#contact">CONTACT</a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HOME / HERO
+========================================================= -->
+
+<main id="home">
+
+    <section class="hero">
+
+        <div class="hero-container">
+
+
+            <!-- PROFILE IMAGE -->
+
+            <div class="profile-card">
+
+                <div class="profile-image-wrapper">
+
+                    <!--
+                        IMPORTANT:
+                        Replace the src below with the exact
+                        profile-photo path used by your existing
+                        website if necessary.
+                    -->
+
+                    <img
+                        src="img/79706293.jpeg"
+                        alt="Profile Photo of Amruth Sagar HV"
+                        onerror="this.style.opacity='0.15';"
+                    >
+
+                </div>
+
+                <div class="status">
+
+                    <span class="status-dot"></span>
+
+                    SYSTEM ONLINE
+
+                </div>
+
+            </div>
+
+
+            <!-- TERMINAL -->
+
+            <div class="terminal">
+
+                <div class="terminal-bar">
+
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+
+                    <div class="terminal-title">
+                        amruth@security-terminal — profile
+                    </div>
+
+                </div>
+
+
+                <div class="terminal-content">
+
+                    <div class="command">
+                        whoami
+                    </div>
+
+                    <h1 class="hero-name">
+                        AMRUTH SAGAR HV
+                    </h1>
+
+                    <div class="designation">
+
+                        <span class="highlight">
+                            System Administrator
+                        </span>
+
+                        |
+
+                        <span class="highlight">
+                            Linux Administrator
+                        </span>
+
+                        |
+
+                        <span class="highlight">
+                            Security Researcher
+                        </span>
+
+                    </div>
+
+
+                    <div class="command">
+                        cat /etc/profile
+                    </div>
+
+                    <p class="description">
+
+                        IT professional focused on system administration,
+                        Linux environments, networking, troubleshooting,
+                        infrastructure management and cybersecurity.
+
+                        <br><br>
+
+                        Exploring systems, solving technical problems,
+                        strengthening infrastructure and continuously
+                        developing security-focused skills.
+
+                    </p>
+
+
+                    <div class="command-box">
+
+                        <div>
+                            <span class="green">
+                                [+]
+                            </span>
+
+                            Access Level:
+
+                            <span class="white">
+                                AUTHORIZED
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="green">
+                                [+]
+                            </span>
+
+                            Status:
+
+                            <span class="white">
+                                ONLINE
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="green">
+                                [+]
+                            </span>
+
+                            Role:
+
+                            <span class="white">
+                                SYSTEM / LINUX / SECURITY
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="green">
+                                [+]
+                            </span>
+
+                            Mission:
+
+                            <span class="white">
+                                SECURE • ADMINISTER • TROUBLESHOOT
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="actions">
+
+                        <a
+                            class="btn"
+                            href="#profile">
+                            [ VIEW PROFILE ]
+                        </a>
+
+                        <a
+                            class="btn"
+                            href="#skills">
+                            [ EXPLORE SKILLS ]
+                        </a>
+
+                        <a
+                            class="btn"
+                            href="https://wa.me/"
+                            target="_blank"
+                            rel="noopener">
+                            [ CONTACT ME ]
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROFILE
+    ====================================================== -->
+
+    <section id="profile">
+
+        <div class="section-header">
+
+            <h2>PROFILE</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="info-terminal">
+
+            <p>
+                <strong>root@amruth:~#</strong>
+                ./profile --details
+            </p>
+
+            <p>
+                <strong>NAME:</strong>
+                Amruth Sagar HV
+            </p>
+
+            <p>
+                <strong>PRIMARY ROLE:</strong>
+                System Administrator
+            </p>
+
+            <p>
+                <strong>SECONDARY ROLE:</strong>
+                Linux Administrator
+            </p>
+
+            <p>
+                <strong>SECURITY ROLE:</strong>
+                Security Researcher
+            </p>
+
+            <p>
+                <strong>FOCUS:</strong>
+                IT Infrastructure • Linux • Networking • Cybersecurity
+            </p>
+
+            <p>
+                <strong>ENVIRONMENT:</strong>
+                Windows • Linux • Networks • Servers • Cloud / IT Systems
+            </p>
+
+            <p>
+                <strong>STATUS:</strong>
+                <span style="color:#00ff88;">
+                    AVAILABLE / ONLINE
+                </span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERTISE
+    ====================================================== -->
+
+    <section id="expertise">
+
+        <div class="section-header">
+
+            <h2>CORE EXPERTISE</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="grid">
+
+
+            <div class="card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
+                    SYSTEM ADMINISTRATION
+                </h3>
+
+                <p>
+                    System configuration, maintenance,
+                    troubleshooting, software deployment,
+                    operating-system support and infrastructure
+                    administration.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
+                    LINUX ADMINISTRATION
+                </h3>
+
+                <p>
+                    Linux environments, command-line
+                    administration, system troubleshooting,
+                    services, permissions and server operations.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
+                    NETWORKING
+                </h3>
+
+                <p>
+                    Network troubleshooting, connectivity,
+                    IP configuration, infrastructure monitoring,
+                    network services and technical support.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card-number">
+                    04
+                </span>
+
+                <h3>
+                    CYBERSECURITY
+                </h3>
+
+                <p>
+                    Security research, vulnerability awareness,
+                    ethical hacking concepts, CTF challenges
+                    and defensive security practices.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card-number">
+                    05
+                </span>
+
+                <h3>
+                    IT SUPPORT
+                </h3>
+
+                <p>
+                    Hardware and software troubleshooting,
+                    operating-system installation, configuration,
+                    updates and user support.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card-number">
+                    06
+                </span>
+
+                <h3>
+                    INFRASTRUCTURE
+                </h3>
+
+                <p>
+                    Monitoring and maintaining IT infrastructure,
+                    systems, devices, applications and
+                    business-critical technical services.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SKILLS
+    ====================================================== -->
+
+    <section id="skills">
+
+        <div class="section-header">
+
+            <h2>TECHNICAL SKILLS</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="skill">
+
+                <div class="skill-info">
+
+                    <span class="skill-name">
+                        System Administration
+                    </span>
+
+                    <span class="skill-percent">
+                        90%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span style="width:90%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-info">
+
+                    <span class="skill-name">
+                        Windows Administration
+                    </span>
+
+                    <span class="skill-percent">
+                        90%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span style="width:90%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-info">
+
+                    <span class="skill-name">
+                        Linux Administration
+                    </span>
+
+                    <span class="skill-percent">
+                        85%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span style="width:85%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-info">
+
+                    <span class="skill-name">
+                        Networking
+                    </span>
+
+                    <span class="skill-percent">
+                        85%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span style="width:85%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-info">
+
+                    <span class="skill-name">
+                        Hardware & Software Troubleshooting
+                    </span>
+
+                    <span class="skill-percent">
+                        95%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span style="width:95%;"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-info">
+
+                    <span class="skill-name">
+                        Cybersecurity / Security Research
+                    </span>
+
+                    <span class="skill-percent">
+                        80%
+                    </span>
+
+                </div>
+
+                <div class="progress">
+                    <span style="width:80%;"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SECURITY TERMINAL
+    ====================================================== -->
+
+    <section>
+
+        <div class="section-header">
+
+            <h2>SECURITY TERMINAL</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="terminal">
+
+            <div class="terminal-bar">
+
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+
+                <div class="terminal-title">
+                    security@amruth — bash
+                </div>
+
+            </div>
+
+
+            <div class="terminal-content">
+
+                <div class="command">
+                    uname -a
+                </div>
+
+                <p style="color:#8fbda3; margin-bottom:25px;">
+                    Linux / Windows / Network Infrastructure /
+                    Security Operations
+                </p>
+
+
+                <div class="command">
+                    security --status
+                </div>
+
+                <p style="color:#00ff88; margin-bottom:25px;">
+                    [ ONLINE ] Security Research Environment Active
+                </p>
+
+
+                <div class="command">
+                    skills --list
+                </div>
+
+                <p style="color:#8fbda3; line-height:2;">
+
+                    [01] System Administration<br>
+                    [02] Linux Administration<br>
+                    [03] Windows Administration<br>
+                    [04] Networking<br>
+                    [05] Troubleshooting<br>
+                    [06] Cybersecurity<br>
+                    [07] Security Research<br>
+                    [08] CTF Challenges
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section id="contact">
+
+        <div class="contact-box">
+
+            <h2>
+                LET'S CONNECT
+            </h2>
+
+            <p>
+
+                Have a technical requirement, professional
+                opportunity or collaboration in mind?
+
+                <br>
+
+                Open a secure communication channel.
+
+            </p>
+
+
+            <a
+                class="btn"
+                href="https://wa.me/9591478095"
+                target="_blank"
+                rel="noopener">
+
+                [ CONTACT ME ]
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+
+        <span class="green">
+            root@amruth:~$
+        </span>
+
+        echo "Amruth Sagar HV"
+
+    </p>
+
+    <p style="margin-top:10px;">
+
+        System Administrator |
+        Linux Administrator |
+        Security Researcher
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+        © <span id="year"></span>
+        Amruth Sagar HV.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =========================================================
+       CURRENT YEAR
+    ========================================================= */
+
+    const yearElement =
+        document.getElementById("year");
+
+    if (yearElement) {
+        yearElement.textContent =
+            new Date().getFullYear();
+    }
+
+
+    /* =========================================================
+       MATRIX DIGITAL RAIN
+    ========================================================= */
+
+    const canvas =
+        document.getElementById("matrix");
+
+    if (canvas) {
+
+        const ctx =
+            canvas.getContext("2d");
+
+        let width;
+        let height;
+
+        let columns;
+        let drops;
+
+        const characters =
+            "01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%&@";
+
+        function resizeMatrix() {
+
+            width =
+                canvas.width =
+                window.innerWidth;
+
+            height =
+                canvas.height =
+                window.innerHeight;
+
+            columns =
+                Math.floor(width / 15);
+
+            drops =
+                Array(columns).fill(1);
+
+        }
+
+        function drawMatrix() {
+
+            if (!ctx || !drops) {
+                return;
+            }
+
+            ctx.fillStyle =
+                "rgba(0, 5, 3, 0.08)";
+
+            ctx.fillRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+            ctx.fillStyle =
+                "#00ff88";
+
+            ctx.font =
+                "13px monospace";
+
+            for (
+                let i = 0;
+                i < drops.length;
+                i++
+            ) {
+
+                const text =
+                    characters.charAt(
+                        Math.floor(
+                            Math.random() *
+                            characters.length
+                        )
+                    );
+
+                ctx.fillText(
+                    text,
+                    i * 15,
+                    drops[i] * 15
+                );
+
+                if (
+                    drops[i] * 15 > height &&
+                    Math.random() > 0.975
+                ) {
+
+                    drops[i] = 0;
+
+                }
+
+                drops[i]++;
+
+            }
+
+        }
+
+        window.addEventListener(
+            "resize",
+            resizeMatrix
+        );
+
+        resizeMatrix();
+
+        setInterval(
+            drawMatrix,
+            50
+        );
+
+    }
+
+
+    /* =========================================================
+       TERMINAL TYPING EFFECT
+    ========================================================= */
+
+    const terminalTitle =
+        document.querySelector(
+            ".terminal-title"
+        );
+
+    if (terminalTitle) {
+
+        const originalText =
+            terminalTitle.textContent.trim();
+
+        terminalTitle.textContent = "";
+
+        let position = 0;
+
+        function typeTitle() {
+
+            if (
+                position <
+                originalText.length
+            ) {
+
+                terminalTitle.textContent +=
+                    originalText.charAt(position);
+
+                position++;
+
+                setTimeout(
+                    typeTitle,
+                    35
+                );
+
+            }
+
+        }
+
+        typeTitle();
+
+    }
+
+
+    /* =========================================================
+       CONSOLE MESSAGE
+    ========================================================= */
+
+    console.log(
+        "%c[ SYSTEM ONLINE ]",
+        "color:#00ff88;font-size:20px;font-weight:bold;"
+    );
+
+    console.log(
+        "%cWelcome to Amruth Sagar HV's profile.",
+        "color:#7affb8;font-size:14px;"
+    );
+
+    console.log(
+        "%cSystem Administrator | Linux Administrator | Security Researcher",
+        "color:#7affb8;font-size:12px;"
+    );
+
+
+    /* =========================================================
+       SMOOTH NAVIGATION
+    ========================================================= */
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(
+            function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function(event) {
+
+                        const href =
+                            this.getAttribute("href");
+
+                        if (!href || href === "#") {
+                            return;
+                        }
+
+                        const target =
+                            document.querySelector(href);
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =========================================================
+       REALISTIC RANDOM HACKER GLITCH ENGINE
+    ========================================================= */
+
+    document.body.classList.add(
+        "glitch-active"
+    );
+
+    const distortion =
+        document.getElementById(
+            "digitalDistortion"
+        );
+
+    const glitchBlocks = [
+        document.getElementById("glitchBlock1"),
+        document.getElementById("glitchBlock2"),
+        document.getElementById("glitchBlock3")
+    ];
+
+
+    /* Main screen distortion */
+
+    function triggerDistortion() {
+
+        if (!distortion) {
+            return;
+        }
+
+        distortion.classList.remove(
+            "active"
+        );
+
+        void distortion.offsetWidth;
+
+        distortion.classList.add(
+            "active"
+        );
+
+    }
+
+
+    /* Random digital blocks */
+
+    function triggerBlocks() {
+
+        glitchBlocks.forEach(
+            function(block) {
+
+                if (!block) {
+                    return;
+                }
+
+                block.style.top =
+                    Math.floor(
+                        Math.random() * 95
+                    ) + "%";
+
+                block.style.left =
+                    Math.floor(
+                        Math.random() * 85
+                    ) + "%";
+
+                block.style.width =
+                    Math.floor(
+                        Math.random() * 180 + 30
+                    ) + "px";
+
+                block.classList.remove(
+                    "active"
+                );
+
+                void block.offsetWidth;
+
+                block.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* Apply glitch to the main identity */
+
+    const heroName =
+        document.querySelector(
+            ".hero-name"
+        );
+
+    if (heroName) {
+
+        heroName.classList.add(
+            "glitch-target"
+        );
+
+        heroName.setAttribute(
+            "data-text",
+            heroName.textContent.trim()
+        );
+
+    }
+
+
+    /* Random realistic timing */
+
+    function hackerGlitchBurst() {
+
+        triggerDistortion();
+
+        if (Math.random() > 0.35) {
+            triggerBlocks();
+        }
+
+        if (
+            heroName &&
+            Math.random() > 0.25
+        ) {
+
+            heroName.classList.remove(
+                "glitching"
+            );
+
+            void heroName.offsetWidth;
+
+            heroName.classList.add(
+                "glitching"
+            );
+
+            setTimeout(
+                function() {
+
+                    heroName.classList.remove(
+                        "glitching"
+                    );
+
+                },
+                250
+            );
+
+        }
+
+        const nextDelay =
+            Math.floor(
+                Math.random() * 6500
+            ) + 2500;
+
+        setTimeout(
+            hackerGlitchBurst,
+            nextDelay
+        );
+
+    }
+
+
+    /* Initial delay prevents constant artificial glitching */
+
+    setTimeout(
+        hackerGlitchBurst,
+        3000
+    );
+
+
+    /* =========================================================
+       TERMINAL TEXT MICRO-FLICKER
+    ========================================================= */
+
+    const terminalTexts =
+        document.querySelectorAll(
+            ".command, .terminal-title, .section-header h2"
+        );
+
+    function terminalMicroFlicker() {
+
+        if (!terminalTexts.length) {
+            return;
+        }
+
+        const element =
+            terminalTexts[
+                Math.floor(
+                    Math.random() *
+                    terminalTexts.length
+                )
+            ];
+
+        element.style.opacity =
+            "0.45";
+
+        setTimeout(
+            function() {
+
+                element.style.opacity =
+                    "1";
+
+            },
+            70
+        );
+
+        setTimeout(
+            function() {
+
+                if (Math.random() > 0.5) {
+
+                    element.style.transform =
+                        "translateX(-2px)";
+
+                }
+
+                setTimeout(
+                    function() {
+
+                        element.style.transform =
+                            "translateX(0)";
+
+                    },
+                    80
+                );
+
+            },
+            90
+        );
+
+    }
+
+    setInterval(
+        terminalMicroFlicker,
+        4200
+    );
+
+
+    /* =========================================================
+       RANDOM SCREEN FLASH
+    ========================================================= */
+
+    function screenFlash() {
+
+        const flash =
+            document.createElement("div");
+
+        flash.style.position =
+            "fixed";
+
+        flash.style.inset =
+            "0";
+
+        flash.style.pointerEvents =
+            "none";
+
+        flash.style.zIndex =
+            "996";
+
+        flash.style.background =
+            "rgba(0,255,136,0.025)";
+
+        document.body.appendChild(
+            flash
+        );
+
+        setTimeout(
+            function() {
+
+                flash.remove();
+
+            },
+            60
+        );
+
+    }
+
+    setInterval(
+        function() {
+
+            if (Math.random() > 0.55) {
+                screenFlash();
+            }
+
+        },
+        700
+    );
+
+</script>
+
+</body>
+
+</html>
