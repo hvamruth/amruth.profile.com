@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Amruth Sagar HV</title>
+
+    <meta name="description"
+          content="Cybersecurity projects by Amruth Sagar HV, including Hack The Box, PicoCTF, ethical hacking, and phishing attack investigation.">
+
+    <meta name="keywords"
+          content="Amruth Sagar HV, Cybersecurity Projects, Hack The Box, PicoCTF, Ethical Hacking, Phishing Investigation, Network Security, CTF">
+
+    <meta name="theme-color" content="#050b08">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050b08;
+            --panel: rgba(9, 23, 16, 0.92);
+            --green: #00ff88;
+            --green-light: #80ffc0;
+            --text: #e2f5e9;
+            --muted: #9aafa1;
+            --border: rgba(0, 255, 136, 0.23);
+            --shadow: 0 0 28px rgba(0, 255, 136, 0.07);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        ::selection {
+            background: var(--green);
+            color: #001b0d;
+        }
+
+        /* Animated hacker-style ambient background (no Matrix rain) */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -20%;
+            z-index: -3;
+            pointer-events: none;
+            background:
+                radial-gradient(
+                    circle at 18% 25%,
+                    rgba(0, 255, 136, 0.12),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 82% 35%,
+                    rgba(0, 190, 110, 0.09),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 52% 82%,
+                    rgba(0, 255, 136, 0.07),
+                    transparent 32%
+                );
+            background-size: 140% 140%;
+            animation: ambientGlow 18s ease-in-out infinite alternate;
+            will-change: background-position, transform;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.55;
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.16) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(0, 255, 136, 0.035) 1px,
+                    transparent 1px
+                );
+            background-size: 36px 36px;
+            animation: gridDrift 30s linear infinite;
+        }
+
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.12;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0,
+                transparent 3px,
+                rgba(0, 255, 136, 0.07) 4px
+            );
+        }
+
+        .container {
+            width: min(1160px, 92%);
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(3, 10, 6, 0.91);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--green);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.77rem;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--green);
+            text-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Hero */
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 85px 0 60px;
+        }
+
+        .terminal-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--border);
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: var(--green);
+            background: rgba(0, 255, 136, 0.04);
+            font-size: 0.76rem;
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 12px var(--green);
+            animation: pulse 1.5s infinite;
+        }
+
+        h1,
+        h2,
+        h3 {
+            overflow-wrap: anywhere;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.1rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .glitch {
+            position: relative;
+            color: var(--green);
+            text-shadow: 0 0 24px rgba(0, 255, 136, 0.24);
+        }
+
+        .hero-description {
+            max-width: 760px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        .hero-description strong {
+            color: var(--green-light);
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 19px;
+            border: 1px solid var(--green);
+            border-radius: 5px;
+            color: var(--green);
+            background: rgba(0, 255, 136, 0.04);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .btn:hover {
+            color: #001b0d;
+            background: var(--green);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.24);
+            transform: translateY(-2px);
+        }
+
+        .btn.primary {
+            color: #001b0d;
+            background: var(--green);
+            font-weight: 700;
+        }
+
+        .btn.primary:hover {
+            background: var(--green-light);
+        }
+
+        /* Stats */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 65px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 21px 12px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* Section headings */
+
+        .section-heading {
+            margin-bottom: 30px;
+        }
+
+        .section-kicker {
+            display: block;
+            color: var(--green);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* Project cards */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
+            margin-bottom: 75px;
+        }
+
+        .project-card {
+            position: relative;
+            min-width: 0;
+            overflow: hidden;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            box-shadow: var(--shadow);
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 136, 0.65);
+            box-shadow: 0 12px 38px rgba(0, 255, 136, 0.09);
+        }
+
+        .project-card.featured {
+            grid-column: 1 / -1;
+        }
+
+        .card-top {
+            padding: 25px 25px 19px;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.12);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 255, 136, 0.075),
+                    transparent 70%
+                );
+        }
+
+        .card-topline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 17px;
+        }
+
+        .project-number {
+            color: var(--green);
+            font-size: 0.76rem;
+            letter-spacing: 1px;
+        }
+
+        .project-status {
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            background: rgba(0, 255, 136, 0.06);
+            color: var(--green-light);
+            padding: 4px 9px;
+            border-radius: 3px;
+            font-size: 0.66rem;
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .project-subtitle {
+            color: var(--green);
+            font-size: 0.79rem;
+        }
+
+        .card-body {
+            padding: 23px 25px 26px;
+        }
+
+        .card-body > p {
+            color: #b7c9bd;
+            font-size: 0.82rem;
+            margin-bottom: 17px;
+        }
+
+        .content-heading {
+            font-size: 0.84rem;
+            color: var(--green-light);
+            margin: 22px 0 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.79rem;
+            color: #b7c9bd;
+            overflow-wrap: anywhere;
+        }
+
+        .feature-list li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .feature-list strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 17px 0 22px;
+        }
+
+        .tag {
+            padding: 5px 9px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 3px;
+            background: rgba(0, 255, 136, 0.045);
+            color: var(--green-light);
+            font-size: 0.68rem;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .card-actions .btn {
+            font-size: 0.74rem;
+            padding: 10px 13px;
+        }
+
+        /* Wide incident-response project */
+
+        .incident-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .incident-panel {
+            padding: 18px;
+            border: 1px solid rgba(0, 255, 136, 0.14);
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.16);
+        }
+
+        .incident-panel h4 {
+            font-size: 0.85rem;
+            color: var(--green);
+            margin-bottom: 13px;
+        }
+
+        .program-line {
+            color: var(--muted);
+            font-size: 0.78rem;
+            margin: 12px 0;
+        }
+
+        .program-line strong {
+            color: var(--text);
+        }
+
+        .report-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 10px;
+            color: var(--green);
+            font-size: 0.78rem;
+            border-bottom: 1px dashed var(--green);
+            padding-bottom: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        .report-link:hover {
+            color: var(--green-light);
+        }
+
+        /* Video resource section */
+
+        .resources {
+            margin-bottom: 75px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .video-card {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            min-width: 0;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            transition: 0.25s;
+        }
+
+        .video-card:hover {
+            border-color: var(--green);
+            transform: translateY(-3px);
+        }
+
+        .video-icon {
+            display: grid;
+            place-items: center;
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--green);
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .video-card h3 {
+            font-size: 0.87rem;
+            margin-bottom: 9px;
+        }
+
+        .video-card p {
+            color: var(--muted);
+            font-size: 0.75rem;
+            margin-bottom: 17px;
+            flex: 1;
+        }
+
+        .video-card .btn {
+            width: 100%;
+            font-size: 0.73rem;
+            padding: 10px;
+        }
+
+        /* Security notice */
+
+        .notice {
+            border: 1px solid rgba(0, 255, 136, 0.24);
+            border-left: 4px solid var(--green);
+            border-radius: 5px;
+            padding: 20px 22px;
+            margin-bottom: 65px;
+            background: rgba(0, 255, 136, 0.035);
+        }
+
+        .notice h3 {
+            color: var(--green);
+            font-size: 0.86rem;
+            margin-bottom: 8px;
+        }
+
+        .notice p {
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: rgba(3, 10, 6, 0.8);
+            padding: 28px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-inner p,
+        .footer-inner a {
+            color: var(--muted);
+            font-size: 0.73rem;
+        }
+
+        .footer-inner a:hover {
+            color: var(--green);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        /* Animations */
+
+        @keyframes ambientGlow {
+            0% {
+                transform: translate3d(-2%, -1%, 0) scale(1);
+                background-position: 0% 0%;
+            }
+            50% {
+                transform: translate3d(1%, 2%, 0) scale(1.04);
+                background-position: 55% 35%;
+            }
+            100% {
+                transform: translate3d(2%, -1%, 0) scale(1.02);
+                background-position: 100% 80%;
+            }
+        }
+
+        @keyframes gridDrift {
+            from { background-position: 0 0, 0 0; }
+            to { background-position: 36px 36px, -36px 36px; }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 12px var(--green);
+            }
+            50% {
+                opacity: 0.4;
+                box-shadow: 0 0 3px var(--green);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glitch {
+            0%, 92%, 100% {
+                text-shadow: 0 0 24px rgba(0, 255, 136, 0.24);
+                transform: translateX(0);
+            }
+            93% {
+                text-shadow: -2px 0 #00ff88, 2px 0 #00aaff;
+                transform: translateX(1px);
+            }
+            95% {
+                text-shadow: 2px 0 #00ff88, -2px 0 #00aaff;
+                transform: translateX(-1px);
+            }
+            97% {
+                transform: translateX(0);
+            }
+        }
+
+        .glitch {
+            animation: glitch 5s infinite;
+        }
+
+        /* Responsive design */
+
+        @media (max-width: 800px) {
+            .nav-inner {
+                padding: 14px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                gap: 14px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card.featured {
+                grid-column: auto;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: 92%;
+            }
+
+            .brand {
+                font-size: 0.9rem;
+            }
+
+            .nav-links {
+                gap: 10px 15px;
+            }
+
+            .nav-links a {
+                font-size: 0.69rem;
+            }
+
+            .hero {
+                padding: 48px 0 40px;
+            }
+
+            .hero-description {
+                font-size: 0.81rem;
+            }
+
+            .stats {
+                gap: 9px;
+                margin-bottom: 48px;
+            }
+
+            .stat {
+                padding: 15px 5px;
+            }
+
+            .stat-number {
+                font-size: 1.25rem;
+            }
+
+            .stat-label {
+                font-size: 0.62rem;
+            }
+
+            .card-top {
+                padding: 20px 17px 16px;
+            }
+
+            .card-body {
+                padding: 19px 17px 22px;
+            }
+
+            .incident-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container nav-inner">
+
+            <a href="index.html" class="brand">
+                AMRUTH<span>.HV</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html">HOME</a>
+                <a href="Profile.html">PROFILE</a>
+                <a href="experience.html">EXPERIENCE</a>
+                <a href="certificate.html">CERTIFICATES</a>
+                <a href="projects.html" class="active">PROJECTS</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+
+                <div class="terminal-label">
+                    <span class="status-dot"></span>
+                    SYSTEM STATUS: PROJECTS ONLINE
+                </div>
+
+                <h1>
+                    MY <span class="glitch">PROJECTS</span>
+                </h1>
+
+                <p class="hero-description">
+                    Exploring the world of <strong>cybersecurity</strong>,
+                    ethical hacking, network defense, and digital
+                    forensics through hands-on challenges and practical
+                    security investigations.
+                    Every project is an opportunity to learn, investigate,
+                    and strengthen my technical skills.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary">
+                        &gt; EXPLORE PROJECTS
+                    </a>
+
+                    <a href="#resources" class="btn">
+                        [ VIEW CTF VIDEOS ]
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Project statistics -->
+        <section class="container" aria-label="Project overview">
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span class="stat-number">03</span>
+                    <span class="stat-label">FEATURED PROJECTS</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">CTF</span>
+                    <span class="stat-label">HANDS-ON CHALLENGES</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">SOC</span>
+                    <span class="stat-label">SECURITY INVESTIGATION</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Projects -->
+        <section class="container" id="projects">
+
+            <div class="section-heading">
+                <span class="section-kicker">// 01 — PORTFOLIO</span>
+                <h2>Cybersecurity Projects</h2>
+                <p>
+                    Practical learning, security analysis, and
+                    ethical hacking methodologies.
+                </p>
+            </div>
+
+            <div class="projects">
+
+                <!-- Project 1: Hack The Box -->
+                <article class="project-card">
+
+                    <div class="card-top">
+
+                        <div class="card-topline">
+                            <span class="project-number">PROJECT_01</span>
+                            <span class="project-status">CTF / LABS</span>
+                        </div>
+
+                        <h3 class="project-title">Hack The Box</h3>
+
+                        <p class="project-subtitle">
+                            Hack The Box CTF Project
+                        </p>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <p>
+                            This project involves solving Capture The Flag
+                            (CTF) challenges on Hack The Box, a cybersecurity
+                            training platform for developing penetration
+                            testing, reverse engineering, and problem-solving
+                            skills.
+                        </p>
+
+                        <p>
+                            The learning process focuses on discovering
+                            vulnerabilities in authorized lab environments,
+                            understanding exploitation techniques, and
+                            completing challenges by capturing flags.
+                        </p>
+
+                        <h4 class="content-heading">
+                            Key Project Components
+                        </h4>
+
+                        <ul class="feature-list">
+
+                            <li>
+                                <strong>Challenge Variety:</strong>
+                                Web exploitation, cryptography, binary
+                                exploitation, digital forensics, and more.
+                            </li>
+
+                            <li>
+                                <strong>Tools and Techniques:</strong>
+                                Nmap, Burp Suite, Metasploit, Wireshark,
+                                and custom scripts where appropriate.
+                            </li>
+
+                            <li>
+                                <strong>Documentation:</strong>
+                                Recording methodologies, investigation
+                                steps, findings, and lessons learned.
+                            </li>
+
+                            <li>
+                                <strong>Skill Development:</strong>
+                                Linux fundamentals, privilege escalation,
+                                network security, and vulnerability
+                                assessment.
+                            </li>
+
+                        </ul>
+
+                        <h4 class="content-heading">Technologies & Skills</h4>
+
+                        <div class="tag-list">
+                            <span class="tag">Nmap</span>
+                            <span class="tag">Burp Suite</span>
+                            <span class="tag">Metasploit</span>
+                            <span class="tag">Wireshark</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Penetration Testing</span>
+                        </div>
+
+                        <p>
+                            <strong>Project Outcome:</strong>
+                            Builds practical problem-solving abilities,
+                            analytical thinking, and foundational
+                            penetration-testing skills for cybersecurity
+                            roles.
+                        </p>
+
+                        <div class="card-actions">
+
+                            <a class="btn primary"
+                               href="https://www.hackthebox.com/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                EXPLORE HTB ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- Project 2: PicoCTF -->
+                <article class="project-card">
+
+                    <div class="card-top">
+
+                        <div class="card-topline">
+                            <span class="project-number">PROJECT_02</span>
+                            <span class="project-status">LEARNING / CTF</span>
+                        </div>
+
+                        <h3 class="project-title">PicoCTF</h3>
+
+                        <p class="project-subtitle">
+                            Cybersecurity Learning & CTF Challenges
+                        </p>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <p>
+                            PicoCTF is a cybersecurity education platform
+                            developed by Carnegie Mellon University's
+                            cybersecurity community. It provides hands-on
+                            Capture The Flag challenges that help learners
+                            understand security concepts through
+                            practical problem-solving.
+                        </p>
+
+                        <p>
+                            This project explores different challenge
+                            categories to develop analytical thinking,
+                            technical knowledge, and familiarity with
+                            common cybersecurity techniques.
+                        </p>
+
+                        <h4 class="content-heading">
+                            Challenge Categories
+                        </h4>
+
+                        <ul class="feature-list">
+
+                            <li>
+                                <strong>Cryptography:</strong>
+                                Decoding messages and learning encryption
+                                fundamentals.
+                            </li>
+
+                            <li>
+                                <strong>Reverse Engineering:</strong>
+                                Analyzing programs to understand their
+                                behavior and logic.
+                            </li>
+
+                            <li>
+                                <strong>Web Exploitation:</strong>
+                                Studying web vulnerabilities and secure
+                                application behavior.
+                            </li>
+
+                            <li>
+                                <strong>Binary Exploitation:</strong>
+                                Learning about memory, program execution,
+                                and software vulnerabilities.
+                            </li>
+
+                            <li>
+                                <strong>Digital Forensics:</strong>
+                                Examining files and digital artifacts
+                                to identify hidden information.
+                            </li>
+
+                            <li>
+                                <strong>General Skills:</strong>
+                                Practicing Linux commands, scripting,
+                                encoding, and network protocols.
+                            </li>
+
+                        </ul>
+
+                        <h4 class="content-heading">Skills Developed</h4>
+
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">Linux CLI</span>
+                            <span class="tag">Cryptography</span>
+                            <span class="tag">Forensics</span>
+                            <span class="tag">Web Security</span>
+                            <span class="tag">Reverse Engineering</span>
+                        </div>
+
+                        <p>
+                            <strong>Project Outcome:</strong>
+                            Develops cybersecurity fundamentals through
+                            structured challenges and encourages continuous
+                            learning in ethical hacking and information
+                            security.
+                        </p>
+
+                        <div class="card-actions">
+
+                            <a class="btn primary"
+                               href="https://picoctf.org/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                EXPLORE PICOCTF ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- Project 3: Phishing Investigation -->
+                <article class="project-card featured">
+
+                    <div class="card-top">
+
+                        <div class="card-topline">
+                            <span class="project-number">PROJECT_03</span>
+                            <span class="project-status">
+                                CAPSTONE / INCIDENT RESPONSE
+                            </span>
+                        </div>
+
+                        <h3 class="project-title">
+                            Capstone Project on Phishing Attack Investigation
+                        </h3>
+
+                        <p class="project-subtitle">
+                            Breach Report — Official Instagram Account Compromise
+                        </p>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <p>
+                            <strong>Program:</strong>
+                            Network Security and Ethical Hacking
+                        </p>
+
+                        <p>
+                            This capstone project examines a phishing
+                            incident involving the compromise of an
+                            organization's official Instagram account.
+                            It focuses on understanding social engineering,
+                            unauthorized account access, compromised
+                            credentials, and the loss of administrative
+                            control.
+                        </p>
+
+                        <p>
+                            The project applies cybersecurity principles
+                            to a structured incident investigation,
+                            documenting the potential attack vector,
+                            identifying security gaps, and recommending
+                            measures to reduce the risk of future incidents.
+                        </p>
+
+                        <div class="incident-grid">
+
+                            <div class="incident-panel">
+
+                                <h4>// OBJECTIVES</h4>
+
+                                <ul class="feature-list">
+
+                                    <li>
+                                        Investigate the suspected phishing
+                                        campaign and its attack vector.
+                                    </li>
+
+                                    <li>
+                                        Reconstruct the reported incident
+                                        using available evidence.
+                                    </li>
+
+                                    <li>
+                                        Assess gaps in account security,
+                                        including two-factor authentication.
+                                    </li>
+
+                                    <li>
+                                        Identify containment, recovery,
+                                        and account protection measures.
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="incident-panel">
+
+                                <h4>// SCOPE OF WORK</h4>
+
+                                <ul class="feature-list">
+
+                                    <li>
+                                        <strong>Incident Analysis:</strong>
+                                        Examine the reported phishing
+                                        activity and available evidence.
+                                    </li>
+
+                                    <li>
+                                        <strong>Attack Reconstruction:</strong>
+                                        Understand how credentials may have
+                                        been compromised.
+                                    </li>
+
+                                    <li>
+                                        <strong>Vulnerability Assessment:</strong>
+                                        Review authentication and email
+                                        security controls.
+                                    </li>
+
+                                    <li>
+                                        <strong>Incident Response:</strong>
+                                        Document account recovery and
+                                        containment procedures.
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="incident-panel">
+
+                                <h4>// TOOLS & TECHNIQUES</h4>
+
+                                <ul class="feature-list">
+
+                                    <li>Email header analysis</li>
+                                    <li>Phishing URL verification</li>
+                                    <li>Credential recovery procedures</li>
+                                    <li>
+                                        Meta Business Suite and official
+                                        account recovery resources
+                                    </li>
+                                    <li>Cyber hygiene and security awareness</li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="incident-panel">
+
+                                <h4>// SECURITY RECOMMENDATIONS</h4>
+
+                                <ul class="feature-list">
+
+                                    <li>
+                                        Enable multi-factor authentication
+                                        and secure recovery methods.
+                                    </li>
+
+                                    <li>
+                                        Conduct phishing awareness training
+                                        and authorized simulations.
+                                    </li>
+
+                                    <li>
+                                        Strengthen email filtering and
+                                        suspicious-link verification.
+                                    </li>
+
+                                    <li>
+                                        Review administrator access,
+                                        account recovery settings, and
+                                        security notifications.
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <h4 class="content-heading">Expected Outcomes</h4>
+
+                        <ul class="feature-list">
+
+                            <li>
+                                Improved understanding of phishing
+                                attacks and social engineering.
+                            </li>
+
+                            <li>
+                                Practical incident documentation and
+                                response planning skills.
+                            </li>
+
+                            <li>
+                                Better awareness of account security
+                                and organizational cybersecurity policies.
+                            </li>
+
+                            <li>
+                                Knowledge of preventive controls and
+                                recovery procedures for online business
+                                accounts.
+                            </li>
+
+                        </ul>
+
+                        <h4 class="content-heading">Technical Focus</h4>
+
+                        <div class="tag-list">
+                            <span class="tag">Phishing Analysis</span>
+                            <span class="tag">Email Security</span>
+                            <span class="tag">Incident Response</span>
+                            <span class="tag">Social Engineering</span>
+                            <span class="tag">MFA</span>
+                            <span class="tag">Digital Investigation</span>
+                        </div>
+
+                        <div class="notice" style="margin: 22px 0 0;">
+                            <h3>SECURITY & ETHICS</h3>
+                            <p>
+                                This project is intended for educational
+                                and defensive security purposes. Account
+                                investigations and recovery activities
+                                should be conducted only with proper
+                                authorization. No real credentials or
+                                private account information should be
+                                disclosed in public reports.
+                            </p>
+                        </div>
+
+                        <div class="card-actions">
+
+                            <a class="btn primary"
+                               href="https://media.licdn.com/dms/image/v2/D4D2DAQFxfSsrnkvFEQ/profile-treasury-document-images_1280/B4DZnww9PNGgAY-/1/1760680992182?e=1792627200&v=beta&t=efIvp2vfPvmrKF0H_Kh1ypxDaE_b2Rq0pDiRxFta3JI"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                VIEW CAPSTONE REPORT ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CTF Video Resources -->
+        <section class="container resources" id="resources">
+
+            <div class="section-heading">
+                <span class="section-kicker">// 02 — VIDEO RESOURCES</span>
+                <h2>CTF Video Resources</h2>
+                <p>
+                    Explore the linked videos for additional cybersecurity
+                    learning and challenge walkthroughs.
+                </p>
+            </div>
+
+            <div class="video-grid">
+
+                <article class="video-card">
+
+                    <div class="video-icon" aria-hidden="true">▶</div>
+
+                    <h3>CTF Video Resource 01</h3>
+
+                    <p>
+                        Open the first linked video to explore its
+                        cybersecurity content.
+                    </p>
+
+                    <a class="btn"
+                       href="https://www.youtube.com/watch?v=G5hzuIjWgVQ"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        WATCH ON YOUTUBE ↗
+                    </a>
+
+                </article>
+
+                <article class="video-card">
+
+                    <div class="video-icon" aria-hidden="true">▶</div>
+
+                    <h3>CTF Video Resource 02</h3>
+
+                    <p>
+                        Access the second video for further learning
+                        and technical reference.
+                    </p>
+
+                    <a class="btn"
+                       href="https://www.youtube.com/watch?v=RyJx_uexBkY"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        WATCH ON YOUTUBE ↗
+                    </a>
+
+                </article>
+
+                <article class="video-card">
+
+                    <div class="video-icon" aria-hidden="true">▶</div>
+
+                    <h3>CTF Video Resource 03</h3>
+
+                    <p>
+                        Visit the third linked video to continue
+                        exploring cybersecurity resources.
+                    </p>
+
+                    <a class="btn"
+                       href="https://www.youtube.com/watch?v=XbBXRWT3IhM"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        WATCH ON YOUTUBE ↗
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Ethical hacking statement -->
+        <section class="container">
+
+            <div class="notice">
+
+                <h3>&gt; ETHICAL HACKING MINDSET</h3>
+
+                <p>
+                    My goal is to strengthen cybersecurity knowledge,
+                    identify weaknesses responsibly, and understand
+                    how systems can be protected against real-world
+                    threats. All security testing should be performed
+                    in authorized lab environments or with explicit
+                    permission from the system owner.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container footer-inner">
+
+            <p>
+                &copy; <span id="year"></span>
+                Amruth Sagar HV | Cybersecurity Portfolio
+            </p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="Profile.html">Profile</a>
+                <a href="certificate.html">Certificates</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy-policy.html">Privacy</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script>
+        /* Dynamic copyright year */
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        /* Background animation is handled by CSS; no Matrix rain. */
+    </script>
+
+</body>
+</html>
