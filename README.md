@@ -15,7 +15,7 @@
 - Google Fonts
 - Strong focus on Usability and UX
 - FontAwesome Icon Integrated
-- Powered by Google Hosted Library and MaxCDN. 
+- Powered by Github Pages. 
 - Minified CSS and Js included for Faster loading. 
 - Clean and stylish UI
 - Well commented coding
