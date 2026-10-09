@@ -2621,6 +2621,123 @@
 
 </script>
 
+
+
+
+
+
+
+<!-- CYBER GLITCH AUDIO ADD-ON: isolated from existing page code -->
+<div id="cyber-audio-control" style="
+  position:fixed;bottom:20px;right:20px;z-index:99999;
+  font:12px monospace;color:#00ff9c;
+  background:#050b09;border:1px solid #00ff9c;
+  padding:10px 14px;box-shadow:0 0 12px #00ff9c33;">
+  <button id="cyber-audio-toggle" type="button"
+    aria-pressed="false" style="
+    background:transparent;color:#00ff9c;border:0;
+    font:inherit;cursor:pointer;letter-spacing:1px;">
+    [ SOUND: OFF ]
+  </button>
+</div>
+
+<script>
+(() => {
+  const button = document.getElementById("cyber-audio-toggle");
+  if (!button) return;
+
+  let audio = null;
+  let enabled = false;
+  let glitchTimer = null;
+
+  function glitch() {
+    if (!enabled || !audio || audio.state !== "running") return;
+
+    const now = audio.currentTime;
+    const duration = 0.055 + Math.random() * 0.12;
+    const length = Math.floor(audio.sampleRate * duration);
+    const buffer = audio.createBuffer(1, length, audio.sampleRate);
+    const data = buffer.getChannelData(0);
+
+    // Short burst of digitally corrupted static.
+    for (let i = 0; i < length; i++) {
+      data[i] = (Math.random() * 2 - 1) *
+        (Math.random() < 0.12 ? 1 : 0.25);
+    }
+
+    const source = audio.createBufferSource();
+    const filter = audio.createBiquadFilter();
+    const gain = audio.createGain();
+
+    filter.type = "bandpass";
+    filter.frequency.value = 900 + Math.random() * 4800;
+    filter.Q.value = 0.7 + Math.random() * 3;
+
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.linearRampToValueAtTime(
+      0.018 + Math.random() * 0.025, now + 0.008
+    );
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001, now + duration
+    );
+
+    source.buffer = buffer;
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(audio.destination);
+    source.start(now);
+    source.stop(now + duration);
+  }
+
+  function scheduleGlitch() {
+    clearTimeout(glitchTimer);
+    if (!enabled) return;
+
+    // Sparse, irregular interference—not constant static.
+    glitchTimer = setTimeout(() => {
+      glitch();
+      scheduleGlitch();
+    }, 1800 + Math.random() * 5200);
+  }
+
+  button.addEventListener("click", async () => {
+    try {
+      if (!audio) {
+        const AudioContextClass =
+          window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        audio = new AudioContextClass();
+      }
+
+      if (enabled) {
+        enabled = false;
+        clearTimeout(glitchTimer);
+        button.textContent = "[ SOUND: OFF ]";
+        button.setAttribute("aria-pressed", "false");
+        await audio.suspend();
+      } else {
+        await audio.resume();
+        enabled = true;
+        button.textContent = "[ SOUND: ON ]";
+        button.setAttribute("aria-pressed", "true");
+        glitch();
+        scheduleGlitch();
+      }
+    } catch (error) {
+      enabled = false;
+      clearTimeout(glitchTimer);
+      button.textContent = "[ SOUND UNAVAILABLE ]";
+      button.setAttribute("aria-pressed", "false");
+    }
+  });
+})();
+</script>
+<!-- END CYBER GLITCH AUDIO ADD-ON -->
+
+
+
+
+
 </body>
 
 </html>
