@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Projects | Amruth Sagar HV</title>
 
@@ -12,25 +16,60 @@
     <meta name="keywords"
           content="Amruth Sagar HV, Cybersecurity Projects, Hack The Box, PicoCTF, Ethical Hacking, Phishing Investigation, Network Security, CTF">
 
-    <meta name="theme-color" content="#050b08">
+    <meta name="theme-color" content="#020604">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="author" content="Amruth Sagar HV">
 
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
+
+    <!-- CYBERSECURITY THEME -->
+
     <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
         :root {
-            --bg: #050b08;
-            --panel: rgba(9, 23, 16, 0.92);
-            --green: #00ff88;
-            --green-light: #80ffc0;
-            --text: #e2f5e9;
-            --muted: #9aafa1;
-            --border: rgba(0, 255, 136, 0.23);
-            --shadow: 0 0 28px rgba(0, 255, 136, 0.07);
+
+            --black: #020604;
+            --black2: #040a06;
+
+            --panel: #07110b;
+            --panel2: #09170e;
+
+            --green: #00ff66;
+            --green2: #00d957;
+            --neon: #00ff9c;
+
+            --text: #d9ffe6;
+            --muted: #6e9b7d;
+            --muted2: #42634d;
+
+            --border: rgba(0,255,102,0.20);
+
+            --danger: #ff315d;
+            --warning: #ffe600;
+
+            --shadow: 0 0 20px rgba(0,255,102,0.08);
+
         }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             margin: 0;
@@ -41,15 +80,34 @@
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 90px;
+            background: var(--black);
         }
 
         body {
-            font-family: 'Fira Code', monospace;
-            background: var(--bg);
-            color: var(--text);
+
             min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(0,255,102,0.07),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 85% 35%,
+                    rgba(0,255,156,0.035),
+                    transparent 28%
+                ),
+                var(--black);
+
+            color: var(--text);
+
+            font-family: "Fira Code", monospace;
+
             overflow-x: hidden;
+
             line-height: 1.7;
+
         }
 
         a {
@@ -63,322 +121,665 @@
 
         ::selection {
             background: var(--green);
-            color: #001b0d;
+            color: #000;
         }
 
-        /* Animated hacker-style ambient background (no Matrix rain) */
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: -20%;
-            z-index: -3;
-            pointer-events: none;
-            background:
-                radial-gradient(
-                    circle at 18% 25%,
-                    rgba(0, 255, 136, 0.12),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 82% 35%,
-                    rgba(0, 190, 110, 0.09),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 52% 82%,
-                    rgba(0, 255, 136, 0.07),
-                    transparent 32%
-                );
-            background-size: 140% 140%;
-            animation: ambientGlow 18s ease-in-out infinite alternate;
-            will-change: background-position, transform;
-        }
+        /* =====================================================
+           MATRIX BACKGROUND
+        ===================================================== */
 
-        body::after {
-            content: "";
+        #matrix {
+
             position: fixed;
             inset: 0;
-            z-index: -2;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -10;
+
+            opacity: 0.09;
+
             pointer-events: none;
-            opacity: 0.55;
-            background:
+
+        }
+
+
+        /* =====================================================
+           CYBER GRID
+        ===================================================== */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            z-index: -8;
+
+            pointer-events: none;
+
+            background-image:
                 linear-gradient(
-                    rgba(0, 0, 0, 0.16) 1px,
+                    rgba(0,255,102,0.025) 1px,
                     transparent 1px
                 ),
                 linear-gradient(
                     90deg,
-                    rgba(0, 255, 136, 0.035) 1px,
+                    rgba(0,255,102,0.025) 1px,
                     transparent 1px
                 );
-            background-size: 36px 36px;
-            animation: gridDrift 30s linear infinite;
+
+            background-size: 45px 45px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+
         }
+
+
+        /* =====================================================
+           SCANLINES
+        ===================================================== */
 
         .scanlines {
+
             position: fixed;
             inset: 0;
-            z-index: 10;
+
+            z-index: 9998;
+
             pointer-events: none;
-            opacity: 0.12;
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent 0,
-                transparent 3px,
-                rgba(0, 255, 136, 0.07) 4px
-            );
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(0,255,102,0.025) 0px,
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            opacity: 0.45;
+
         }
+
+
+        /* =====================================================
+           COMMON CONTAINER
+        ===================================================== */
 
         .container {
-            width: min(1160px, 92%);
+
+            width: 100%;
+            max-width: 1100px;
+
             margin: 0 auto;
+
+            padding: 0 20px;
+
         }
 
-        /* Navigation */
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
 
         .navbar {
+
             position: sticky;
             top: 0;
-            z-index: 20;
-            background: rgba(3, 10, 6, 0.91);
-            backdrop-filter: blur(16px);
+
+            z-index: 1000;
+
+            width: 100%;
+
+            background: rgba(2,6,4,0.94);
+
+            backdrop-filter: blur(12px);
+
             border-bottom: 1px solid var(--border);
+
+            box-shadow:
+                0 0 25px rgba(0,255,102,0.06);
+
         }
 
         .nav-inner {
-            min-height: 72px;
+
+            min-height: 70px;
+
             display: flex;
-            justify-content: space-between;
+
             align-items: center;
+
+            justify-content: space-between;
+
             gap: 20px;
+
         }
 
         .brand {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--green);
-            font-weight: 800;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
 
-        .brand span {
-            color: var(--text);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 22px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 0.77rem;
-            transition: color 0.25s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--green);
-            text-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-        }
-
-        /* Hero */
-
-        .hero {
-            position: relative;
-            text-align: center;
-            padding: 85px 0 60px;
-        }
-
-        .terminal-label {
             display: inline-flex;
+
             align-items: center;
-            gap: 10px;
-            border: 1px solid var(--border);
-            padding: 8px 15px;
-            border-radius: 5px;
+
+            gap: 7px;
+
+            font-family: "Orbitron", sans-serif;
+
+            font-weight: 700;
+
+            font-size: 20px;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+
             color: var(--green);
-            background: rgba(0, 255, 136, 0.04);
-            font-size: 0.76rem;
-            margin-bottom: 25px;
+
+            text-shadow:
+                0 0 5px var(--green),
+                0 0 15px rgba(0,255,102,0.35);
+
+        }
+
+        .brand-prompt,
+        .brand-first {
+            color: var(--green);
+        }
+
+        .brand-name {
+            color: #fff;
+        }
+
+        .brand-prompt {
+            font-family: "Fira Code", monospace;
+        }
+
+        .nav-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
         }
 
         .status-dot {
+
             width: 8px;
             height: 8px;
+
+            flex-shrink: 0;
+
             border-radius: 50%;
+
             background: var(--green);
-            box-shadow: 0 0 12px var(--green);
+
+            box-shadow: 0 0 8px var(--green);
+
             animation: pulse 1.5s infinite;
+
         }
 
-        h1,
-        h2,
-        h3 {
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            position: relative;
+
+            min-height: 55vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 75px 0 65px;
+
+            overflow: hidden;
+
+            border-bottom:
+                1px solid rgba(0,255,102,0.12);
+
+        }
+
+        .hero-content {
+
+            width: 100%;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+        .terminal-window {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,255,102,0.035),
+                    rgba(0,0,0,0.2)
+                );
+
+            border:
+                1px solid rgba(0,255,102,0.25);
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 0 40px rgba(0,255,102,0.07),
+                inset 0 0 50px rgba(0,255,102,0.015);
+
+            overflow: hidden;
+
+        }
+
+        .terminal-bar {
+
+            min-height: 42px;
+
+            padding: 10px 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: rgba(0,255,102,0.025);
+
+            border-bottom:
+                1px solid rgba(0,255,102,0.13);
+
+        }
+
+        .terminal-circle {
+
+            width: 11px;
+            height: 11px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+        }
+
+        .terminal-circle.red {
+            background: var(--danger);
+        }
+
+        .terminal-circle.yellow {
+            background: var(--warning);
+        }
+
+        .terminal-circle.green {
+            background: var(--green);
+        }
+
+        .terminal-bar-title {
+
+            margin-left: 10px;
+
+            color: #53765f;
+
+            font-size: 11px;
+
             overflow-wrap: anywhere;
+
+        }
+
+        .terminal-content {
+
+            padding: 50px 50px 45px;
+
+        }
+
+        .command-line {
+
+            color: var(--green);
+
+            font-size: 13px;
+
+            margin-bottom: 17px;
+
+        }
+
+        .command-line span {
+            color: #fff;
         }
 
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.1rem, 6vw, 4.5rem);
+
+            font-family: "Orbitron", sans-serif;
+
+            font-size: clamp(35px, 6vw, 67px);
+
             font-weight: 800;
-            letter-spacing: 2px;
-            line-height: 1.25;
+
+            line-height: 1.15;
+
+            color: #fff;
+
             margin-bottom: 20px;
-            animation: fadeUp 0.8s ease both;
+
+            letter-spacing: 2px;
+
+            text-shadow:
+                0 0 12px rgba(0,255,102,0.16);
+
+            overflow-wrap: anywhere;
+
         }
 
-        .glitch {
-            position: relative;
+        .hero h1 span {
+
             color: var(--green);
-            text-shadow: 0 0 24px rgba(0, 255, 136, 0.24);
+
+            text-shadow:
+                0 0 8px var(--green),
+                0 0 30px rgba(0,255,102,0.25);
+
+        }
+
+        .hero-subtitle {
+
+            color: var(--neon);
+
+            font-size: clamp(14px, 3vw, 20px);
+
+            letter-spacing: 1px;
+
+            margin-bottom: 18px;
+
         }
 
         .hero-description {
-            max-width: 760px;
-            margin: 0 auto;
-            color: var(--muted);
-            font-size: 0.93rem;
+
+            color: #769b82;
+
+            max-width: 800px;
+
+            font-size: 13px;
+
+            line-height: 1.9;
+
         }
 
         .hero-description strong {
-            color: var(--green-light);
-            font-weight: 500;
+            color: var(--green);
+            font-weight: 600;
         }
 
         .hero-buttons {
+
             display: flex;
-            justify-content: center;
+
             flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 30px;
+
+            gap: 12px;
+
+            margin-top: 28px;
+
         }
 
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
         .btn {
+
             display: inline-flex;
+
             justify-content: center;
+
             align-items: center;
+
             gap: 9px;
-            padding: 12px 19px;
-            border: 1px solid var(--green);
-            border-radius: 5px;
+
+            padding: 11px 18px;
+
             color: var(--green);
-            background: rgba(0, 255, 136, 0.04);
-            font-size: 0.8rem;
+
+            background: rgba(0,255,102,0.025);
+
+            border: 1px solid rgba(0,255,102,0.3);
+
+            border-radius: 0;
+
+            font-size: 12px;
+
             cursor: pointer;
-            transition: 0.25s ease;
+
+            transition: 0.3s ease;
+
+            overflow-wrap: anywhere;
+
         }
 
         .btn:hover {
-            color: #001b0d;
+
             background: var(--green);
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.24);
+
+            color: #000;
+
+            box-shadow:
+                0 0 18px rgba(0,255,102,0.3);
+
             transform: translateY(-2px);
+
         }
 
         .btn.primary {
-            color: #001b0d;
+
+            color: #000;
+
             background: var(--green);
+
+            border-color: var(--green);
+
             font-weight: 700;
+
         }
 
         .btn.primary:hover {
-            background: var(--green-light);
+
+            background: var(--green2);
+
+            border-color: var(--green2);
+
         }
 
-        /* Stats */
+
+        /* =====================================================
+           STATISTICS
+        ===================================================== */
 
         .stats {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 65px;
+
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin: 35px auto 65px;
+
         }
 
         .stat {
+
+            padding: 20px 12px;
+
             text-align: center;
-            padding: 21px 12px;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 7px;
+
+            background: rgba(0,255,102,0.025);
+
+            border: 1px solid rgba(0,255,102,0.14);
+
             box-shadow: var(--shadow);
+
         }
 
         .stat-number {
+
             display: block;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.65rem;
+
+            font-family: "Orbitron", sans-serif;
+
+            font-size: 25px;
+
             font-weight: 800;
+
             color: var(--green);
+
+            line-height: 1.5;
+
         }
 
         .stat-label {
+
             display: block;
-            font-size: 0.72rem;
-            color: var(--muted);
+
+            color: #6e9b7d;
+
+            font-size: 10px;
+
             margin-top: 6px;
+
         }
 
-        /* Section headings */
+
+        /* =====================================================
+           SECTION HEADINGS
+        ===================================================== */
 
         .section-heading {
-            margin-bottom: 30px;
+
+            margin-bottom: 35px;
+
         }
 
         .section-kicker {
+
             display: block;
+
+            color: #4f765a;
+
+            font-size: 11px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .section-kicker span {
             color: var(--green);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
         }
 
         .section-heading h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            color: var(--text);
+
+            font-family: "Orbitron", sans-serif;
+
+            color: #fff;
+
+            font-size: clamp(25px, 5vw, 40px);
+
+            letter-spacing: 1px;
+
+            line-height: 1.4;
+
             margin-bottom: 10px;
+
+        }
+
+        .section-heading h2 span {
+            color: var(--green);
         }
 
         .section-heading p {
-            color: var(--muted);
-            font-size: 0.85rem;
+
+            color: #63836d;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
         }
 
-        /* Project cards */
+
+        /* =====================================================
+           PROJECT GRID
+        ===================================================== */
 
         .projects {
+
             display: grid;
+
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
+
             align-items: start;
+
+            gap: 22px;
+
             margin-bottom: 75px;
+
         }
 
         .project-card {
+
             position: relative;
+
             min-width: 0;
+
             overflow: hidden;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(7,17,11,0.97),
+                    rgba(3,9,5,0.98)
+                );
+
+            border: 1px solid rgba(0,255,102,0.18);
+
+            border-left: 3px solid var(--green);
+
             box-shadow: var(--shadow);
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-            animation: fadeUp 0.8s ease both;
+
+            transition: 0.35s ease;
+
+            animation: fadeUp 0.7s ease both;
+
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 255, 136, 0.65);
-            box-shadow: 0 12px 38px rgba(0, 255, 136, 0.09);
+
+            transform: translateY(-4px);
+
+            border-color: rgba(0,255,102,0.4);
+
+            box-shadow:
+                0 0 25px rgba(0,255,102,0.08);
+
         }
 
         .project-card.featured {
@@ -386,360 +787,583 @@
         }
 
         .card-top {
-            padding: 25px 25px 19px;
-            border-bottom: 1px solid rgba(0, 255, 136, 0.12);
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(0, 255, 136, 0.075),
-                    transparent 70%
-                );
+
+            padding: 24px;
+
+            background: rgba(0,255,102,0.025);
+
+            border-bottom:
+                1px solid rgba(0,255,102,0.13);
+
         }
 
         .card-topline {
+
             display: flex;
+
             justify-content: space-between;
-            align-items: center;
-            gap: 12px;
+
+            align-items: flex-start;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
             margin-bottom: 17px;
+
         }
 
         .project-number {
+
             color: var(--green);
-            font-size: 0.76rem;
+
+            font-size: 11px;
+
             letter-spacing: 1px;
+
         }
 
         .project-status {
-            border: 1px solid rgba(0, 255, 136, 0.25);
-            background: rgba(0, 255, 136, 0.06);
-            color: var(--green-light);
-            padding: 4px 9px;
-            border-radius: 3px;
-            font-size: 0.66rem;
+
+            display: inline-block;
+
+            padding: 5px 9px;
+
+            color: var(--green);
+
+            background: rgba(0,255,102,0.035);
+
+            border: 1px solid rgba(0,255,102,0.2);
+
+            font-size: 9px;
+
+            overflow-wrap: anywhere;
+
         }
 
         .project-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 2.8vw, 1.65rem);
-            line-height: 1.4;
+
+            font-family: "Orbitron", sans-serif;
+
+            color: #fff;
+
+            font-size: clamp(17px, 2.5vw, 23px);
+
+            line-height: 1.5;
+
             margin-bottom: 8px;
+
+            overflow-wrap: anywhere;
+
         }
 
         .project-subtitle {
+
             color: var(--green);
-            font-size: 0.79rem;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
         }
 
         .card-body {
-            padding: 23px 25px 26px;
+
+            padding: 24px;
+
         }
 
         .card-body > p {
-            color: #b7c9bd;
-            font-size: 0.82rem;
-            margin-bottom: 17px;
+
+            color: #94b69f;
+
+            font-size: 12px;
+
+            line-height: 1.9;
+
+            margin-bottom: 15px;
+
+            overflow-wrap: anywhere;
+
+        }
+
+        .card-body p strong {
+
+            color: var(--text);
+
+            font-weight: 600;
+
         }
 
         .content-heading {
-            font-size: 0.84rem;
-            color: var(--green-light);
-            margin: 22px 0 10px;
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            margin: 22px 0 12px;
+
         }
 
+
+        /* =====================================================
+           FEATURE LIST
+        ===================================================== */
+
         .feature-list {
+
             list-style: none;
+
             display: grid;
-            gap: 10px;
+
+            gap: 11px;
+
         }
 
         .feature-list li {
+
             position: relative;
-            padding-left: 20px;
-            font-size: 0.79rem;
-            color: #b7c9bd;
+
+            padding-left: 23px;
+
+            color: #94b69f;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
             overflow-wrap: anywhere;
+
         }
 
         .feature-list li::before {
+
             content: ">";
+
             position: absolute;
+
             left: 0;
+
+            top: 0;
+
             color: var(--green);
+
             font-weight: 700;
+
         }
 
         .feature-list strong {
+
             color: var(--text);
+
             font-weight: 600;
+
         }
 
+
+        /* =====================================================
+           TECHNOLOGY TAGS
+        ===================================================== */
+
         .tag-list {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 8px;
+
             margin: 17px 0 22px;
+
         }
 
         .tag {
+
             padding: 5px 9px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            border-radius: 3px;
-            background: rgba(0, 255, 136, 0.045);
-            color: var(--green-light);
-            font-size: 0.68rem;
+
+            color: var(--neon);
+
+            background: rgba(0,255,102,0.025);
+
+            border: 1px solid rgba(0,255,102,0.18);
+
+            font-size: 10px;
+
+            overflow-wrap: anywhere;
+
         }
 
+
+        /* =====================================================
+           CARD ACTIONS
+        ===================================================== */
+
         .card-actions {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 10px;
+
             margin-top: 22px;
+
         }
 
         .card-actions .btn {
-            font-size: 0.74rem;
+
+            font-size: 11px;
+
             padding: 10px 13px;
+
         }
 
-        /* Wide incident-response project */
+
+        /* =====================================================
+           INCIDENT RESPONSE PANELS
+        ===================================================== */
 
         .incident-grid {
+
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 15px;
+
+            margin-top: 20px;
+
         }
 
         .incident-panel {
-            padding: 18px;
-            border: 1px solid rgba(0, 255, 136, 0.14);
-            border-radius: 6px;
-            background: rgba(0, 0, 0, 0.16);
+
+            min-width: 0;
+
+            padding: 20px;
+
+            background: rgba(0,255,102,0.02);
+
+            border: 1px solid rgba(0,255,102,0.14);
+
         }
 
         .incident-panel h4 {
-            font-size: 0.85rem;
+
             color: var(--green);
-            margin-bottom: 13px;
+
+            font-size: 12px;
+
+            margin-bottom: 14px;
+
         }
 
-        .program-line {
-            color: var(--muted);
-            font-size: 0.78rem;
-            margin: 12px 0;
-        }
 
-        .program-line strong {
-            color: var(--text);
-        }
-
-        .report-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            margin-top: 10px;
-            color: var(--green);
-            font-size: 0.78rem;
-            border-bottom: 1px dashed var(--green);
-            padding-bottom: 4px;
-            overflow-wrap: anywhere;
-        }
-
-        .report-link:hover {
-            color: var(--green-light);
-        }
-
-        /* Video resource section */
-
-        .resources {
-            margin-bottom: 75px;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .video-card {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            min-width: 0;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            transition: 0.25s;
-        }
-
-        .video-card:hover {
-            border-color: var(--green);
-            transform: translateY(-3px);
-        }
-
-        .video-icon {
-            display: grid;
-            place-items: center;
-            width: 45px;
-            height: 45px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--green);
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-        }
-
-        .video-card h3 {
-            font-size: 0.87rem;
-            margin-bottom: 9px;
-        }
-
-        .video-card p {
-            color: var(--muted);
-            font-size: 0.75rem;
-            margin-bottom: 17px;
-            flex: 1;
-        }
-
-        .video-card .btn {
-            width: 100%;
-            font-size: 0.73rem;
-            padding: 10px;
-        }
-
-        /* Security notice */
+        /* =====================================================
+           SECURITY NOTICE
+        ===================================================== */
 
         .notice {
-            border: 1px solid rgba(0, 255, 136, 0.24);
-            border-left: 4px solid var(--green);
-            border-radius: 5px;
-            padding: 20px 22px;
-            margin-bottom: 65px;
-            background: rgba(0, 255, 136, 0.035);
+
+            padding: 22px;
+
+            margin-bottom: 35px;
+
+            background: rgba(0,255,102,0.025);
+
+            border: 1px solid rgba(0,255,102,0.16);
+
+            border-left: 3px solid var(--green);
+
         }
 
         .notice h3 {
+
             color: var(--green);
-            font-size: 0.86rem;
-            margin-bottom: 8px;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+
         }
 
         .notice p {
-            color: var(--muted);
-            font-size: 0.78rem;
+
+            color: #789985;
+
+            font-size: 12px;
+
+            line-height: 1.9;
+
         }
 
-        /* Footer */
+
+        /* =====================================================
+           VIDEO RESOURCES
+        ===================================================== */
+
+        .resources {
+
+            margin-bottom: 75px;
+
+        }
+
+        .video-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            gap: 16px;
+
+        }
+
+        .video-card {
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-width: 0;
+
+            padding: 22px;
+
+            background: var(--panel);
+
+            border: 1px solid rgba(0,255,102,0.16);
+
+            transition: 0.3s ease;
+
+        }
+
+        .video-card:hover {
+
+            border-color: var(--green);
+
+            transform: translateY(-4px);
+
+            box-shadow: var(--shadow);
+
+        }
+
+        .video-icon {
+
+            display: grid;
+
+            place-items: center;
+
+            width: 45px;
+
+            height: 45px;
+
+            margin-bottom: 16px;
+
+            color: var(--green);
+
+            border: 1px solid rgba(0,255,102,0.2);
+
+            background: rgba(0,255,102,0.025);
+
+            font-size: 18px;
+
+        }
+
+        .video-card h3 {
+
+            color: #fff;
+
+            font-family: "Orbitron", sans-serif;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 10px;
+
+        }
+
+        .video-card p {
+
+            color: #789985;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            margin-bottom: 18px;
+
+            flex: 1;
+
+        }
+
+        .video-card .btn {
+
+            width: 100%;
+
+            font-size: 10px;
+
+            padding: 10px;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
         footer {
-            border-top: 1px solid var(--border);
-            background: rgba(3, 10, 6, 0.8);
-            padding: 28px 0;
+
+            border-top: 1px solid rgba(0,255,102,0.14);
+
+            background: #010302;
+
         }
 
         .footer-inner {
+
+            padding-top: 28px;
+
+            padding-bottom: 28px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
             flex-wrap: wrap;
-            gap: 15px;
+
+            gap: 18px;
+
         }
 
-        .footer-inner p,
-        .footer-inner a {
-            color: var(--muted);
-            font-size: 0.73rem;
+        .footer-inner p {
+
+            color: #55745f;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
         }
 
-        .footer-inner a:hover {
+        .footer-inner strong {
             color: var(--green);
         }
 
         .footer-links {
+
             display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
             flex-wrap: wrap;
-            gap: 18px;
+
+            gap: 15px;
+
         }
 
-        /* Animations */
+        .footer-links a {
 
-        @keyframes ambientGlow {
-            0% {
-                transform: translate3d(-2%, -1%, 0) scale(1);
-                background-position: 0% 0%;
-            }
-            50% {
-                transform: translate3d(1%, 2%, 0) scale(1.04);
-                background-position: 55% 35%;
-            }
-            100% {
-                transform: translate3d(2%, -1%, 0) scale(1.02);
-                background-position: 100% 80%;
-            }
+            color: #6b9276;
+
+            font-size: 10px;
+
+            transition: 0.25s;
+
         }
 
-        @keyframes gridDrift {
-            from { background-position: 0 0, 0 0; }
-            to { background-position: 36px 36px, -36px 36px; }
+        .footer-links a:hover {
+            color: var(--green);
         }
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        #topButton {
+
+            position: fixed;
+
+            right: 20px;
+
+            bottom: 20px;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: rgba(2,6,4,0.95);
+
+            color: var(--green);
+
+            border: 1px solid var(--green);
+
+            cursor: pointer;
+
+            z-index: 500;
+
+            font-size: 18px;
+
+            transition: 0.25s;
+
+        }
+
+        #topButton:hover {
+
+            background: var(--green);
+
+            color: #000;
+
+            box-shadow: 0 0 15px rgba(0,255,102,0.35);
+
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
 
         @keyframes pulse {
+
             0%, 100% {
                 opacity: 1;
-                box-shadow: 0 0 12px var(--green);
             }
+
             50% {
-                opacity: 0.4;
-                box-shadow: 0 0 3px var(--green);
+                opacity: 0.35;
             }
+
         }
 
         @keyframes fadeUp {
+
             from {
                 opacity: 0;
                 transform: translateY(18px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
-        @keyframes glitch {
-            0%, 92%, 100% {
-                text-shadow: 0 0 24px rgba(0, 255, 136, 0.24);
-                transform: translateX(0);
-            }
-            93% {
-                text-shadow: -2px 0 #00ff88, 2px 0 #00aaff;
-                transform: translateX(1px);
-            }
-            95% {
-                text-shadow: 2px 0 #00ff88, -2px 0 #00aaff;
-                transform: translateX(-1px);
-            }
-            97% {
-                transform: translateX(0);
-            }
-        }
 
-        .glitch {
-            animation: glitch 5s infinite;
-        }
+        /* =====================================================
+           RESPONSIVE: TABLETS
+        ===================================================== */
 
-        /* Responsive design */
-
-        @media (max-width: 800px) {
-            .nav-inner {
-                padding: 14px 0;
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .nav-links {
-                justify-content: flex-start;
-                gap: 14px;
-            }
+        @media (max-width: 850px) {
 
             .projects {
                 grid-template-columns: 1fr;
@@ -750,42 +1374,77 @@
             }
 
             .video-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .hero {
-                padding-top: 60px;
+            .hero-meta {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
+
         }
 
-        @media (max-width: 520px) {
-            .container {
-                width: 92%;
+
+        /* =====================================================
+           RESPONSIVE: MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .nav-inner {
+                min-height: 60px;
             }
 
             .brand {
-                font-size: 0.9rem;
+                font-size: 13px;
             }
 
-            .nav-links {
-                gap: 10px 15px;
-            }
-
-            .nav-links a {
-                font-size: 0.69rem;
+            .nav-status {
+                font-size: 9px;
             }
 
             .hero {
-                padding: 48px 0 40px;
+                min-height: auto;
+                padding: 45px 0;
+            }
+
+            .terminal-content {
+                padding: 32px 22px 35px;
+            }
+
+            .terminal-bar-title {
+                font-size: 9px;
+            }
+
+            .hero h1 {
+                font-size: clamp(30px, 8vw, 40px);
+            }
+
+            .hero-subtitle {
+                font-size: 13px;
+                letter-spacing: 0.5px;
             }
 
             .hero-description {
-                font-size: 0.81rem;
+                font-size: 12px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
             }
 
             .stats {
-                gap: 9px;
-                margin-bottom: 48px;
+                gap: 8px;
+                margin-top: 25px;
+                margin-bottom: 50px;
             }
 
             .stat {
@@ -793,168 +1452,356 @@
             }
 
             .stat-number {
-                font-size: 1.25rem;
+                font-size: 19px;
             }
 
             .stat-label {
-                font-size: 0.62rem;
+                font-size: 8px;
             }
 
             .card-top {
-                padding: 20px 17px 16px;
+                padding: 21px;
             }
 
             .card-body {
-                padding: 19px 17px 22px;
+                padding: 21px;
             }
 
             .incident-grid {
                 grid-template-columns: 1fr;
-                gap: 14px;
             }
 
             .video-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-buttons .btn {
-                width: 100%;
-            }
-
             .footer-inner {
                 align-items: flex-start;
                 flex-direction: column;
             }
+
+            .footer-links {
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
         }
 
+
+        /* =====================================================
+           RESPONSIVE: SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 450px) {
+
+            .brand {
+                font-size: 11px;
+                gap: 5px;
+            }
+
+            .nav-status {
+                display: none;
+            }
+
+            .terminal-content {
+                padding: 28px 17px;
+            }
+
+            .terminal-bar {
+                padding: 10px;
+                gap: 6px;
+            }
+
+            .terminal-bar-title {
+                margin-left: 5px;
+                font-size: 8px;
+            }
+
+            .terminal-circle {
+                width: 9px;
+                height: 9px;
+            }
+
+            .hero h1 {
+                font-size: 29px;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                line-height: 1.8;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 25px;
+            }
+
+            .project-title {
+                font-size: 16px;
+            }
+
+            .project-status {
+                font-size: 8px;
+            }
+
+            .card-top,
+            .card-body {
+                padding: 17px;
+            }
+
+            .feature-list li,
+            .card-body > p {
+                font-size: 11px;
+            }
+
+            .tag {
+                font-size: 9px;
+            }
+
+            .card-actions .btn {
+                width: 100%;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
+
                 scroll-behavior: auto !important;
+
                 animation-duration: 0.01ms !important;
+
                 animation-iteration-count: 1 !important;
+
                 transition-duration: 0.01ms !important;
+
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+    <!-- MATRIX BACKGROUND -->
+
+    <canvas id="matrix" aria-hidden="true"></canvas>
+
     <div class="scanlines" aria-hidden="true"></div>
 
-    <!-- Navigation -->
+
+    <!-- NAVIGATION -->
+
     <header class="navbar">
+
         <div class="container nav-inner">
 
-            <a href="index.html" class="brand">
-                AMRUTH SAGAR<span> HV</span>
+            <a href="index.html"
+               class="brand"
+               aria-label="Amruth Sagar HV home">
+
+                <span class="brand-prompt">&gt;</span>
+
+                <span class="brand-first">AMRUTH</span>
+
+                <span class="brand-name">SAGAR HV</span>
+
             </a>
 
-            <nav class="nav-links" aria-label="Main navigation">
-                <a href="index.html">HOME</a>
-                <a href="Profile.html">PROFILE</a>
-                <a href="experience.html">EXPERIENCE</a>
-                <a href="certificate.html">CERTIFICATES</a>
-                <a href="projects.html" class="active">PROJECTS</a>
-            </nav>
+            <div class="nav-status">
+
+                <span class="status-dot"></span>
+
+                SYSTEM ONLINE
+
+            </div>
 
         </div>
+
     </header>
+
 
     <main>
 
-        <!-- Hero -->
+        <!-- HERO -->
+
         <section class="hero">
-            <div class="container">
 
-                <div class="terminal-label">
-                    <span class="status-dot"></span>
-                    SYSTEM STATUS: PROJECTS ONLINE
-                </div>
+            <div class="container hero-content">
 
-                <h1>
-                    MY <span class="glitch">PROJECTS</span>
-                </h1>
+                <div class="terminal-window">
 
-                <p class="hero-description">
-                    Exploring the world of <strong>cybersecurity</strong>,
-                    ethical hacking, network defense, and digital
-                    forensics through hands-on challenges and practical
-                    security investigations.
-                    Every project is an opportunity to learn, investigate,
-                    and strengthen my technical skills.
-                </p>
+                    <div class="terminal-bar">
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary">
-                        &gt; EXPLORE PROJECTS
-                    </a>
+                        <span class="terminal-circle red"></span>
 
-                    <a href="#resources" class="btn">
-                        [ VIEW CTF VIDEOS ]
-                    </a>
+                        <span class="terminal-circle yellow"></span>
+
+                        <span class="terminal-circle green"></span>
+
+                        <span class="terminal-bar-title">
+                            amruth@career-terminal — projects.sh
+                        </span>
+
+                    </div>
+
+                    <div class="terminal-content">
+
+                        <div class="command-line">
+
+                            root@amruth:~$
+
+                            <span>ls ./cybersecurity-projects</span>
+
+                        </div>
+
+                        <h1>
+                            MY <span>PROJECTS</span>
+                        </h1>
+
+                        <div class="hero-subtitle">
+                            &gt; CYBERSECURITY · ETHICAL HACKING · DIGITAL FORENSICS
+                        </div>
+
+                        <p class="hero-description">
+                            Exploring the world of <strong>cybersecurity</strong>,
+                            ethical hacking, network defense, and digital
+                            forensics through hands-on challenges and practical
+                            security investigations.
+                            Every project is an opportunity to learn, investigate,
+                            and strengthen my technical skills.
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <a href="#projects" class="btn primary">
+                                &gt; EXPLORE PROJECTS
+                            </a>
+
+                            <a href="#resources" class="btn">
+                                [ VIEW CTF VIDEOS ]
+                            </a>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
+
         </section>
 
-        <!-- Project statistics -->
-        <section class="container" aria-label="Project overview">
+
+        <!-- PROJECT STATISTICS -->
+
+        <section class="container"
+                 aria-label="Project overview">
 
             <div class="stats">
 
                 <div class="stat">
+
                     <span class="stat-number">03</span>
-                    <span class="stat-label">FEATURED PROJECTS</span>
+
+                    <span class="stat-label">
+                        FEATURED PROJECTS
+                    </span>
+
                 </div>
 
                 <div class="stat">
+
                     <span class="stat-number">CTF</span>
-                    <span class="stat-label">HANDS-ON CHALLENGES</span>
+
+                    <span class="stat-label">
+                        HANDS-ON CHALLENGES
+                    </span>
+
                 </div>
 
                 <div class="stat">
+
                     <span class="stat-number">SOC</span>
-                    <span class="stat-label">SECURITY INVESTIGATION</span>
+
+                    <span class="stat-label">
+                        SECURITY INVESTIGATION
+                    </span>
+
                 </div>
 
             </div>
 
         </section>
 
-        <!-- Projects -->
+
+        <!-- PROJECTS -->
+
         <section class="container" id="projects">
 
             <div class="section-heading">
-                <span class="section-kicker">// 01 — PORTFOLIO</span>
-                <h2>Cybersecurity Projects</h2>
+
+                <div class="section-kicker">
+                    root@amruth:~$ <span>cat ./cybersecurity-projects.log</span>
+                </div>
+
+                <h2>
+                    Cybersecurity <span>Projects</span>
+                </h2>
+
                 <p>
                     Practical learning, security analysis, and
                     ethical hacking methodologies.
                 </p>
+
             </div>
+
 
             <div class="projects">
 
-                <!-- Project 1: Hack The Box -->
+
+                <!-- PROJECT 1: HACK THE BOX -->
+
                 <article class="project-card">
 
                     <div class="card-top">
 
                         <div class="card-topline">
-                            <span class="project-number">PROJECT_01</span>
-                            <span class="project-status">CTF / LABS</span>
+
+                            <span class="project-number">
+                                PROJECT_01
+                            </span>
+
+                            <span class="project-status">
+                                CTF / LABS
+                            </span>
+
                         </div>
 
-                        <h3 class="project-title">Hack The Box</h3>
+                        <h3 class="project-title">
+                            Hack The Box
+                        </h3>
 
                         <p class="project-subtitle">
                             Hack The Box CTF Project
                         </p>
 
                     </div>
+
 
                     <div class="card-body">
 
@@ -972,6 +1819,7 @@
                             understanding exploitation techniques, and
                             completing challenges by capturing flags.
                         </p>
+
 
                         <h4 class="content-heading">
                             Key Project Components
@@ -1006,16 +1854,27 @@
 
                         </ul>
 
-                        <h4 class="content-heading">Technologies & Skills</h4>
+
+                        <h4 class="content-heading">
+                            Technologies & Skills
+                        </h4>
 
                         <div class="tag-list">
+
                             <span class="tag">Nmap</span>
+
                             <span class="tag">Burp Suite</span>
+
                             <span class="tag">Metasploit</span>
+
                             <span class="tag">Wireshark</span>
+
                             <span class="tag">Linux</span>
+
                             <span class="tag">Penetration Testing</span>
+
                         </div>
+
 
                         <p>
                             <strong>Project Outcome:</strong>
@@ -1025,37 +1884,54 @@
                             roles.
                         </p>
 
+
                         <div class="card-actions">
 
                             <a class="btn primary"
                                href="https://www.hackthebox.com/"
                                target="_blank"
                                rel="noopener noreferrer">
+
                                 EXPLORE HTB ↗
+
                             </a>
 
                         </div>
 
                     </div>
+
                 </article>
 
-                <!-- Project 2: PicoCTF -->
+
+
+                <!-- PROJECT 2: PICOCTF -->
+
                 <article class="project-card">
 
                     <div class="card-top">
 
                         <div class="card-topline">
-                            <span class="project-number">PROJECT_02</span>
-                            <span class="project-status">LEARNING / CTF</span>
+
+                            <span class="project-number">
+                                PROJECT_02
+                            </span>
+
+                            <span class="project-status">
+                                LEARNING / CTF
+                            </span>
+
                         </div>
 
-                        <h3 class="project-title">CyLabs (former PicoCTF)</h3>
+                        <h3 class="project-title">
+                            CyLabs (former PicoCTF)
+                        </h3>
 
                         <p class="project-subtitle">
                             Cybersecurity Learning & CTF Challenges
                         </p>
 
                     </div>
+
 
                     <div class="card-body">
 
@@ -1074,6 +1950,7 @@
                             technical knowledge, and familiarity with
                             common cybersecurity techniques.
                         </p>
+
 
                         <h4 class="content-heading">
                             Challenge Categories
@@ -1119,16 +1996,27 @@
 
                         </ul>
 
-                        <h4 class="content-heading">Skills Developed</h4>
+
+                        <h4 class="content-heading">
+                            Skills Developed
+                        </h4>
 
                         <div class="tag-list">
+
                             <span class="tag">Python</span>
+
                             <span class="tag">Linux CLI</span>
+
                             <span class="tag">Cryptography</span>
+
                             <span class="tag">Forensics</span>
+
                             <span class="tag">Web Security</span>
+
                             <span class="tag">Reverse Engineering</span>
+
                         </div>
+
 
                         <p>
                             <strong>Project Outcome:</strong>
@@ -1138,30 +2026,42 @@
                             security.
                         </p>
 
+
                         <div class="card-actions">
 
                             <a class="btn primary"
                                href="https://picoctf.org/"
                                target="_blank"
                                rel="noopener noreferrer">
+
                                 EXPLORE CYLAB ↗
+
                             </a>
 
                         </div>
 
                     </div>
+
                 </article>
 
-                <!-- Project 3: Phishing Investigation -->
+
+
+                <!-- PROJECT 3: PHISHING INVESTIGATION -->
+
                 <article class="project-card featured">
 
                     <div class="card-top">
 
                         <div class="card-topline">
-                            <span class="project-number">PROJECT_03</span>
+
+                            <span class="project-number">
+                                PROJECT_03
+                            </span>
+
                             <span class="project-status">
                                 CAPSTONE / INCIDENT RESPONSE
                             </span>
+
                         </div>
 
                         <h3 class="project-title">
@@ -1173,6 +2073,7 @@
                         </p>
 
                     </div>
+
 
                     <div class="card-body">
 
@@ -1199,7 +2100,9 @@
                             measures to reduce the risk of future incidents.
                         </p>
 
+
                         <div class="incident-grid">
+
 
                             <div class="incident-panel">
 
@@ -1230,6 +2133,8 @@
                                 </ul>
 
                             </div>
+
+
 
                             <div class="incident-panel">
 
@@ -1265,6 +2170,8 @@
 
                             </div>
 
+
+
                             <div class="incident-panel">
 
                                 <h4>// TOOLS & TECHNIQUES</h4>
@@ -1272,17 +2179,25 @@
                                 <ul class="feature-list">
 
                                     <li>Email header analysis</li>
+
                                     <li>Phishing URL verification</li>
+
                                     <li>Credential recovery procedures</li>
+
                                     <li>
                                         Meta Business Suite and official
                                         account recovery resources
                                     </li>
-                                    <li>Cyber hygiene and security awareness</li>
+
+                                    <li>
+                                        Cyber hygiene and security awareness
+                                    </li>
 
                                 </ul>
 
                             </div>
+
+
 
                             <div class="incident-panel">
 
@@ -1315,9 +2230,13 @@
 
                             </div>
 
+
                         </div>
 
-                        <h4 class="content-heading">Expected Outcomes</h4>
+
+                        <h4 class="content-heading">
+                            Expected Outcomes
+                        </h4>
 
                         <ul class="feature-list">
 
@@ -1344,19 +2263,32 @@
 
                         </ul>
 
-                        <h4 class="content-heading">Technical Focus</h4>
+
+                        <h4 class="content-heading">
+                            Technical Focus
+                        </h4>
 
                         <div class="tag-list">
+
                             <span class="tag">Phishing Analysis</span>
+
                             <span class="tag">Email Security</span>
+
                             <span class="tag">Incident Response</span>
+
                             <span class="tag">Social Engineering</span>
+
                             <span class="tag">MFA</span>
+
                             <span class="tag">Digital Investigation</span>
+
                         </div>
 
+
                         <div class="notice" style="margin: 22px 0 0;">
+
                             <h3>SECURITY & ETHICS</h3>
+
                             <p>
                                 This project is intended for educational
                                 and defensive security purposes. Account
@@ -1366,7 +2298,9 @@
                                 private account information should be
                                 disclosed in public reports.
                             </p>
+
                         </div>
+
 
                         <div class="card-actions">
 
@@ -1374,34 +2308,54 @@
                                href="https://media.licdn.com/dms/image/v2/D4D2DAQFxfSsrnkvFEQ/profile-treasury-document-images_1280/B4DZnww9PNGgAY-/1/1760680992182?e=1792627200&v=beta&t=efIvp2vfPvmrKF0H_Kh1ypxDaE_b2Rq0pDiRxFta3JI"
                                target="_blank"
                                rel="noopener noreferrer">
+
                                 VIEW CAPSTONE REPORT ↗
+
                             </a>
 
                         </div>
 
                     </div>
+
                 </article>
 
+
             </div>
+
         </section>
 
-        <!-- CTF Video Resources -->
+
+
+        <!-- CTF VIDEO RESOURCES -->
+
         <section class="container resources" id="resources">
 
             <div class="section-heading">
-                <span class="section-kicker">// 02 — VIDEO RESOURCES</span>
-                <h2>CTF Video Resources</h2>
+
+                <div class="section-kicker">
+                    root@amruth:~$ <span>ls ./ctf-video-resources</span>
+                </div>
+
+                <h2>
+                    CTF Video <span>Resources</span>
+                </h2>
+
                 <p>
                     Explore the linked videos for additional cybersecurity
                     learning and challenge walkthroughs.
                 </p>
+
             </div>
+
 
             <div class="video-grid">
 
+
                 <article class="video-card">
 
-                    <div class="video-icon" aria-hidden="true">▶</div>
+                    <div class="video-icon" aria-hidden="true">
+                        ▶
+                    </div>
 
                     <h3>CTF Video Resource 01</h3>
 
@@ -1414,14 +2368,20 @@
                        href="https://www.youtube.com/watch?v=G5hzuIjWgVQ"
                        target="_blank"
                        rel="noopener noreferrer">
+
                         WATCH ON YOUTUBE ↗
+
                     </a>
 
                 </article>
 
+
+
                 <article class="video-card">
 
-                    <div class="video-icon" aria-hidden="true">▶</div>
+                    <div class="video-icon" aria-hidden="true">
+                        ▶
+                    </div>
 
                     <h3>CTF Video Resource 02</h3>
 
@@ -1434,14 +2394,20 @@
                        href="https://www.youtube.com/watch?v=RyJx_uexBkY"
                        target="_blank"
                        rel="noopener noreferrer">
+
                         WATCH ON YOUTUBE ↗
+
                     </a>
 
                 </article>
 
+
+
                 <article class="video-card">
 
-                    <div class="video-icon" aria-hidden="true">▶</div>
+                    <div class="video-icon" aria-hidden="true">
+                        ▶
+                    </div>
 
                     <h3>CTF Video Resource 03</h3>
 
@@ -1454,16 +2420,22 @@
                        href="https://www.youtube.com/watch?v=XbBXRWT3IhM"
                        target="_blank"
                        rel="noopener noreferrer">
+
                         WATCH ON YOUTUBE ↗
+
                     </a>
 
                 </article>
+
 
             </div>
 
         </section>
 
-        <!-- Ethical hacking statement -->
+
+
+        <!-- ETHICAL HACKING STATEMENT -->
+
         <section class="container">
 
             <div class="notice">
@@ -1485,7 +2457,10 @@
 
     </main>
 
-    <!-- Footer -->
+
+
+    <!-- FOOTER -->
+
     <footer>
 
         <div class="container footer-inner">
@@ -1496,24 +2471,329 @@
             </p>
 
             <div class="footer-links">
+
                 <a href="index.html">Home</a>
+
                 <a href="Profile.html">Profile</a>
+
                 <a href="certificate.html">Certificates</a>
+
                 <a href="terms.html">Terms</a>
+
                 <a href="privacy-policy.html">Privacy</a>
+
             </div>
 
         </div>
 
     </footer>
 
+
+
+    <!-- BACK TO TOP -->
+
+    <button id="topButton"
+            type="button"
+            title="Back to top"
+            aria-label="Back to top">
+
+        ↑
+
+    </button>
+
+
+
+    <!-- JAVASCRIPT -->
+
     <script>
-        /* Dynamic copyright year */
+
+        /* =====================================================
+           DYNAMIC COPYRIGHT YEAR
+        ===================================================== */
+
         document.getElementById("year").textContent =
             new Date().getFullYear();
 
-        /* Background animation is handled by CSS; no Matrix rain. */
+
+
+        /* =====================================================
+           MATRIX BACKGROUND
+        ===================================================== */
+
+        const canvas = document.getElementById("matrix");
+
+        const ctx = canvas.getContext("2d");
+
+        let width;
+        let height;
+        let columns;
+        let drops;
+
+        const chars =
+            "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@<>[]{}";
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        function resizeMatrix() {
+
+            const pixelRatio = Math.min(
+                window.devicePixelRatio || 1,
+                2
+            );
+
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            canvas.width = width * pixelRatio;
+            canvas.height = height * pixelRatio;
+
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+
+            ctx.setTransform(
+                pixelRatio,
+                0,
+                0,
+                pixelRatio,
+                0,
+                0
+            );
+
+            columns = Math.floor(width / 18);
+
+            drops = Array(columns).fill(1);
+
+        }
+
+        resizeMatrix();
+
+        window.addEventListener(
+            "resize",
+            resizeMatrix
+        );
+
+        function matrixAnimation() {
+
+            if (
+                document.hidden ||
+                reduceMotion
+            ) {
+                return;
+            }
+
+            ctx.fillStyle = "rgba(2,6,4,0.07)";
+
+            ctx.fillRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+            ctx.fillStyle = "#00ff66";
+
+            ctx.font = "14px monospace";
+
+            for (
+                let i = 0;
+                i < drops.length;
+                i++
+            ) {
+
+                const character =
+                    chars[
+                        Math.floor(
+                            Math.random() * chars.length
+                        )
+                    ];
+
+                ctx.fillText(
+                    character,
+                    i * 18,
+                    drops[i] * 18
+                );
+
+                if (
+                    drops[i] * 18 > height &&
+                    Math.random() > 0.975
+                ) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+
+            }
+
+            requestAnimationFrame(matrixAnimation);
+
+        }
+
+        if (!reduceMotion) {
+            matrixAnimation();
+        }
+
+        document.addEventListener(
+            "visibilitychange",
+            function () {
+
+                if (
+                    !document.hidden &&
+                    !reduceMotion
+                ) {
+                    matrixAnimation();
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const topButton =
+            document.getElementById("topButton");
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (window.scrollY > 500) {
+
+                    topButton.style.display = "flex";
+
+                } else {
+
+                    topButton.style.display = "none";
+
+                }
+
+            },
+            { passive: true }
+        );
+
+        topButton.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: reduceMotion
+                        ? "auto"
+                        : "smooth"
+
+                });
+
+            }
+        );
+
+
+
+        /* =====================================================
+           TERMINAL TITLE EFFECT
+        ===================================================== */
+
+        const terminalTitles = [
+
+            "Projects | Amruth Sagar HV",
+
+            "root@amruth:~$ cybersecurity-projects",
+
+            "root@amruth:~$ ctf-challenges",
+
+            "SYSTEM ONLINE | AMRUTH HV"
+
+        ];
+
+        let titleIndex = 0;
+
+        const originalTitle = document.title;
+
+        if (!reduceMotion) {
+
+            setInterval(
+                function () {
+
+                    titleIndex =
+                        (titleIndex + 1) %
+                        terminalTitles.length;
+
+                    document.title =
+                        terminalTitles[titleIndex];
+
+                },
+                3500
+            );
+
+        }
+
+
+
+        /* =====================================================
+           PROJECT CARD REVEAL
+        ===================================================== */
+
+        const cards = document.querySelectorAll(
+            ".project-card, .video-card"
+        );
+
+        if (
+            "IntersectionObserver" in window &&
+            !reduceMotion
+        ) {
+
+            const observer = new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                entry.target.style.opacity = "1";
+
+                                entry.target.style.transform =
+                                    "translateY(0)";
+
+                                observer.unobserve(entry.target);
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.08
+                }
+            );
+
+            cards.forEach(
+                function (card) {
+
+                    card.style.opacity = "0";
+
+                    card.style.transform =
+                        "translateY(18px)";
+
+                    card.style.transition =
+                        "opacity .65s ease, transform .65s ease";
+
+                    observer.observe(card);
+
+                }
+            );
+
+        }
+
     </script>
 
+
 </body>
+
 </html>
