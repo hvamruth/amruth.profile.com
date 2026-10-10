@@ -307,32 +307,35 @@
 
             font-weight: 700;
 
-            font-size: 16px;
+            font-size: 20px;
 
             letter-spacing: 1px;
 
             white-space: nowrap;
 
             text-shadow:
-                0 0 8px
-                rgba(0,255,102,0.5);
+                0 0 5px var(--green),
+                0 0 15px rgba(0,255,102,0.35);
 
         }
 
+        .terminal-brand span {
+
+            color: #ffffff;
+
+        }
 
         .terminal-brand::before {
 
-            content:
-                "root@amruth:~$ ";
+            content: "> ";
 
-            color:
-                var(--muted2);
+            color: var(--green3);
 
             font-family:
                 "Fira Code",
                 monospace;
 
-            font-size: 11px;
+            font-size: inherit;
 
         }
 
@@ -1827,11 +1830,7 @@
         <div class="nav-inner">
 
             <a href="index.html"
-               class="terminal-brand">
-
-                EXPERIENCE.EXE
-
-            </a>
+               class="terminal-brand">AMRUTH <span>SAGAR HV</span></a>
 
 
             <div class="nav-status">
@@ -1873,7 +1872,7 @@
                 </div>
 
 
-                <div class="terminal-content">
+		 <div class="terminal-content">
 
                     <div class="command-line">
 
