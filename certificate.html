@@ -1,1654 +1,2476 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Certificates | Amruth Sagar HV</title>
-  <meta name="description" content="Professional certifications and academic records of Amruth Sagar HV in IT, Linux administration, networking and cybersecurity.">
-  <meta name="theme-color" content="#050a08">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-  /* =========================================================
-   ROOT VARIABLES — PROFESSIONAL CYBERSECURITY THEME
-========================================================= */
-
-:root {
-    --black: #020604;
-    --black2: #040a06;
-    --panel: #07110b;
-    --panel2: #09170e;
-
-    --green: #00ff66;
-    --green2: #00d957;
-    --neon: #00ff9c;
-
-    --text: #d9ffe6;
-    --muted: #6e9b7d;
-    --muted2: #42634d;
-
-    --border: rgba(0, 255, 102, 0.20);
-    --danger: #ff315d;
-    --warning: #ffe600;
-
-    --shadow: 0 0 20px rgba(0, 255, 102, 0.08);
-}
-
-
-/* =========================================================
-   RESET & BASE
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    background: var(--black);
-}
-
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
-
-    background:
-        radial-gradient(
-            circle at 15% 10%,
-            rgba(0, 255, 102, 0.07),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 85% 35%,
-            rgba(0, 255, 156, 0.035),
-            transparent 28%
-        ),
-        var(--black);
-
-    color: var(--text);
-    font-family: "Fira Code", monospace;
-    line-height: 1.7;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-button,
-input {
-    font: inherit;
-}
-
-::selection {
-    background: var(--green);
-    color: #000;
-}
-
-
-/* =========================================================
-   BACKGROUND GRID & SCANLINES
-========================================================= */
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-
-    background-image:
-        linear-gradient(
-            rgba(0, 255, 102, 0.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(0, 255, 102, 0.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 45px 45px;
-
-    mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 90%
-    );
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 9998;
-    pointer-events: none;
-
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 255, 102, 0.018) 0px,
-        rgba(0, 255, 102, 0.018) 1px,
-        transparent 1px,
-        transparent 4px
-    );
-
-    opacity: 0.35;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: rgba(2, 6, 4, 0.94);
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid var(--border);
-
-    box-shadow: 0 0 25px rgba(0, 255, 102, 0.05);
-}
+    <meta charset="UTF-8">
 
-.header-inner {
-    width: min(1200px, calc(100% - 40px));
-    min-height: 70px;
-    margin: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.brand {
-    color: var(--green);
-
-    font-family: "Orbitron", sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    white-space: nowrap;
-}
-
-.brand span {
-    color: #fff;
-}
-
-.status {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    color: var(--muted);
-    font-size: 10px;
-    white-space: nowrap;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    flex-shrink: 0;
-
-    border-radius: 50%;
-    background: var(--green);
-
-    box-shadow: 0 0 8px var(--green);
-
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.35;
-    }
-}
-
-
-/* =========================================================
-   MAIN CONTAINER
-========================================================= */
-
-main {
-    width: min(1100px, calc(100% - 40px));
-    margin: 35px auto 70px;
-}
-
-
-/* =========================================================
-   TERMINAL COMMAND
-========================================================= */
-
-.terminal {
-    margin: 0 0 20px;
-
-    color: var(--green);
-    font-size: 12px;
-    line-height: 1.9;
-
-    overflow-wrap: anywhere;
-}
-
-.prompt {
-    color: #fff;
-}
-
-
-/* =========================================================
-   HERO SECTION
-========================================================= */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-
-    padding: 40px 35px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0, 255, 102, 0.035),
-            rgba(0, 0, 0, 0.2)
-        );
-
-    border: 1px solid rgba(0, 255, 102, 0.25);
-    border-radius: 8px;
-
-    box-shadow:
-        0 0 40px rgba(0, 255, 102, 0.05),
-        inset 0 0 50px rgba(0, 255, 102, 0.015);
-}
-
-.hero::after {
-    content: "ACCESS_GRANTED";
-
-    position: absolute;
-    top: 32px;
-    right: -20px;
-
-    color: rgba(0, 255, 102, 0.025);
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    font-family: "Orbitron", sans-serif;
-    font-size: clamp(24px, 5vw, 60px);
-    font-weight: 800;
+    <meta name="description"
+          content="Certificates & Academic Transcript - Amruth Sagar HV | IT Support Engineer | Cybersecurity | Ethical Hacking | Linux Network Administration">
 
-    transform: rotate(-8deg);
-    white-space: nowrap;
-    pointer-events: none;
-}
+    <meta name="keywords"
+          content="Amruth Sagar HV, Certificates, Ethical Hacking Essentials, Certified Ethical Hacker, CEH, Linux Network Admin, Academic Transcript, Cybersecurity, IT Support Engineer">
 
-.eyebrow {
-    position: relative;
-    z-index: 1;
+    <meta name="author"
+          content="Amruth Sagar HV">
 
-    margin-bottom: 12px;
+    <meta name="theme-color"
+          content="#020604">
 
-    color: var(--green);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
+    <title>Certificates | Amruth Sagar HV</title>
 
-h1,
-h2,
-h3 {
-    font-family: "Orbitron", sans-serif;
-    line-height: 1.5;
-}
-
-.hero h1 {
-    position: relative;
-    z-index: 1;
-
-    margin: 0;
-
-    color: #fff;
-    font-size: clamp(30px, 5vw, 54px);
-    font-weight: 700;
-    letter-spacing: 1px;
-
-    text-shadow: 0 0 12px rgba(0, 255, 102, 0.12);
-}
-
-.accent {
-    color: var(--green);
-    text-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
-}
-
-.hero-description {
-    position: relative;
-    z-index: 1;
-
-    max-width: 780px;
-    margin-top: 17px;
-
-    color: #94b69f;
-    font-size: 12px;
-    line-height: 2;
-}
-
-.back-link {
-    position: relative;
-    z-index: 1;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 24px;
-    padding: 10px 16px;
-
-    color: var(--green);
-    background: rgba(0, 255, 102, 0.025);
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
 
-    border: 1px solid rgba(0, 255, 102, 0.3);
-    border-radius: 3px;
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    font-size: 11px;
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
-}
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-.back-link:hover {
-    background: var(--green);
-    color: #000;
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-    box-shadow: 0 0 18px rgba(0, 255, 102, 0.25);
-    transform: translateX(-3px);
-}
+    <style>
 
-
-/* =========================================================
-   OVERVIEW PANELS
-========================================================= */
-
-.overview {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-
-    margin: 22px 0 40px;
-}
-
-.overview-item {
-    min-width: 0;
-    padding: 15px;
-
-    background: rgba(0, 255, 102, 0.025);
-    border: 1px solid rgba(0, 255, 102, 0.14);
-    border-radius: 4px;
+        /* =========================================================
+           ROOT VARIABLES — PROFESSIONAL EXPERIENCE THEME
+        ========================================================= */
 
-    transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
-}
+        :root {
+            --black: #020604;
+            --black2: #040a06;
+            --panel: #07110b;
+            --panel2: #09170e;
 
-.overview-item:hover {
-    background: rgba(0, 255, 102, 0.045);
-    border-color: rgba(0, 255, 102, 0.45);
-    transform: translateY(-3px);
-}
+            --green: #00ff66;
+            --green2: #00d957;
+            --neon: #00ff9c;
 
-.overview-label {
-    display: block;
-    margin-bottom: 7px;
+            --text: #d9ffe6;
+            --muted: #6e9b7d;
+            --muted2: #42634d;
 
-    color: #63836c;
-    font-size: 9px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
+            --border: rgba(0,255,102,0.20);
+            --danger: #ff315d;
+            --warning: #ffe600;
 
-.overview-value {
-    display: block;
+            --shadow:
+                0 0 20px rgba(0,255,102,0.08);
+        }
 
-    color: var(--green);
-    font-size: 11px;
-    line-height: 1.8;
-    font-weight: 500;
 
-    overflow-wrap: anywhere;
-}
+        /* =========================================================
+           RESET
+        ========================================================= */
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* =========================================================
-   SECTION HEADINGS
-========================================================= */
+        html {
+            scroll-behavior: smooth;
+            background: var(--black);
+        }
 
-.section {
-    margin-bottom: 50px;
-    scroll-margin-top: 90px;
-}
+        body {
+            min-height: 100vh;
 
-.section-heading {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(0,255,102,0.07),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 85% 35%,
+                    rgba(0,255,156,0.035),
+                    transparent 28%
+                ),
+                var(--black);
 
-    margin: 50px 0 24px;
-    padding-bottom: 15px;
+            color: var(--text);
 
-    border-bottom: 1px solid rgba(0, 255, 102, 0.2);
-}
+            font-family:
+                "Fira Code",
+                monospace;
 
-.section-index {
-    flex-shrink: 0;
+            overflow-x: hidden;
+        }
 
-    display: inline-block;
-    margin-bottom: 7px;
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    color: var(--green);
-    font-size: 10px;
-    letter-spacing: 1px;
-}
+        button,
+        input {
+            font: inherit;
+        }
 
-.section-heading h2 {
-    color: #fff;
+        img {
+            max-width: 100%;
+        }
 
-    font-size: clamp(18px, 3vw, 25px);
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
+        ::selection {
+            background: var(--green);
+            color: #000;
+        }
 
-.section-heading h2::before {
-    content: "[ ";
-    color: var(--green);
-}
 
-.section-heading h2::after {
-    content: " ]";
-    color: var(--green);
-}
+        /* =========================================================
+           MATRIX BACKGROUND
+        ========================================================= */
 
-.section-note {
-    margin-left: auto;
+        #matrix {
+            position: fixed;
+            inset: 0;
 
-    color: var(--muted);
-    font-size: 10px;
-    text-align: right;
-}
+            width: 100%;
+            height: 100%;
 
+            z-index: -10;
+            opacity: 0.09;
 
-/* =========================================================
-   CERTIFICATE GRID — AUTOMATIC ALIGNMENT
-========================================================= */
+            pointer-events: none;
+        }
 
-.certificate-grid {
-    display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
+        /* =========================================================
+           CYBER GRID
+        ========================================================= */
 
-    gap: 20px;
-}
+        body::after {
+            content: "";
 
-/* Academic transcripts use two columns on desktop. */
+            position: fixed;
+            inset: 0;
 
-.transcript-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+            z-index: -8;
+            pointer-events: none;
 
+            background-image:
+                linear-gradient(
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px
+                );
 
-/* =========================================================
-   CERTIFICATE CARDS
-========================================================= */
+            background-size: 45px 45px;
 
-.certificate-card {
-    position: relative;
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
 
-    display: flex;
-    flex-direction: column;
 
-    min-width: 0;
-    height: 100%;
-    overflow: hidden;
+        /* =========================================================
+           SCANLINES
+        ========================================================= */
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(7, 17, 11, 0.98),
-            rgba(3, 9, 5, 0.98)
-        );
+        body::before {
+            content: "";
 
-    border: 1px solid rgba(0, 255, 102, 0.18);
-    border-left: 3px solid var(--green);
-    border-radius: 4px;
+            position: fixed;
+            inset: 0;
 
-    box-shadow: var(--shadow);
+            z-index: 9998;
+            pointer-events: none;
 
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(0,255,102,0.025) 0px,
+                    rgba(0,255,102,0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
 
-.certificate-card:hover {
-    transform: translateY(-5px);
+            opacity: 0.45;
+        }
 
-    border-color: rgba(0, 255, 102, 0.5);
 
-    box-shadow: 0 0 25px rgba(0, 255, 102, 0.1);
-}
+        /* =========================================================
+           TOP TERMINAL NAVIGATION
+        ========================================================= */
 
-/* Decorative certificate ribbon. */
+        .terminal-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-.certificate-card::before {
-    content: "CERTIFICATE";
+            width: 100%;
 
-    position: absolute;
-    top: 13px;
-    left: -35px;
+            background: rgba(2,6,4,0.94);
 
-    z-index: 2;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
 
-    padding: 5px 38px;
+            border-bottom: 1px solid var(--border);
 
-    color: #000;
-    background: var(--green);
+            box-shadow:
+                0 0 25px rgba(0,255,102,0.06);
+        }
 
-    font-family: "Orbitron", sans-serif;
-    font-size: 7px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
+        .terminal-inner {
+            width: 100%;
+            max-width: 1200px;
 
-    transform: rotate(-45deg);
-    pointer-events: none;
-}
+            min-height: 70px;
 
+            margin: auto;
+            padding: 0 22px;
 
-/* =========================================================
-   CERTIFICATE IMAGE PREVIEWS
-   Equal frames keep all cards aligned.
-========================================================= */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-.certificate-preview {
-    position: relative;
+        .terminal-left {
+            display: flex;
+            align-items: center;
+            gap: 9px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            min-width: 0;
+        }
 
-    width: 100%;
-    height: 220px;
-    flex: 0 0 220px;
+        .terminal-dot {
+            flex-shrink: 0;
 
-    padding: 13px;
-    overflow: hidden;
+            width: 8px;
+            height: 8px;
 
-    background: rgba(0, 0, 0, 0.35);
+            border-radius: 50%;
 
-    border-bottom: 1px solid rgba(0, 255, 102, 0.15);
+            background: var(--green);
 
-    cursor: zoom-in;
-}
+            box-shadow:
+                0 0 8px var(--green);
 
-.certificate-preview img {
-    display: block;
+            animation: pulse 1.5s infinite;
+        }
 
-    width: 100%;
-    height: 100%;
+        .terminal-title {
+            color: var(--green);
 
-    object-fit: contain;
-    object-position: center;
+            font-family:
+                "Orbitron",
+                sans-serif;
 
-    background: #020604;
-    border: 1px solid rgba(0, 255, 102, 0.14);
-    border-radius: 2px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
 
-    transition:
-        border-color 0.3s ease,
-        filter 0.3s ease;
-}
+            text-shadow:
+                0 0 5px var(--green),
+                0 0 15px rgba(0,255,102,0.25);
 
-.certificate-card:hover .certificate-preview img {
-    border-color: rgba(0, 255, 102, 0.5);
-    filter: brightness(1.06);
-}
+            white-space: nowrap;
+        }
 
-.certificate-preview:focus-visible {
-    outline: 2px solid var(--green);
-    outline-offset: -3px;
-}
+        .terminal-title span {
+            color: #fff;
+        }
 
-/* Image loading fallback. */
+        .terminal-title::before {
+            content: "> ";
 
-.image-fallback {
-    display: none;
+            color: var(--green);
 
-    width: 100%;
-    height: 100%;
+            font-family:
+                "Fira Code",
+                monospace;
+        }
 
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
+        .terminal-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
 
-    color: var(--muted);
-    text-align: center;
-    font-size: 10px;
-}
+            color: var(--muted);
+            font-size: 11px;
 
-.image-fallback strong {
-    color: var(--green);
+            white-space: nowrap;
+        }
 
-    font-family: "Orbitron", sans-serif;
-    font-size: 25px;
-}
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
 
+            50% {
+                opacity: 0.35;
+            }
+        }
 
-/* =========================================================
-   CERTIFICATE CONTENT
-========================================================= */
 
-.certificate-content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+        /* =========================================================
+           MAIN CONTAINER
+        ========================================================= */
 
-    min-width: 0;
-    padding: 19px;
-}
+        .container {
+            width: 100%;
+            max-width: 1100px;
 
-.certificate-code {
-    margin: 0 0 10px;
+            margin: 35px auto 80px;
+            padding: 0 20px;
+        }
 
-    color: #4d8a60;
-    font-size: 9px;
-    line-height: 1.8;
-    letter-spacing: 0.4px;
 
-    overflow-wrap: anywhere;
-}
+        /* =========================================================
+           HERO / TERMINAL WINDOW
+        ========================================================= */
 
-.certificate-content h3 {
-    margin: 0 0 12px;
+        .hero {
+            position: relative;
 
-    color: #fff;
+            width: 100%;
 
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.7;
+            overflow: hidden;
 
-    overflow-wrap: anywhere;
-}
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,255,102,0.035),
+                    rgba(0,0,0,0.2)
+                );
 
-.certificate-content h3::before {
-    content: "# ";
-    color: var(--green);
-}
+            border: 1px solid rgba(0,255,102,0.25);
+            border-radius: 8px;
 
-.certificate-description {
-    flex: 1;
+            box-shadow:
+                0 0 40px rgba(0,255,102,0.07),
+                inset 0 0 50px rgba(0,255,102,0.015);
 
-    margin: 0 0 18px;
+            margin-bottom: 35px;
+        }
 
-    color: #94b69f;
-    font-size: 10px;
-    line-height: 1.9;
+        .hero-terminal-bar {
+            min-height: 42px;
 
-    overflow-wrap: anywhere;
-}
+            padding: 0 15px;
 
+            display: flex;
+            align-items: center;
+            gap: 8px;
 
-/* =========================================================
-   CARD FOOTERS
-========================================================= */
+            background: rgba(0,255,102,0.025);
 
-.card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+            border-bottom:
+                1px solid rgba(0,255,102,0.13);
+        }
 
-    margin-top: auto;
-    padding-top: 14px;
+        .terminal-circle {
+            width: 11px;
+            height: 11px;
 
-    border-top: 1px solid rgba(0, 255, 102, 0.14);
-}
+            flex-shrink: 0;
+            border-radius: 50%;
+        }
 
-.document-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
+        .terminal-circle.red {
+            background: var(--danger);
+        }
 
-    color: var(--green);
+        .terminal-circle.yellow {
+            background: var(--warning);
+        }
 
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
+        .terminal-circle.green {
+            background: var(--green);
+        }
 
-.document-label::before {
-    content: "✓";
+        .hero-terminal-title {
+            margin-left: 10px;
 
-    display: grid;
-    place-items: center;
+            color: #53765f;
+            font-size: 11px;
 
-    width: 17px;
-    height: 17px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
-    border: 1px solid rgba(0, 255, 102, 0.35);
-    border-radius: 50%;
+        .hero-content {
+            position: relative;
+            z-index: 1;
 
-    color: var(--green);
-}
+            padding: 45px 45px 40px;
+        }
 
-.view-link {
-    color: var(--green);
-    font-size: 10px;
+        .hero-content::after {
+            content: "ACCESS_GRANTED";
 
-    transition:
-        color 0.25s ease,
-        text-shadow 0.25s ease;
-}
+            position: absolute;
+            right: -20px;
+            top: 35px;
 
-.view-link:hover {
-    color: #fff;
-    text-shadow: 0 0 8px var(--green);
-    text-decoration: underline;
-}
+            color: rgba(0,255,102,0.025);
 
+            font-family:
+                "Orbitron",
+                sans-serif;
 
-/* =========================================================
-   ACADEMIC TRANSCRIPTS
-========================================================= */
+            font-size: clamp(25px, 5vw, 65px);
+            font-weight: 800;
 
-.transcript-grid .certificate-preview {
-    height: 260px;
-    flex-basis: 260px;
-}
+            transform: rotate(-8deg);
 
-.transcript-grid .certificate-card::before {
-    content: "ACADEMIC";
-}
+            pointer-events: none;
+            white-space: nowrap;
+        }
 
+        .command-line {
+            position: relative;
+            z-index: 2;
 
-/* =========================================================
-   SYSTEM INFORMATION PANEL
-========================================================= */
+            color: var(--green);
 
-.system-panel {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 28px;
+            font-size: 13px;
+            line-height: 1.8;
 
-    padding: 24px;
+            margin-bottom: 17px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0, 255, 102, 0.025),
-            rgba(0, 0, 0, 0.2)
-        );
+            overflow-wrap: anywhere;
+        }
 
-    border: 1px solid rgba(0, 255, 102, 0.2);
-    border-radius: 4px;
+        .command-line span {
+            color: #fff;
+        }
 
-    box-shadow: var(--shadow);
-}
+        .hero h1 {
+            position: relative;
+            z-index: 2;
 
-.system-panel h3 {
-    margin: 0 0 15px;
+            color: #fff;
 
-    color: var(--green);
-    font-size: 13px;
-    line-height: 1.8;
+            font-family:
+                "Orbitron",
+                sans-serif;
 
-    overflow-wrap: anywhere;
-}
+            font-size: clamp(35px, 6vw, 67px);
+            font-weight: 700;
 
-.system-panel p {
-    color: #94b69f;
-    font-size: 11px;
-    line-height: 2;
-}
+            line-height: 1.12;
+            letter-spacing: 2px;
 
-.system-list {
-    display: grid;
-    gap: 11px;
+            margin-bottom: 20px;
 
-    margin: 0;
-    padding: 0;
+            text-shadow:
+                0 0 12px rgba(0,255,102,0.16);
+        }
 
-    list-style: none;
-}
+        .hero h1 span {
+            display: block;
 
-.system-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 15px;
+            color: var(--green);
 
-    padding-bottom: 10px;
+            text-shadow:
+                0 0 8px var(--green),
+                0 0 30px rgba(0,255,102,0.25);
+        }
 
-    border-bottom: 1px dashed rgba(0, 255, 102, 0.15);
+        .hero-subtitle {
+            position: relative;
+            z-index: 2;
 
-    font-size: 10px;
-}
+            max-width: 850px;
 
-.system-list li:last-child {
-    padding-bottom: 0;
-    border-bottom: 0;
-}
+            color: var(--neon);
 
-.system-list span:first-child {
-    flex-shrink: 0;
-    color: #63836c;
-}
+            font-size: clamp(13px, 2vw, 16px);
+            line-height: 1.9;
+            letter-spacing: 1px;
 
-.system-list span:last-child {
-    color: var(--text);
-    text-align: right;
-    overflow-wrap: anywhere;
-}
+            margin-bottom: 18px;
+        }
 
-.online-text {
-    color: var(--green) !important;
-}
+        .hero-subtitle strong {
+            color: #fff;
+            font-weight: 600;
+        }
 
+        .hero-subtitle br {
+            display: block;
+            content: "";
+            margin-bottom: 8px;
+        }
 
-/* =========================================================
-   TERMINAL END
-========================================================= */
 
-.terminal-end {
-    margin: 30px 0;
+        /* =========================================================
+           SYSTEM INFO
+        ========================================================= */
 
-    color: var(--green);
-    font-size: 11px;
-    line-height: 1.9;
+        .system-info {
+            position: relative;
+            z-index: 2;
 
-    overflow-wrap: anywhere;
-}
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
 
+            gap: 12px;
+            margin-top: 30px;
+        }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+        .info-box {
+            min-width: 0;
 
-footer {
-    background: #010302;
-    border-top: 1px solid rgba(0, 255, 102, 0.15);
-}
+            padding: 14px;
 
-.footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 18px;
+            background: rgba(0,255,102,0.025);
 
-    width: min(1100px, calc(100% - 40px));
-    margin: auto;
-    padding: 25px 0;
+            border:
+                1px solid rgba(0,255,102,0.14);
 
-    color: #63836c;
-    font-size: 10px;
-    line-height: 2;
-}
+            transition:
+                border-color 0.3s ease,
+                background 0.3s ease,
+                transform 0.3s ease;
+        }
 
-.footer-inner p {
-    margin: 0;
-}
+        .info-box:hover {
+            background: rgba(0,255,102,0.045);
 
-.footer-inner strong {
-    color: var(--green);
-    font-weight: 600;
-}
+            border-color:
+                rgba(0,255,102,0.45);
 
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-}
+            transform: translateY(-3px);
+        }
 
-.footer-links a {
-    color: #94b69f;
-    transition: color 0.2s ease;
-}
+        .info-label {
+            display: block;
 
-.footer-links a:hover {
-    color: var(--green);
-}
+            color: #4d7259;
 
+            font-size: 9px;
+            text-transform: uppercase;
 
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
+            margin-bottom: 7px;
+        }
 
-a:focus-visible {
-    outline: 2px solid var(--green);
-    outline-offset: 4px;
-}
+        .info-value {
+            color: var(--green);
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
+            font-size: 11px;
+            line-height: 1.7;
 
+            overflow-wrap: anywhere;
+        }
 
-/* =========================================================
-   TABLETS — TWO CERTIFICATES PER ROW
-========================================================= */
 
-@media (max-width: 950px) {
-    main {
-        width: calc(100% - 32px);
-    }
+        /* =========================================================
+           BACK BUTTON
+        ========================================================= */
 
-    .certificate-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-    }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
 
-    .transcript-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+            padding: 11px 18px;
 
-    .overview {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+            color: var(--green);
 
-    .system-panel {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
+            background: rgba(0,255,102,0.025);
 
-    .certificate-preview {
-        height: 240px;
-        flex-basis: 240px;
-    }
-}
+            border:
+                1px solid rgba(0,255,102,0.3);
 
+            font-size: 12px;
 
-/* =========================================================
-   MOBILE — ONE CERTIFICATE PER ROW
-========================================================= */
+            margin-bottom: 20px;
 
-@media (max-width: 600px) {
-    .header-inner {
-        width: calc(100% - 28px);
-        min-height: 62px;
-        gap: 10px;
-    }
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+        }
 
-    .brand {
-        font-size: 11px;
-        letter-spacing: 0.4px;
-    }
+        .back-button:hover {
+            background: var(--green);
+            color: #000;
 
-    .status {
-        gap: 6px;
-        font-size: 8px;
-    }
+            box-shadow:
+                0 0 18px rgba(0,255,102,0.3);
 
-    .status-dot {
-        width: 6px;
-        height: 6px;
-    }
+            transform: translateX(-3px);
+        }
 
-    main {
-        width: calc(100% - 28px);
-        margin: 24px auto 50px;
-    }
+        .back-button:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 4px;
+        }
 
-    .terminal {
-        font-size: 10px;
-    }
 
-    .hero {
-        padding: 28px 19px;
-    }
+        /* =========================================================
+           SECTION HEADERS
+        ========================================================= */
 
-    .hero::after {
-        top: 18px;
-        right: -30px;
-        font-size: 25px;
-    }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
 
-    .hero h1 {
-        font-size: clamp(27px, 7vw, 36px);
-        letter-spacing: 0.3px;
-    }
+            margin: 55px 0 25px;
+        }
 
-    .hero-description {
-        font-size: 11px;
-    }
+        .section-number {
+            flex-shrink: 0;
 
-    .overview {
-        gap: 9px;
-        margin: 18px 0 32px;
-    }
+            color: var(--green);
 
-    .overview-item {
-        padding: 12px;
-    }
+            background: rgba(0,255,102,0.04);
 
-    .overview-label {
-        font-size: 8px;
-    }
+            border:
+                1px solid rgba(0,255,102,0.3);
 
-    .overview-value {
-        font-size: 10px;
-    }
+            padding: 8px 11px;
 
-    .section {
-        margin-bottom: 38px;
-    }
+            font-family:
+                "Fira Code",
+                monospace;
 
-    .section-heading {
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
 
-        margin: 40px 0 20px;
-    }
+            box-shadow:
+                0 0 12px rgba(0,255,102,0.05);
+        }
 
-    .section-heading h2 {
-        font-size: 17px;
-    }
+        .section-header h2 {
+            color: #fff;
 
-    .section-note {
-        width: 100%;
-        margin-left: 0;
-        text-align: left;
-        font-size: 9px;
-    }
+            font-family:
+                "Orbitron",
+                sans-serif;
 
-    .certificate-grid,
-    .transcript-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 17px;
-    }
+            font-size: clamp(20px, 3.5vw, 30px);
+            font-weight: 600;
 
-    .certificate-preview {
-        height: clamp(210px, 65vw, 330px);
-        flex-basis: auto;
-        padding: 12px;
-    }
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        }
 
-    .transcript-grid .certificate-preview {
-        height: auto;
-        min-height: 220px;
-        max-height: 420px;
-        aspect-ratio: 4 / 3;
-        flex-basis: auto;
-    }
+        .section-header h2::before {
+            content: "[ ";
 
-    .certificate-content {
-        padding: 18px;
-    }
+            color: var(--green);
+        }
 
-    .certificate-content h3 {
-        font-size: 14px;
-    }
+        .section-header h2::after {
+            content: " ]";
 
-    .certificate-description {
-        font-size: 11px;
-    }
+            color: var(--green);
+        }
 
-    .system-panel {
-        padding: 17px;
-        gap: 22px;
-    }
+        .section-line {
+            flex: 1;
 
-    .system-panel h3 {
-        font-size: 11px;
-    }
+            min-width: 15px;
+            height: 1px;
 
-    .system-panel p {
-        font-size: 10px;
-    }
+            background:
+                linear-gradient(
+                    to right,
+                    var(--green),
+                    transparent
+                );
+        }
 
-    .system-list li {
-        font-size: 9px;
-    }
 
-    .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
+        /* =========================================================
+           CERTIFICATE GRID
+        ========================================================= */
 
-        width: calc(100% - 28px);
-        padding: 22px 0;
-    }
+        .certificate-grid {
+            display: grid;
 
-    .footer-links {
-        gap: 15px;
-    }
-}
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
+            gap: 20px;
+        }
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
-@media (max-width: 380px) {
-    .brand {
-        font-size: 9px;
-    }
+        /* =========================================================
+           CERTIFICATE CARDS
+        ========================================================= */
 
-    .status {
-        font-size: 7px;
-    }
+        .certificate-card {
+            position: relative;
 
-    .hero {
-        padding: 24px 15px;
-    }
+            min-width: 0;
+            overflow: hidden;
 
-    .hero h1 {
-        font-size: 26px;
-    }
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(7,17,11,0.97),
+                    rgba(3,9,5,0.98)
+                );
 
-    .overview-item {
-        padding: 10px;
-    }
+            border:
+                1px solid rgba(0,255,102,0.18);
 
-    .overview-value {
-        font-size: 9px;
-    }
+            border-left:
+                3px solid var(--green);
 
-    .section-heading h2 {
-        font-size: 14px;
-    }
+            box-shadow: var(--shadow);
 
-    .certificate-content {
-        padding: 15px;
-    }
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
 
-    .card-footer {
-        align-items: flex-start;
-    }
-}
+        .certificate-card:hover {
+            transform: translateY(-5px);
 
+            border-color:
+                rgba(0,255,102,0.5);
 
-/* =========================================================
-   SCROLLBAR
-========================================================= */
+            box-shadow:
+                0 0 25px rgba(0,255,102,0.10);
+        }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
+        .certificate-card::before {
+            content: "CERTIFICATE";
 
-::-webkit-scrollbar-track {
-    background: #020604;
-}
+            position: absolute;
+            top: 12px;
+            left: -34px;
 
-::-webkit-scrollbar-thumb {
-    background: #087a39;
-    border: 1px solid rgba(0, 255, 102, 0.25);
-}
+            z-index: 5;
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--green);
-}
+            padding: 5px 38px;
 
-</style>
+            color: #000;
+            background: var(--green);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+
+            transform: rotate(-45deg);
+        }
+
+        .certificate-image-wrapper {
+            padding: 14px;
+
+            background: rgba(0,0,0,0.3);
+
+            border-bottom:
+                1px solid rgba(0,255,102,0.13);
+        }
+
+        .certificate-image-wrapper img {
+            display: block;
+
+            width: 100%;
+            height: 250px;
+
+            object-fit: contain;
+
+            background: #020604;
+
+            border:
+                1px solid rgba(0,255,102,0.16);
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.3s ease,
+                filter 0.3s ease;
+        }
+
+        .certificate-card:hover
+        .certificate-image-wrapper img {
+            border-color:
+                rgba(0,255,102,0.5);
+
+            filter: brightness(1.06);
+        }
+
+        .certificate-image-wrapper img:focus-visible,
+        .transcript-card img:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 3px;
+        }
+
+        .certificate-content {
+            padding: 22px;
+        }
+
+        .certificate-id {
+            color: #4d8a60;
+
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            line-height: 1.8;
+
+            margin-bottom: 10px;
+
+            overflow-wrap: anywhere;
+        }
+
+        .certificate-content h3 {
+            color: #fff;
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            line-height: 1.7;
+
+            margin-bottom: 12px;
+        }
+
+        .certificate-content h3::before {
+            content: "# ";
+
+            color: var(--green);
+        }
+
+        .certificate-description {
+            min-height: 0;
+
+            color: #94b69f;
+
+            font-size: 11px;
+            line-height: 1.9;
+        }
+
+        .certificate-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 17px;
+            padding: 7px 10px;
+
+            color: var(--green);
+
+            background: rgba(0,255,102,0.04);
+
+            border:
+                1px solid rgba(0,255,102,0.25);
+
+            font-family:
+                "Orbitron",
+                sans-serif;
+
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .certificate-status::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 7px var(--green);
+        }
+
+
+        /* =========================================================
+           TRANSCRIPT GRID
+        ========================================================= */
+
+        .transcript-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .transcript-card {
+            min-width: 0;
+
+            padding: 16px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(7,17,11,0.97),
+                    rgba(3,9,5,0.98)
+                );
+
+            border:
+                1px solid rgba(0,255,102,0.18);
+
+            border-left:
+                3px solid var(--green);
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .transcript-card:hover {
+            transform: translateY(-4px);
+
+            border-color:
+                rgba(0,255,102,0.45);
+
+            box-shadow:
+                0 0 25px rgba(0,255,102,0.08);
+        }
+
+        .transcript-header {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            flex-wrap: wrap;
+            gap: 10px;
+
+            padding: 7px 3px 14px;
+        }
+
+        .transcript-header span {
+            color: var(--green);
+
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .transcript-header small {
+            color: #668a72;
+
+            font-size: 9px;
+        }
+
+        .transcript-card img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            background: #020604;
+
+            border:
+                1px solid rgba(0,255,102,0.18);
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.3s ease,
+                filter 0.3s ease;
+        }
+
+        .transcript-card:hover img {
+            border-color:
+                rgba(0,255,102,0.5);
+
+            filter: brightness(1.04);
+        }
+
+
+        /* =========================================================
+           TERMINAL INFORMATION PANELS
+        ========================================================= */
+
+        .terminal-panel {
+            margin-top: 35px;
+            padding: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,255,102,0.025),
+                    rgba(0,0,0,0.2)
+                );
+
+            border:
+                1px solid rgba(0,255,102,0.2);
+
+            box-shadow: var(--shadow);
+        }
+
+        .terminal-panel-header {
+            color: #fff;
+
+            font-size: 12px;
+            line-height: 1.8;
+
+            padding-bottom: 13px;
+            margin-bottom: 15px;
+
+            border-bottom:
+                1px solid rgba(0,255,102,0.16);
+
+            overflow-wrap: anywhere;
+        }
+
+        .terminal-panel-header span {
+            color: var(--green);
+        }
+
+        .terminal-output {
+            color: #94b69f;
+
+            font-size: 11px;
+            line-height: 2.2;
+
+            overflow-wrap: anywhere;
+        }
+
+        .terminal-output .success {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .terminal-output .white {
+            color: #fff;
+        }
+
+        .terminal-output .dim {
+            color: #52745d;
+        }
+
+        .cursor {
+            display: inline-block;
+
+            width: 8px;
+            height: 14px;
+
+            background: var(--green);
+
+            vertical-align: middle;
+            margin-left: 3px;
+
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 45% {
+                opacity: 1;
+            }
+
+            46%, 100% {
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #010302;
+
+            border-top:
+                1px solid rgba(0,255,102,0.14);
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            color: #55745f;
+
+            font-size: 10px;
+            line-height: 2;
+        }
+
+        footer strong {
+            color: var(--green);
+        }
+
+        .footer-command {
+            color: #6b9276;
+
+            font-size: 10px;
+
+            margin-bottom: 10px;
+
+            overflow-wrap: anywhere;
+        }
+
+        .footer-details {
+            color: #55745f;
+        }
+
+
+        /* =========================================================
+           IMAGE PREVIEW MODAL
+        ========================================================= */
+
+        .modal {
+            display: none;
+
+            position: fixed;
+            inset: 0;
+
+            z-index: 10000;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(0,0,0,0.94);
+
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal img {
+            display: block;
+
+            max-width: 95vw;
+            max-height: 90vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            background: #020604;
+
+            border:
+                1px solid var(--green);
+
+            box-shadow:
+                0 0 40px rgba(0,255,102,0.25);
+        }
+
+        .modal-close {
+            position: fixed;
+
+            top: 18px;
+            right: 25px;
+
+            z-index: 10001;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 42px;
+            height: 42px;
+
+            color: var(--green);
+
+            background: rgba(2,6,4,0.9);
+
+            border:
+                1px solid rgba(0,255,102,0.3);
+
+            font-family:
+                "Fira Code",
+                monospace;
+
+            font-size: 30px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--green);
+            color: #000;
+        }
+
+        .modal-close:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 3px;
+        }
+
+
+        /* =========================================================
+           SCROLLBAR
+        ========================================================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020604;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #087a39;
+
+            border:
+                1px solid rgba(0,255,102,0.25);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--green);
+        }
+
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE — TABLETS
+        ========================================================= */
+
+        @media (max-width: 950px) {
+            .certificate-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .system-info {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .certificate-image-wrapper img {
+                height: 260px;
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE — MOBILE
+        ========================================================= */
+
+        @media (max-width: 650px) {
+            .terminal-inner {
+                min-height: 60px;
+                padding: 0 15px;
+            }
+
+            .terminal-title {
+                font-size: 12px;
+            }
+
+            .terminal-status {
+                font-size: 9px;
+            }
+
+            .container {
+                width: 100%;
+
+                margin: 25px auto 55px;
+                padding: 0 15px;
+            }
+
+            .hero-content {
+                padding: 32px 22px 28px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: 12px;
+                letter-spacing: 0;
+            }
+
+            .hero-terminal-title {
+                font-size: 9px;
+                margin-left: 4px;
+            }
+
+            .hero-content::after {
+                top: 20px;
+                right: -35px;
+                font-size: 28px;
+            }
+
+            .system-info {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 9px;
+                margin-top: 25px;
+            }
+
+            .info-box {
+                padding: 12px;
+            }
+
+            .info-value {
+                font-size: 10px;
+            }
+
+            .section-header {
+                gap: 10px;
+                margin-top: 45px;
+            }
+
+            .section-header h2 {
+                font-size: 18px;
+            }
+
+            .section-line {
+                display: none;
+            }
+
+            .certificate-grid,
+            .transcript-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-image-wrapper img {
+                height: auto;
+                max-height: 420px;
+                min-height: 200px;
+            }
+
+            .certificate-content {
+                padding: 21px;
+            }
+
+            .certificate-content h3 {
+                font-size: 16px;
+            }
+
+            .certificate-description {
+                font-size: 11px;
+            }
+
+            .transcript-card {
+                padding: 13px;
+            }
+
+            .terminal-panel {
+                padding: 18px;
+            }
+
+            .terminal-output {
+                font-size: 10px;
+                line-height: 2.1;
+            }
+
+            .modal {
+                padding: 15px;
+            }
+
+            .modal img {
+                max-width: 96vw;
+                max-height: 82vh;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 10px;
+            }
+
+            footer {
+                padding: 25px 15px;
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE — SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 420px) {
+            .terminal-title {
+                font-size: 10px;
+                letter-spacing: 0.4px;
+            }
+
+            .terminal-status {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 28px 17px;
+            }
+
+            .hero h1 {
+                font-size: 29px;
+            }
+
+            .hero-subtitle {
+                font-size: 11px;
+                line-height: 1.9;
+            }
+
+            .system-info {
+                grid-template-columns: 1fr;
+            }
+
+            .info-box {
+                padding: 12px 14px;
+            }
+
+            .section-header h2 {
+                font-size: 15px;
+            }
+
+            .section-number {
+                padding: 7px 9px;
+            }
+
+            .certificate-content h3 {
+                font-size: 14px;
+            }
+
+            .certificate-image-wrapper {
+                padding: 10px;
+            }
+
+            .terminal-panel {
+                padding: 14px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">
-        AMRUTH <span>SAGAR HV</span>
-      </a>
+    <!-- =========================================================
+         MATRIX CANVAS
+    ========================================================== -->
 
-      <div class="status">
-        <span class="status-dot"></span>
-        SYSTEM ONLINE
-      </div>
+    <canvas id="matrix" aria-hidden="true"></canvas>
+
+
+    <!-- =========================================================
+         TERMINAL HEADER
+    ========================================================== -->
+
+    <header class="terminal-bar">
+
+        <div class="terminal-inner">
+
+            <div class="terminal-left">
+
+                <div class="terminal-dot"></div>
+
+                <div class="terminal-title">
+                    AMRUTH <span>SAGAR HV</span>
+                </div>
+
+            </div>
+
+            <div class="terminal-status">
+
+                <span class="terminal-dot"></span>
+
+                SYSTEM ONLINE
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="container">
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-terminal-bar">
+
+                <span class="terminal-circle red"></span>
+
+                <span class="terminal-circle yellow"></span>
+
+                <span class="terminal-circle green"></span>
+
+                <span class="hero-terminal-title">
+                    amruth@career-terminal — certificates.sh
+                </span>
+
+            </div>
+
+
+            <div class="hero-content">
+
+                <div class="command-line">
+
+                    amruth@portfolio:~$
+                    <span>./load_certificates.sh</span>
+
+                </div>
+
+
+                <h1>
+                    Certificates
+                    <span>& Academic Records</span>
+                </h1>
+
+
+                <p class="hero-subtitle">
+
+                    <strong>
+                        Professional Certifications & Academic Records
+                    </strong>
+                    <br>
+
+                    Cybersecurity • Ethical Hacking • Linux Network Administration
+                    • IT Infrastructure
+
+                </p>
+
+
+                <div class="system-info">
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            USER
+                        </div>
+
+                        <div class="info-value">
+                            Amruth Sagar HV
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            DOMAIN
+                        </div>
+
+                        <div class="info-value">
+                            Cybersecurity / IT
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            STATUS
+                        </div>
+
+                        <div class="info-value">
+                            Certifications Verified
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            ACCESS
+                        </div>
+
+                        <div class="info-value">
+                            PUBLIC / READ ONLY
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             BACK
+        ====================================================== -->
+
+        <a href="index.html" class="back-button">
+
+            &lt;&lt; BACK TO HOME
+
+        </a>
+
+
+        <!-- =====================================================
+             PROFESSIONAL CERTIFICATIONS
+        ====================================================== -->
+
+        <div class="section-header">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <h2>
+                Professional Certifications
+            </h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <section class="certificate-grid">
+
+
+            <!-- =================================================
+                 ETHICAL HACKING ESSENTIALS
+            ================================================== -->
+
+            <article class="certificate-card">
+
+                <div class="certificate-image-wrapper">
+
+                    <img
+                        src="Certificates/EHE.jfif"
+                        alt="Ethical Hacking Essentials Certificate"
+                        loading="lazy"
+                        tabindex="0"
+                        onclick="openImage(this.src)"
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(this.src)}"
+                    >
+
+                </div>
+
+
+                <div class="certificate-content">
+
+                    <div class="certificate-id">
+                        CERT_001 // CYBERSECURITY
+                    </div>
+
+                    <h3>
+                        Ethical Hacking Essentials
+                    </h3>
+
+                    <p class="certificate-description">
+
+                        Certification focused on fundamental
+                        cybersecurity concepts, ethical hacking
+                        principles, threats, vulnerabilities and
+                        security practices.
+
+                    </p>
+
+                    <span class="certificate-status">
+                        VERIFIED
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CERTIFIED ETHICAL HACKER
+            ================================================== -->
+
+            <article class="certificate-card">
+
+                <div class="certificate-image-wrapper">
+
+                    <img
+                        src="Certificates/ceh.jfif"
+                        alt="Certified Ethical Hacker Certificate"
+                        loading="lazy"
+                        tabindex="0"
+                        onclick="openImage(this.src)"
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(this.src)}"
+                    >
+
+                </div>
+
+
+                <div class="certificate-content">
+
+                    <div class="certificate-id">
+                        CERT_002 // ETHICAL HACKING
+                    </div>
+
+                    <h3>
+                        Certified Ethical Hacker
+                    </h3>
+
+                    <p class="certificate-description">
+
+                        Ethical hacking certification demonstrating
+                        knowledge of penetration testing, security
+                        concepts, attack techniques and defensive
+                        cybersecurity practices.
+
+                    </p>
+
+                    <span class="certificate-status">
+                        VERIFIED
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 LINUX NETWORK ADMIN
+            ================================================== -->
+
+            <article class="certificate-card">
+
+                <div class="certificate-image-wrapper">
+
+                    <img
+                        src="Certificates/lna.jfif"
+                        alt="Linux Network Admin Certificate"
+                        loading="lazy"
+                        tabindex="0"
+                        onclick="openImage(this.src)"
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(this.src)}"
+                    >
+
+                </div>
+
+
+                <div class="certificate-content">
+
+                    <div class="certificate-id">
+                        CERT_003 // LINUX / NETWORK
+                    </div>
+
+                    <h3>
+                        Linux Network Admin
+                    </h3>
+
+                    <p class="certificate-description">
+
+                        Linux and network administration certification
+                        covering system administration, networking,
+                        configuration, troubleshooting and infrastructure
+                        management.
+
+                    </p>
+
+                    <span class="certificate-status">
+                        VERIFIED
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             TERMINAL STATUS
+        ====================================================== -->
+
+        <section class="terminal-panel">
+
+            <div class="terminal-panel-header">
+
+                root@amruth-profile:
+                <span>
+                    ~/certificates
+                </span>
+                $
+
+            </div>
+
+
+            <div class="terminal-output">
+
+                <div>
+                    <span class="dim">
+                        [01]
+                    </span>
+
+                    Scanning certificate repository...
+                </div>
+
+
+                <div>
+                    <span class="success">
+                        [OK]
+                    </span>
+
+                    Ethical Hacking Essentials loaded.
+                </div>
+
+
+                <div>
+                    <span class="success">
+                        [OK]
+                    </span>
+
+                    Certified Ethical Hacker loaded.
+                </div>
+
+
+                <div>
+                    <span class="success">
+                        [OK]
+                    </span>
+
+                    Linux Network Admin loaded.
+                </div>
+
+
+                <div>
+
+                    <span class="white">
+                        [STATUS]
+                    </span>
+
+                    Certificate database ready.
+
+                </div>
+
+
+                <div>
+
+                    root@amruth-profile:~$
+
+                    <span class="cursor"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ACADEMIC TRANSCRIPT
+        ====================================================== -->
+
+        <div class="section-header">
+
+            <div class="section-number">
+                02
+            </div>
+
+            <h2>
+                Academic Transcript
+            </h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <section class="transcript-grid">
+
+
+            <!-- =================================================
+                 LINUX NETWORK ADMIN TRANSCRIPT
+            ================================================== -->
+
+            <article class="transcript-card">
+
+                <div class="transcript-header">
+
+                    <span>
+                        TRANSCRIPT_001
+                    </span>
+
+                    <small>
+                        ACADEMIC RECORD
+                    </small>
+
+                </div>
+
+
+                <img
+                    src="Certificates/lnatrans.jfif"
+                    alt="Linux Network Admin Academic Transcript"
+                    loading="lazy"
+                    tabindex="0"
+                    onclick="openImage(this.src)"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(this.src)}"
+                >
+
+            </article>
+
+
+            <!-- =================================================
+                 COMPUTER TRANSCRIPT
+            ================================================== -->
+
+            <article class="transcript-card">
+
+                <div class="transcript-header">
+
+                    <span>
+                        TRANSCRIPT_002
+                    </span>
+
+                    <small>
+                        ACADEMIC RECORD
+                    </small>
+
+                </div>
+
+
+                <img
+                    src="Certificates/comptrans.jfif"
+                    alt="Academic Computer Transcript"
+                    loading="lazy"
+                    tabindex="0"
+                    onclick="openImage(this.src)"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(this.src)}"
+                >
+
+            </article>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             FINAL TERMINAL
+        ====================================================== -->
+
+        <section class="terminal-panel">
+
+            <div class="terminal-panel-header">
+
+                <span>
+                    SYSTEM INFORMATION
+                </span>
+
+            </div>
+
+
+            <div class="terminal-output">
+
+                <div>
+                    <span class="white">
+                        USER:
+                    </span>
+
+                    Amruth Sagar HV
+                </div>
+
+
+                <div>
+                    <span class="white">
+                        PROFILE:
+                    </span>
+
+                    IT Support Engineer / Cybersecurity
+                </div>
+
+
+                <div>
+                    <span class="white">
+                        CERTIFICATIONS:
+                    </span>
+
+                    03 Professional Certifications
+                </div>
+
+
+                <div>
+                    <span class="white">
+                        ACADEMIC RECORDS:
+                    </span>
+
+                    02 Transcript Documents
+                </div>
+
+
+                <div>
+                    <span class="success">
+                        SECURITY STATUS:
+                    </span>
+
+                    VERIFIED
+                </div>
+
+
+                <div>
+                    <span class="success">
+                        ACCESS STATUS:
+                    </span>
+
+                    GRANTED
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-command">
+
+            root@amruth-profile:~$ echo "Certificates loaded successfully"
+
+        </div>
+
+        <div>
+
+            © <span id="year"></span>
+            <strong>Amruth Sagar HV</strong>
+
+            |
+
+            IT Support Engineer
+
+            |
+
+            Cybersecurity
+
+        </div>
+
+        <div class="footer-details">
+
+            Ethical Hacking • Linux • Networking • IT Infrastructure
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         IMAGE MODAL
+    ========================================================== -->
+
+    <div
+        class="modal"
+        id="imageModal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Certificate Preview"
+        aria-hidden="true"
+        onclick="closeImage(event)"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            aria-label="Close certificate preview"
+            onclick="closeImage()"
+        >
+            &times;
+        </button>
+
+
+        <img
+            id="modalImage"
+            src=""
+            alt="Certificate Preview"
+        >
+
     </div>
-  </header>
 
-  <main>
 
-    <p class="terminal">
-      <span class="prompt">amruth@career-terminal:~$</span>
-      ./load_certificates.sh
-    </p>
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
-    <section class="hero">
-      <p class="eyebrow">// Credentials repository</p>
+    <script>
 
-      <h1>
-        Certificates <span class="accent">&amp;</span><br>
-        Academic Records
-      </h1>
+        /* =====================================================
+           CURRENT YEAR
+        ===================================================== */
 
-      <p class="hero-description">
-        Professional certifications and academic records covering
-        cybersecurity, ethical hacking, Linux network administration
-        and IT infrastructure.
-      </p>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
-      <a class="back-link" href="index.html">← Back to Home</a>
-    </section>
 
-    <section class="overview" aria-label="Profile overview">
-      <div class="overview-item">
-        <span class="overview-label">User</span>
-        <span class="overview-value">Amruth Sagar HV</span>
-      </div>
+        /* =====================================================
+           MATRIX BACKGROUND EFFECT
+        ===================================================== */
 
-      <div class="overview-item">
-        <span class="overview-label">Domain</span>
-        <span class="overview-value">IT / Cybersecurity</span>
-      </div>
+        const canvas =
+            document.getElementById("matrix");
 
-      <div class="overview-item">
-        <span class="overview-label">Repository</span>
-        <span class="overview-value">Certificates &amp; Records</span>
-      </div>
+        const ctx =
+            canvas.getContext("2d");
 
-      <div class="overview-item">
-        <span class="overview-label">Access</span>
-        <span class="overview-value">Public / Read Only</span>
-      </div>
-    </section>
+        let width;
+        let height;
+        let columns;
+        let drops;
 
-    <!-- PROFESSIONAL CERTIFICATES -->
+        const chars =
+            "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@<>[]{}";
 
-    <section class="section" id="certifications">
-      <div class="section-heading">
-        <div>
-          <span class="section-index">01 // CREDENTIALS</span>
-          <h2>Professional Certifications</h2>
-        </div>
+        const reducedMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
 
-        <p class="section-note">
-          Select a certificate to view it in full size ↗
-        </p>
-      </div>
+        function resizeMatrix() {
 
-      <div class="certificate-grid">
+            const pixelRatio =
+                Math.min(window.devicePixelRatio || 1, 2);
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/EHE.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View Ethical Hacking Essentials certificate">
-            <img src="Certificates/EHE.jfif"
-                 alt="Ethical Hacking Essentials certificate"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>01</strong>
-              Certificate preview unavailable
-            </span>
-          </a>
+            width = window.innerWidth;
+            height = window.innerHeight;
 
-          <div class="certificate-content">
-            <p class="certificate-code">CERT_001 // CYBERSECURITY</p>
-            <h3>Ethical Hacking Essentials</h3>
-            <p class="certificate-description">
-              Training in ethical hacking fundamentals, cybersecurity
-              threats, vulnerabilities and security practices.
-            </p>
+            canvas.width =
+                Math.floor(width * pixelRatio);
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/EHE.jfif"
-                 target="_blank" rel="noopener">View certificate ↗</a>
-            </div>
-          </div>
-        </article>
+            canvas.height =
+                Math.floor(height * pixelRatio);
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/ceh.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View Certified Ethical Hacker certificate">
-            <img src="Certificates/ceh.jfif"
-                 alt="Certified Ethical Hacker certificate"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>02</strong>
-              Certificate preview unavailable
-            </span>
-          </a>
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
 
-          <div class="certificate-content">
-            <p class="certificate-code">CERT_002 // ETHICAL HACKING</p>
-            <h3>Certified Ethical Hacker</h3>
-            <p class="certificate-description">
-              Ethical hacking concepts, penetration-testing techniques
-              and defensive cybersecurity practices.
-            </p>
+            ctx.setTransform(
+                pixelRatio,
+                0,
+                0,
+                pixelRatio,
+                0,
+                0
+            );
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/ceh.jfif"
-                 target="_blank" rel="noopener">View certificate ↗</a>
-            </div>
-          </div>
-        </article>
+            columns =
+                Math.floor(width / 18);
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/lna.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View Linux Network Admin certificate">
-            <img src="Certificates/lna.jfif"
-                 alt="Linux Network Admin certificate"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>03</strong>
-              Certificate preview unavailable
-            </span>
-          </a>
+            drops =
+                Array(columns).fill(1);
+        }
 
-          <div class="certificate-content">
-            <p class="certificate-code">CERT_003 // LINUX / NETWORK</p>
-            <h3>Linux Network Admin</h3>
-            <p class="certificate-description">
-              Linux system administration, network configuration,
-              troubleshooting and infrastructure management.
-            </p>
+        resizeMatrix();
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/lna.jfif"
-                 target="_blank" rel="noopener">View certificate ↗</a>
-            </div>
-          </div>
-        </article>
+        window.addEventListener(
+            "resize",
+            resizeMatrix
+        );
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/Comptia.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View CompTIA Security certificate">
-            <img src="Certificates/Comptia.jfif"
-                 alt="CompTIA Security certificate"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>04</strong>
-              Certificate preview unavailable
-            </span>
-          </a>
+        function matrixAnimation() {
 
-          <div class="certificate-content">
-            <p class="certificate-code">CERT_004 // SECURITY</p>
-            <h3>CompTIA Security</h3>
-            <p class="certificate-description">
-              Security principles including threat detection,
-              risk management, access control and incident response.
-            </p>
+            if (
+                document.hidden ||
+                reducedMotion
+            ) {
+                return;
+            }
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/Comptia.jfif"
-                 target="_blank" rel="noopener">View certificate ↗</a>
-            </div>
-          </div>
-        </article>
+            ctx.fillStyle =
+                "rgba(2,6,4,0.07)";
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/ns.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View Network Security certificate">
-            <img src="Certificates/ns.jfif"
-                 alt="Network Security certificate"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>05</strong>
-              Certificate preview unavailable
-            </span>
-          </a>
+            ctx.fillRect(
+                0,
+                0,
+                width,
+                height
+            );
 
-          <div class="certificate-content">
-            <p class="certificate-code">CERT_005 // NETWORK SECURITY</p>
-            <h3>Network Security</h3>
-            <p class="certificate-description">
-              Network protection, monitoring, threat prevention
-              and secure network configuration.
-            </p>
+            ctx.fillStyle =
+                "#00ff66";
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/ns.jfif"
-                 target="_blank" rel="noopener">View certificate ↗</a>
-            </div>
-          </div>
-        </article>
+            ctx.font =
+                "14px monospace";
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/pfb.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View Python Fundamental certificate">
-            <img src="Certificates/pfb.jfif"
-                 alt="Python Fundamental certificate"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>06</strong>
-              Certificate preview unavailable
-            </span>
-          </a>
+            for (
+                let i = 0;
+                i < drops.length;
+                i++
+            ) {
 
-          <div class="certificate-content">
-            <p class="certificate-code">CERT_006 // PYTHON</p>
-            <h3>Python Fundamental</h3>
-            <p class="certificate-description">
-              Programming fundamentals including data types,
-              loops, functions and problem-solving techniques.
-            </p>
+                const character =
+                    chars[
+                        Math.floor(
+                            Math.random() *
+                            chars.length
+                        )
+                    ];
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/pfb.jfif"
-                 target="_blank" rel="noopener">View certificate ↗</a>
-            </div>
-          </div>
-        </article>
+                ctx.fillText(
+                    character,
+                    i * 18,
+                    drops[i] * 18
+                );
 
-      </div>
-    </section>
+                if (
+                    drops[i] * 18 > height &&
+                    Math.random() > 0.975
+                ) {
+                    drops[i] = 0;
+                }
 
-    <!-- ACADEMIC RECORDS -->
+                drops[i]++;
+            }
 
-    <section class="section" id="academic-records">
-      <div class="section-heading">
-        <div>
-          <span class="section-index">02 // ACADEMIC FILES</span>
-          <h2>Academic Transcripts</h2>
-        </div>
+            requestAnimationFrame(
+                matrixAnimation
+            );
+        }
 
-        <p class="section-note">
-          Academic documents and supporting records
-        </p>
-      </div>
+        if (!reducedMotion) {
+            matrixAnimation();
+        }
 
-      <div class="certificate-grid transcript-grid">
+        document.addEventListener(
+            "visibilitychange",
+            function() {
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/lnatrans.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View Linux Network Admin transcript">
-            <img src="Certificates/lnatrans.jfif"
-                 alt="Linux Network Admin academic transcript"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>TR-01</strong>
-              Transcript preview unavailable
-            </span>
-          </a>
+                if (
+                    !document.hidden &&
+                    !reducedMotion
+                ) {
+                    matrixAnimation();
+                }
 
-          <div class="certificate-content">
-            <p class="certificate-code">TRANSCRIPT_001 // ACADEMIC RECORD</p>
-            <h3>Linux Network Admin Transcript</h3>
-            <p class="certificate-description">
-              Supporting academic record for Linux network
-              administration studies.
-            </p>
+            }
+        );
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/lnatrans.jfif"
-                 target="_blank" rel="noopener">View transcript ↗</a>
-            </div>
-          </div>
-        </article>
 
-        <article class="certificate-card">
-          <a class="certificate-preview"
-             href="Certificates/comptrans.jfif"
-             target="_blank" rel="noopener"
-             aria-label="View computer academic transcript">
-            <img src="Certificates/comptrans.jfif"
-                 alt="Computer academic transcript"
-                 loading="lazy">
-            <span class="image-fallback">
-              <strong>TR-02</strong>
-              Transcript preview unavailable
-            </span>
-          </a>
+        /* =====================================================
+           IMAGE PREVIEW
+        ===================================================== */
 
-          <div class="certificate-content">
-            <p class="certificate-code">TRANSCRIPT_002 // ACADEMIC RECORD</p>
-            <h3>Computer Academic Transcript</h3>
-            <p class="certificate-description">
-              Supporting academic transcript for computer
-              and IT-related learning.
-            </p>
+        const imageModal =
+            document.getElementById("imageModal");
 
-            <div class="card-footer">
-              <span class="document-label">DOCUMENT</span>
-              <a class="view-link" href="Certificates/comptrans.jfif"
-                 target="_blank" rel="noopener">View transcript ↗</a>
-            </div>
-          </div>
-        </article>
+        const modalImage =
+            document.getElementById("modalImage");
 
-      </div>
-    </section>
+        let previousFocus = null;
 
-    <!-- PROFILE INFORMATION -->
+        function openImage(imageSource) {
 
-    <section class="section" id="profile-information">
-      <div class="section-heading">
-        <div>
-          <span class="section-index">03 // PROFILE METADATA</span>
-          <h2>System Information</h2>
-        </div>
-      </div>
+            previousFocus =
+                document.activeElement;
 
-      <div class="system-panel">
-        <div>
-          <h3>root@amruth-profile:~$ whoami</h3>
-          <p>
-            IT professional focused on system administration,
-            networking and cybersecurity. This page organizes
-            available certificates and transcripts into a consistent,
-            responsive layout.
-          </p>
-        </div>
+            modalImage.src =
+                imageSource;
 
-        <ul class="system-list">
-          <li>
-            <span>USER</span>
-            <span>Amruth Sagar HV</span>
-          </li>
-          <li>
-            <span>PROFILE</span>
-            <span>IT Support / Cybersecurity</span>
-          </li>
-          <li>
-            <span>CERTIFICATES</span>
-            <span>06 documents</span>
-          </li>
-          <li>
-            <span>TRANSCRIPTS</span>
-            <span>02 documents</span>
-          </li>
-          <li>
-            <span>ACCESS</span>
-            <span class="online-text">PUBLIC / READ ONLY</span>
-          </li>
-        </ul>
-      </div>
-    </section>
+            imageModal.classList.add("active");
 
-    <p class="terminal-end">
-      <span class="prompt">root@amruth-profile:~$</span>
-      echo "Certificates loaded successfully"
-    </p>
+            imageModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
 
-  </main>
+            document.body.style.overflow =
+                "hidden";
 
-  <footer>
-    <div class="footer-inner">
-      <p>
-        © <span id="year">2026</span>
-        <strong>Amruth Sagar HV</strong>
-        | IT Support Engineer | Cybersecurity
-      </p>
+            imageModal.querySelector(
+                ".modal-close"
+            ).focus();
+        }
 
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="Profile.html">Profile</a>
-        <a href="projects.html">Projects</a>
-      </nav>
-    </div>
-  </footer>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+        /* =====================================================
+           CLOSE IMAGE
+        ===================================================== */
 
-    // Display a fallback when a certificate image cannot load.
-    document.querySelectorAll(".certificate-preview img").forEach(
-      function (img) {
-        img.addEventListener("error", function () {
-          img.style.display = "none";
+        function closeImage(event) {
 
-          const fallback =
-            img.parentElement.querySelector(".image-fallback");
+            if (
+                event &&
+                event.target === modalImage
+            ) {
+                return;
+            }
 
-          if (fallback) {
-            fallback.style.display = "flex";
-          }
-        });
-      }
-    );
-  </script>
+            if (
+                event &&
+                event.target !== imageModal &&
+                !event.target.closest(".modal-close")
+            ) {
+                return;
+            }
+
+            imageModal.classList.remove("active");
+
+            imageModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            modalImage.src = "";
+
+            document.body.style.overflow = "";
+
+            if (
+                previousFocus &&
+                typeof previousFocus.focus === "function"
+            ) {
+                previousFocus.focus();
+            }
+        }
+
+
+        /* =====================================================
+           ESC KEY
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Escape" &&
+                    imageModal.classList.contains("active")
+                ) {
+                    closeImage();
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           TERMINAL TYPING EFFECT
+        ===================================================== */
+
+        const command =
+            document.querySelector(
+                ".command-line span"
+            );
+
+        if (command && !reducedMotion) {
+
+            const originalText =
+                command.textContent;
+
+            command.textContent = "";
+
+            let index = 0;
+
+            function typeCommand() {
+
+                if (
+                    index < originalText.length &&
+                    !document.hidden
+                ) {
+
+                    command.textContent +=
+                        originalText.charAt(index);
+
+                    index++;
+
+                    setTimeout(
+                        typeCommand,
+                        35
+                    );
+
+                } else if (
+                    index < originalText.length
+                ) {
+
+                    document.addEventListener(
+                        "visibilitychange",
+                        function resumeTyping() {
+
+                            if (!document.hidden) {
+
+                                document.removeEventListener(
+                                    "visibilitychange",
+                                    resumeTyping
+                                );
+
+                                typeCommand();
+                            }
+
+                        }
+                    );
+
+                }
+
+            }
+
+            typeCommand();
+
+        }
+
+
+        /* =====================================================
+           PAUSE MATRIX WHEN PAGE IS HIDDEN
+        ===================================================== */
+
+        document.addEventListener(
+            "visibilitychange",
+            function() {
+
+                if (
+                    !document.hidden &&
+                    !reducedMotion
+                ) {
+                    matrixAnimation();
+                }
+
+            }
+        );
+
+    </script>
 
 </body>
 </html>
